@@ -19,6 +19,13 @@ The complete product requirements live in `docs/PRODUCT_SPEC.md`. Key outcomes:
 - Recommendations balance actual pedestrian route quality and historical storytelling.
 - Historical research is reusable across tours, with provenance and verification status.
 
+## Zero-cost rule — non-negotiable
+- Never use paid services, APIs, subscriptions, hosting or infrastructure. Never enable billing or add a credit card, not even for a "free" tier that requires one.
+- Prefer services that stay free indefinitely. Non-commercial licences are acceptable (testing project, no revenue); note them in `docs/HOSTING.md`.
+- Laptop and phone must share the same tours, landmarks, notes and routes. Current architecture: static PWA on GitHub Pages + local-first IndexedDB + sync to a private GitHub repo + JSON export/import. See `docs/HOSTING.md` before changing hosting, sync, maps or routing.
+- Before adding any external service, check its real limits (quotas, sleep, storage, rate limits, caching/offline rules) and record them in `docs/HOSTING.md`.
+- No secrets in client code or Git. User credentials (e.g. the sync token) are entered per device at runtime.
+
 ## Engineering rules
 - Inspect the repository before choosing or changing the stack. If empty, choose the simplest maintainable architecture for a responsive, installable web app that supports mobile GPS and practical offline use.
 - Implement incrementally. Do not scaffold the entire imagined product in one session.

@@ -6,27 +6,31 @@
 Tbilisi Walking Tour Studio — desktop tour design and mobile live guiding for Dutch-language historical walking tours in Tbilisi.
 
 ## Current state
-- Phase: Foundation — docs + handoff hooks; no application code or stack yet.
-- Working implementation: Handoff hooks (Stop hook confirmed live; 60 s grace window added after a false positive; SessionStart unconfirmed). See `docs/HANDOFF_HOOKS.md`.
-- Branch / Git state: `main`, initial commit 74d1535 (repo-local author: nilas — change with `git config user.name`).
+- Phase: first working app (editor, map and routes, guide mode, sync, offline PWA). Details in `docs/PROJECT_STATE.md`.
+- Hosting and sync design: `docs/HOSTING.md` (GitHub Pages + private GitHub data repo + IndexedDB, zero cost).
+- Branch / Git state: `main`, local only (no remote yet). The app work since commit `14f8f23` is not yet committed.
+- Run locally: `npm install`, `npm test`, `npm run build`, then `npx vite preview` (or the `preview` entry in `.claude/launch.json`).
 
 ## Latest session
-- Date: 2026-10-21 (session 02)
-- Summary: Verified repo state, added SessionStart/Stop handoff hooks, initialized Git, reconciled docs.
+- Date: 2026-10-21 (session 02, part 2)
+- Summary: Zero-cost rule made permanent; built and browser-tested the PWA with local-first data, GitHub sync, export/import, routes and guide mode.
 - Breakdown: `docs/session-breakdowns/session-2026-10-21-02.md`
 
 ## Decisions that matter now
-- Hooks support but don't guarantee handoff; they check file freshness only and fail open.
-- Stack not chosen — founder decision required (spec §10–11).
-- UI direction approved: `.interface-design/system.md` (palette with WCAG ratios, Literata + Public Sans, walk-and-talk ribbon, provenance stamps). Open: dark vs. light guiding mode needs an outdoor test.
-- Historical research must be reusable and source-linked; routing, ordering, GPS and offline are distinct capabilities.
+- Never paid services or billing (CLAUDE.md). Check limits in `docs/HOSTING.md` before adding any service.
+- OSM tiles are never cached for offline use (policy). Routes are calculated during planning and stored in the tour.
+- UI direction: `.interface-design/system.md`.
+- Hooks check handoff freshness only.
 
 ## Tests and verification
-- Hook script: 8 + 4 manual scenarios passed in scratch dir.
-- Application: none exists.
+- `npm test`: 25 passed. `npm run build`: clean.
+- Browser (production build): main workflow, offline reload, update prompt, import, simulated GPS, live GitHub 401 path.
+- Not verified: full sync with a real token, real-phone GPS, iOS install, export download.
 
 ## Blockers / unfinished work
-- Confirm the start-of-session hook reminder appears next session.
+- Founder approval needed to create the public app repo and private data repo, push, and enable Pages.
+- Founder must create the fine-grained token (steps in `docs/HOSTING.md`).
+- Existing commits carry the personal email; decide whether to switch to the GitHub noreply address before publishing.
 
 ## Next recommended task
-Founder picks the stack (suggested: Vite + TypeScript PWA, no backend initially). Then add typed Tour / Landmark / TourStop models from spec §4 with unit tests.
+Publish (repos, push, Pages) → founder sets up the token on laptop and phone → round-trip sync test → walk-test on the phone. Then: an offline Tbilisi basemap (PMTiles) and the landmark knowledge base with sources.

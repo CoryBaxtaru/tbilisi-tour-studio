@@ -149,6 +149,15 @@ A single landmark may be used in several tours with different narrative purposes
 - Avoid unnecessary paid APIs, frameworks, abstractions and speculative features.
 - Design for one guide and a growing collection of reusable tours first. Do not add public accounts, booking, payments or tourist-facing features unless explicitly requested.
 
+## 10a. Zero-cost hosting and cross-device access (permanent requirement)
+- No paid services, APIs, subscriptions, hosting or infrastructure, and no billing accounts or credit cards. Free and open-source preferred; non-commercial licences acceptable and documented.
+- The guide designs on a laptop and guides with a phone. Both must open the app over HTTPS (required for GPS, service workers and installation) and see the same tours, landmarks, notes and routes.
+- Local-first: every device keeps a full copy and works without connectivity; synchronization merges changes without silent data loss.
+- Data must survive browser-cache clearing, redeployments and device changes: a remote copy with history plus a manual export/import file.
+- The phone must work offline during a walk for saved tours, briefings, talking points, stop positions and stored route geometry. Features needing connectivity (map tiles, new route calculation, sync) must say so in the UI.
+- Credentials are never in client code or the repository; they are entered per device.
+- Choices, verified limits and manual setup steps live in `docs/HOSTING.md`.
+
 ## 11. Suggested delivery phases
 Adapt these to the actual repository; do not implement everything in one session.
 1. Foundation: inspect repo, choose/document architecture, create core models and session continuity.
