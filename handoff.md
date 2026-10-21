@@ -8,7 +8,7 @@ Tbilisi Walking Tour Studio — desktop tour design and mobile live guiding for 
 ## Current state
 - Phase: Foundation — docs + handoff hooks; no application code or stack yet.
 - Working implementation: Handoff hooks (script tested manually; live firing unconfirmed). See `docs/HANDOFF_HOOKS.md`.
-- Branch / Git state: Git initialized on `main`, no commits; all files untracked.
+- Branch / Git state: `main`, initial commit 74d1535 (repo-local author: nilas — change with `git config user.name`).
 
 ## Latest session
 - Date: 2026-10-21 (session 02)
@@ -26,7 +26,6 @@ Tbilisi Walking Tour Studio — desktop tour design and mobile live guiding for 
 
 ## Blockers / unfinished work
 - Confirm the start-of-session hook reminder appears next session.
-- Initial commit pending founder approval.
 
 ## Next recommended task
 Founder picks the stack (suggested: Vite + TypeScript PWA, no backend initially). Then add typed Tour / Landmark / TourStop models from spec §4 with unit tests.
