@@ -9,7 +9,7 @@ Project-scoped Claude Code hooks that support (not guarantee) the mandatory hand
 
 ## Behavior
 - **SessionStart** (startup/resume/clear/compact): records the session start time (kept on resume/compact of the same session) and injects a short reminder naming today's breakdown file to use.
-- **Stop**: scans project file mtimes (skips `.git`, `node_modules`, `dist`, `build`, `coverage`, `.claude/state`; max 5000 files). If any work file changed this session and either `handoff.md` is older than that change or no `docs/session-breakdowns/session-<today>-NN.md` was touched this session, it returns `decision: block` once with the reason. `stop_hook_active` prevents loops.
+- **Stop**: scans project file mtimes (skips `.git`, `node_modules`, `dist`, `build`, `coverage`, `.claude/state`; max 5000 files). If any work file changed this session and either `handoff.md` is older than that change or no `docs/session-breakdowns/session-<today>-NN.md` was touched this session, it returns `decision: block` once with the reason. `handoff.md` counts as fresh if updated within 60 s before the latest work change (docs edited in one batch). `stop_hook_active` prevents loops.
 - Fails open: any error exits 0 silently. No tests, network or heavy work.
 
 ## Limitations

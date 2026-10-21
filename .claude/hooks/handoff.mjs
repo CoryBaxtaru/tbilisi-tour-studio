@@ -13,6 +13,9 @@ const breakdownDir = path.join(root, 'docs', 'session-breakdowns');
 // Directories and files that never count as "work" for the stop check.
 const IGNORE = new Set(['.git', 'node_modules', 'dist', 'build', 'coverage', '.claude/state']);
 const MAX_FILES = 5000;
+// Handoff counts as fresh if updated within this window before the latest work change
+// (docs are often edited in the same batch, a few ms apart).
+const GRACE_MS = 60_000;
 
 function readStdin() {
   try { return JSON.parse(fs.readFileSync(0, 'utf8') || '{}'); } catch { return {}; }
@@ -95,7 +98,7 @@ function stop(input) {
   if (!latest || latest <= startedAt) return; // no work changed this session
 
   const date = today();
-  const handoffOk = mtime(handoffFile) >= latest;
+  const handoffOk = mtime(handoffFile) >= latest - GRACE_MS;
   const breakdownOk = breakdownsFor(date).some((f) => mtime(path.join(breakdownDir, f)) >= Math.max(startedAt, 1));
   if (handoffOk && breakdownOk) return;
 

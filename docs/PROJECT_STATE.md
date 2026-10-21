@@ -8,7 +8,7 @@ Tbilisi Walking Tour Studio: a personal desktop tour editor and mobile live-guid
 ## Current status (verified 2026-10-21)
 - Phase: Foundation — documentation and session-handoff tooling only.
 - Repository/stack: Git on `main`, initial commit 74d1535 (2026-10-21). No application code, package manifest or stack chosen.
-- Working features: Handoff hooks (`SessionStart`, `Stop`) — script tested manually; live firing in Claude Code not yet observed. See `docs/HANDOFF_HOOKS.md`.
+- Working features: Handoff hooks (`SessionStart`, `Stop`) — script tested manually; Stop hook confirmed firing live 2026-10-21 (SessionStart not yet observed). See `docs/HANDOFF_HOOKS.md`.
 - Tests/build status: No application tests or build exist.
 - Known blockers: None. Stack decision pending (spec §10–11).
 
