@@ -1,0 +1,8 @@
+# Claude Code per-session hook state and local overrides
+.claude/state/
+.claude/settings.local.json
+
+node_modules/
+dist/
+.env
+.env.*
