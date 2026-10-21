@@ -33,7 +33,7 @@ export interface TalkingPoint {
 export type Verification = 'onbevestigd' | 'deels' | 'geverifieerd';
 
 /** Where a coordinate came from. Coordinates are never invented by the app. */
-export type PositionSource = 'kaart' | 'gps' | 'import';
+export type PositionSource = 'kaart' | 'gps' | 'import' | 'osm';
 
 export interface Landmark extends SyncedEntity {
   name: string;
@@ -43,6 +43,13 @@ export interface Landmark extends SyncedEntity {
   summary: string;
   researchNotes: string;
   verification: Verification;
+  /** Era and theme tag ids (src/domain/tags.ts). Optional for records created before tags existed. */
+  tags?: string[];
+  district?: string;
+  /** Set when the landmark was created from the built-in site catalogue. */
+  catalogId?: string;
+  /** OpenStreetMap object the position came from, e.g. "way/123". */
+  osm?: string;
 }
 
 export interface TourStop {

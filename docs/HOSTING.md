@@ -34,7 +34,8 @@ Phone (PWA)   ──┘                          └─ api.github.com → priva
 - **FOSSGIS routing** (`routing.openstreetmap.de`, foot profile): free, max 1 request/second (enforced in code), no heavy use, attribution required (shown on the map). No uptime guarantee: when it's down, routes can't be recalculated, but stored routes keep working.
 - **OSM tiles** (`tile.openstreetmap.org`): attribution required. **Offline use and prefetching are not permitted**, so the service worker deliberately does not cache tiles. Only the browser's normal HTTP cache applies.
 - **Fonts:** Literata and Public Sans (SIL OFL), self-hosted and precached.
-- **Licences:** Leaflet BSD-2, Preact MIT, idb ISC, Workbox/vite-plugin-pwa MIT. No non-commercial licences are currently in use.
+- **Nominatim** (`nominatim.openstreetmap.org`): used **only at build time** by `scripts/build-catalog.mjs` to geocode the site catalogue. Max 1 request/s with an identifying User-Agent; never called by the app. The resulting catalogue is ODbL (see `docs/CATALOG.md`).
+- **Licences:** Leaflet BSD-2, Preact MIT, idb ISC, SortableJS MIT, Workbox/vite-plugin-pwa MIT. Catalogue data ODbL (OpenStreetMap). No non-commercial licences are currently in use.
 
 ## Online vs. offline
 | Works offline (after the app has been opened once) | Needs internet |

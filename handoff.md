@@ -13,8 +13,8 @@ Tbilisi Walking Tour Studio — desktop tour design and mobile live guiding for 
 - Run locally: `npm install`, `npm test`, `npm run build`, then `npx vite preview` (or the `preview` entry in `.claude/launch.json`).
 
 ## Latest session
-- Date: 2026-10-21 (session 02, parts 2–3)
-- Summary: Built the zero-cost PWA, rewrote commits to the noreply address, created both repos, deployed to GitHub Pages and verified it live.
+- Date: 2026-10-21 (session 02, parts 2–4)
+- Summary: Zero-cost PWA live on GitHub Pages; added the card deck tour builder (58 OSM-located Tbilisi sites with era, tour-type and district tags; drag into the route, drag to reorder, automatic walking routes).
 - Breakdown: `docs/session-breakdowns/session-2026-10-21-02.md`
 
 ## Decisions that matter now
@@ -24,13 +24,15 @@ Tbilisi Walking Tour Studio — desktop tour design and mobile live guiding for 
 - Hooks check handoff freshness only.
 
 ## Tests and verification
-- `npm test`: 25 passed. `npm run build`: clean.
+- `npm test`: 32 passed. `npm run build`: clean.
 - Live deploy: page, manifest, service worker and precache verified over HTTPS.
 - Browser (production build): main workflow, offline reload, update prompt, import, simulated GPS, live GitHub 401 path.
 - Not verified: full sync with a real token, real-phone GPS, iOS install, export download.
 
 ## Blockers / unfinished work
+- Card deck work is not committed or deployed yet (commit and push to deploy).
+- Catalogue names, notes and tags are unverified suggestions: founder review via `docs/CATALOG.md`.
 - Founder must create the fine-grained token (steps in `docs/HOSTING.md`).
 
 ## Next recommended task
-Founder sets up the token on laptop and phone → round-trip sync test → walk-test on the phone. Then: an offline Tbilisi basemap (PMTiles) and the landmark knowledge base with sources.
+Commit and push the card deck → founder reviews catalogue tags → founder sets up the sync token on laptop and phone (`docs/HOSTING.md`) → walk-test. Later: an offline Tbilisi basemap (PMTiles) and landmark sources/knowledge base.

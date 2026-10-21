@@ -1,0 +1,1145 @@
+{
+ "source": "Positions and Georgian names: © OpenStreetMap contributors (ODbL), via Nominatim. Names, tags and notes: suggestions, not verified.",
+ "generatedAt": "2026-10-21",
+ "sites": [
+  {
+   "id": "vrijheidsplein",
+   "name": "Vrijheidsplein (voorheen Leninplein)",
+   "district": "rustaveli",
+   "eras": [
+    "russisch-rijk",
+    "sovjet",
+    "onafhankelijk"
+   ],
+   "themes": [
+    "historisch",
+    "politiek",
+    "architectuur"
+   ],
+   "note": "Centraal plein; in de Sovjettijd Leninplein, nu met de Sint-Joriszuil.",
+   "nameKa": "თავისუფლების მოედანი",
+   "lat": 41.693829,
+   "lng": 44.801425,
+   "osm": "way/220709392",
+   "osmName": "Freedom Square, Mtatsminda, Sololaki, Mtatsminda District, Tbilisi, 0108, Georgia",
+   "osmCategory": "highway/construction"
+  },
+  {
+   "id": "rustaveli-avenue",
+   "name": "Rustavelilaan",
+   "district": "rustaveli",
+   "eras": [
+    "russisch-rijk",
+    "republiek",
+    "sovjet",
+    "onafhankelijk"
+   ],
+   "themes": [
+    "historisch",
+    "cultureel",
+    "politiek",
+    "architectuur"
+   ],
+   "note": "Hoofdboulevard met theaters, musea en het oude parlement; decor van veel protesten.",
+   "nameKa": "შოთა რუსთაველის გამზირი",
+   "lat": 41.699882,
+   "lng": 44.796652,
+   "osm": "way/86696581",
+   "osmName": "Shota Rustaveli Avenue, Mtatsminda, Sololaki, Mtatsminda District, Tbilisi, 0108, Georgia",
+   "osmCategory": "highway/construction"
+  },
+  {
+   "id": "oud-parlement",
+   "name": "Parlementsgebouw (Rustavelilaan)",
+   "district": "rustaveli",
+   "eras": [
+    "sovjet",
+    "onafhankelijk"
+   ],
+   "themes": [
+    "politiek",
+    "historisch",
+    "architectuur"
+   ],
+   "note": "Monumentaal gebouw aan de Rustavelilaan; plek van politieke manifestaties.",
+   "nameKa": "საქართველოს პარლამენტი",
+   "lat": 41.696641,
+   "lng": 44.798523,
+   "osm": "relation/1020718",
+   "osmName": "Parliament of Georgia, 8, Freedom Square, Mtatsminda, Sololaki, Mtatsminda District, Tbilisi, 0108, Georgia",
+   "osmCategory": "office/government"
+  },
+  {
+   "id": "paleis-onderkoning",
+   "name": "Paleis van de onderkoning (Jeugdpaleis)",
+   "district": "rustaveli",
+   "eras": [
+    "russisch-rijk",
+    "republiek"
+   ],
+   "themes": [
+    "historisch",
+    "politiek",
+    "architectuur"
+   ],
+   "note": "Voormalige residentie van de Russische onderkoning in de Kaukasus.",
+   "nameKa": "თბილისის მოსწავლე ახალგაზრდობის ეროვნული სასახლე",
+   "lat": 41.69603,
+   "lng": 44.799183,
+   "osm": "relation/14069191",
+   "osmName": "Tbilisi Youth and Children's Palace, 6, Shota Rustaveli Avenue, Mtatsminda, Sololaki, Mtatsminda District, Tbilisi, 0108, Georgia",
+   "osmCategory": "building/yes"
+  },
+  {
+   "id": "kashveti",
+   "name": "Kashveti-kerk",
+   "district": "rustaveli",
+   "eras": [
+    "russisch-rijk"
+   ],
+   "themes": [
+    "religieus",
+    "architectuur"
+   ],
+   "note": "Kerk aan de Rustavelilaan, tegenover het oude parlement.",
+   "nameKa": "ქაშვეთის წმინდა გიორგის სახელობის ტაძარი",
+   "lat": 41.697989,
+   "lng": 44.799315,
+   "osm": "way/65299828",
+   "osmName": "Kashveti Church of St. George, 9, Freedom Square, Mtatsminda, Sololaki, Mtatsminda District, Tbilisi, 0108, Georgia",
+   "osmCategory": "amenity/place_of_worship"
+  },
+  {
+   "id": "nationaal-museum",
+   "name": "Georgisch Nationaal Museum",
+   "district": "rustaveli",
+   "eras": [
+    "oudheid",
+    "gouden-eeuw",
+    "sovjet"
+   ],
+   "themes": [
+    "historisch",
+    "cultureel"
+   ],
+   "note": "Belangrijkste museum van het land, met archeologische collecties en een tentoonstelling over de Sovjetbezetting.",
+   "nameKa": "საქართველოს ეროვნული მუზეუმი",
+   "lat": 41.696043,
+   "lng": 44.800221,
+   "osm": "node/412214448",
+   "osmName": "Georgian National Museum, Shota Rustaveli Avenue, Mtatsminda, Sololaki, Mtatsminda District, Tbilisi, 0108, Georgia",
+   "osmCategory": "tourism/museum"
+  },
+  {
+   "id": "rustaveli-theater",
+   "name": "Rustaveli-theater",
+   "district": "rustaveli",
+   "eras": [
+    "russisch-rijk",
+    "sovjet"
+   ],
+   "themes": [
+    "kunst",
+    "cultureel",
+    "architectuur"
+   ],
+   "note": "Toonaangevend dramatheater aan de Rustavelilaan.",
+   "nameKa": "რუსთაველის თეატრი",
+   "lat": 41.699833,
+   "lng": 44.797949,
+   "osm": "relation/19640789",
+   "osmName": "Rustaveli National Theatre, 17, Shota Rustaveli Avenue, Mtatsminda, Sololaki, Mtatsminda District, Tbilisi, 0108, Georgia",
+   "osmCategory": "amenity/theatre"
+  },
+  {
+   "id": "opera",
+   "name": "Opera- en balletheater",
+   "district": "rustaveli",
+   "eras": [
+    "russisch-rijk"
+   ],
+   "themes": [
+    "kunst",
+    "architectuur",
+    "cultureel"
+   ],
+   "note": "Operagebouw in Moorse stijl aan de Rustavelilaan.",
+   "nameKa": "თბილისის ოპერისა და ბალეტის თეატრი",
+   "lat": 41.701107,
+   "lng": 44.796309,
+   "osm": "way/59151604",
+   "osmName": "Tbilisi Opera and Ballet State Theatre, 25, Shota Rustaveli Avenue, Mtatsminda, Sololaki, Mtatsminda District, Tbilisi, 0108, Georgia",
+   "osmCategory": "amenity/theatre"
+  },
+  {
+   "id": "museum-schone-kunsten",
+   "name": "Museum voor Schone Kunsten",
+   "district": "oude-stad",
+   "eras": [
+    "gouden-eeuw"
+   ],
+   "themes": [
+    "kunst",
+    "religieus",
+    "cultureel"
+   ],
+   "note": "Kunstmuseum met onder meer een schatkamer van middeleeuwse edelsmeedkunst.",
+   "nameKa": "შალვა ამირანაშვილის სახელობის საქართველოს ხელოვნების სახელმწიფო მუზეუმი",
+   "lat": 41.695493,
+   "lng": 44.801747,
+   "osm": "node/637763969",
+   "osmName": "Shalva Amiranashvili State Museum of Arts of Georgia, Lado Gudiashvili Street, Mtatsminda, Sololaki, Mtatsminda District, Tbilisi, 0108, Georgia",
+   "osmCategory": "tourism/museum"
+  },
+  {
+   "id": "staatsuniversiteit",
+   "name": "Staatsuniversiteit Tbilisi (eerste gebouw)",
+   "district": "vake",
+   "eras": [
+    "republiek",
+    "sovjet"
+   ],
+   "themes": [
+    "historisch",
+    "cultureel",
+    "architectuur"
+   ],
+   "note": "Eerste Georgische universiteit; opgericht in de korte periode van onafhankelijkheid.",
+   "nameKa": "თბილისის ივანე ჯავახიშვილის სახელობის სახელმწიფო უნივერსიტეტი, კორპუსი 1",
+   "lat": 41.709948,
+   "lng": 44.778437,
+   "osm": "relation/900361",
+   "osmName": "Ivane Javakhishvili Tbilisi State University, Building 1, 1, Ilia Chavchavadze Avenue, Vake, Vake District, Tbilisi, 0179, Georgia",
+   "osmCategory": "amenity/university"
+  },
+  {
+   "id": "bank-of-georgia",
+   "name": "Voormalig ministerie van Wegenbouw",
+   "district": "buiten",
+   "eras": [
+    "sovjet"
+   ],
+   "themes": [
+    "architectuur",
+    "modern"
+   ],
+   "note": "Spraakmakend Sovjetmodernistisch gebouw van gestapelde blokken.",
+   "nameKa": "საქართველოს ბანკის სათავო ოფისი",
+   "lat": 41.735754,
+   "lng": 44.770392,
+   "osm": "way/1236448832",
+   "osmName": "Bank of Georgia Headquarters, 29ა, Yuri Gagarin Street, Saburtalo, Vedzisi, Kazbegi, Gotua, Saburtalo Street, Saburtalo District, Tbilisi, 0160, Georgia",
+   "osmCategory": "tourism/attraction"
+  },
+  {
+   "id": "narikala",
+   "name": "Narikala-vesting",
+   "district": "oude-stad",
+   "eras": [
+    "stichting",
+    "overheersing"
+   ],
+   "themes": [
+    "historisch",
+    "uitzicht"
+   ],
+   "note": "Vesting op de heuvel boven de oude stad, door opeenvolgende heersers uitgebreid.",
+   "nameKa": "ნარიყალა",
+   "lat": 41.687729,
+   "lng": 44.809111,
+   "osm": "relation/9820020",
+   "osmName": "Narikala, Data Gulua's raise, Kharpukhi, Kala, Ortachala, Krtsanisi District, Tbilisi, 0114, Georgia",
+   "osmCategory": "tourism/attraction"
+  },
+  {
+   "id": "moeder-georgie",
+   "name": "Moeder van Georgië (Kartlis Deda)",
+   "district": "oude-stad",
+   "eras": [
+    "sovjet"
+   ],
+   "themes": [
+    "cultureel",
+    "uitzicht"
+   ],
+   "note": "Groot aluminium beeld op de Sololaki-heuvel, met wijnschaal en zwaard.",
+   "nameKa": "ქართვლის დედა",
+   "lat": 41.68812,
+   "lng": 44.804603,
+   "osm": "way/1063062536",
+   "osmName": "Mother of Kartli, Sololaki Alley, Kala, Ortachala, Krtsanisi District, Tbilisi, 0114, Georgia",
+   "osmCategory": "historic/monument"
+  },
+  {
+   "id": "abanotubani",
+   "name": "Abanotubani (zwavelbaden)",
+   "district": "oude-stad",
+   "eras": [
+    "stichting",
+    "overheersing",
+    "russisch-rijk"
+   ],
+   "themes": [
+    "historisch",
+    "cultureel",
+    "multicultureel",
+    "architectuur"
+   ],
+   "note": "Badhuiswijk met koepels boven warme zwavelbronnen; verbonden met het ontstaan van de stad.",
+   "nameKa": "აბანოთუბანი",
+   "lat": 41.687655,
+   "lng": 44.811481,
+   "osm": "relation/2073134",
+   "osmName": "Abanotubani, Kala, Ortachala, Krtsanisi District, Tbilisi, Georgia",
+   "osmCategory": "place/neighbourhood"
+  },
+  {
+   "id": "chreli-abano",
+   "name": "Chreli Abano (Orbeliani-bad)",
+   "district": "oude-stad",
+   "eras": [
+    "overheersing",
+    "russisch-rijk"
+   ],
+   "themes": [
+    "architectuur",
+    "cultureel"
+   ],
+   "note": "Badhuis met opvallende blauwe tegelgevel.",
+   "nameKa": "ჭრელი აბანო",
+   "lat": 41.687454,
+   "lng": 44.810772,
+   "osm": "way/503326365",
+   "osmName": "Chreli Abano, 2, Abano Street, Abanotubani, Kala, Ortachala, Krtsanisi District, Tbilisi, 0114, Georgia",
+   "osmCategory": "leisure/sauna"
+  },
+  {
+   "id": "waterval",
+   "name": "Waterval van Leghvtakhevi",
+   "district": "oude-stad",
+   "eras": [],
+   "themes": [
+    "natuur",
+    "uitzicht"
+   ],
+   "note": "Waterval in de kloof achter de zwavelbaden, midden in de stad.",
+   "nameKa": "ლეღვთახევის ჩანჩქერი",
+   "lat": 41.686806,
+   "lng": 44.809003,
+   "osm": "node/1800715289",
+   "osmName": "Leghvtakhevi Waterfall, Tbilisi, 0114, Georgia",
+   "osmCategory": "waterway/waterfall"
+  },
+  {
+   "id": "jumah-moskee",
+   "name": "Jumah-moskee",
+   "district": "oude-stad",
+   "eras": [
+    "russisch-rijk"
+   ],
+   "themes": [
+    "religieus",
+    "multicultureel"
+   ],
+   "note": "Moskee in Abanotubani.",
+   "nameKa": "ჯუმა მეჩეთი",
+   "lat": 41.687172,
+   "lng": 44.810146,
+   "osm": "way/506741615",
+   "osmName": "Juma Mosque, 32, Botanikuri Street, Abanotubani, Kala, Ortachala, Krtsanisi District, Tbilisi, 0114, Georgia",
+   "osmCategory": "amenity/place_of_worship"
+  },
+  {
+   "id": "meidan",
+   "name": "Meidan (Gorgasaliplein)",
+   "district": "oude-stad",
+   "eras": [
+    "overheersing",
+    "russisch-rijk"
+   ],
+   "themes": [
+    "historisch",
+    "eten",
+    "multicultureel"
+   ],
+   "note": "Oud marktplein aan de rivier, kruispunt van handelaren.",
+   "nameKa": "ვახტანგ გორგასალის მოედანი",
+   "lat": 41.68994,
+   "lng": 44.809099,
+   "osm": "way/709355801",
+   "osmName": "Vakhtang Gorgasali Square, Kala, Ortachala, Krtsanisi District, Tbilisi, Georgia",
+   "osmCategory": "place/square"
+  },
+  {
+   "id": "erekle-plein",
+   "name": "Erekle II-plein",
+   "district": "oude-stad",
+   "eras": [
+    "erekle"
+   ],
+   "themes": [
+    "historisch"
+   ],
+   "note": "Pleintje bij de Sioni-kathedraal, genoemd naar koning Erekle II.",
+   "nameKa": "ერეკლე მეორის მოედანი",
+   "lat": 41.694288,
+   "lng": 44.806413,
+   "osm": "way/709359129",
+   "osmName": "Erekle II Square, Kala, Ortachala, Krtsanisi District, Tbilisi, Georgia",
+   "osmCategory": "place/square"
+  },
+  {
+   "id": "sioni",
+   "name": "Sioni-kathedraal",
+   "district": "oude-stad",
+   "eras": [
+    "stichting",
+    "gouden-eeuw",
+    "overheersing"
+   ],
+   "themes": [
+    "religieus",
+    "historisch"
+   ],
+   "note": "Kathedraal in de oude stad, vaak verwoest en herbouwd.",
+   "nameKa": "სიონის ეკლესია",
+   "lat": 41.691314,
+   "lng": 44.807525,
+   "osm": "way/77895547",
+   "osmName": "Sioni Cathedral of the Dormition, Sioni Street, Kala, Ortachala, Krtsanisi District, Tbilisi, 0108, Georgia",
+   "osmCategory": "amenity/place_of_worship"
+  },
+  {
+   "id": "anchiskhati",
+   "name": "Anchiskhati-basiliek",
+   "district": "oude-stad",
+   "eras": [
+    "stichting"
+   ],
+   "themes": [
+    "religieus",
+    "historisch",
+    "architectuur"
+   ],
+   "note": "Geldt als de oudste bewaarde kerk van Tbilisi.",
+   "nameKa": "ანჩისხატის ღვთისმშობლის ტაძრადმიყვანების ეკლესია",
+   "lat": 41.695502,
+   "lng": 44.806873,
+   "osm": "way/337365208",
+   "osmName": "Anchiskhati Basilica of Saint Mary, Ioan Shavteli Lane, Kala, Ortachala, Krtsanisi District, Tbilisi, 0108, Georgia",
+   "osmCategory": "amenity/place_of_worship"
+  },
+  {
+   "id": "gabriadze",
+   "name": "Klokkentoren van het Gabriadze-theater",
+   "district": "oude-stad",
+   "eras": [
+    "onafhankelijk"
+   ],
+   "themes": [
+    "kunst",
+    "uitzicht"
+   ],
+   "note": "Scheve, sprookjesachtige klokkentoren naast het marionettentheater.",
+   "nameKa": "რეზო გაბრიაძის მარიონეტების თეატრი",
+   "lat": 41.695838,
+   "lng": 44.80657,
+   "osm": "node/1567308849",
+   "osmName": "Rezo Gabriadze Marionette Theater, 13, Ioan Shavteli Street, Kala, Ortachala, Krtsanisi District, Tbilisi, 0108, Georgia",
+   "osmCategory": "amenity/theatre"
+  },
+  {
+   "id": "shardeni",
+   "name": "Shardeni-straat",
+   "district": "oude-stad",
+   "eras": [
+    "onafhankelijk"
+   ],
+   "themes": [
+    "eten",
+    "cultureel"
+   ],
+   "note": "Voetgangersstraat met cafés, restaurants en galerieën.",
+   "nameKa": "",
+   "lat": 41.690725,
+   "lng": 44.808375,
+   "osm": "way/1041451281",
+   "osmName": "შარდენი, Kote Abkhazi Street, Kala, Ortachala, Krtsanisi District, Tbilisi, 0108, Georgia",
+   "osmCategory": "tourism/attraction"
+  },
+  {
+   "id": "tbilisi-history-museum",
+   "name": "Museum voor de geschiedenis van Tbilisi (Karvasla)",
+   "district": "oude-stad",
+   "eras": [
+    "overheersing",
+    "russisch-rijk"
+   ],
+   "themes": [
+    "historisch",
+    "cultureel"
+   ],
+   "note": "Stadsmuseum in een voormalige karavanserai.",
+   "nameKa": "თბილისის ისტორიულ-ეთნოგრაფიული მუზეუმი",
+   "lat": 41.690965,
+   "lng": 44.807549,
+   "osm": "node/4325006493",
+   "osmName": "Tbilisi History Museum, Sioni Street, Kala, Ortachala, Krtsanisi District, Tbilisi, 0108, Georgia",
+   "osmCategory": "tourism/museum"
+  },
+  {
+   "id": "synagoge",
+   "name": "Grote Synagoge",
+   "district": "oude-stad",
+   "eras": [
+    "russisch-rijk"
+   ],
+   "themes": [
+    "religieus",
+    "multicultureel"
+   ],
+   "note": "Synagoge in de oude stad.",
+   "nameKa": "დიდი სინაგოგა",
+   "lat": 41.689993,
+   "lng": 44.807269,
+   "osm": "way/75311791",
+   "osmName": "The Great Synagogue, 12, Hovanes Tumaniani Street, Betlemi, Kala, Ortachala, Krtsanisi District, Tbilisi, 0108, Georgia",
+   "osmCategory": "amenity/place_of_worship"
+  },
+  {
+   "id": "norashen",
+   "name": "Norashen-kerk",
+   "district": "oude-stad",
+   "eras": [
+    "overheersing"
+   ],
+   "themes": [
+    "religieus",
+    "multicultureel"
+   ],
+   "note": "Armeens-apostolische kerk in de oude stad.",
+   "nameKa": "ნორაშენი",
+   "lat": 41.690975,
+   "lng": 44.806532,
+   "osm": "way/284620213",
+   "osmName": "Norashen Church, Kote Abkhazi Street, Kala, Ortachala, Krtsanisi District, Tbilisi, 0108, Georgia",
+   "osmCategory": "amenity/place_of_worship"
+  },
+  {
+   "id": "betlemi",
+   "name": "Betlemi-kerk en trappen",
+   "district": "oude-stad",
+   "eras": [
+    "erekle"
+   ],
+   "themes": [
+    "religieus",
+    "uitzicht"
+   ],
+   "note": "Kerk hoog in de oude stad, bereikbaar via trappenstraatjes.",
+   "nameKa": "ბეთლემის ეკლესია",
+   "lat": 41.688873,
+   "lng": 44.804573,
+   "osm": "way/163799009",
+   "osmName": "Betlemi Church, Sololaki Gorge, Betlemi, Kala, Ortachala, Krtsanisi District, Tbilisi, 0108, Georgia",
+   "osmCategory": "amenity/place_of_worship"
+  },
+  {
+   "id": "ateshgah",
+   "name": "Ateshgah (vuurtempel)",
+   "district": "oude-stad",
+   "eras": [
+    "overheersing"
+   ],
+   "themes": [
+    "religieus",
+    "multicultureel",
+    "historisch"
+   ],
+   "note": "Restant van een zoroastrische vuurtempel.",
+   "nameKa": "ათეშგა",
+   "lat": 41.688852,
+   "lng": 44.805597,
+   "osm": "way/1206891444",
+   "osmName": "Ateshgah, 3ა, Gomi Street, Betlemi, Kala, Ortachala, Krtsanisi District, Tbilisi, 0108, Georgia",
+   "osmCategory": "tourism/attraction"
+  },
+  {
+   "id": "botanische-tuin",
+   "name": "Nationale Botanische Tuin",
+   "district": "oude-stad",
+   "eras": [
+    "russisch-rijk"
+   ],
+   "themes": [
+    "natuur"
+   ],
+   "note": "Grote tuin in de kloof achter Narikala.",
+   "nameKa": "ეროვნული ბოტანიკური ბაღი",
+   "lat": 41.685066,
+   "lng": 44.802658,
+   "osm": "relation/19630635",
+   "osmName": "National Botanical Garden, Krtsanisi District, Tbilisi, Georgia",
+   "osmCategory": "leisure/garden"
+  },
+  {
+   "id": "kabelbaan-narikala",
+   "name": "Kabelbaan Rike–Narikala",
+   "district": "oude-stad",
+   "eras": [
+    "onafhankelijk"
+   ],
+   "themes": [
+    "uitzicht",
+    "modern"
+   ],
+   "note": "Kabelbaan van het Rikepark naar de vesting.",
+   "nameKa": "რიყე-ნარიყალა საბაგირო",
+   "lat": 41.690016,
+   "lng": 44.808998,
+   "osm": "way/154331558",
+   "osmName": "Rike - Narikala Cable Car, Noe Zhordania Embankment, Metekhi, Zemo Avlabari, Metromsheni, Isani District, Tbilisi, 0144, Georgia",
+   "osmCategory": "aerialway/gondola"
+  },
+  {
+   "id": "sololaki",
+   "name": "Sololaki-wijk",
+   "district": "sololaki",
+   "eras": [
+    "russisch-rijk"
+   ],
+   "themes": [
+    "architectuur",
+    "historisch"
+   ],
+   "note": "Wijk met herenhuizen, binnenplaatsen en beschilderde trappenhuizen.",
+   "nameKa": "სოლოლაკი",
+   "lat": 41.690517,
+   "lng": 44.798019,
+   "osm": "relation/2073133",
+   "osmName": "Sololaki, Mtatsminda, Sololaki, Mtatsminda District, Tbilisi, Georgia",
+   "osmCategory": "place/neighbourhood"
+  },
+  {
+   "id": "kote-afkhazi",
+   "name": "Kote Afkhazi-straat",
+   "district": "sololaki",
+   "eras": [
+    "russisch-rijk"
+   ],
+   "themes": [
+    "historisch",
+    "multicultureel",
+    "eten"
+   ],
+   "note": "Oude hoofdstraat tussen Vrijheidsplein en de oude stad.",
+   "nameKa": "კოტე აფხაზის ქუჩა",
+   "lat": 41.69281,
+   "lng": 44.805616,
+   "osm": "way/133607532",
+   "osmName": "Kote Abkhazi Street, Kala, Ortachala, Krtsanisi District, Tbilisi, 0108, Georgia",
+   "osmCategory": "highway/tertiary"
+  },
+  {
+   "id": "gudiashvili-plein",
+   "name": "Gudiashvili-plein",
+   "district": "sololaki",
+   "eras": [
+    "russisch-rijk"
+   ],
+   "themes": [
+    "architectuur",
+    "kunst"
+   ],
+   "note": "Plein met gerestaureerde negentiende-eeuwse gevels.",
+   "nameKa": "ლადო გუდიაშვილის მოედანი",
+   "lat": 41.691032,
+   "lng": 44.80363,
+   "osm": "way/172908444",
+   "osmName": "Lado Gudiashvili Square, Kala, Ortachala, Krtsanisi District, Tbilisi, Georgia",
+   "osmCategory": "place/square"
+  },
+  {
+   "id": "schrijvershuis",
+   "name": "Schrijvershuis van Georgië",
+   "district": "sololaki",
+   "eras": [
+    "russisch-rijk",
+    "sovjet"
+   ],
+   "themes": [
+    "literatuur",
+    "architectuur"
+   ],
+   "note": "Art-nouveauvilla, later ontmoetingsplek van schrijvers.",
+   "nameKa": "მწერალთა სახლი",
+   "lat": 41.690202,
+   "lng": 44.799679,
+   "osm": "way/163798516",
+   "osmName": "Writers' House of Georgia, 13, Ivane Machabeli Street, Sololaki, Mtatsminda, Sololaki, Mtatsminda District, Tbilisi, 0108, Georgia",
+   "osmCategory": "building/house"
+  },
+  {
+   "id": "metekhi",
+   "name": "Metekhi-kerk",
+   "district": "avlabari",
+   "eras": [
+    "gouden-eeuw",
+    "overheersing"
+   ],
+   "themes": [
+    "religieus",
+    "historisch",
+    "uitzicht"
+   ],
+   "note": "Kerk op de rots boven de rivier, tegenover de oude stad.",
+   "nameKa": "მეტეხის ეკლესია",
+   "lat": 41.690152,
+   "lng": 44.811248,
+   "osm": "way/1064270003",
+   "osmName": "Metekhi Church, Metekhi Bridge, Avlabari, Zemo Avlabari, Metromsheni, Isani District, Tbilisi, 0144, Georgia",
+   "osmCategory": "amenity/place_of_worship"
+  },
+  {
+   "id": "vakhtang-gorgasali",
+   "name": "Ruiterstandbeeld Vakhtang Gorgasali",
+   "district": "avlabari",
+   "eras": [
+    "stichting",
+    "sovjet"
+   ],
+   "themes": [
+    "historisch",
+    "uitzicht"
+   ],
+   "note": "Beeld van de koning die volgens de overlevering de stad stichtte.",
+   "nameKa": "ვახტანგ გორგასლის ძეგლი",
+   "lat": 41.690322,
+   "lng": 44.810736,
+   "osm": "way/1062990549",
+   "osmName": "The Statue of King Vakhtang Gorgasali, Metekhi Bridge, Avlabari, Zemo Avlabari, Metromsheni, Isani District, Tbilisi, 0144, Georgia",
+   "osmCategory": "historic/memorial"
+  },
+  {
+   "id": "vredesbrug",
+   "name": "Vredesbrug",
+   "district": "oude-stad",
+   "eras": [
+    "onafhankelijk"
+   ],
+   "themes": [
+    "modern",
+    "uitzicht"
+   ],
+   "note": "Glazen voetgangersbrug over de Mtkvari.",
+   "nameKa": "Friedensbrücke",
+   "lat": 41.692986,
+   "lng": 44.808261,
+   "osm": "way/125589004",
+   "osmName": "Bridge of Peace, Avlabari, Zemo Avlabari, Metromsheni, Isani District, Tbilisi, 0144, Georgia",
+   "osmCategory": "highway/pedestrian"
+  },
+  {
+   "id": "rike-park",
+   "name": "Rikepark",
+   "district": "avlabari",
+   "eras": [
+    "onafhankelijk"
+   ],
+   "themes": [
+    "natuur",
+    "modern"
+   ],
+   "note": "Park aan de rivier met moderne architectuur.",
+   "nameKa": "რიყის პარკი",
+   "lat": 41.693199,
+   "lng": 44.809987,
+   "osm": "relation/9868102",
+   "osmName": "Rike Park, Isani District, Tbilisi, Georgia",
+   "osmCategory": "leisure/park"
+  },
+  {
+   "id": "sameba",
+   "name": "Sameba-kathedraal (Heilige Drie-eenheid)",
+   "district": "avlabari",
+   "eras": [
+    "onafhankelijk"
+   ],
+   "themes": [
+    "religieus",
+    "architectuur",
+    "uitzicht"
+   ],
+   "note": "Zeer grote orthodoxe kathedraal op de Elia-heuvel.",
+   "nameKa": "წმინდა სამების საკათედრო ტაძარი",
+   "lat": 41.697547,
+   "lng": 44.816522,
+   "osm": "way/585352693",
+   "osmName": "Holy Trinity Cathedral of Tbilisi, 19, Samreklo Street, Avlabari, Zemo Avlabari, Metromsheni, Isani District, Tbilisi, 0144, Georgia",
+   "osmCategory": "amenity/place_of_worship"
+  },
+  {
+   "id": "presidentieel-paleis",
+   "name": "Voormalig presidentieel paleis",
+   "district": "avlabari",
+   "eras": [
+    "onafhankelijk"
+   ],
+   "themes": [
+    "politiek",
+    "modern"
+   ],
+   "note": "Paleis met glazen koepel boven Avlabari.",
+   "nameKa": "სახელმწიფო ცერემონიების სასახლე",
+   "lat": 41.695663,
+   "lng": 44.811103,
+   "osm": "way/362739744",
+   "osmName": "Ceremonial Palace of Georgia, 1, Malkhaz Abdushelishvili Street, Avlabari, Kveda Chugureti, Chugureti District, Tbilisi, 0144, Georgia",
+   "osmCategory": "building/government"
+  },
+  {
+   "id": "stalin-drukkerij",
+   "name": "Ondergrondse drukkerij van Stalin",
+   "district": "avlabari",
+   "eras": [
+    "russisch-rijk"
+   ],
+   "themes": [
+    "politiek",
+    "historisch"
+   ],
+   "note": "Geheime drukkerij van revolutionairen, nu een klein museum.",
+   "nameKa": "ავლაბრის სტამბა",
+   "lat": 41.690779,
+   "lng": 44.830064,
+   "osm": "way/1376878173",
+   "osmName": "Avlabari printing house, Rusudan Mikeladze Street, Isani, Zemo Avlabari, Metromsheni, Isani District, Tbilisi, 0144, Georgia",
+   "osmCategory": "tourism/museum"
+  },
+  {
+   "id": "darejan-paleis",
+   "name": "Paleis van koningin Darejan",
+   "district": "avlabari",
+   "eras": [
+    "erekle"
+   ],
+   "themes": [
+    "historisch",
+    "uitzicht"
+   ],
+   "note": "Paleis met balkon boven de rivier, verbonden met de vrouw van Erekle II.",
+   "nameKa": "დარეჯანის სასახლე",
+   "lat": 41.691595,
+   "lng": 44.812354,
+   "osm": "way/123574122",
+   "osmName": "Queen Darejan's palace, Wine Ascent, Metekhi, Zemo Avlabari, Metromsheni, Isani District, Tbilisi, 0144, Georgia",
+   "osmCategory": "tourism/attraction"
+  },
+  {
+   "id": "europaplein",
+   "name": "Europaplein",
+   "district": "avlabari",
+   "eras": [
+    "onafhankelijk"
+   ],
+   "themes": [
+    "modern",
+    "politiek"
+   ],
+   "note": "Plein aan de rivier bij het dalstation van de kabelbaan.",
+   "nameKa": "ევროპის მოედანი",
+   "lat": 41.691127,
+   "lng": 44.811265,
+   "osm": "way/1217904103",
+   "osmName": "Europe Square, Avlabari, Zemo Avlabari, Metromsheni, Isani District, Tbilisi, Georgia",
+   "osmCategory": "place/square"
+  },
+  {
+   "id": "public-service-hall",
+   "name": "Public Service Hall",
+   "district": "oude-stad",
+   "eras": [
+    "onafhankelijk"
+   ],
+   "themes": [
+    "modern",
+    "architectuur"
+   ],
+   "note": "Gebouw met paddenstoelvormige daken aan de rivier.",
+   "nameKa": "იუსტიციის სახლი",
+   "lat": 41.69909,
+   "lng": 44.806622,
+   "osm": "way/1066392731",
+   "osmName": "Public Service Hall, 1, Zviad Gamsakhurdia Embankment, Mtatsminda, Sololaki, Mtatsminda District, Tbilisi, 0108, Georgia",
+   "osmCategory": "office/government"
+  },
+  {
+   "id": "pantheon-mtatsminda",
+   "name": "Pantheon van Mtatsminda",
+   "district": "mtatsminda",
+   "eras": [
+    "russisch-rijk",
+    "sovjet"
+   ],
+   "themes": [
+    "literatuur",
+    "historisch",
+    "religieus"
+   ],
+   "note": "Begraafplaats van schrijvers en publieke figuren bij de Mamadaviti-kerk.",
+   "nameKa": "მთაწმინდის პანთეონი",
+   "lat": 41.695887,
+   "lng": 44.789002,
+   "osm": "relation/9841336",
+   "osmName": "Mtatsminda Pantheon, Mama Daviti Rise, Mtatsminda, Sololaki, Mtatsminda District, Tbilisi, 0179, Georgia",
+   "osmCategory": "tourism/attraction"
+  },
+  {
+   "id": "kabelspoor",
+   "name": "Kabelspoorweg naar Mtatsminda",
+   "district": "mtatsminda",
+   "eras": [
+    "russisch-rijk"
+   ],
+   "themes": [
+    "uitzicht"
+   ],
+   "note": "Kabelspoor tegen de heilige berg op.",
+   "nameKa": "თბილისის ფუნიკულიორი",
+   "lat": 41.694989,
+   "lng": 44.787832,
+   "osm": "way/1042188760",
+   "osmName": "Tbilisi Funicular, Mama Daviti Rise, Mtatsminda, Sololaki, Mtatsminda District, Tbilisi, 0179, Georgia",
+   "osmCategory": "railway/funicular"
+  },
+  {
+   "id": "mtatsminda-park",
+   "name": "Mtatsminda-park",
+   "district": "mtatsminda",
+   "eras": [
+    "sovjet",
+    "onafhankelijk"
+   ],
+   "themes": [
+    "uitzicht",
+    "natuur"
+   ],
+   "note": "Pretpark en uitkijkpunt boven de stad.",
+   "nameKa": "მთაწმინდის პარკი",
+   "lat": 41.69304,
+   "lng": 44.779477,
+   "osm": "relation/13443464",
+   "osmName": "Mtatsminda Park, Mtatsminda District, Tbilisi, Georgia",
+   "osmCategory": "leisure/park"
+  },
+  {
+   "id": "droge-brug",
+   "name": "Rommelmarkt bij de Droge Brug",
+   "district": "oude-stad",
+   "eras": [
+    "sovjet",
+    "onafhankelijk"
+   ],
+   "themes": [
+    "eten",
+    "cultureel"
+   ],
+   "note": "Openluchtmarkt met antiek, schilderijen en Sovjetsouvenirs.",
+   "nameKa": "მშრალი ხიდი",
+   "lat": 41.700505,
+   "lng": 44.802592,
+   "osm": "way/1150481713",
+   "osmName": "Dry Bridge, Italia Street, Garetubani, Mtatsminda, Sololaki, Mtatsminda District, Tbilisi, 0108, Georgia",
+   "osmCategory": "man_made/bridge"
+  },
+  {
+   "id": "aghmashenebeli",
+   "name": "Aghmashenebeli-laan",
+   "district": "chughureti",
+   "eras": [
+    "russisch-rijk"
+   ],
+   "themes": [
+    "architectuur",
+    "eten",
+    "multicultureel"
+   ],
+   "note": "Gerestaureerde negentiende-eeuwse laan op de linkeroever.",
+   "nameKa": "დავით აღმაშენებლის გამზირი",
+   "lat": 41.719888,
+   "lng": 44.789727,
+   "osm": "way/28502375",
+   "osmName": "David Aghmashenebeli Avenue, Chughureti, Didube, Didube District, Tbilisi, 0102, Georgia",
+   "osmCategory": "highway/secondary"
+  },
+  {
+   "id": "marjanishvili-theater",
+   "name": "Marjanishvili-theater",
+   "district": "chughureti",
+   "eras": [
+    "sovjet"
+   ],
+   "themes": [
+    "kunst",
+    "cultureel"
+   ],
+   "note": "Toonaangevend theater op de linkeroever.",
+   "nameKa": "მარჯანიშვილის თეატრი",
+   "lat": 41.708766,
+   "lng": 44.794613,
+   "osm": "node/390460502",
+   "osmName": "Marjanishvili Theatre, Kote Marjanishvili Street, Chughureti, Kveda Chugureti, Chugureti District, Tbilisi, 0102, Georgia",
+   "osmCategory": "amenity/theatre"
+  },
+  {
+   "id": "fabrika",
+   "name": "Fabrika",
+   "district": "chughureti",
+   "eras": [
+    "sovjet",
+    "onafhankelijk"
+   ],
+   "themes": [
+    "modern",
+    "kunst",
+    "eten"
+   ],
+   "note": "Voormalige naaifabriek, nu hostel en creatieve hotspot.",
+   "nameKa": "ფაბრიკა",
+   "lat": 41.709559,
+   "lng": 44.802776,
+   "osm": "way/548795814",
+   "osmName": "Fabrika, 8, Egnate Ninoshvili Street, Plekhanovi, Kveda Chugureti, Chugureti District, Tbilisi, 0102, Georgia",
+   "osmCategory": "tourism/hostel"
+  },
+  {
+   "id": "dezerter-bazaar",
+   "name": "Dezerter-bazaar",
+   "district": "chughureti",
+   "eras": [],
+   "themes": [
+    "eten"
+   ],
+   "note": "Grote overdekte markt bij het station.",
+   "nameKa": "Дезертирка",
+   "lat": 41.721198,
+   "lng": 44.794198,
+   "osm": "way/236526369",
+   "osmName": "Dezerter Bazaar, 135, Mikheil Tsinamdzghvrishvili Street, Chughureti, Didube, Didube District, Tbilisi, 0119, Georgia",
+   "osmCategory": "amenity/marketplace"
+  },
+  {
+   "id": "circus",
+   "name": "Circus van Tbilisi",
+   "district": "buiten",
+   "eras": [
+    "sovjet"
+   ],
+   "themes": [
+    "architectuur",
+    "kunst"
+   ],
+   "note": "Koepelgebouw van het staatscircus.",
+   "nameKa": "თბილისის ცირკი",
+   "lat": 41.714334,
+   "lng": 44.785122,
+   "osm": "way/1234716193",
+   "osmName": "Tbilisi Circus, 1, Marie Brosset Street, Garetubani, Mtatsminda, Sololaki, Mtatsminda District, Tbilisi, 0108, Georgia",
+   "osmCategory": "amenity/theatre"
+  },
+  {
+   "id": "vake-park",
+   "name": "Vakepark",
+   "district": "vake",
+   "eras": [
+    "sovjet"
+   ],
+   "themes": [
+    "natuur"
+   ],
+   "note": "Groot park met een gedenkteken voor de Tweede Wereldoorlog.",
+   "nameKa": "ვაკის პარკი",
+   "lat": 41.708538,
+   "lng": 44.747792,
+   "osm": "relation/17233994",
+   "osmName": "Vake Park, Vake District, Tbilisi, Georgia",
+   "osmCategory": "leisure/park"
+  },
+  {
+   "id": "schildpaddenmeer",
+   "name": "Schildpaddenmeer",
+   "district": "buiten",
+   "eras": [],
+   "themes": [
+    "natuur",
+    "uitzicht"
+   ],
+   "note": "Klein meer in de heuvels boven Vake.",
+   "nameKa": "კუს ტბა",
+   "lat": 41.700391,
+   "lng": 44.754455,
+   "osm": "way/28043570",
+   "osmName": "Turtle Lake, Vake, Vake District, Tbilisi, Georgia",
+   "osmCategory": "water/lake"
+  },
+  {
+   "id": "etnografisch-museum",
+   "name": "Openluchtmuseum voor Etnografie",
+   "district": "buiten",
+   "eras": [
+    "sovjet"
+   ],
+   "themes": [
+    "cultureel",
+    "historisch",
+    "natuur"
+   ],
+   "note": "Traditionele huizen uit heel Georgië op een heuvel.",
+   "nameKa": "სახელმწიფო ეთნოგრაფიული მუზეუმი",
+   "lat": 41.70187,
+   "lng": 44.743581,
+   "osm": "relation/14141290",
+   "osmName": "Tbilisi Open Air Museum of Ethnography, 25, Vake District, Tbilisi, Georgia",
+   "osmCategory": "leisure/park"
+  },
+  {
+   "id": "kroniek-georgie",
+   "name": "Kroniek van Georgië",
+   "district": "buiten",
+   "eras": [
+    "sovjet"
+   ],
+   "themes": [
+    "kunst",
+    "uitzicht",
+    "historisch"
+   ],
+   "note": "Reusachtige zuilen met reliëfs uit de Georgische geschiedenis, bij de Tbilisi-zee.",
+   "nameKa": "საქართველოს მატიანე",
+   "lat": 41.770666,
+   "lng": 44.810398,
+   "osm": "way/707446533",
+   "osmName": "Chronicle of Georgia, Utsnob Gmirta Street, Temka, Nadzaladevi District, Tbilisi, 0178, Georgia",
+   "osmCategory": "historic/monument"
+  },
+  {
+   "id": "lurji-monastiri",
+   "name": "Blauw Klooster (Lurji Monastiri)",
+   "district": "chughureti",
+   "eras": [
+    "gouden-eeuw"
+   ],
+   "themes": [
+    "religieus",
+    "historisch"
+   ],
+   "note": "Middeleeuwse kerk met een blauwe koepel.",
+   "nameKa": "ლურჯი მონასტერი",
+   "lat": 41.707913,
+   "lng": 44.788987,
+   "osm": "way/188447537",
+   "osmName": "Blue Monastery, Niko Nikoladze Street, Vera, Mtatsminda District, Tbilisi, 0108, Georgia",
+   "osmCategory": "amenity/place_of_worship"
+  }
+ ]
+}

@@ -96,6 +96,22 @@ export async function saveLandmark(landmark: Landmark): Promise<void> {
   changed();
 }
 
+/**
+ * Stores a landmark as-is (no new updatedAt) unless it already exists. Used for catalogue sites,
+ * whose fixed ids and timestamps make the same record on every device, so sync sees no conflict.
+ */
+export async function ensureLandmark(landmark: Landmark): Promise<void> {
+  if (state.landmarks.some((l) => l.id === landmark.id && !l.deleted)) return;
+  set({ landmarks: upsert(state.landmarks, landmark) });
+  await putRecords('landmarks', [landmark]);
+  changed();
+}
+
+/** Latest saved version of a tour (avoids applying edits to a stale render copy). */
+export function currentTour(id: string): Tour | undefined {
+  return state.tours.find((t) => t.id === id && !t.deleted);
+}
+
 /** Soft delete (tombstone) so the deletion reaches other devices. */
 export async function deleteTour(tour: Tour): Promise<void> {
   await saveTour({ ...tour, deleted: true });

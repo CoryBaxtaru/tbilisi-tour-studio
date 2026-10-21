@@ -10,6 +10,7 @@ Tbilisi Walking Tour Studio: a personal desktop tour editor and mobile live-guid
 - Repository: https://github.com/CoryBaxtaru/tbilisi-tour-studio (public). Live: https://corybaxtaru.github.io/tbilisi-tour-studio/. Data repo CoryBaxtaru/tbilisi-tour-data (private, empty until the first sync).
 - Working (verified locally on a production build):
   - Tour CRUD and stop cards (shared landmark knowledge vs. tour-specific notes)
+  - Card deck builder: 58 catalogue sites (OSM positions, unverified tags) + own landmarks; filter by era, tour type, district and text; drag cards into the route, drag the handle to reorder, + button, map-dot popup; automatic route recalculation (docs/CATALOG.md)
   - Talking points with provenance stamps
   - Map placement of stops (Leaflet + OSM)
   - Pedestrian routes via FOSSGIS OSRM, stored per leg
@@ -20,7 +21,7 @@ Tbilisi Walking Tour Studio: a personal desktop tour editor and mobile live-guid
   - Update prompt
   - GitHub sync: error path tested live; full round trip only unit-tested with a mocked remote
 - Handoff hooks: Stop hook confirmed live; SessionStart not yet observed. See `docs/HANDOFF_HOOKS.md`.
-- Tests/build: `npm test` passes 25 unit tests; `npm run build` (tsc + vite) is clean.
+- Tests/build: `npm test` passes 32 unit tests; `npm run build` (tsc + vite) is clean.
 - Known blockers: only the founder can create the sync token.
 
 ## Environment (verified)
@@ -41,10 +42,12 @@ Tbilisi Walking Tour Studio: a personal desktop tour editor and mobile live-guid
 - 2026-10-21: Handoff hooks as a dependency-free Node script; freshness check only.
 - 2026-10-21: Zero-cost rule made permanent (CLAUDE.md, spec §10a). GitHub Pages + private GitHub repo sync chosen over Cloudflare, Supabase and Firebase (reasons in HOSTING.md).
 - 2026-10-21: Map tiles are never cached for offline use (OSM tile policy).
+- 2026-10-21: Card deck uses SortableJS in pointer-fallback mode (same for mouse and touch); catalogue landmarks have fixed ids and timestamps so devices never conflict.
 - 2026-10-21: Updates use a prompt, not auto-reload, so a tour in progress is never interrupted.
 
 ## Known issues and constraints
 - No offline map background. Planned fix: a Protomaps PMTiles extract of Tbilisi.
+- Catalogue names, notes and era/theme tags are unverified suggestions; the founder should review docs/CATALOG.md.
 - Landmark sources, claim-level references and a separate knowledge-base page are not built yet. Talking points carry free-text sources.
 - No stop-order suggestions yet (spec phase 4).
 - Not verified on real phones (GPS accuracy, iOS install and standby behaviour).
