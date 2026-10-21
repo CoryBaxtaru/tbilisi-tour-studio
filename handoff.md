@@ -25,14 +25,13 @@ Tbilisi Walking Tour Studio — desktop tour design and mobile live guiding for 
 
 ## Tests and verification
 - `npm test`: 32 passed. `npm run build`: clean.
-- Live deploy: page, manifest, service worker and precache verified over HTTPS.
+- Live deploy: page, manifest, service worker and precache verified over HTTPS; card deck (commit 119faa9) deployed, the update prompt switched the live site to the new version, and the deck showed 58 cards.
 - Browser (production build): main workflow, offline reload, update prompt, import, simulated GPS, live GitHub 401 path.
 - Not verified: full sync with a real token, real-phone GPS, iOS install, export download.
 
 ## Blockers / unfinished work
-- Card deck work is not committed or deployed yet (commit and push to deploy).
 - Catalogue names, notes and tags are unverified suggestions: founder review via `docs/CATALOG.md`.
 - Founder must create the fine-grained token (steps in `docs/HOSTING.md`).
 
 ## Next recommended task
-Commit and push the card deck → founder reviews catalogue tags → founder sets up the sync token on laptop and phone (`docs/HOSTING.md`) → walk-test. Later: an offline Tbilisi basemap (PMTiles) and landmark sources/knowledge base.
+Founder reviews catalogue tags (`docs/CATALOG.md`) and tries drag and drop on the real laptop and phone → founder sets up the sync token (`docs/HOSTING.md`) → walk-test. Later: an offline Tbilisi basemap (PMTiles) and landmark sources/knowledge base.
