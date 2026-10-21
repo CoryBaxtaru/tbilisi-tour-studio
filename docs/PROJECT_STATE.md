@@ -7,7 +7,7 @@ Tbilisi Walking Tour Studio: a personal desktop tour editor and mobile live-guid
 
 ## Current status (verified 2026-10-21)
 - Phase: first working app. Tour builder, map and routing, mobile guiding, sync and offline (spec phases 2, 3, 6 and 7 in basic form).
-- Repository: Git on `main`, not yet pushed to GitHub. The app is not deployed yet; that needs the founder's approval to create the repos.
+- Repository: https://github.com/CoryBaxtaru/tbilisi-tour-studio (public). Live: https://corybaxtaru.github.io/tbilisi-tour-studio/. Data repo CoryBaxtaru/tbilisi-tour-data (private, empty until the first sync).
 - Working (verified locally on a production build):
   - Tour CRUD and stop cards (shared landmark knowledge vs. tour-specific notes)
   - Talking points with provenance stamps
@@ -21,7 +21,7 @@ Tbilisi Walking Tour Studio: a personal desktop tour editor and mobile live-guid
   - GitHub sync: error path tested live; full round trip only unit-tested with a mocked remote
 - Handoff hooks: Stop hook confirmed live; SessionStart not yet observed. See `docs/HANDOFF_HOOKS.md`.
 - Tests/build: `npm test` passes 25 unit tests; `npm run build` (tsc + vite) is clean.
-- Known blockers: deployment and data repo need the founder's go-ahead; the sync token can only be created by the founder.
+- Known blockers: only the founder can create the sync token.
 
 ## Environment (verified)
 - Windows 11, Claude Code 2.1.302, Node v24.20.0, npm 11.19, Git, gh 2.102 (logged in as `CoryBaxtaru`).
@@ -51,4 +51,4 @@ Tbilisi Walking Tour Studio: a personal desktop tour editor and mobile live-guid
 - Stop hook reminds once per turn in which work files changed without a handoff update.
 
 ## Next step
-After the founder approves: create the repos, push, enable Pages, and do the founder's one-time token setup. Then test on the real phone in Tbilisi (install, offline, GPS).
+The founder does the one-time token setup on laptop and phone (docs/HOSTING.md). Then test on the real phone in Tbilisi (install, offline, GPS).

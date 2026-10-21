@@ -53,6 +53,13 @@ GPS itself needs no data connection. It does need HTTPS, which GitHub Pages prov
 - A strict Content-Security-Policy allows scripts only from the app itself and network calls only to `api.github.com` and `routing.openstreetmap.de`. That limits what an injected script could do with the token.
 - Location is used only while GPS is switched on in guide mode, and no location history is stored.
 
+## Live
+- App: https://corybaxtaru.github.io/tbilisi-tour-studio/
+- Code: https://github.com/CoryBaxtaru/tbilisi-tour-studio (public)
+- Data: https://github.com/CoryBaxtaru/tbilisi-tour-data (private)
+
+Steps 1 and 2 below are done.
+
 ## Setup (one time)
 1. **Publish the app.** Push this repo to a public GitHub repo with Pages source set to "GitHub Actions". `.github/workflows/deploy.yml` tests, builds and deploys on every push to `main`. The URL is `https://<user>.github.io/<repo>/`.
 2. **Create the private data repo**, e.g. `tbilisi-tour-data` (private, with a README).
