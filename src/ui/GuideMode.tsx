@@ -8,6 +8,8 @@ import { instructionList } from '../routing/instructions';
 import { fossgisFoot } from '../routing/osrm';
 import { useAppState } from '../state/store';
 import { MapView, type MapStop } from './MapView';
+import { SiteInfo } from './SiteInfo';
+import { CATALOG } from '../domain/catalog';
 
 interface Progress {
   index: number;
@@ -165,6 +167,13 @@ export function GuideMode({ id }: { id: string }) {
         {stop.transition && <p class="guide__transition"><span class="label">Overgang</span> {stop.transition}</p>}
         {stop.guideNotes && <p class="guide__transition"><span class="label">Notities</span> {stop.guideNotes}</p>}
       </section>
+
+      {landmark?.catalogId && (
+        <details class="guide__section guide__info">
+          <summary>Achtergrond</summary>
+          <SiteInfo info={CATALOG.find((c) => c.id === landmark.catalogId)?.info ?? null} osm={landmark.osm} />
+        </details>
+      )}
 
       {steps.length > 0 && (
         <details class="guide__section">

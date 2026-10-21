@@ -35,7 +35,8 @@ Phone (PWA)   ──┘                          └─ api.github.com → priva
 - **OSM tiles** (`tile.openstreetmap.org`): attribution required. **Offline use and prefetching are not permitted**, so the service worker deliberately does not cache tiles. Only the browser's normal HTTP cache applies.
 - **Fonts:** Literata and Public Sans (SIL OFL), self-hosted and precached.
 - **Nominatim** (`nominatim.openstreetmap.org`): used **only at build time** by `scripts/build-catalog.mjs` to geocode the site catalogue. Max 1 request/s with an identifying User-Agent; never called by the app. The resulting catalogue is ODbL (see `docs/CATALOG.md`).
-- **Licences:** Leaflet BSD-2, Preact MIT, idb ISC, SortableJS MIT, Workbox/vite-plugin-pwa MIT. Catalogue data ODbL (OpenStreetMap). No non-commercial licences are currently in use.
+- **Wikidata and Wikipedia APIs**: used **only at build time** by `scripts/enrich-catalog.mjs` (identifying User-Agent, a few dozen requests). **Overpass** was used once, by hand, to find the cable car station.
+- **Licences:** Leaflet BSD-2, Preact MIT, idb ISC, SortableJS MIT, Workbox/vite-plugin-pwa MIT. Catalogue data: positions ODbL (OpenStreetMap); background text CC BY-SA 4.0 (Wikipedia, attributed per card); facts CC0 (Wikidata). No non-commercial licences are currently in use.
 
 ## Online vs. offline
 | Works offline (after the app has been opened once) | Needs internet |

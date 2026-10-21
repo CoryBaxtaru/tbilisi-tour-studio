@@ -1,6 +1,6 @@
 {
  "source": "Positions and Georgian names: © OpenStreetMap contributors (ODbL), via Nominatim. Names, tags and notes: suggestions, not verified.",
- "generatedAt": "2026-10-21",
+ "generatedAt": "2026-10-21T20:05:12.000Z",
  "sites": [
   {
    "id": "vrijheidsplein",
@@ -22,7 +22,26 @@
    "lng": 44.801425,
    "osm": "way/220709392",
    "osmName": "Freedom Square, Mtatsminda, Sololaki, Mtatsminda District, Tbilisi, 0108, Georgia",
-   "osmCategory": "highway/construction"
+   "osmCategory": "highway/construction",
+   "info": {
+    "wikidata": "Q36998",
+    "wikidataVia": "handmatig",
+    "wikidataLabel": "Freedom Square",
+    "facts": [
+     {
+      "label": "Vernoemd naar",
+      "value": "Vladimir Lenin, Lavrenti Beria, vrijheid"
+     }
+    ],
+    "wiki": {
+     "lang": "nl",
+     "title": "Vrijheidsplein (Tbilisi)",
+     "url": "https://nl.wikipedia.org/wiki/Vrijheidsplein_(Tbilisi)",
+     "extract": "Het Vrijheidsplein (Georgisch: თავისუფლების მოედანი, Tavisoeplebis Moëdani), voorheen Jerevanplein en Leninplein, is een plein in de Georgische hoofdstad Tbilisi. Het ligt aan de rand van het oude centrum in de wijk Sololaki en is het zuidelijke uiteinde van de prominente Roestavelilaan.",
+     "truncated": false
+    },
+    "retrievedAt": "2026-10-21"
+   }
   },
   {
    "id": "rustaveli-avenue",
@@ -46,7 +65,26 @@
    "lng": 44.796652,
    "osm": "way/86696581",
    "osmName": "Shota Rustaveli Avenue, Mtatsminda, Sololaki, Mtatsminda District, Tbilisi, 0108, Georgia",
-   "osmCategory": "highway/construction"
+   "osmCategory": "highway/construction",
+   "info": {
+    "wikidata": "Q1754726",
+    "wikidataVia": "osm",
+    "wikidataLabel": "Roestaveli Avenue",
+    "facts": [
+     {
+      "label": "Vernoemd naar",
+      "value": "Sjota Roestaveli"
+     }
+    ],
+    "wiki": {
+     "lang": "nl",
+     "title": "Roestavelilaan",
+     "url": "https://nl.wikipedia.org/wiki/Roestavelilaan",
+     "extract": "De Roestavelilaan (Georgisch: რუსთაველის გამზირი, Roestavelis Gamziri), voorheen bekend als Golovin Prospekt, is een anderhalve kilometer lange laan in het centrum van Tbilisi, die vernoemd is naar de middeleeuwse Georgische dichter Sjota Roestaveli. De straat begint aan het Vrijheidsplein aan de rand van het oude stadscentrum en loopt ter hoogte van het Plein van de Eerste Republiek over in de Merab Kostavastraat.\nDe Roestavelilaan wordt vaak beschouwd als de hoofdweg van Tbilisi omdat er een groot aantal van de overheids-, openbare, culturele en zakelijke gebouwen langs of nabij de laan gelegen zijn. De straat is vaak het toneel van protesten en demonstraties voor het Parlement van Georgië dat aan de Roestavelilaan staat.\nIn 1989 verzamelden zich hier tienduizenden Georgiërs voor een anti-Sovjet protest, dat op 9 april uitmondde in gewelddadige repressie door de Sovjet-Spetsnaz met twintig doden als gevolg. Eind 1991 werd er zwaar gevochten tijdens de coup tegen president Zviad Gamsachoerdia en in 2003 was de straat het centrum van de Rozenrevolutie.\nDe straat is een belangrijke verkeersader van zowel autoverkeer als het openbaar vervoer. Onder de straat ligt de metro van Tbilisi die aan beide uiteinden een halte heeft.",
+     "truncated": false
+    },
+    "retrievedAt": "2026-10-21"
+   }
   },
   {
    "id": "oud-parlement",
@@ -67,7 +105,34 @@
    "lng": 44.798523,
    "osm": "relation/1020718",
    "osmName": "Parliament of Georgia, 8, Freedom Square, Mtatsminda, Sololaki, Mtatsminda District, Tbilisi, 0108, Georgia",
-   "osmCategory": "office/government"
+   "osmCategory": "office/government",
+   "info": {
+    "wikidata": "Q42650745",
+    "wikidataVia": "osm",
+    "wikidataLabel": "Georgian Parliament Building",
+    "facts": [
+     {
+      "label": "Architect",
+      "value": "Viktor Dmitrievitsj Kokorin, Giorgi Lezhava"
+     },
+     {
+      "label": "Bouwstijl",
+      "value": "Stalinist architecture"
+     },
+     {
+      "label": "Erfgoedstatus",
+      "value": "Cultural heritage in Georgia"
+     }
+    ],
+    "wiki": {
+     "lang": "en",
+     "title": "Georgian Parliament Building (Tbilisi)",
+     "url": "https://en.wikipedia.org/wiki/Georgian_Parliament_Building_(Tbilisi)",
+     "extract": "The Parliament of Georgia Building (Georgian: საქართველოს პარლამენტის შენობა, romanized: sakartvelos p'arlament'is shenoba) is the meeting place of the Parliament of Georgia, located in Tbilisi, the capital of Georgia. It is located in 8 Rustaveli Avenue, close to the foothills of Mount Mtatsminda.\nThe building complex was constructed as the House of Government of Georgian SSR on the site of the demolished 19th-century Alexander Nevsky Cathedral and adjacent churchyard, with burials of the Georgian cadets killed during the Bolshevik invasion of 1921. It consists of two buildings; the \"upper\" building was designed by Viktor Kokorin and Giorgi Lezhava and built from 1933 to 1938. The \"lower\" building, along Rustaveli Avenue, was constructed by the same architects with an input from Vladimer Nasaridze from 1946 to 1953. The two buildings are connected with a courtyard, with staircases and fountains. The design of both buildings heavily uses elements of traditional Georgian architecture. The exterior facing the avenue is dominated by a monumental arcade, with massive eaves and \"arch\" pediment. The buildings are built of lightweight reinforced concrete, with exterior cladding of tufa rock, granite, and other materials.",
+     "truncated": true
+    },
+    "retrievedAt": "2026-10-21"
+   }
   },
   {
    "id": "paleis-onderkoning",
@@ -88,7 +153,34 @@
    "lng": 44.799183,
    "osm": "relation/14069191",
    "osmName": "Tbilisi Youth and Children's Palace, 6, Shota Rustaveli Avenue, Mtatsminda, Sololaki, Mtatsminda District, Tbilisi, 0108, Georgia",
-   "osmCategory": "building/yes"
+   "osmCategory": "building/yes",
+   "info": {
+    "wikidata": "Q16374230",
+    "wikidataVia": "osm",
+    "wikidataLabel": "National Youth Palace",
+    "facts": [
+     {
+      "label": "Gebouwd / opgericht",
+      "value": "1818"
+     },
+     {
+      "label": "Bouwstijl",
+      "value": "renaissance"
+     },
+     {
+      "label": "Erfgoedstatus",
+      "value": "Cultural heritage in Georgia"
+     }
+    ],
+    "wiki": {
+     "lang": "en",
+     "title": "National Youth and Children's Palace",
+     "url": "https://en.wikipedia.org/wiki/National_Youth_and_Children's_Palace",
+     "extract": "National Youth and Children's Palace (Georgian: მოსწავლე ახალგაზრდობის ეროვნული სასახლე), sometimes referred to as Pioneers' Palace, National Palace, or by its original name, Viceroy's Palace, is a historic building located on Rustaveli Avenue in Tbilisi, Georgia.\nThe original building, constructed in 1802 after the establishment of the Imperial Russian rule in Georgia, served as the residence of the Commander-in-Chief of the Caucasus in Tiflis. After several reconstructions a new palace was built in 1818, designed by architect Braunmiller. The palace was reconstructed in 1847 by architect Nikolai Semyonov, who gave the palace a classical look and constructed a garden on the left side of the palace. It underwent a second renovation in 1869, led by Otto Jakob Simonson, a German architect working in Tbilisi. He enlarged the palace and gave it a renaissance look.\nDuring the various periods of Russian Imperial rule in Georgia, the palace was sometimes the residence and palace of the Commander-in-Chief of the Caucasus, and sometimes of the Viceroy.\nFollowing the Russian Revolution of 1917, the palace housed the government of the Transcaucasian Democratic Federative Republic. On May 26, 1918, the federation announced its dissolution and the National Council of Georgia, convened at the palace on the same day, declared Georgia's independence at 5:10 p.m.",
+     "truncated": true
+    },
+    "retrievedAt": "2026-10-21"
+   }
   },
   {
    "id": "kashveti",
@@ -107,7 +199,38 @@
    "lng": 44.799315,
    "osm": "way/65299828",
    "osmName": "Kashveti Church of St. George, 9, Freedom Square, Mtatsminda, Sololaki, Mtatsminda District, Tbilisi, 0108, Georgia",
-   "osmCategory": "amenity/place_of_worship"
+   "osmCategory": "amenity/place_of_worship",
+   "info": {
+    "wikidata": "Q1734896",
+    "wikidataVia": "osm",
+    "wikidataLabel": "Kashveti Church",
+    "facts": [
+     {
+      "label": "Gebouwd / opgericht",
+      "value": "1910"
+     },
+     {
+      "label": "Bouwstijl",
+      "value": "Byzantijnse architectuur"
+     },
+     {
+      "label": "Erfgoedstatus",
+      "value": "Cultural heritage in Georgia"
+     },
+     {
+      "label": "Vernoemd naar",
+      "value": "Sint Joris"
+     }
+    ],
+    "wiki": {
+     "lang": "en",
+     "title": "Kashveti Church",
+     "url": "https://en.wikipedia.org/wiki/Kashveti_Church",
+     "extract": "The Kashveti Church of St. George (Georgian: ქაშვეთის წმინდა გიორგის სახელობის ტაძარი) is a Georgian Orthodox Church in central Tbilisi, located across from the Parliament building on Rustaveli Avenue.\nThe Kashveti church was constructed between 1904 and 1910 by the architect Leopold Bilfeldt, who based his design on the medieval Samtavisi Cathedral. The construction was sponsored by the Georgian nobility and bourgeoisie. Kashveti was built on the site of a damaged church built of brick at the request of the Amilakhvari family in 1753. Significant contributions to the current church's ornate design were made by N. Agladze. Kashveti's frescoes were painted by the influential Georgian painter, Lado Gudiashvili, in 1947.\nThe name \"kashveti\" is derived from Georgian words kva for a \"stone\" and shva \"to give birth.\" Legend has it the prominent 6th century monk David of Gareja of the Thirteen Assyrian Fathers was accused by a woman of making her a pregnant in Tbilisi. David prophesied his denial would be proved when she gave birth to a stone. She did, and the place received the name of \"kashveti\".",
+     "truncated": false
+    },
+    "retrievedAt": "2026-10-21"
+   }
   },
   {
    "id": "nationaal-museum",
@@ -128,7 +251,26 @@
    "lng": 44.800221,
    "osm": "node/412214448",
    "osmName": "Georgian National Museum, Shota Rustaveli Avenue, Mtatsminda, Sololaki, Mtatsminda District, Tbilisi, 0108, Georgia",
-   "osmCategory": "tourism/museum"
+   "osmCategory": "tourism/museum",
+   "info": {
+    "wikidata": "Q2586798",
+    "wikidataVia": "osm",
+    "wikidataLabel": "Georgian National Museum",
+    "facts": [
+     {
+      "label": "Gebouwd / opgericht",
+      "value": "30-12-2004, 2004"
+     }
+    ],
+    "wiki": {
+     "lang": "en",
+     "title": "Georgian National Museum",
+     "url": "https://en.wikipedia.org/wiki/Georgian_National_Museum",
+     "extract": "The Georgian National Museum (Georgian: საქართველოს ეროვნული მუზეუმი, romanized: sakartvelos erovnuli muzeumi) unifies several leading museums in Georgia.\nThe museum was established within the framework of structural, institutional, and legal reforms aimed at modernizing the management of the institutions united within this network, and at coordinating research and educational activities. Since its formation on December 30, 2004, the Museum has been directed by professor David Lordkipanidze.\nThe Georgian National Museum integrates the management of the following museums:\nSimon Janashia Museum of Georgia, Tbilisi\nSamtskhe-Javakheti History Museum, Akhaltsikhe\nOpen Air Museum of Ethnography, Tbilisi\nArt Museum of Georgia, Tbilisi, and its branches\nMuseum of the Soviet Occupation, Tbilisi\nDmanisi Museum-Reserve of History and Archaeology, Dmanisi\nVani Museum-Reserve of Archaeology, Vani\nMuseum of History of Tbilisi, Tbilisi\nMuseum of History and Ethnography of Svaneti, Mestia\nInstitute of Palaeobiology, Tbilisi\nSighnaghi Museum, Sighnaghi\nBolnisi Museum, Bolnisi",
+     "truncated": false
+    },
+    "retrievedAt": "2026-10-21"
+   }
   },
   {
    "id": "rustaveli-theater",
@@ -149,7 +291,34 @@
    "lng": 44.797949,
    "osm": "relation/19640789",
    "osmName": "Rustaveli National Theatre, 17, Shota Rustaveli Avenue, Mtatsminda, Sololaki, Mtatsminda District, Tbilisi, 0108, Georgia",
-   "osmCategory": "amenity/theatre"
+   "osmCategory": "amenity/theatre",
+   "info": {
+    "wikidata": "Q1860439",
+    "wikidataVia": "osm",
+    "wikidataLabel": "Rustaveli Theatre",
+    "facts": [
+     {
+      "label": "Gebouwd / opgericht",
+      "value": "1921"
+     },
+     {
+      "label": "Architect",
+      "value": "Aleksander Szymkiewicz"
+     },
+     {
+      "label": "Vernoemd naar",
+      "value": "Sjota Roestaveli"
+     }
+    ],
+    "wiki": {
+     "lang": "en",
+     "title": "Rustaveli Theatre",
+     "url": "https://en.wikipedia.org/wiki/Rustaveli_Theatre",
+     "extract": "Tbilisi State Academic Theater named after Shota Rustaveli (Georgian: თბილისის შოთა რუსთაველის სახელობის სახელმწიფო აკადემიური თეატრი, romanized: tbilisis shota rustavelis sakhelobis sakhelmts'ipo ak'ademiuri teat'ri), shortly Rustaveli Theater (Georgian: რუსთაველის თეატრი, romanized:  rustavelis teat'ri), is the largest and one of the oldest theaters of Georgia, located in its capital Tbilisi on Rustaveli Avenue. Housed in an ornate Rococo-style edifice, the theatre was founded in 1887 and since 1921 has carried the name of Georgia's national poet Rustaveli.",
+     "truncated": false
+    },
+    "retrievedAt": "2026-10-21"
+   }
   },
   {
    "id": "opera",
@@ -169,7 +338,42 @@
    "lng": 44.796309,
    "osm": "way/59151604",
    "osmName": "Tbilisi Opera and Ballet State Theatre, 25, Shota Rustaveli Avenue, Mtatsminda, Sololaki, Mtatsminda District, Tbilisi, 0108, Georgia",
-   "osmCategory": "amenity/theatre"
+   "osmCategory": "amenity/theatre",
+   "info": {
+    "wikidata": "Q2596393",
+    "wikidataVia": "osm",
+    "wikidataLabel": "Tbilisi Opera and Ballet Theatre",
+    "facts": [
+     {
+      "label": "Gebouwd / opgericht",
+      "value": "1851"
+     },
+     {
+      "label": "Architect",
+      "value": "Viktor Shreter"
+     },
+     {
+      "label": "Bouwstijl",
+      "value": "Moorse heroplevingsarchitectuur"
+     },
+     {
+      "label": "Erfgoedstatus",
+      "value": "Cultural Monuments of National Importance of Georgia, Cultural heritage in Georgia"
+     },
+     {
+      "label": "Vernoemd naar",
+      "value": "Zakaria Paliashvili"
+     }
+    ],
+    "wiki": {
+     "lang": "en",
+     "title": "Georgian National Opera Theater",
+     "url": "https://en.wikipedia.org/wiki/Georgian_National_Opera_Theater",
+     "extract": "The Tbilisi State Opera and Ballet Theater named after Zacharia Paliashvili (Georgian: თბილისის ზაქარია ფალიაშვილის სახელობის სახელმწიფო ოპერისა და ბალეტის თეატრი, romanized: tbilisis zakaria paliashvilis sakhelobis sakhelmts'ipo op'erisa da balet'is teat'ri), shortly Paliashvili Theatre (Georgian: ფალიაშვილის თეატრი, romanized: paliashvilis teat'ri), is an opera house situated on Rustaveli Avenue in Tbilisi, Georgia. Founded in 1851, Tbilisi Opera is the main opera house of Georgia and is among the oldest opera houses in Eastern Europe.\nSince 1896, the former Tiflis Imperial Theater has resided in an exotic neo-Moorish edifice originally constructed by Victor Johann Gottlieb Schröter, a prominent architect of Baltic German origin. Although definitively Oriental in its decorations and style, the building's layout, foyers and the main hall are that of a typical European opera house. Since its foundation, the theater has been damaged by several fires and underwent major rehabilitation works under Soviet and Georgian leadership; the most recent restoration effort concluded in January 2016, having taken six years and costing approximately 40 million U.S. dollars, donated by a Georgian business foundation.",
+     "truncated": true
+    },
+    "retrievedAt": "2026-10-21"
+   }
   },
   {
    "id": "museum-schone-kunsten",
@@ -189,7 +393,30 @@
    "lng": 44.801747,
    "osm": "node/637763969",
    "osmName": "Shalva Amiranashvili State Museum of Arts of Georgia, Lado Gudiashvili Street, Mtatsminda, Sololaki, Mtatsminda District, Tbilisi, 0108, Georgia",
-   "osmCategory": "tourism/museum"
+   "osmCategory": "tourism/museum",
+   "info": {
+    "wikidata": "Q2028327",
+    "wikidataVia": "osm",
+    "wikidataLabel": "Art Museum of Georgia",
+    "facts": [
+     {
+      "label": "Gebouwd / opgericht",
+      "value": "1920"
+     },
+     {
+      "label": "Vernoemd naar",
+      "value": "Sjalva Jasonovitsj Amiranasjvili"
+     }
+    ],
+    "wiki": {
+     "lang": "en",
+     "title": "Art Museum of Georgia",
+     "url": "https://en.wikipedia.org/wiki/Art_Museum_of_Georgia",
+     "extract": "The Art Museum of Georgia (AMG) (Georgian: საქართველოს ხელოვნების მუზეუმი, sak'art'velos khelovnebis muzeumi), alternatively known as Shalva Amiranashvili Museum of Fine Arts, is one of the leading museums in the country of Georgia. Falling under the umbrella of the Georgian National Museum,  AMG is located near Freedom Square, Tbilisi and possesses around 140,000 items of Georgian, Oriental, Russian, and other European art.",
+     "truncated": false
+    },
+    "retrievedAt": "2026-10-21"
+   }
   },
   {
    "id": "staatsuniversiteit",
@@ -210,7 +437,32 @@
    "lng": 44.778437,
    "osm": "relation/900361",
    "osmName": "Ivane Javakhishvili Tbilisi State University, Building 1, 1, Ilia Chavchavadze Avenue, Vake, Vake District, Tbilisi, 0179, Georgia",
-   "osmCategory": "amenity/university"
+   "osmCategory": "amenity/university",
+   "info": {
+    "wikidata": "Q42662646",
+    "wikidataVia": "osm",
+    "wikidataLabel": "Tbilisi State University Building 1",
+    "facts": [
+     {
+      "label": "Gebouwd / opgericht",
+      "value": "1906"
+     },
+     {
+      "label": "Architect",
+      "value": "Simon Kldiashvili"
+     },
+     {
+      "label": "Bouwstijl",
+      "value": "neoclassicistische architectuur"
+     },
+     {
+      "label": "Erfgoedstatus",
+      "value": "Cultural heritage in Georgia"
+     }
+    ],
+    "wiki": null,
+    "retrievedAt": "2026-10-21"
+   }
   },
   {
    "id": "bank-of-georgia",
@@ -229,7 +481,38 @@
    "lng": 44.770392,
    "osm": "way/1236448832",
    "osmName": "Bank of Georgia Headquarters, 29ა, Yuri Gagarin Street, Saburtalo, Vedzisi, Kazbegi, Gotua, Saburtalo Street, Saburtalo District, Tbilisi, 0160, Georgia",
-   "osmCategory": "tourism/attraction"
+   "osmCategory": "tourism/attraction",
+   "info": {
+    "wikidata": "Q1544120",
+    "wikidataVia": "osm",
+    "wikidataLabel": "Bank of Georgia headquarters",
+    "facts": [
+     {
+      "label": "Gebouwd / opgericht",
+      "value": "1975"
+     },
+     {
+      "label": "Architect",
+      "value": "George Chakhava"
+     },
+     {
+      "label": "Bouwstijl",
+      "value": "brutalisme"
+     },
+     {
+      "label": "Erfgoedstatus",
+      "value": "Cultural heritage in Georgia"
+     }
+    ],
+    "wiki": {
+     "lang": "en",
+     "title": "Bank of Georgia headquarters",
+     "url": "https://en.wikipedia.org/wiki/Bank_of_Georgia_headquarters",
+     "extract": "The Bank of Georgia headquarters (Georgian: საქართველოს ბანკის სათავო ოფისი) is a building in Tbilisi, Georgia. It was designed by architects George Chakhava and Zurab Jalaghania for the Ministry of Highway Construction of the Georgian SSR and finished in 1975. The engineer was Temur Tkhilava. This 18-story building was acquired by the Bank of Georgia in 2007.",
+     "truncated": false
+    },
+    "retrievedAt": "2026-10-21"
+   }
   },
   {
    "id": "narikala",
@@ -249,7 +532,26 @@
    "lng": 44.809111,
    "osm": "relation/9820020",
    "osmName": "Narikala, Data Gulua's raise, Kharpukhi, Kala, Ortachala, Krtsanisi District, Tbilisi, 0114, Georgia",
-   "osmCategory": "tourism/attraction"
+   "osmCategory": "tourism/attraction",
+   "info": {
+    "wikidata": "Q155453",
+    "wikidataVia": "osm",
+    "wikidataLabel": "Narikala",
+    "facts": [
+     {
+      "label": "Erfgoedstatus",
+      "value": "Cultural heritage in Georgia"
+     }
+    ],
+    "wiki": {
+     "lang": "en",
+     "title": "Narikala",
+     "url": "https://en.wikipedia.org/wiki/Narikala",
+     "extract": "Narikala (Georgian: ნარიყალა, pronounced [naɾiχʼaɫa]) is an ancient fortress overlooking Tbilisi, the capital of Georgia, and the Mtkvari (Kura) River. The fortress consists of two walled sections on a steep hill between the sulfur baths and the botanical gardens of Tbilisi. On the lower court there is the recently restored St Nicholas church. Newly built in 1996–1997, it replaces the original 13th-century church that was destroyed in a fire. The new church is of \"prescribed cross\" type, having doors on three sides. The internal part of the church is decorated with the frescos showing scenes from both the Bible and the history of Georgia.",
+     "truncated": false
+    },
+    "retrievedAt": "2026-10-21"
+   }
   },
   {
    "id": "moeder-georgie",
@@ -268,7 +570,26 @@
    "lng": 44.804603,
    "osm": "way/1063062536",
    "osmName": "Mother of Kartli, Sololaki Alley, Kala, Ortachala, Krtsanisi District, Tbilisi, 0114, Georgia",
-   "osmCategory": "historic/monument"
+   "osmCategory": "historic/monument",
+   "info": {
+    "wikidata": "Q1147179",
+    "wikidataVia": "osm",
+    "wikidataLabel": "Kartlis Deda",
+    "facts": [
+     {
+      "label": "Gebouwd / opgericht",
+      "value": "1958"
+     }
+    ],
+    "wiki": {
+     "lang": "nl",
+     "title": "Kartlis Deda",
+     "url": "https://nl.wikipedia.org/wiki/Kartlis_Deda",
+     "extract": "Kartlis Deda (Georgisch: ქართლის დედა, Moeder van Kartlië, ook wel Moeder van Georgië) is een monumentaal standbeeld in de Georgische hoofdstad Tbilisi. Het standbeeld is een van de symbolen van Tbilisi en kijkt vanaf de Sololaki-heuvel uit over de stad. Het beeldt een vrouw uit in traditionele Georgische klederdracht.",
+     "truncated": false
+    },
+    "retrievedAt": "2026-10-21"
+   }
   },
   {
    "id": "abanotubani",
@@ -291,7 +612,21 @@
    "lng": 44.811481,
    "osm": "relation/2073134",
    "osmName": "Abanotubani, Kala, Ortachala, Krtsanisi District, Tbilisi, Georgia",
-   "osmCategory": "place/neighbourhood"
+   "osmCategory": "place/neighbourhood",
+   "info": {
+    "wikidata": "Q36985",
+    "wikidataVia": "osm",
+    "wikidataLabel": "Abanotubani",
+    "facts": [],
+    "wiki": {
+     "lang": "en",
+     "title": "Abanotubani",
+     "url": "https://en.wikipedia.org/wiki/Abanotubani",
+     "extract": "Abanotubani (Georgian: აბანოთუბანი, literally \"bath district\") is the ancient district of Tbilisi, Georgia, known for its sulphuric baths. \nLocated at the eastern bank of the Mtkvari River at the foot of Narikala fort across Metekhisubani, Abanotubani is an important historic part of the city: it is where according to a legend the King of Iberia, Vakhtang Gorgasali’s falcon fell, leading to a discovery of the hot springs and, subsequently, to founding of a new capital.\nBy the end of the 13th century, 65 baths were recorded in Tbilisi. During this time, the baths were free to Muslim residents.",
+     "truncated": false
+    },
+    "retrievedAt": "2026-10-21"
+   }
   },
   {
    "id": "chreli-abano",
@@ -311,7 +646,24 @@
    "lng": 44.810772,
    "osm": "way/503326365",
    "osmName": "Chreli Abano, 2, Abano Street, Abanotubani, Kala, Ortachala, Krtsanisi District, Tbilisi, 0114, Georgia",
-   "osmCategory": "leisure/sauna"
+   "osmCategory": "leisure/sauna",
+   "info": {
+    "wikidata": "Q42618271",
+    "wikidataVia": "osm",
+    "wikidataLabel": "Colorful Bath",
+    "facts": [
+     {
+      "label": "Bouwstijl",
+      "value": "Moorse heroplevingsarchitectuur"
+     },
+     {
+      "label": "Erfgoedstatus",
+      "value": "Cultural heritage in Georgia"
+     }
+    ],
+    "wiki": null,
+    "retrievedAt": "2026-10-21"
+   }
   },
   {
    "id": "waterval",
@@ -347,7 +699,34 @@
    "lng": 44.810146,
    "osm": "way/506741615",
    "osmName": "Juma Mosque, 32, Botanikuri Street, Abanotubani, Kala, Ortachala, Krtsanisi District, Tbilisi, 0114, Georgia",
-   "osmCategory": "amenity/place_of_worship"
+   "osmCategory": "amenity/place_of_worship",
+   "info": {
+    "wikidata": "Q4453131",
+    "wikidataVia": "osm",
+    "wikidataLabel": "Juma Mosque",
+    "facts": [
+     {
+      "label": "Gebouwd / opgericht",
+      "value": "1723"
+     },
+     {
+      "label": "Bouwstijl",
+      "value": "neogotiek"
+     },
+     {
+      "label": "Erfgoedstatus",
+      "value": "Cultural heritage in Georgia"
+     }
+    ],
+    "wiki": {
+     "lang": "en",
+     "title": "Juma Mosque, Tbilisi",
+     "url": "https://en.wikipedia.org/wiki/Juma_Mosque%2C_Tbilisi",
+     "extract": "The Juma Mosque (Georgian: ჯუმა მეჩეთი; Azerbaijani: Cümə məscidi) is the only surviving mosque in the historic Old Town of Tbilisi, Georgia. Located at the foot of Narikala Fortress on Botanical Street, it is notable for its shared use by both Sunni and Shia Muslims.",
+     "truncated": false
+    },
+    "retrievedAt": "2026-10-21"
+   }
   },
   {
    "id": "meidan",
@@ -368,7 +747,26 @@
    "lng": 44.809099,
    "osm": "way/709355801",
    "osmName": "Vakhtang Gorgasali Square, Kala, Ortachala, Krtsanisi District, Tbilisi, Georgia",
-   "osmCategory": "place/square"
+   "osmCategory": "place/square",
+   "info": {
+    "wikidata": "Q25543614",
+    "wikidataVia": "osm",
+    "wikidataLabel": "Gorgasaliplein",
+    "facts": [
+     {
+      "label": "Vernoemd naar",
+      "value": "Vachtang I van Iberië"
+     }
+    ],
+    "wiki": {
+     "lang": "nl",
+     "title": "Gorgasaliplein",
+     "url": "https://nl.wikipedia.org/wiki/Gorgasaliplein",
+     "extract": "Het (Vachtang) Gorgasaliplein (Georgisch: ვახტანგ გორგასლის მოედანი, Vachtang Gorgaslis Moëdani) is een plein in het centrum van de Georgische hoofdstad Tbilisi. Het plein is vernoemd naar de Georgische koning Vachtang I Gorgasali. Het Gorgasaliplein ligt tussen de twee oudste buurten van de stad, Kala en Abanotoebani, en is met een brug over de Mtkvari verbonden met het derde oude deel van Tbilisi, de wijk Metechi.",
+     "truncated": false
+    },
+    "retrievedAt": "2026-10-21"
+   }
   },
   {
    "id": "erekle-plein",
@@ -386,7 +784,15 @@
    "lng": 44.806413,
    "osm": "way/709359129",
    "osmName": "Erekle II Square, Kala, Ortachala, Krtsanisi District, Tbilisi, Georgia",
-   "osmCategory": "place/square"
+   "osmCategory": "place/square",
+   "info": {
+    "wikidata": "Q16368736",
+    "wikidataVia": "osm",
+    "wikidataLabel": "Erekle II Square, Tbilisi",
+    "facts": [],
+    "wiki": null,
+    "retrievedAt": "2026-10-21"
+   }
   },
   {
    "id": "sioni",
@@ -407,7 +813,34 @@
    "lng": 44.807525,
    "osm": "way/77895547",
    "osmName": "Sioni Cathedral of the Dormition, Sioni Street, Kala, Ortachala, Krtsanisi District, Tbilisi, 0108, Georgia",
-   "osmCategory": "amenity/place_of_worship"
+   "osmCategory": "amenity/place_of_worship",
+   "info": {
+    "wikidata": "Q248050",
+    "wikidataVia": "osm",
+    "wikidataLabel": "Sioni-kathedraal",
+    "facts": [
+     {
+      "label": "Gebouwd / opgericht",
+      "value": "7e eeuw"
+     },
+     {
+      "label": "Erfgoedstatus",
+      "value": "Cultural heritage in Georgia"
+     },
+     {
+      "label": "Vernoemd naar",
+      "value": "Zion"
+     }
+    ],
+    "wiki": {
+     "lang": "nl",
+     "title": "Sioni-kathedraal",
+     "url": "https://nl.wikipedia.org/wiki/Sioni-kathedraal",
+     "extract": "De Sioni-kathedraal (Georgisch: სიონი (ტაძარი)) is een Georgisch-Orthodoxe kathedraal in de hoofdstad van Georgië, Tbilisi. De kerk is gewijd aan het hoogfeest Ontslapen van de Moeder Gods. De kathedraal van Sioni draagt de naam van de berg Zion in Jeruzalem zoals het een traditie was in het middeleeuwse Georgië om religieuze gebouwen te vernoemen naar plaatsen in het Heilige Land.\nDe kathedraal van Sioni bevindt zich in de historische Sionis Kutsja (Sionistraat) in het centrum van Tbilisi, op de rechteroever van de Mtkvari. Hij werd oorspronkelijk gebouwd in de 6de-7de eeuw. Sindsdien werd hij enkele keren verwoest door buitenlandse machten en weer gerenoveerd. De huidige kerk is gebaseerd op een 13de-eeuwse versie die nog enkele wijzigingen onderging in de 17de tot de 19de eeuw. De Sioni-kathedraal was de hoofdzetel van de Katholikos-patriarch van Geheel Georgië tot de Samebakathedraal werd ingewijd in 2004.",
+     "truncated": false
+    },
+    "retrievedAt": "2026-10-21"
+   }
   },
   {
    "id": "anchiskhati",
@@ -427,7 +860,26 @@
    "lng": 44.806873,
    "osm": "way/337365208",
    "osmName": "Anchiskhati Basilica of Saint Mary, Ioan Shavteli Lane, Kala, Ortachala, Krtsanisi District, Tbilisi, 0108, Georgia",
-   "osmCategory": "amenity/place_of_worship"
+   "osmCategory": "amenity/place_of_worship",
+   "info": {
+    "wikidata": "Q609419",
+    "wikidataVia": "osm",
+    "wikidataLabel": "Anchiskhati Basilica",
+    "facts": [
+     {
+      "label": "Gebouwd / opgericht",
+      "value": "6e eeuw"
+     }
+    ],
+    "wiki": {
+     "lang": "en",
+     "title": "Anchiskhati Basilica",
+     "url": "https://en.wikipedia.org/wiki/Anchiskhati_Basilica",
+     "extract": "The Anchiskhati Basilica of St Mary (Georgian: ანჩისხატი, Georgian pronunciation: [ˈantʃʰisχat’i]) is the oldest surviving church in Tbilisi, Georgia. It belongs to the Georgian Orthodox Church and dates from the sixth century.",
+     "truncated": false
+    },
+    "retrievedAt": "2026-10-21"
+   }
   },
   {
    "id": "gabriadze",
@@ -446,7 +898,24 @@
    "lng": 44.80657,
    "osm": "node/1567308849",
    "osmName": "Rezo Gabriadze Marionette Theater, 13, Ioan Shavteli Street, Kala, Ortachala, Krtsanisi District, Tbilisi, 0108, Georgia",
-   "osmCategory": "amenity/theatre"
+   "osmCategory": "amenity/theatre",
+   "info": {
+    "wikidata": "Q55401375",
+    "wikidataVia": "osm",
+    "wikidataLabel": "State Marionette Theatre Rezo Gabriadze",
+    "facts": [
+     {
+      "label": "Gebouwd / opgericht",
+      "value": "1981"
+     },
+     {
+      "label": "Vernoemd naar",
+      "value": "Revaz Gabriadze"
+     }
+    ],
+    "wiki": null,
+    "retrievedAt": "2026-10-21"
+   }
   },
   {
    "id": "shardeni",
@@ -465,7 +934,20 @@
    "lng": 44.808375,
    "osm": "way/1041451281",
    "osmName": "შარდენი, Kote Abkhazi Street, Kala, Ortachala, Krtsanisi District, Tbilisi, 0108, Georgia",
-   "osmCategory": "tourism/attraction"
+   "osmCategory": "tourism/attraction",
+   "info": {
+    "wikidata": "Q3448534",
+    "wikidataVia": "handmatig",
+    "wikidataLabel": "rue Jean Chardin",
+    "facts": [
+     {
+      "label": "Vernoemd naar",
+      "value": "Jean Chardin"
+     }
+    ],
+    "wiki": null,
+    "retrievedAt": "2026-10-21"
+   }
   },
   {
    "id": "tbilisi-history-museum",
@@ -485,7 +967,15 @@
    "lng": 44.807549,
    "osm": "node/4325006493",
    "osmName": "Tbilisi History Museum, Sioni Street, Kala, Ortachala, Krtsanisi District, Tbilisi, 0108, Georgia",
-   "osmCategory": "tourism/museum"
+   "osmCategory": "tourism/museum",
+   "info": {
+    "wikidata": "Q16370686",
+    "wikidataVia": "osm",
+    "wikidataLabel": "Tbilisi History Museum",
+    "facts": [],
+    "wiki": null,
+    "retrievedAt": "2026-10-21"
+   }
   },
   {
    "id": "synagoge",
@@ -504,7 +994,30 @@
    "lng": 44.807269,
    "osm": "way/75311791",
    "osmName": "The Great Synagogue, 12, Hovanes Tumaniani Street, Betlemi, Kala, Ortachala, Krtsanisi District, Tbilisi, 0108, Georgia",
-   "osmCategory": "amenity/place_of_worship"
+   "osmCategory": "amenity/place_of_worship",
+   "info": {
+    "wikidata": "Q550451",
+    "wikidataVia": "osm",
+    "wikidataLabel": "Great Synagogue",
+    "facts": [
+     {
+      "label": "Gebouwd / opgericht",
+      "value": "1903"
+     },
+     {
+      "label": "Erfgoedstatus",
+      "value": "Cultural heritage in Georgia"
+     }
+    ],
+    "wiki": {
+     "lang": "en",
+     "title": "Great Synagogue (Tbilisi)",
+     "url": "https://en.wikipedia.org/wiki/Great_Synagogue_(Tbilisi)",
+     "extract": "The Great Synagogue (Georgian: დიდი სინაგოგა), also known as the Georgian Synagogue, is a synagogue, located at 45-47 Kote Afkhazi Street (formerly Leselidze Street) in Tbilisi, the capital of Georgia. Built between 1904 and 1911, it is the largest synagogue in the country and serves as the central house of worship for the city’s Jewish community.",
+     "truncated": false
+    },
+    "retrievedAt": "2026-10-21"
+   }
   },
   {
    "id": "norashen",
@@ -523,7 +1036,34 @@
    "lng": 44.806532,
    "osm": "way/284620213",
    "osmName": "Norashen Church, Kote Abkhazi Street, Kala, Ortachala, Krtsanisi District, Tbilisi, 0108, Georgia",
-   "osmCategory": "amenity/place_of_worship"
+   "osmCategory": "amenity/place_of_worship",
+   "info": {
+    "wikidata": "Q2046924",
+    "wikidataVia": "osm",
+    "wikidataLabel": "Norashen Holy Mother of God Armenian Church",
+    "facts": [
+     {
+      "label": "Gebouwd / opgericht",
+      "value": "1467"
+     },
+     {
+      "label": "Bouwstijl",
+      "value": "Armeense architectuur"
+     },
+     {
+      "label": "Erfgoedstatus",
+      "value": "Cultural heritage in Georgia"
+     }
+    ],
+    "wiki": {
+     "lang": "en",
+     "title": "Norashen Church",
+     "url": "https://en.wikipedia.org/wiki/Norashen_Church",
+     "extract": "Norashen (Armenian: Նորաշեն, \"newly built\"; Georgian: ნორაშენი, Norasheni) is a non-functioning Armenian Apostolic church in Tbilisi, Georgia. It is located in the old town, near Sioni Cathedral and Jvaris Mama Church.\nThe church has historically been known as the Church of the Holy Mother of God (Սուրբ Աստվածածին, Surb Astvatsatsin). Built in early 16th century, the church belonged to the Armenian Apostolic Church until it was shut down and confiscated by the Soviet authorities in the 1930s, later serving as a library. After the collapse of the Soviet Union, the church was consecrated by Georgian Orthodox clergy as an Orthodox church in 1995, while Armenian traces were removed from in and around the church. Armenian protests eventually led to it being closed indefinitely.\nMore controversy around the church arose in 2008 when a Georgian priest built a fence around the church and attempted to remove some of the Armenian gravestones. It is one of the several defunct Armenian churches in Tbilisi that the Armenian Church has unsuccessfully sought to return to use in the post-Soviet period.",
+     "truncated": false
+    },
+    "retrievedAt": "2026-10-21"
+   }
   },
   {
    "id": "betlemi",
@@ -542,7 +1082,30 @@
    "lng": 44.804573,
    "osm": "way/163799009",
    "osmName": "Betlemi Church, Sololaki Gorge, Betlemi, Kala, Ortachala, Krtsanisi District, Tbilisi, 0108, Georgia",
-   "osmCategory": "amenity/place_of_worship"
+   "osmCategory": "amenity/place_of_worship",
+   "info": {
+    "wikidata": "Q5885757",
+    "wikidataVia": "osm",
+    "wikidataLabel": "Holy Mother of God Church of Bethlehem",
+    "facts": [
+     {
+      "label": "Gebouwd / opgericht",
+      "value": "1727"
+     },
+     {
+      "label": "Bouwstijl",
+      "value": "Armeense architectuur"
+     }
+    ],
+    "wiki": {
+     "lang": "en",
+     "title": "Holy Mother of God Church of Bethlehem, Tbilisi",
+     "url": "https://en.wikipedia.org/wiki/Holy_Mother_of_God_Church_of_Bethlehem%2C_Tbilisi",
+     "extract": "Holy Mother of God Church of Bethlehem (Georgian: ზემო ბეთლემის მაცხოვრის შობის ტაძარი, zemo betlemis matskhovris shobis tadzari; Armenian: Բեթղեհեմի Սուրբ Աստվածածին եկեղեցի or Betlehemi Surb Astvatsatsin yekeghetsi; also now known as the Upper Bethlehem Church) is a church in Tbilisi, Georgia. Built as an Armenian church in the 18th century, on the site of an older church, it now operates as a Georgian orthodox church.",
+     "truncated": false
+    },
+    "retrievedAt": "2026-10-21"
+   }
   },
   {
    "id": "ateshgah",
@@ -562,7 +1125,21 @@
    "lng": 44.805597,
    "osm": "way/1206891444",
    "osmName": "Ateshgah, 3ა, Gomi Street, Betlemi, Kala, Ortachala, Krtsanisi District, Tbilisi, 0108, Georgia",
-   "osmCategory": "tourism/attraction"
+   "osmCategory": "tourism/attraction",
+   "info": {
+    "wikidata": "Q16364495",
+    "wikidataVia": "osm",
+    "wikidataLabel": "Atashgah of Tbilisi",
+    "facts": [],
+    "wiki": {
+     "lang": "en",
+     "title": "Atashgah of Tbilisi",
+     "url": "https://en.wikipedia.org/wiki/Atashgah_of_Tbilisi",
+     "extract": "The Atashgah, also transcribed as Ateshgah (Georgian: ათეშგა, from Persian: آتشگاه, \"fire temple\"), is an ancient Zoroastrian fire temple located in Tbilisi, Georgia. The monument is generally dated to the Sasanian era (224–651 CE), when eastern Georgia was under Persian political and cultural influence. It has been described as the \"northernmost Zoroastrian fire-temple in the world.\"\nAtashgah is located around 100 meters east of the Holy Mother of God Church of Bethlehem, on the Old Town slopes northeast of the Mother Georgia statue. It is an ancient brick building with a protective curved perspex roof. The temple is one of the oldest religious buildings in the Georgia's capital located in the historic part of the city.\nThe Atashgah has been preserved because it has been discreetly camouflaged in the city. There is little information as to when it was built, but some historians refer to it as having been built in the Sassanian era. During the wars between Persians and Turkish Muslims, Tbilisi fell into Turkish hands and the church was temporarily turned into a mosque. The site is inscribed on Georgia's list of Monuments of National Significance. In 2007, the Norwegian government joined a project to restore Atashgah.",
+     "truncated": false
+    },
+    "retrievedAt": "2026-10-21"
+   }
   },
   {
    "id": "botanische-tuin",
@@ -580,12 +1157,35 @@
    "lng": 44.802658,
    "osm": "relation/19630635",
    "osmName": "National Botanical Garden, Krtsanisi District, Tbilisi, Georgia",
-   "osmCategory": "leisure/garden"
+   "osmCategory": "leisure/garden",
+   "info": {
+    "wikidata": "Q894660",
+    "wikidataVia": "osm",
+    "wikidataLabel": "National Botanical Garden of Georgia",
+    "facts": [
+     {
+      "label": "Gebouwd / opgericht",
+      "value": "1845, 17e eeuw"
+     },
+     {
+      "label": "Erfgoedstatus",
+      "value": "Cultural heritage in Georgia"
+     }
+    ],
+    "wiki": {
+     "lang": "en",
+     "title": "National Botanical Garden of Georgia",
+     "url": "https://en.wikipedia.org/wiki/National_Botanical_Garden_of_Georgia",
+     "extract": "The National Botanical Garden of Georgia (Georgian: საქართველოს ეროვნული ბოტანიკური ბაღი), formerly the Tbilisi Botanical Garden (Georgian: თბილისის ბოტანიკური ბაღი), is located in Tbilisi, capital of Georgia, and lies in the Tsavkisis-Tskali Gorge on the southern foothills of the Sololaki Range (a spur of the Trialeti Range). It occupies an area of 161 hectares and possesses a collection of over 4,500 taxonomic groups.\nIts history spans more than three centuries. It was first described in 1671 by the French traveller Jean Chardin as royal gardens, which might have been founded at least in 1625 and were variably referred to as \"fortress gardens\" or \"Seidabad gardens\" later in history. The gardens appear in the records by Joseph Pitton de Tournefort (1701) and on the Tbilisi, map composed by Prince Vakhushti (1735). Pillaged in the Persian invasion of 1795, the garden was revived in the early 19th century and officially established as the Tiflis Botanical Garden in 1845.\nFrom 1888 on, when a floristics center was set up, Yuri Voronov and several other notable scholars have worked for the Garden. Between 1896 and 1904, the Garden was expanded further westward. Between 1932 and 1958, the territory around the former Muslim cemetery was included in the botanical garden.",
+     "truncated": true
+    },
+    "retrievedAt": "2026-10-21"
+   }
   },
   {
    "id": "kabelbaan-narikala",
    "name": "Kabelbaan Rike–Narikala",
-   "district": "oude-stad",
+   "district": "avlabari",
    "eras": [
     "onafhankelijk"
    ],
@@ -593,13 +1193,26 @@
     "uitzicht",
     "modern"
    ],
-   "note": "Kabelbaan van het Rikepark naar de vesting.",
-   "nameKa": "რიყე-ნარიყალა საბაგირო",
-   "lat": 41.690016,
-   "lng": 44.808998,
-   "osm": "way/154331558",
-   "osmName": "Rike - Narikala Cable Car, Noe Zhordania Embankment, Metekhi, Zemo Avlabari, Metromsheni, Isani District, Tbilisi, 0144, Georgia",
-   "osmCategory": "aerialway/gondola"
+   "note": "Kabelbaan van het Rikepark naar de vesting; de kaart wijst het dalstation Rike aan.",
+   "nameKa": "რიყე",
+   "lat": 41.691994,
+   "lng": 44.810779,
+   "osm": "node/1668768830",
+   "osmName": "Rike, Noe Zhordania Embankment, Avlabari, Zemo Avlabari, Metromsheni, Isani District, Tbilisi, 0144, Georgia",
+   "osmCategory": "aerialway/station",
+   "info": {
+    "wikidata": "Q25378215",
+    "wikidataVia": "handmatig",
+    "wikidataLabel": "Rike-Narikala Ropeway",
+    "facts": [
+     {
+      "label": "Gebouwd / opgericht",
+      "value": "2012"
+     }
+    ],
+    "wiki": null,
+    "retrievedAt": "2026-10-21"
+   }
   },
   {
    "id": "sololaki",
@@ -618,7 +1231,21 @@
    "lng": 44.798019,
    "osm": "relation/2073133",
    "osmName": "Sololaki, Mtatsminda, Sololaki, Mtatsminda District, Tbilisi, Georgia",
-   "osmCategory": "place/neighbourhood"
+   "osmCategory": "place/neighbourhood",
+   "info": {
+    "wikidata": "Q4153420",
+    "wikidataVia": "osm",
+    "wikidataLabel": "Sololaki",
+    "facts": [],
+    "wiki": {
+     "lang": "en",
+     "title": "Sololaki",
+     "url": "https://en.wikipedia.org/wiki/Sololaki",
+     "extract": "Sololaki (Georgian: სოლოლაკი) is one of the oldest neighborhoods of Tbilisi, located in the southwestern part of the city. It is located on the right side of Mtkvari, on the slope of Mount Mtatsminda. It occupies the area between the western slopes of the Sololaki ridge and the southern slopes of the Mtatsminda ridge.",
+     "truncated": false
+    },
+    "retrievedAt": "2026-10-21"
+   }
   },
   {
    "id": "kote-afkhazi",
@@ -638,7 +1265,20 @@
    "lng": 44.805616,
    "osm": "way/133607532",
    "osmName": "Kote Abkhazi Street, Kala, Ortachala, Krtsanisi District, Tbilisi, 0108, Georgia",
-   "osmCategory": "highway/tertiary"
+   "osmCategory": "highway/tertiary",
+   "info": {
+    "wikidata": "Q21843563",
+    "wikidataVia": "osm",
+    "wikidataLabel": "Kote Abkhazi street",
+    "facts": [
+     {
+      "label": "Vernoemd naar",
+      "value": "Kote Abkhazi"
+     }
+    ],
+    "wiki": null,
+    "retrievedAt": "2026-10-21"
+   }
   },
   {
    "id": "gudiashvili-plein",
@@ -657,7 +1297,21 @@
    "lng": 44.80363,
    "osm": "way/172908444",
    "osmName": "Lado Gudiashvili Square, Kala, Ortachala, Krtsanisi District, Tbilisi, Georgia",
-   "osmCategory": "place/square"
+   "osmCategory": "place/square",
+   "info": {
+    "wikidata": "Q12866081",
+    "wikidataVia": "osm",
+    "wikidataLabel": "Goediasjviliplein",
+    "facts": [],
+    "wiki": {
+     "lang": "nl",
+     "title": "Goediasjviliplein",
+     "url": "https://nl.wikipedia.org/wiki/Goediasjviliplein",
+     "extract": "Het (Lado) Goediasjviliplein Georgisch: გუდიაშვილის მოედანი, Goediasjvili Moëdani) is een plein in het oude centrum van de Georgische hoofdstad Tbilisi. Het plein is vernoemd naar de Georgische kunstschilder Lado Goediasjvili.",
+     "truncated": false
+    },
+    "retrievedAt": "2026-10-21"
+   }
   },
   {
    "id": "schrijvershuis",
@@ -677,7 +1331,38 @@
    "lng": 44.799679,
    "osm": "way/163798516",
    "osmName": "Writers' House of Georgia, 13, Ivane Machabeli Street, Sololaki, Mtatsminda, Sololaki, Mtatsminda District, Tbilisi, 0108, Georgia",
-   "osmCategory": "building/house"
+   "osmCategory": "building/house",
+   "info": {
+    "wikidata": "Q42646369",
+    "wikidataVia": "osm",
+    "wikidataLabel": "Writers' House",
+    "facts": [
+     {
+      "label": "Gebouwd / opgericht",
+      "value": "1905"
+     },
+     {
+      "label": "Architect",
+      "value": "Karl Zaar, Alexander G. Ozerov, Korneliy Tatishchev"
+     },
+     {
+      "label": "Bouwstijl",
+      "value": "art-nouveau-architectuur, neobarok"
+     },
+     {
+      "label": "Erfgoedstatus",
+      "value": "Cultural heritage in Georgia"
+     }
+    ],
+    "wiki": {
+     "lang": "en",
+     "title": "Writers' House of Georgia",
+     "url": "https://en.wikipedia.org/wiki/Writers'_House_of_Georgia",
+     "extract": "The Writers' House of Georgia is a mansion in Tbilisi dedicated to the promotion of literature and a focal point of Georgian literature. The mansion was built by David Sarajishvili, an entrepreneur, between 1903 and 1905. The architect of the building was Karl Zaar, and the building combines art nouveau with neobaroque style elements. The terrace mosaic is made from tiles by Villeroy and Boch. It is located in Sololaki, on Ivane Machabeli Street 13.\nThe Writers' House was a location in which major figures of Georgian literature, such as the Blue Horns group, met in the early 1920s. Paolo Iashvili committed suicide at the Writers' House on July 22, 1937. As an article in the Financial Times put it, the Writers' House \"has been the centrepiece of Georgian literary society for over a century, its triumphs and tragedies tracing the political contours of the country’s history.\"\nFrom 2008 onward, the building was re-dedicated to literature, and now serves as a hub for major literary and cultural events.\nIn 2017, the Writers' House launched a residency program. On the 100 year anniversary of the Soviet occupation, in 2021, with support of \"Tbilisi - UNESCO World Book Capital 2021\", the Museum of Repressed Writers was opened at the Writers' House.",
+     "truncated": true
+    },
+    "retrievedAt": "2026-10-21"
+   }
   },
   {
    "id": "metekhi",
@@ -698,7 +1383,38 @@
    "lng": 44.811248,
    "osm": "way/1064270003",
    "osmName": "Metekhi Church, Metekhi Bridge, Avlabari, Zemo Avlabari, Metromsheni, Isani District, Tbilisi, 0144, Georgia",
-   "osmCategory": "amenity/place_of_worship"
+   "osmCategory": "amenity/place_of_worship",
+   "info": {
+    "wikidata": "Q20577625",
+    "wikidataVia": "osm",
+    "wikidataLabel": "Metekhi church",
+    "facts": [
+     {
+      "label": "Gebouwd / opgericht",
+      "value": "13e eeuw"
+     },
+     {
+      "label": "Bouwstijl",
+      "value": "architecture of Georgia"
+     },
+     {
+      "label": "Erfgoedstatus",
+      "value": "Cultural heritage in Georgia"
+     },
+     {
+      "label": "Vernoemd naar",
+      "value": "Maria"
+     }
+    ],
+    "wiki": {
+     "lang": "en",
+     "title": "Metekhi Church",
+     "url": "https://en.wikipedia.org/wiki/Metekhi_Church",
+     "extract": "The Metekhi church of the Nativity of the Mother of God (Georgian: მეტეხის ღვთისმშობლის შობის ტაძარი, romanized: met'ekhis ghvtismshoblis shobis t'adzari), known simply as Metekhi, is a Georgian Orthodox Christian church located on the left bank of the river Kura. It sits on the Metekhi Cliff opposite the old town of Tbilisi, Georgia. Much of the existing structure dates back to the Middle Ages and was built between 1278 and 1289 AD under the reign of King Demetrius II of Georgia, although oral tradition traces Metekhi's origins further to the 5th century.",
+     "truncated": false
+    },
+    "retrievedAt": "2026-10-21"
+   }
   },
   {
    "id": "vakhtang-gorgasali",
@@ -718,7 +1434,24 @@
    "lng": 44.810736,
    "osm": "way/1062990549",
    "osmName": "The Statue of King Vakhtang Gorgasali, Metekhi Bridge, Avlabari, Zemo Avlabari, Metromsheni, Isani District, Tbilisi, 0144, Georgia",
-   "osmCategory": "historic/memorial"
+   "osmCategory": "historic/memorial",
+   "info": {
+    "wikidata": "Q1188006",
+    "wikidataVia": "osm",
+    "wikidataLabel": "Vakhtang Gorgasali's statue, Tbilisi",
+    "facts": [
+     {
+      "label": "Gebouwd / opgericht",
+      "value": "1961"
+     },
+     {
+      "label": "Vernoemd naar",
+      "value": "Vachtang I van Iberië"
+     }
+    ],
+    "wiki": null,
+    "retrievedAt": "2026-10-21"
+   }
   },
   {
    "id": "vredesbrug",
@@ -737,7 +1470,26 @@
    "lng": 44.808261,
    "osm": "way/125589004",
    "osmName": "Bridge of Peace, Avlabari, Zemo Avlabari, Metromsheni, Isani District, Tbilisi, 0144, Georgia",
-   "osmCategory": "highway/pedestrian"
+   "osmCategory": "highway/pedestrian",
+   "info": {
+    "wikidata": "Q27574",
+    "wikidataVia": "osm",
+    "wikidataLabel": "Bridge of Peace",
+    "facts": [
+     {
+      "label": "Architect",
+      "value": "Michele De Lucchi"
+     }
+    ],
+    "wiki": {
+     "lang": "en",
+     "title": "Bridge of Peace",
+     "url": "https://en.wikipedia.org/wiki/Bridge_of_Peace",
+     "extract": "The Bridge of Peace (Georgian: მშვიდობის ხიდი, mshvidobis khidi) is a bow-shaped pedestrian bridge, a steel and glass construction illuminated with numerous LEDs, over the Kura River, linking the Rike Park with Old town in central Tbilisi. Since its opening in 2010 the structure has become an important pedestrian crossing in the city, as well as a significant tourist attraction and one of the most well-recognized landmarks of the capital.",
+     "truncated": false
+    },
+    "retrievedAt": "2026-10-21"
+   }
   },
   {
    "id": "rike-park",
@@ -756,7 +1508,20 @@
    "lng": 44.809987,
    "osm": "relation/9868102",
    "osmName": "Rike Park, Isani District, Tbilisi, Georgia",
-   "osmCategory": "leisure/park"
+   "osmCategory": "leisure/park",
+   "info": {
+    "wikidata": "Q12868375",
+    "wikidataVia": "osm",
+    "wikidataLabel": "Rike Park",
+    "facts": [
+     {
+      "label": "Gebouwd / opgericht",
+      "value": "2010"
+     }
+    ],
+    "wiki": null,
+    "retrievedAt": "2026-10-21"
+   }
   },
   {
    "id": "sameba",
@@ -776,7 +1541,30 @@
    "lng": 44.816522,
    "osm": "way/585352693",
    "osmName": "Holy Trinity Cathedral of Tbilisi, 19, Samreklo Street, Avlabari, Zemo Avlabari, Metromsheni, Isani District, Tbilisi, 0144, Georgia",
-   "osmCategory": "amenity/place_of_worship"
+   "osmCategory": "amenity/place_of_worship",
+   "info": {
+    "wikidata": "Q36996",
+    "wikidataVia": "osm",
+    "wikidataLabel": "Sameba-kathedraal",
+    "facts": [
+     {
+      "label": "Gebouwd / opgericht",
+      "value": "2004"
+     },
+     {
+      "label": "Vernoemd naar",
+      "value": "drie-eenheid"
+     }
+    ],
+    "wiki": {
+     "lang": "nl",
+     "title": "Samebakathedraal",
+     "url": "https://nl.wikipedia.org/wiki/Samebakathedraal",
+     "extract": "De Kathedraal van de heilige Drievuldigheid van Tbilisi (Georgisch:თბილისის წმინდა სამების საკათედრო ტაძარი, Tbilisis tsminda samebis saktatedro tadzari of kortweg სამება, Sameba wat drievuldigheid betekent) is de belangrijkste kathedraal van de Georgisch-Orthodoxe Kerk in de Georgische hoofdstad Tbilisi.\nDe kathedraal is de zetel van de Katholikos-patriarch van Geheel Georgië en werd gebouwd tussen 1995 en 2004. Het is het grootste religieuze gebouw in Georgië en in de Zuidelijke Kaukasus. Het is de negende hoogste orthodoxe kerk in de wereld. Het Basiani Ensemble maakt deel uit van het patriarchaatkoor van de kathedraal.",
+     "truncated": false
+    },
+    "retrievedAt": "2026-10-21"
+   }
   },
   {
    "id": "presidentieel-paleis",
@@ -795,7 +1583,34 @@
    "lng": 44.811103,
    "osm": "way/362739744",
    "osmName": "Ceremonial Palace of Georgia, 1, Malkhaz Abdushelishvili Street, Avlabari, Kveda Chugureti, Chugureti District, Tbilisi, 0144, Georgia",
-   "osmCategory": "building/government"
+   "osmCategory": "building/government",
+   "info": {
+    "wikidata": "Q3653173",
+    "wikidataVia": "osm",
+    "wikidataLabel": "Ceremonial Palace of Georgia",
+    "facts": [
+     {
+      "label": "Gebouwd / opgericht",
+      "value": "2009"
+     },
+     {
+      "label": "Architect",
+      "value": "Michele De Lucchi, Georgiy Iraklievitsj Batiasjvili, Franco Zagari, Vakhtang Zesashvili"
+     },
+     {
+      "label": "Bouwstijl",
+      "value": "klassieke architectuur"
+     }
+    ],
+    "wiki": {
+     "lang": "en",
+     "title": "Ceremonial Palace of Georgia",
+     "url": "https://en.wikipedia.org/wiki/Ceremonial_Palace_of_Georgia",
+     "extract": "The Ceremonial Palace of Georgia (Georgian: სახელმწიფო ცერემონიების სასახლე), formerly known as the Avlabari Presidential Residence, is a governmental building in Tbilisi that used to house the administration of President of Georgia. Located in a refurbished building of the former Imperial gendarmerie, it is located on the left bank of the Kura River, in the Avlabari district of Tbilisi, Georgia.. Since 2026, the palace houses Ministry of Foreign Affairs of Georgia",
+     "truncated": false
+    },
+    "retrievedAt": "2026-10-21"
+   }
   },
   {
    "id": "stalin-drukkerij",
@@ -814,7 +1629,15 @@
    "lng": 44.830064,
    "osm": "way/1376878173",
    "osmName": "Avlabari printing house, Rusudan Mikeladze Street, Isani, Zemo Avlabari, Metromsheni, Isani District, Tbilisi, 0144, Georgia",
-   "osmCategory": "tourism/museum"
+   "osmCategory": "tourism/museum",
+   "info": {
+    "wikidata": "Q4055952",
+    "wikidataVia": "osm",
+    "wikidataLabel": "",
+    "facts": [],
+    "wiki": null,
+    "retrievedAt": "2026-10-21"
+   }
   },
   {
    "id": "darejan-paleis",
@@ -833,7 +1656,15 @@
    "lng": 44.812354,
    "osm": "way/123574122",
    "osmName": "Queen Darejan's palace, Wine Ascent, Metekhi, Zemo Avlabari, Metromsheni, Isani District, Tbilisi, 0144, Georgia",
-   "osmCategory": "tourism/attraction"
+   "osmCategory": "tourism/attraction",
+   "info": {
+    "wikidata": "Q65289514",
+    "wikidataVia": "osm",
+    "wikidataLabel": "Queen Darejan's palace",
+    "facts": [],
+    "wiki": null,
+    "retrievedAt": "2026-10-21"
+   }
   },
   {
    "id": "europaplein",
@@ -852,7 +1683,15 @@
    "lng": 44.811265,
    "osm": "way/1217904103",
    "osmName": "Europe Square, Avlabari, Zemo Avlabari, Metromsheni, Isani District, Tbilisi, Georgia",
-   "osmCategory": "place/square"
+   "osmCategory": "place/square",
+   "info": {
+    "wikidata": "Q55041530",
+    "wikidataVia": "osm",
+    "wikidataLabel": "Europe square, Tbilisi",
+    "facts": [],
+    "wiki": null,
+    "retrievedAt": "2026-10-21"
+   }
   },
   {
    "id": "public-service-hall",
@@ -871,7 +1710,24 @@
    "lng": 44.806622,
    "osm": "way/1066392731",
    "osmName": "Public Service Hall, 1, Zviad Gamsakhurdia Embankment, Mtatsminda, Sololaki, Mtatsminda District, Tbilisi, 0108, Georgia",
-   "osmCategory": "office/government"
+   "osmCategory": "office/government",
+   "info": {
+    "wikidata": "Q136433302",
+    "wikidataVia": "osm",
+    "wikidataLabel": "Tbilisi Public Service Hall",
+    "facts": [
+     {
+      "label": "Gebouwd / opgericht",
+      "value": "2012"
+     },
+     {
+      "label": "Architect",
+      "value": "Massimiliano Fuksas"
+     }
+    ],
+    "wiki": null,
+    "retrievedAt": "2026-10-21"
+   }
   },
   {
    "id": "pantheon-mtatsminda",
@@ -892,7 +1748,30 @@
    "lng": 44.789002,
    "osm": "relation/9841336",
    "osmName": "Mtatsminda Pantheon, Mama Daviti Rise, Mtatsminda, Sololaki, Mtatsminda District, Tbilisi, 0179, Georgia",
-   "osmCategory": "tourism/attraction"
+   "osmCategory": "tourism/attraction",
+   "info": {
+    "wikidata": "Q1195746",
+    "wikidataVia": "osm",
+    "wikidataLabel": "Mtatsminda Pantheon",
+    "facts": [
+     {
+      "label": "Gebouwd / opgericht",
+      "value": "1929"
+     },
+     {
+      "label": "Erfgoedstatus",
+      "value": "Cultural heritage in Georgia"
+     }
+    ],
+    "wiki": {
+     "lang": "en",
+     "title": "Mtatsminda Pantheon",
+     "url": "https://en.wikipedia.org/wiki/Mtatsminda_Pantheon",
+     "extract": "The Mtatsminda Pantheon of Writers and Public Figures (Georgian: მთაწმინდის მწერალთა და საზოგადო მოღვაწეთა პანთეონი, mtats'mindis mts'eralta da sazogado moghvats'eta p'anteoni) is a necropolis in Tbilisi, Georgia, where some of the most prominent writers, artists, scholars, and national heroes of Georgia are buried. It is located in the churchyard around St David's Church \"Mamadaviti\" on the slope of Mount Mtatsminda (Geo. მთაწმინდა, meaning the Holy Mountain) and was officially established in 1929. Atop the mountain is Mtatsminda Park, an amusement park owned by the municipality of Tbilisi.\nThe first celebrities to be buried at this place were the Russian writer Alexander Griboyedov  (1795–1829) and his Georgian wife Nino Chavchavadze (1812–1857). The Pantheon was officially opened in 1929 to mark the centenary of Griboyedov's death during his time as the Russian ambassador. The Pantheon was conceived of as a symbol of collective identity of Georgia. Since then, several illustrious Georgians have been buried or reburied there. The Pantheon is administered by the Government of Tbilisi and is frequented by locals as well as the city's visitors.",
+     "truncated": false
+    },
+    "retrievedAt": "2026-10-21"
+   }
   },
   {
    "id": "kabelspoor",
@@ -910,7 +1789,15 @@
    "lng": 44.787832,
    "osm": "way/1042188760",
    "osmName": "Tbilisi Funicular, Mama Daviti Rise, Mtatsminda, Sololaki, Mtatsminda District, Tbilisi, 0179, Georgia",
-   "osmCategory": "railway/funicular"
+   "osmCategory": "railway/funicular",
+   "info": {
+    "wikidata": "Q1425131",
+    "wikidataVia": "osm",
+    "wikidataLabel": "Funicular of Tbilisi",
+    "facts": [],
+    "wiki": null,
+    "retrievedAt": "2026-10-21"
+   }
   },
   {
    "id": "mtatsminda-park",
@@ -930,7 +1817,26 @@
    "lng": 44.779477,
    "osm": "relation/13443464",
    "osmName": "Mtatsminda Park, Mtatsminda District, Tbilisi, Georgia",
-   "osmCategory": "leisure/park"
+   "osmCategory": "leisure/park",
+   "info": {
+    "wikidata": "Q15260155",
+    "wikidataVia": "osm",
+    "wikidataLabel": "Mtatsminda Park",
+    "facts": [
+     {
+      "label": "Erfgoedstatus",
+      "value": "Cultural heritage in Georgia"
+     }
+    ],
+    "wiki": {
+     "lang": "en",
+     "title": "Mtatsminda Park",
+     "url": "https://en.wikipedia.org/wiki/Mtatsminda_Park",
+     "extract": "Mtatsminda Park is a landscaped park located at the top of Mount Mtatsminda overlooking the Georgian capital Tbilisi. The park has carousels, water slides, a roller-coaster, dark ride, funicular, and a big Ferris wheel at the edge of the mountain, offering a splendid view over the city.",
+     "truncated": false
+    },
+    "retrievedAt": "2026-10-21"
+   }
   },
   {
    "id": "droge-brug",
@@ -950,7 +1856,28 @@
    "lng": 44.802592,
    "osm": "way/1150481713",
    "osmName": "Dry Bridge, Italia Street, Garetubani, Mtatsminda, Sololaki, Mtatsminda District, Tbilisi, 0108, Georgia",
-   "osmCategory": "man_made/bridge"
+   "osmCategory": "man_made/bridge",
+   "info": {
+    "wikidata": "Q12867285",
+    "wikidataVia": "osm",
+    "wikidataLabel": "Mshrali Bridge",
+    "facts": [
+     {
+      "label": "Gebouwd / opgericht",
+      "value": "1851"
+     },
+     {
+      "label": "Architect",
+      "value": "Giovanni Scudieri"
+     },
+     {
+      "label": "Erfgoedstatus",
+      "value": "Cultural heritage in Georgia"
+     }
+    ],
+    "wiki": null,
+    "retrievedAt": "2026-10-21"
+   }
   },
   {
    "id": "aghmashenebeli",
@@ -970,7 +1897,26 @@
    "lng": 44.789727,
    "osm": "way/28502375",
    "osmName": "David Aghmashenebeli Avenue, Chughureti, Didube, Didube District, Tbilisi, 0102, Georgia",
-   "osmCategory": "highway/secondary"
+   "osmCategory": "highway/secondary",
+   "info": {
+    "wikidata": "Q5242038",
+    "wikidataVia": "handmatig",
+    "wikidataLabel": "Davit Aghmashenebeli Avenue",
+    "facts": [
+     {
+      "label": "Vernoemd naar",
+      "value": "David IV van Georgië"
+     }
+    ],
+    "wiki": {
+     "lang": "en",
+     "title": "David Agmashenebeli Avenue",
+     "url": "https://en.wikipedia.org/wiki/David_Agmashenebeli_Avenue",
+     "extract": "David Aghmashenebeli Avenue (Georgian: დავით აღმაშენებლის გამზირი) is one of the main avenues in the historical part of Tbilisi, known for its 19th-century classical architecture. The avenue is located on the left bank of the Kura River and runs from Saarbrücken Square to Giorgi Tsabadze street.\nCurrently named after David IV of Georgia, it was originally called Alexanderdorf, then Mikheil Street in 1851, and Plekhanov Street after the Russian revolutionary Georgi Plekhanov from 1918 to 1988. Since 2010, the avenue has seen major rehabilitation works, which includes the renovation of seventy buildings, as well as the road, sidewalks and street lighting.\nAgmashenebeli is easily accessible by metro at Marjanishvili Station, which is a single stop away from the city's second historical artery, Rustaveli Avenue.",
+     "truncated": false
+    },
+    "retrievedAt": "2026-10-21"
+   }
   },
   {
    "id": "marjanishvili-theater",
@@ -989,7 +1935,30 @@
    "lng": 44.794613,
    "osm": "node/390460502",
    "osmName": "Marjanishvili Theatre, Kote Marjanishvili Street, Chughureti, Kveda Chugureti, Chugureti District, Tbilisi, 0102, Georgia",
-   "osmCategory": "amenity/theatre"
+   "osmCategory": "amenity/theatre",
+   "info": {
+    "wikidata": "Q583294",
+    "wikidataVia": "osm",
+    "wikidataLabel": "Kote Marjanishvili-theater",
+    "facts": [
+     {
+      "label": "Gebouwd / opgericht",
+      "value": "1928"
+     },
+     {
+      "label": "Vernoemd naar",
+      "value": "Kote Marjanishvili"
+     }
+    ],
+    "wiki": {
+     "lang": "nl",
+     "title": "Kote Mardzjanisjvili-theater",
+     "url": "https://nl.wikipedia.org/wiki/Kote_Mardzjanisjvili-theater",
+     "extract": "Het Kote Mardzjanisjvili-theater (Georgisch: კოტე მარჯანიშვილის სახელობის სახელმწიფო აკადემიური დრამატული თეატრი) is het tweede staatstheater van Tbilisi, Georgië. Het werd in 1928 in Koetaisi opgericht door Kote Mardzjanisjvili. In 1930 verhuisde de schouwburg naar Tbilisi waar het zich vestigde in de voormalige openbare bibliotheek van de gebroeders Tsoebalasjvili, waar het thans nog steeds gevestigd is.\nHet art-nouveau-gebouw werd in 2006 volledig gerenoveerd en heropende met de première van de Driestuiversopera van Bertolt Brecht.",
+     "truncated": false
+    },
+    "retrievedAt": "2026-10-21"
+   }
   },
   {
    "id": "fabrika",
@@ -1045,7 +2014,34 @@
    "lng": 44.785122,
    "osm": "way/1234716193",
    "osmName": "Tbilisi Circus, 1, Marie Brosset Street, Garetubani, Mtatsminda, Sololaki, Mtatsminda District, Tbilisi, 0108, Georgia",
-   "osmCategory": "amenity/theatre"
+   "osmCategory": "amenity/theatre",
+   "info": {
+    "wikidata": "Q19358447",
+    "wikidataVia": "osm",
+    "wikidataLabel": "Tbilisi Circus",
+    "facts": [
+     {
+      "label": "Gebouwd / opgericht",
+      "value": "1940"
+     },
+     {
+      "label": "Architect",
+      "value": "Stepan Satunc, Nikolay Neprintsev, Mikhail Neprintsev"
+     },
+     {
+      "label": "Bouwstijl",
+      "value": "Stalinist architecture"
+     }
+    ],
+    "wiki": {
+     "lang": "en",
+     "title": "Tbilisi Circus",
+     "url": "https://en.wikipedia.org/wiki/Tbilisi_Circus",
+     "extract": "The Tbilisi Circus (Georgian: თბილისის ცირკი) is the main circus in Tbilisi, the capital of Georgia. It is housed in a Soviet-era Neoclassical rotunda building built in 1939 on a hilltop overlooking Heroes' Square.",
+     "truncated": false
+    },
+    "retrievedAt": "2026-10-21"
+   }
   },
   {
    "id": "vake-park",
@@ -1063,7 +2059,26 @@
    "lng": 44.747792,
    "osm": "relation/17233994",
    "osmName": "Vake Park, Vake District, Tbilisi, Georgia",
-   "osmCategory": "leisure/park"
+   "osmCategory": "leisure/park",
+   "info": {
+    "wikidata": "Q3649372",
+    "wikidataVia": "osm",
+    "wikidataLabel": "Vake Park",
+    "facts": [
+     {
+      "label": "Gebouwd / opgericht",
+      "value": "1946"
+     }
+    ],
+    "wiki": {
+     "lang": "en",
+     "title": "Vake Park",
+     "url": "https://en.wikipedia.org/wiki/Vake_Park",
+     "extract": "Vake Park (Georgian: ვაკის პარკი) is a public park in Tbilisi. The park was opened in 1946 and is located in the Vake district of Tbilisi at the western end of Chavchavadze Avenue. A World War II memorial sits at the top of the hill in the park.\nFrom the north, Vake Park and Chavchavadze Avenue are connected by a wide staircase. The staircase is located on the main axis of the park, which is extended by a whole cascade of fountains. The central axis of the park is completed by the World War II Glory Memorial on the Ridge. The central part of the park is separated by a fountain and a round pool.\nThe special charm of Vake Park is added by red sand, which is used to cover the roads. Vake Park has a children's town, open-air cinema, cafes and restaurants. In the southwest, the park ends with the Mikheil Meskhi Stadium.",
+     "truncated": false
+    },
+    "retrievedAt": "2026-10-21"
+   }
   },
   {
    "id": "schildpaddenmeer",
@@ -1080,7 +2095,21 @@
    "lng": 44.754455,
    "osm": "way/28043570",
    "osmName": "Turtle Lake, Vake, Vake District, Tbilisi, Georgia",
-   "osmCategory": "water/lake"
+   "osmCategory": "water/lake",
+   "info": {
+    "wikidata": "Q1474801",
+    "wikidataVia": "osm",
+    "wikidataLabel": "Turtle Lake",
+    "facts": [],
+    "wiki": {
+     "lang": "en",
+     "title": "Turtle Lake (Tbilisi)",
+     "url": "https://en.wikipedia.org/wiki/Turtle_Lake_(Tbilisi)",
+     "extract": "Turtle Lake is a direct English translation of Kus Tba (Georgian: კუს ტბა, romanized: k'us t'ba), a small lake at the outskirts of Tbilisi, the capital of Georgia. The other, less frequently used name of this lake is K'ork'i (ქორქის ტბა).",
+     "truncated": false
+    },
+    "retrievedAt": "2026-10-21"
+   }
   },
   {
    "id": "etnografisch-museum",
@@ -1100,7 +2129,30 @@
    "lng": 44.743581,
    "osm": "relation/14141290",
    "osmName": "Tbilisi Open Air Museum of Ethnography, 25, Vake District, Tbilisi, Georgia",
-   "osmCategory": "leisure/park"
+   "osmCategory": "leisure/park",
+   "info": {
+    "wikidata": "Q2920430",
+    "wikidataVia": "osm",
+    "wikidataLabel": "Open Air Museum of Ethnography",
+    "facts": [
+     {
+      "label": "Gebouwd / opgericht",
+      "value": "1966"
+     },
+     {
+      "label": "Vernoemd naar",
+      "value": "Giorgi Chitaia"
+     }
+    ],
+    "wiki": {
+     "lang": "en",
+     "title": "Tbilisi Open Air Museum of Ethnography",
+     "url": "https://en.wikipedia.org/wiki/Tbilisi_Open_Air_Museum_of_Ethnography",
+     "extract": "The Giorgi Chitaia Open Air Museum of Ethnography (Georgian: გიორგი ჩიტაიას სახელობის ეთნოგრაფიული მუზეუმი ღია ცის ქვეშ, giorgi chit’aias sakhelobis etnograpiuli muzeumi ghia tsis kvesh) is an open-air museum in Tbilisi, Georgia, displaying the examples of folk architecture and craftwork from various regions of the country. The museum is named after Giorgi Chitaia, a Georgian ethnographer, who founded the museum on April 27, 1966. Since December 30, 2004, it has been administered as part of the Georgian National Museum.",
+     "truncated": false
+    },
+    "retrievedAt": "2026-10-21"
+   }
   },
   {
    "id": "kroniek-georgie",
@@ -1120,7 +2172,26 @@
    "lng": 44.810398,
    "osm": "way/707446533",
    "osmName": "Chronicle of Georgia, Utsnob Gmirta Street, Temka, Nadzaladevi District, Tbilisi, 0178, Georgia",
-   "osmCategory": "historic/monument"
+   "osmCategory": "historic/monument",
+   "info": {
+    "wikidata": "Q65043165",
+    "wikidataVia": "osm",
+    "wikidataLabel": "Chronicle of Georgia",
+    "facts": [
+     {
+      "label": "Gebouwd / opgericht",
+      "value": "1980"
+     }
+    ],
+    "wiki": {
+     "lang": "en",
+     "title": "Chronicle of Georgia",
+     "url": "https://en.wikipedia.org/wiki/Chronicle_of_Georgia",
+     "extract": "The Chronicle of Georgia (Georgian: საქართველოს მატიანე, romanized: sakartvelos mat'iane) or History Memorial of Georgia is a monument located on Keeni Hill near the Tbilisi Sea. It was created by the Georgian sculptor Zurab Tsereteli in 1985 but was never fully finished. The monument sits at the top of a large set of stairs, overlooking the northern part of the city from different directions. There are 16 pillars that are between 30–35 meters tall. The top half features kings, queens, and heroes while the bottom part depicts stories from the life of Christ. Beside bronze pillars, there is a grapevine cross of Saint Nino, who first brought Christianity to Georgia, and a chapel.",
+     "truncated": false
+    },
+    "retrievedAt": "2026-10-21"
+   }
   },
   {
    "id": "lurji-monastiri",
@@ -1139,7 +2210,27 @@
    "lng": 44.788987,
    "osm": "way/188447537",
    "osmName": "Blue Monastery, Niko Nikoladze Street, Vera, Mtatsminda District, Tbilisi, 0108, Georgia",
-   "osmCategory": "amenity/place_of_worship"
+   "osmCategory": "amenity/place_of_worship",
+   "info": {
+    "wikidata": "Q7210949",
+    "wikidataVia": "osm",
+    "wikidataLabel": "Lurji Monastery",
+    "facts": [
+     {
+      "label": "Erfgoedstatus",
+      "value": "Cultural heritage in Georgia"
+     }
+    ],
+    "wiki": {
+     "lang": "en",
+     "title": "Lurji Monastery",
+     "url": "https://en.wikipedia.org/wiki/Lurji_Monastery",
+     "extract": "The Lurji Monastery (Georgian: ლურჯი მონასტერი), that is the \"Blue Monastery\", is a 12th-century Georgian Orthodox church built in the name of Saint Andrew in the Vere neighborhood of Tbilisi, Georgia. The popular historical name lurji (\"blue\") is derived from its roof, adorned with glazed blue tile.",
+     "truncated": false
+    },
+    "retrievedAt": "2026-10-21"
+   }
   }
- ]
+ ],
+ "infoSource": "Achtergrond: Wikipedia (tekst CC BY-SA 4.0, per kaart titel en link) en Wikidata (CC0). Koppeling via de wikidata-tag in OpenStreetMap."
 }

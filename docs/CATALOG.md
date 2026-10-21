@@ -2,6 +2,23 @@
 
 The editor's card deck holds the built-in Tbilisi sites (`src/data/tbilisi-sites.json`, currently 58) plus every landmark the guide creates. Drag a card into the route, tap **+**, or click a dot on the map and choose "Aan route toevoegen". Reorder by dragging the ⋮⋮ handle, like the stop list in Google Maps, or with the ↑/↓ buttons. When online, the walking route recalculates automatically about 1.5 s after a change (FOSSGIS walking routes).
 
+## Building a route
+- **Proximity sort:** the deck is sorted by straight-line distance to the **last stop** of the route by default (or the first stop, A–Z, catalogue order). Each card shows e.g. "130 m van Grote Synagoge"; cards already in the route move to the bottom.
+- **Click a card** (anywhere except its buttons): the map flies to the site, centres it, rings it and opens its popup. On a phone the map scrolls into view.
+- **Kant-en-klare tours** (Tours page): 11 themed templates plus **Tbilisi compleet** (every central site) and a custom tag combination. You choose the number of stops (default about 10, or all), the order (shortest walk, or chronological by era) and whether to include sites outside the centre. A capped selection picks the most compact, most relevant group. The ordering is straight-line, open-path nearest neighbour plus 2-opt, so it is a geographic or chronological starting point, not a narrative one. The created tour's description says how it was generated.
+
+## "Toon meer": sourced background
+- Built by `node scripts/enrich-catalog.mjs` (build time only; the app never calls these services):
+  1. the Wikidata id comes from the **`wikidata` tag on each site's OSM object** (no fuzzy matching);
+  2. **Wikidata facts** (CC0): built/founded, architect, style, heritage status, named after;
+  3. the **Wikipedia introduction** (CC BY-SA 4.0): Dutch if an article exists, otherwise English, shown in English and labelled as such (no machine translation). Cut at a sentence boundary at 1,400 characters and marked "ingekort".
+- Each card shows title, link, licence, Wikidata id and retrieval date. Background is for reading, not verified talking points.
+- Status 2026-10-21: 55/58 sites linked (8 Dutch texts, 31 English, 16 facts only). No source for Waterval van Leghvtakhevi, Fabrika and Dezerter-bazaar.
+- Links checked by hand: every Wikidata label matched its site, except Freedom Square. Its OSM object carried Rustavelilaan's id, so it was corrected to Q36998. Shardeni (Q3448534), Aghmashenebeli Avenue (Q5242038) and the cable car (Q25378215) were added by hand after checking the Wikidata description.
+
+## Catalogue updates reach existing data
+Catalogue landmarks carry the catalogue build time as createdAt and updatedAt. If you never edited one (createdAt = updatedAt) and the bundled catalogue is newer, the app replaces it on start and drops stored routes to a moved site, so they are recalculated. Every device does the same, so sync stays conflict-free. Your edits are never replaced.
+
 ## Status of the data: read before guiding
 - **Positions and Georgian names** come from OpenStreetMap via Nominatim, with the exact OSM object recorded per site (© OpenStreetMap contributors, **ODbL**). The catalogue file is a derived database and is also under ODbL; attribution is shown in the app.
 - **Dutch names, short notes, era tags, tour-type tags and districts are suggestions by Claude, not verified research.** Every catalogue landmark starts as `onbevestigd`. Verify them before presenting anything as fact. Edit them in the stop card (Gedeelde kennis); edits sync and override the catalogue text.
@@ -23,6 +40,7 @@ Catalogue landmarks get fixed ids (`cat:<id>`) and a fixed timestamp. Adding the
 2. Run `node scripts/build-catalog.mjs --only <id>` (Nominatim, 1 request/s), then **check the printed OSM match**.
 3. Run `npm test`. It checks ids, tags, districts and OSM provenance, and that every point lies inside Tbilisi.
 4. Regenerate the review list below: `node scripts/catalog-table.mjs`.
+5. Refresh background info: `node scripts/enrich-catalog.mjs` (add `--wikidata id=Q123` for a hand-checked link), then check the printed labels.
 
 Matches corrected by hand on 2026-10-21:
 - Rustavelilaan: the first hit was the Opera.
@@ -32,6 +50,7 @@ Matches corrected by hand on 2026-10-21:
 - Museum of Fine Arts: pinned N637763969, the Amiranashvili museum.
 - Ethnographic museum: pinned R14141290.
 - Stalin's printing house: pinned W1376878173, "Avlabari printing house".
+- Cable car (2026-10-22): the OSM line put the point mid-river; pinned the Rike lower station N1668768830 (found with one Overpass query), district Avlabari.
 
 ## Review list
 
@@ -66,7 +85,7 @@ Matches corrected by hand on 2026-10-21:
 | Betlemi-kerk en trappen | Oude stad | Erekle II | Religieus, Uitzicht en foto | [way/163799009](https://www.openstreetmap.org/way/163799009) |
 | Ateshgah (vuurtempel) | Oude stad | Vreemde overheersing | Religieus, Multicultureel, Historisch | [way/1206891444](https://www.openstreetmap.org/way/1206891444) |
 | Nationale Botanische Tuin | Oude stad | Russisch Rijk | Natuur | [relation/19630635](https://www.openstreetmap.org/relation/19630635) |
-| Kabelbaan Rike–Narikala | Oude stad | Onafhankelijk Georgië | Uitzicht en foto, Modern | [way/154331558](https://www.openstreetmap.org/way/154331558) |
+| Kabelbaan Rike–Narikala | Avlabari | Onafhankelijk Georgië | Uitzicht en foto, Modern | [node/1668768830](https://www.openstreetmap.org/node/1668768830) |
 | Sololaki-wijk | Sololaki | Russisch Rijk | Architectuur, Historisch | [relation/2073133](https://www.openstreetmap.org/relation/2073133) |
 | Kote Afkhazi-straat | Sololaki | Russisch Rijk | Historisch, Multicultureel, Eten en markten | [way/133607532](https://www.openstreetmap.org/way/133607532) |
 | Gudiashvili-plein | Sololaki | Russisch Rijk | Architectuur, Kunst en theater | [way/172908444](https://www.openstreetmap.org/way/172908444) |

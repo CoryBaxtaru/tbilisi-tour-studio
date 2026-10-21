@@ -10,7 +10,7 @@ Tbilisi Walking Tour Studio: a personal desktop tour editor and mobile live-guid
 - Repository: https://github.com/CoryBaxtaru/tbilisi-tour-studio (public). Live: https://corybaxtaru.github.io/tbilisi-tour-studio/. Data repo CoryBaxtaru/tbilisi-tour-data (private, empty until the first sync).
 - Working (verified locally on a production build):
   - Tour CRUD and stop cards (shared landmark knowledge vs. tour-specific notes)
-  - Card deck builder: 58 catalogue sites (OSM positions, unverified tags) + own landmarks; filter by era, tour type, district and text; drag cards into the route, drag the handle to reorder, + button, map-dot popup; automatic route recalculation (docs/CATALOG.md)
+  - Card deck builder: 58 catalogue sites (OSM positions, unverified tags) + own landmarks; filter by era, tour type, district and text; drag cards into the route, drag the handle to reorder, + button, map-dot popup; automatic route recalculation; proximity sort to the last stop; card click flies the map to the site; "Toon meer" with sourced Wikipedia/Wikidata background (also in guide mode); pre-generated tours (11 themes + Tbilisi compleet + custom tags); catalogue refresh for unedited landmarks (docs/CATALOG.md)
   - Talking points with provenance stamps
   - Map placement of stops (Leaflet + OSM)
   - Pedestrian routes via FOSSGIS OSRM, stored per leg
@@ -21,7 +21,7 @@ Tbilisi Walking Tour Studio: a personal desktop tour editor and mobile live-guid
   - Update prompt
   - GitHub sync: error path tested live; full round trip only unit-tested with a mocked remote
 - Handoff hooks: Stop hook confirmed live; SessionStart not yet observed. See `docs/HANDOFF_HOOKS.md`.
-- Tests/build: `npm test` passes 32 unit tests; `npm run build` (tsc + vite) is clean.
+- Tests/build: `npm test` passes 43 unit tests; `npm run build` (tsc + vite) is clean.
 - Known blockers: only the founder can create the sync token.
 
 ## Environment (verified)

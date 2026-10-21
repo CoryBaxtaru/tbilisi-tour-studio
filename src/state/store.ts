@@ -1,6 +1,7 @@
 // Application state: in-memory mirror of IndexedDB, plus sync orchestration.
 // Every edit is saved locally first; sync to GitHub runs in the background when configured.
 import { useEffect, useState } from 'preact/hooks';
+import { staleCatalogLandmarks } from '../domain/catalog';
 import { touch } from '../domain/factory';
 import type { Landmark, Tour } from '../domain/types';
 import { DatasetError, parseDataset, serializeDataset } from '../storage/backup';
@@ -70,6 +71,7 @@ export async function init(): Promise<void> {
   const syncConfig = (await getMeta<SyncConfig>(SYNC_CONFIG_KEY)) ?? null;
   const lastSyncAt = (await getMeta<string>(LAST_SYNC_KEY)) ?? null;
   set({ loaded: true, tours, landmarks, syncConfig, lastSyncAt, syncStatus: syncConfig ? 'ok' : 'uit' });
+  await refreshCatalog();
   set({ persisted: await requestPersistence().catch(() => null) });
 
   window.addEventListener('online', () => { set({ online: true }); void syncNow(); });
@@ -78,6 +80,23 @@ export async function init(): Promise<void> {
     if (document.visibilityState === 'visible') void syncNow();
   });
   void syncNow();
+}
+
+/** Brings unedited catalogue landmarks up to the bundled catalogue; drops routes to moved sites. */
+async function refreshCatalog(): Promise<void> {
+  const stale = staleCatalogLandmarks(state.landmarks);
+  if (!stale.length) return;
+  let landmarks = state.landmarks;
+  for (const { fresh } of stale) landmarks = upsert(landmarks, fresh);
+  set({ landmarks });
+  await putRecords('landmarks', stale.map((s) => s.fresh));
+  const moved = new Set(stale.filter((s) => s.moved).map((s) => s.fresh.id));
+  for (const t of state.tours.filter((x) => !x.deleted)) {
+    const stopIds = new Set(t.stops.filter((s) => moved.has(s.landmarkId)).map((s) => s.id));
+    const legs = t.legs.filter((l) => !stopIds.has(l.fromStopId) && !stopIds.has(l.toStopId));
+    if (legs.length !== t.legs.length) await saveTour({ ...t, legs });
+  }
+  changed();
 }
 
 // ---- Edits (local first) ----

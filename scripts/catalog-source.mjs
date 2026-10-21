@@ -38,7 +38,7 @@ export const SITES = [
   { id: 'betlemi', name: 'Betlemi-kerk en trappen', q: 'Betlemi Church, Tbilisi', district: 'oude-stad', eras: ['erekle'], themes: ['religieus', 'uitzicht'], note: 'Kerk hoog in de oude stad, bereikbaar via trappenstraatjes.' },
   { id: 'ateshgah', name: 'Ateshgah (vuurtempel)', q: 'Ateshgah, Tbilisi', district: 'oude-stad', eras: ['overheersing'], themes: ['religieus', 'multicultureel', 'historisch'], note: 'Restant van een zoroastrische vuurtempel.' },
   { id: 'botanische-tuin', name: 'Nationale Botanische Tuin', q: 'National Botanical Garden of Georgia', district: 'oude-stad', eras: ['russisch-rijk'], themes: ['natuur'], note: 'Grote tuin in de kloof achter Narikala.' },
-  { id: 'kabelbaan-narikala', name: 'Kabelbaan Rike–Narikala', q: 'Narikala cable car, Tbilisi', district: 'oude-stad', eras: ['onafhankelijk'], themes: ['uitzicht', 'modern'], note: 'Kabelbaan van het Rikepark naar de vesting.' },
+  { id: 'kabelbaan-narikala', osm: 'N1668768830', name: 'Kabelbaan Rike–Narikala', q: 'Narikala cable car, Tbilisi', district: 'avlabari', eras: ['onafhankelijk'], themes: ['uitzicht', 'modern'], note: 'Kabelbaan van het Rikepark naar de vesting; de kaart wijst het dalstation Rike aan.' },
 
   // Sololaki
   { id: 'sololaki', name: 'Sololaki-wijk', q: 'Sololaki, Tbilisi', district: 'sololaki', eras: ['russisch-rijk'], themes: ['architectuur', 'historisch'], note: 'Wijk met herenhuizen, binnenplaatsen en beschilderde trappenhuizen.' },

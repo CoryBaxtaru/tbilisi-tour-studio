@@ -58,7 +58,7 @@ export function useDeckSortable() {
       group: { name: DECK_GROUP, pull: 'clone', put: false },
       sort: false,
       draggable: '.deck-card',
-      filter: '.deck-card--used, button, a',
+      filter: '.deck-card--used, button, a, .site-info',
       preventOnFilter: false,
       animation: 160,
       forceFallback: true, // same pointer-based behaviour for mouse and touch

@@ -13,23 +13,24 @@ Tbilisi Walking Tour Studio — desktop tour design and mobile live guiding for 
 - Run locally: `npm install`, `npm test`, `npm run build`, then `npx vite preview` (or the `preview` entry in `.claude/launch.json`).
 
 ## Latest session
-- Date: 2026-10-21 (session 02, parts 2–4)
-- Summary: Zero-cost PWA live on GitHub Pages; added the card deck tour builder (58 OSM-located Tbilisi sites with era, tour-type and district tags; drag into the route, drag to reorder, automatic walking routes).
+- Date: 2026-10-21/22 (session 02, parts 2–5)
+- Summary: Zero-cost PWA live; card deck builder with proximity sort, map focus, sourced "Toon meer" (Wikipedia/Wikidata) and pre-generated tours from tags.
 - Breakdown: `docs/session-breakdowns/session-2026-10-21-02.md`
 
 ## Decisions that matter now
 - Never paid services or billing (CLAUDE.md). Check limits in `docs/HOSTING.md` before adding any service.
 - OSM tiles are never cached for offline use (policy). Routes are calculated during planning and stored in the tour.
 - UI direction: `.interface-design/system.md`.
-- Hooks check handoff freshness only.
+- Hooks check handoff and breakdown freshness only (date-independent since 2026-10-22).
 
 ## Tests and verification
-- `npm test`: 32 passed. `npm run build`: clean.
+- `npm test`: 43 passed. `npm run build`: clean.
 - Live deploy: page, manifest, service worker and precache verified over HTTPS; card deck (commit 119faa9) deployed, the update prompt switched the live site to the new version, and the deck showed 58 cards.
 - Browser (production build): main workflow, offline reload, update prompt, import, simulated GPS, live GitHub 401 path.
 - Not verified: full sync with a real token, real-phone GPS, iOS install, export download.
 
 ## Blockers / unfinished work
+- Part 5 (proximity, Toon meer, pre-generated tours) not committed or deployed yet.
 - Catalogue names, notes and tags are unverified suggestions: founder review via `docs/CATALOG.md`.
 - Founder must create the fine-grained token (steps in `docs/HOSTING.md`).
 

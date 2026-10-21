@@ -9,7 +9,7 @@ import type { Landmark, LatLng, Tour, TourStatus } from '../domain/types';
 import { fossgisFoot } from '../routing/osrm';
 import { RoutingError } from '../routing/provider';
 import { currentTour, deleteTour, ensureLandmark, saveLandmark, saveTour, useAppState } from '../state/store';
-import { CardDeck } from './CardDeck';
+import { CardDeck, type Anchor, type DeckSort } from './CardDeck';
 import { MapView, type MapDot, type MapStop } from './MapView';
 import { Ribbon } from './Ribbon';
 import { StopCard } from './StopCard';
@@ -21,6 +21,7 @@ type Pick = { mode: 'nieuw' } | { mode: 'positie'; landmarkId: string } | null;
 // Kept across navigation within the session.
 let lastFilter: DeckFilter = EMPTY_FILTER;
 let deckOpen = true;
+let lastSort: DeckSort = 'laatste';
 const AUTO_ROUTE_DELAY_MS = 1500;
 
 export function TourEditor({ id }: { id: string }) {
@@ -31,7 +32,9 @@ export function TourEditor({ id }: { id: string }) {
   const [routing, setRouting] = useState(false);
   const [filter, setFilterState] = useState<DeckFilter>(lastFilter);
   const [showDeck, setShowDeck] = useState(deckOpen);
-  const [focus, setFocus] = useState<{ key: string; position: LatLng } | null>(null);
+  const [sort, setSortState] = useState<DeckSort>(lastSort);
+  const [focus, setFocus] = useState<{ key: string; position: LatLng; n: number } | null>(null);
+  const mapSection = useRef<HTMLElement>(null);
   const lmById = useMemo(() => new Map(landmarks.map((l) => [l.id, l])), [landmarks]);
   const deck = useMemo(() => buildDeck(landmarks), [landmarks]);
 
@@ -148,7 +151,20 @@ export function TourEditor({ id }: { id: string }) {
   const usage = (landmarkId: string) => tours.filter((t) => !t.deleted && t.stops.some((s) => s.landmarkId === landmarkId)).length;
   const setFilter = (f: DeckFilter) => { lastFilter = f; setFilterState(f); };
   const toggleDeck = () => { deckOpen = !showDeck; setShowDeck(!showDeck); };
-  const focusCard = (c: DeckCard) => c.lat !== null && setFocus({ key: c.landmarkId, position: { lat: c.lat, lng: c.lng! } });
+  const setSort = (s: DeckSort) => { lastSort = s; setSortState(s); };
+  const focusCard = (c: DeckCard) => {
+    if (c.lat === null || c.lng === null) return;
+    setFocus((f) => ({ key: c.landmarkId, position: { lat: c.lat!, lng: c.lng! }, n: (f?.n ?? 0) + 1 }));
+    // On a phone the map sits above the list: bring it into view.
+    const r = mapSection.current?.getBoundingClientRect();
+    if (r && (r.bottom < 60 || r.top > innerHeight)) mapSection.current!.scrollIntoView({ block: 'start' }); // instant: a long smooth scroll feels slow
+  };
+  const anchorFor = (i: number): Anchor | null => {
+    const s = tour.stops[i];
+    const lm = s && lmById.get(s.landmarkId);
+    return lm?.position ? { position: lm.position, label: lm.name } : null;
+  };
+  const anchors = { first: anchorFor(0), last: anchorFor(tour.stops.length - 1) };
 
   return (
     <main class={`editor ${showDeck ? 'editor--deck' : ''}`}>
@@ -231,6 +247,9 @@ export function TourEditor({ id }: { id: string }) {
           cards={deck}
           filter={filter}
           onFilter={setFilter}
+          sort={sort}
+          onSort={setSort}
+          anchors={anchors}
           usedAt={usedAt}
           onAdd={(c) => void addLandmarkAt(c.landmarkId)}
           onFocus={focusCard}
@@ -238,7 +257,7 @@ export function TourEditor({ id }: { id: string }) {
         />
       )}
 
-      <section class={`editor__map ${pick ? 'editor__map--picking' : ''}`}>
+      <section class={`editor__map ${pick ? 'editor__map--picking' : ''}`} ref={mapSection}>
         {pick && <div class="map-banner">Klik op de kaart om {pick.mode === 'nieuw' ? 'een eigen stop te plaatsen' : 'de positie te kiezen'} · <button class="link" onClick={() => setPick(null)}>Annuleren</button></div>}
         {!online && <div class="map-banner map-banner--warn">Offline: kaartachtergrond niet beschikbaar; stops en opgeslagen routes wel.</div>}
         <MapView

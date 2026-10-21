@@ -58,7 +58,8 @@ writeFileSync(
   JSON.stringify(
     {
       source: 'Positions and Georgian names: © OpenStreetMap contributors (ODbL), via Nominatim. Names, tags and notes: suggestions, not verified.',
-      generatedAt: new Date().toISOString().slice(0, 10),
+      // Full timestamp: catalogue landmarks use it as createdAt/updatedAt, so a newer build refreshes unedited copies.
+      generatedAt: new Date().toISOString().replace(/\.\d+Z$/, '.000Z'),
       sites: out,
     },
     null,

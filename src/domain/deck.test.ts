@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { buildDeck, CATALOG, catalogLandmarkId, landmarkFromCatalog } from './catalog';
+import { buildDeck, CATALOG, catalogLandmarkId, landmarkFromCatalog, staleCatalogLandmarks } from './catalog';
 import { createLandmark, createTour } from './factory';
 import { DISTRICTS, ERAS, EMPTY_FILTER, matchesFilter, THEMES } from './tags';
 import { insertStop, moveStop, removeStop } from './tourOps';
@@ -76,5 +76,23 @@ describe('tour operations', () => {
   it('removes by stop id', () => {
     const t = tour();
     expect(order(removeStop(t, t.stops[1].id))).toBe('ac');
+  });
+});
+
+describe('catalogue refresh', () => {
+  const site = CATALOG[0];
+  const current = landmarkFromCatalog(site);
+  const old = { ...current, createdAt: '2000-01-01T00:00:00.000Z', updatedAt: '2000-01-01T00:00:00.000Z', position: { lat: 41.7, lng: 44.79 } };
+
+  it('replaces an unedited older catalogue landmark and reports the move', () => {
+    const out = staleCatalogLandmarks([old]);
+    expect(out).toHaveLength(1);
+    expect(out[0].fresh).toEqual(current);
+    expect(out[0].moved).toBe(true);
+  });
+
+  it('never replaces a landmark the guide edited, or one that is already current', () => {
+    const edited = { ...old, updatedAt: '2000-01-02T10:11:12.345Z', name: 'Mijn naam' };
+    expect(staleCatalogLandmarks([edited, current])).toEqual([]);
   });
 });

@@ -37,6 +37,12 @@ function breakdownsFor(date) {
   } catch { return []; }
 }
 
+function allBreakdowns() {
+  try {
+    return fs.readdirSync(breakdownDir).filter((f) => /^session-\d{4}-\d{2}-\d{2}-\d+\.md$/.test(f));
+  } catch { return []; }
+}
+
 function nextBreakdownName(date) {
   const nums = breakdownsFor(date).map((f) => parseInt(f.slice(`session-${date}-`.length), 10)).filter(Number.isFinite);
   const next = (nums.length ? Math.max(...nums) : 0) + 1;
@@ -99,12 +105,13 @@ function stop(input) {
 
   const date = today();
   const handoffOk = mtime(handoffFile) >= latest - GRACE_MS;
-  const breakdownOk = breakdownsFor(date).some((f) => mtime(path.join(breakdownDir, f)) >= Math.max(startedAt, 1));
+  // Any breakdown counts (not only today's file), so a session that crosses midnight keeps its own file.
+  const breakdownOk = allBreakdowns().some((f) => mtime(path.join(breakdownDir, f)) >= latest - GRACE_MS);
   if (handoffOk && breakdownOk) return;
 
   const missing = [];
   if (!handoffOk) missing.push('handoff.md is older than the latest work change');
-  if (!breakdownOk) missing.push(`no docs/session-breakdowns/session-${date}-NN.md updated this session (next free: ${nextBreakdownName(date)})`);
+  if (!breakdownOk) missing.push(`no session breakdown in docs/session-breakdowns/ updated after it (new session today: ${nextBreakdownName(date)})`);
   process.stdout.write(JSON.stringify({
     decision: 'block',
     reason: `[handoff hook] Work files changed (latest: ${latestFile}) but ${missing.join('; ')}. ` +

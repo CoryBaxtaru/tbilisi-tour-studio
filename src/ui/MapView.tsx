@@ -24,7 +24,7 @@ interface Props {
   dots?: MapDot[];
   onDotAdd?: (key: string) => void;
   /** Pan to this point (e.g. a card the user clicked); key changes re-trigger. */
-  focus?: { key: string; position: LatLng } | null;
+  focus?: { key: string; position: LatLng; n?: number } | null;
   routes: [number, number][][];
   /** Straight dashed lines for pairs without a computed route, clearly not a walking path. */
   gaps?: [LatLng, LatLng][];
@@ -97,11 +97,18 @@ export function MapView({ stops, dots = [], onDotAdd, focus, routes, gaps = [], 
     }
   }, [dots]);
 
+  const focusRing = useRef<L.CircleMarker | null>(null);
   useEffect(() => {
     if (!focus) return;
-    map.current!.setView([focus.position.lat, focus.position.lng], Math.max(map.current!.getZoom(), 16));
-    dotMarkers.current.get(focus.key)?.openPopup();
-  }, [focus?.key]);
+    const m = map.current!;
+    const target: L.LatLngExpression = [focus.position.lat, focus.position.lng];
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    m.invalidateSize();
+    m.flyTo(target, Math.max(m.getZoom(), 17), { animate: !reduce, duration: 0.6 });
+    focusRing.current?.remove();
+    focusRing.current = L.circleMarker(target, { radius: 16, color: '#2F6F6A', weight: 3, fill: false, interactive: false }).addTo(m);
+    m.once('moveend', () => dotMarkers.current.get(focus.key)?.openPopup());
+  }, [focus?.key, focus?.n]);
 
   useEffect(() => {
     const m = map.current!;

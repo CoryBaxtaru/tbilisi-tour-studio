@@ -303,3 +303,42 @@ fieldset.shared legend { color: var(--balkon); }
   .chip--filter { min-height: 32px; }
   .deck-card__add { width: 40px; height: 40px; }
 }
+
+/* ---- Deck: proximity, focus, Toon meer ---- */
+.deck__filterbar { align-items: center; }
+.deck__sort { width: auto; margin-left: auto; min-height: 28px; padding: 2px 8px; font-size: 12px; }
+.deck-card__dist { font-size: 12px; color: var(--balkon); margin-top: 4px; font-variant-numeric: tabular-nums; }
+.deck-card__more { font-size: 12px; font-weight: 500; color: var(--balkon); text-decoration: none; min-height: 28px; }
+.deck-card__more:hover { text-decoration: underline; }
+.deck-card__foot { align-items: center; }
+.site-info { cursor: auto; border-top: 1px solid var(--line); margin-top: 8px; padding-top: 8px; user-select: text; }
+.site-info__facts { margin: 0 0 8px; display: grid; gap: 4px; }
+.site-info__facts div { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 8px; font-size: 12px; }
+.site-info__facts dt { color: var(--ink-2); }
+.site-info__facts dd { margin: 0; color: var(--ink); }
+.site-info__lang { font-size: 11px; color: var(--ink-2); margin: 4px 0; }
+.site-info__text { font-family: var(--font-story); font-size: 14px; line-height: 1.55; color: var(--ink); }
+.site-info__text p { margin: 0 0 8px; text-wrap: pretty; }
+.site-info__src { font-size: 11px; color: var(--ink-2); line-height: 1.5; margin: 6px 0; }
+.site-info__src a { color: var(--balkon); }
+.guide__info summary { font: 500 15px var(--font-ui); color: var(--kalk); cursor: pointer; min-height: 44px; padding: 8px 0; }
+.app--guide .site-info__text { color: var(--kalk); font-size: 16px; }
+.app--guide .site-info__facts dd { color: var(--kalk); }
+.app--guide .site-info__src a { color: var(--gps-tekst); }
+
+/* ---- Pre-generated tours ---- */
+.suggest { margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--line); }
+.suggest__options { display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end; margin: 12px 0 16px; }
+.suggest__options label { flex: 0 0 auto; min-width: 180px; }
+.suggest__options .check { flex-direction: row; align-items: center; gap: 8px; min-width: 0; font-size: 13px; color: var(--ink); }
+.check input { width: 18px; height: 18px; min-height: 0; }
+.suggest__grid { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+.suggest-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); padding: 14px; display: flex; flex-direction: column; gap: 6px; }
+.suggest-card h3 { margin: 0; font-size: 17px; font-weight: 500; }
+.suggest-card .meta { margin: 0; flex: 1; }
+.suggest-card__stats { margin: 4px 0 8px; font-size: 12px; color: var(--balkon); font-variant-numeric: tabular-nums; }
+.suggest-card--all { grid-column: 1 / -1; border-color: var(--baksteen); }
+.suggest-card--all .btn { align-self: flex-start; }
+.suggest__custom { margin-top: 16px; }
+.suggest__custom summary { cursor: pointer; font-weight: 500; padding: 8px 0; }
+.editor__map { scroll-margin-top: 60px; }
