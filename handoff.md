@@ -18,6 +18,7 @@ Tbilisi Walking Tour Studio — desktop tour design and mobile live guiding for 
 ## Decisions that matter now
 - Hooks support but don't guarantee handoff; they check file freshness only and fail open.
 - Stack not chosen — founder decision required (spec §10–11).
+- UI direction proposed in session 02 (see breakdown); founder approval pending, then save to `.interface-design/system.md`.
 - Historical research must be reusable and source-linked; routing, ordering, GPS and offline are distinct capabilities.
 
 ## Tests and verification
