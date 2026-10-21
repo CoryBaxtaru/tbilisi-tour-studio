@@ -13,9 +13,9 @@ Tbilisi Walking Tour Studio — desktop tour design and mobile live guiding for 
 - Run locally: `npm install`, `npm test`, `npm run build`, then `npx vite preview` (or the `preview` entry in `.claude/launch.json`).
 
 ## Latest session
-- Date: 2026-10-21/22 (session 02, parts 2–5)
-- Summary: Zero-cost PWA live; card deck builder with proximity sort, map focus, sourced "Toon meer" (Wikipedia/Wikidata) and pre-generated tours from tags.
-- Breakdown: `docs/session-breakdowns/session-2026-10-21-02.md`
+- Date: 2026-10-22 (session 01)
+- Summary: Deployed the card deck improvements (proximity sort, map focus, sourced "Toon meer", pre-generated tours) as commit `9898329`; verified live.
+- Breakdown: `docs/session-breakdowns/session-2026-10-22-01.md` (feature details: `session-2026-10-21-02.md` part 5)
 
 ## Decisions that matter now
 - Never paid services or billing (CLAUDE.md). Check limits in `docs/HOSTING.md` before adding any service.
@@ -25,12 +25,11 @@ Tbilisi Walking Tour Studio — desktop tour design and mobile live guiding for 
 
 ## Tests and verification
 - `npm test`: 43 passed. `npm run build`: clean.
-- Live deploy: page, manifest, service worker and precache verified over HTTPS; card deck (commit 119faa9) deployed, the update prompt switched the live site to the new version, and the deck showed 58 cards.
+- Live deploy: page, manifest, service worker and precache verified over HTTPS; card deck (commit 119faa9) deployed, the update prompt switched the live site to the new version, and the deck showed 58 cards; commit 9898329 deployed, and the live site shows 12 suggested tours.
 - Browser (production build): main workflow, offline reload, update prompt, import, simulated GPS, live GitHub 401 path.
 - Not verified: full sync with a real token, real-phone GPS, iOS install, export download.
 
 ## Blockers / unfinished work
-- Part 5 (proximity, Toon meer, pre-generated tours) not committed or deployed yet.
 - Catalogue names, notes and tags are unverified suggestions: founder review via `docs/CATALOG.md`.
 - Founder must create the fine-grained token (steps in `docs/HOSTING.md`).
 

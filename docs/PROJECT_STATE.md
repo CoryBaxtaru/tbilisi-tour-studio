@@ -20,7 +20,7 @@ Tbilisi Walking Tour Studio: a personal desktop tour editor and mobile live-guid
   - PWA install manifest and offline app shell (tested with the server stopped)
   - Update prompt
   - GitHub sync: error path tested live; full round trip only unit-tested with a mocked remote
-- Handoff hooks: Stop hook confirmed live; SessionStart not yet observed. See `docs/HANDOFF_HOOKS.md`.
+- Handoff hooks: Stop and SessionStart hooks both confirmed live. See `docs/HANDOFF_HOOKS.md`.
 - Tests/build: `npm test` passes 43 unit tests; `npm run build` (tsc + vite) is clean.
 - Known blockers: only the founder can create the sync token.
 
