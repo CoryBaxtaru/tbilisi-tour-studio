@@ -15,6 +15,14 @@ Tbilisi Walking Tour Studio: a personal desktop tour editor and mobile live-guid
   - Onderzoek (research): per-site claims with sources and a verdict (Concept, Geverifieerd, Afgewezen), plus own claims and sources (`docs/RESEARCH.md`).
     - 203 concept claims for all 58 sites (≥ 3 each, since 2026-10-23), checked by Claude in the original sources. Wikipedia is not used as a source.
     - New stops start with the site's 3 best claims as talking points (`starterPoints`).
+  - Agenda (business hub step 3, 2026-10-23):
+    - tour products (Touraanbod: duration, min/max guests, meeting point, inclusions; Dutch only);
+    - departures in a month calendar with fill chips ("3/10", dashed when below the minimum, filled when full);
+    - bookings entered by the guide: channel, reference, lead name, one contact field, adults/children/infants, price, commission, paid, status;
+    - per-departure revenue, commission and net.
+    - Guests' name, contact and notes are erased automatically 6 months after the tour, deterministically so two devices agree.
+    - Backups leave bookings out unless ticked.
+    - Tested on a local production build only; not deployed yet.
     - The stop card copies a claim into a talking point; the editor and guide mode flag points whose claim is not verified.
     - Verified on a local production build, then live on GitHub Pages since commit 236470b (2026-10-22).
   - Map placement of stops (Leaflet + OSM)
@@ -27,7 +35,7 @@ Tbilisi Walking Tour Studio: a personal desktop tour editor and mobile live-guid
   - Update prompt
   - GitHub sync: verified on real devices 2026-10-22. The founder tested laptop ↔ phone; the private data repo shows "Sync vanaf laptop" and "Sync vanaf telefoon" commits.
 - Handoff hooks: Stop and SessionStart hooks both confirmed live. See `docs/HANDOFF_HOOKS.md`.
-- Tests/build: `npm test` passes 57 unit tests; `npm run build` (tsc + vite) succeeds. Vite warns that the main chunk exceeds 500 kB (578 kB, 172 kB gzip; the bundled research drafts add about 100 kB).
+- Tests/build: `npm test` passes 65 unit tests; `npm run build` (tsc + vite) succeeds. Vite warns that the main chunk exceeds 500 kB (578 kB, 172 kB gzip; the bundled research drafts add about 100 kB).
 - Real-device test (2026-10-22, founder-reported "it all works"): sync both ways, phone install, offline reopen, GPS in guide mode, card deck on the phone. Details (phone model, GPS accuracy) were not reported.
 - Known blockers: none.
 
@@ -38,7 +46,7 @@ Tbilisi Walking Tour Studio: a personal desktop tour editor and mobile live-guid
 - Frontend: Vite 8 + Preact 11 + TypeScript 7, hash routing, CSS tokens from `.interface-design/system.md`.
 - Hosting: GitHub Pages via `.github/workflows/deploy.yml` (public code repo).
 - Storage: IndexedDB (`idb`), local-first; `navigator.storage.persist()` requested.
-- Sync: private GitHub repo via REST contents API, three-way per-record merge with conflict copies (`src/sync/`).
+- Sync: private GitHub repo via REST contents API, three-way per-record merge with conflict copies (`src/sync/`). Five record types (tours, landmarks, products, departures, bookings) in one file, schema version 2 since 2026-10-23. Version 1 files are still read. An app still on version 1 refuses a version 2 file with "Werk de app bij" instead of dropping business records. IndexedDB version 2 adds the three stores.
 - Map: Leaflet; base = self-hosted Protomaps vector extract (`src/map/offlineMap.ts`, protomaps-leaflet, pmtiles 3.2.1), plus OSM raster tiles underneath online (never cached, by OSM policy).
 - Routing: `RoutingProvider` interface; FOSSGIS OSRM foot (`src/routing/osrm.ts`).
 - Geocoding: none yet (stops are placed by clicking the map; coordinates are never invented).

@@ -1,7 +1,8 @@
 // Core domain model (see docs/PRODUCT_SPEC.md §4).
 // Shared landmark knowledge is kept separate from tour-specific presentation (TourStop).
 
-export const SCHEMA_VERSION = 1;
+/** 2 = adds tour products, departures and bookings (2026-10-23). Version 1 files are still read. */
+export const SCHEMA_VERSION = 2;
 
 export type Id = string;
 export type IsoDate = string;
@@ -126,9 +127,79 @@ export interface Tour extends SyncedEntity {
   breakMinutes: number;
 }
 
-export interface Dataset {
-  schemaVersion: number;
-  exportedAt?: IsoDate;
+// ---- Business hub (internal; the founder enters everything) ----
+
+/** A sellable tour: what guests book. Usually based on one of the guide's tours (route and talking points). */
+export interface TourProduct extends SyncedEntity {
+  name: string;
+  tourId: Id | null;
+  durationMin: number;
+  /** Tour language; Dutch only for now. */
+  language: 'nl';
+  meetingPoint: string;
+  maxGuests: number;
+  /** Below this number of guests a departure does not run. */
+  minGuests: number;
+  included: string;
+  notes: string;
+  active: boolean;
+}
+
+export type DepartureStatus = 'gepland' | 'bevestigd' | 'afgerond' | 'geannuleerd';
+
+/** A product on a date and start time, with a number of places. */
+export interface Departure extends SyncedEntity {
+  productId: Id;
+  /** Local Tbilisi date, YYYY-MM-DD. */
+  date: string;
+  /** Local start time, HH:MM. */
+  startTime: string;
+  capacity: number;
+  status: DepartureStatus;
+  notes: string;
+}
+
+export type BookingChannel = 'getyourguide' | 'direct' | 'whatsapp' | 'walk-in' | 'anders';
+export type BookingStatus = 'geboekt' | 'geannuleerd' | 'no-show';
+
+/**
+ * A booking the guide entered. Holds personal data (lead name, one contact field, notes), which is erased
+ * RETENTION_MONTHS after the tour (src/domain/agenda.ts); counts and amounts stay for the books.
+ */
+export interface Booking extends SyncedEntity {
+  departureId: Id;
+  channel: BookingChannel;
+  /** The channel's booking number, e.g. a GetYourGuide reference. */
+  reference: string;
+  leadName: string;
+  /** Phone number or e-mail address. */
+  contact: string;
+  adults: number;
+  children: number;
+  infants: number;
+  /** Agreed total in EUR, as paid by the guest. */
+  priceTotal: number;
+  /** Channel commission in EUR. */
+  commission: number;
+  paid: boolean;
+  status: BookingStatus;
+  notes: string;
+  /** Set when the personal data was erased. */
+  anonymizedAt?: IsoDate;
+}
+
+export interface Collections {
   tours: Tour[];
   landmarks: Landmark[];
+  products: TourProduct[];
+  departures: Departure[];
+  bookings: Booking[];
+}
+
+export type Kind = keyof Collections;
+export const KINDS: Kind[] = ['tours', 'landmarks', 'products', 'departures', 'bookings'];
+
+export interface Dataset extends Collections {
+  schemaVersion: number;
+  exportedAt?: IsoDate;
 }

@@ -1,9 +1,10 @@
 // Application state: in-memory mirror of IndexedDB, plus sync orchestration.
 // Every edit is saved locally first; sync to GitHub runs in the background when configured.
 import { useEffect, useState } from 'preact/hooks';
+import { dueForErasure, isoDate } from '../domain/agenda';
 import { staleCatalogLandmarks } from '../domain/catalog';
 import { touch } from '../domain/factory';
-import type { Landmark, Tour } from '../domain/types';
+import { KINDS, type Collections, type Kind, type Landmark, type SyncedEntity, type Tour } from '../domain/types';
 import { DatasetError, parseDataset, serializeDataset } from '../storage/backup';
 import { deleteMeta, getMeta, loadAll, putRecords, requestPersistence, setMeta } from '../storage/db';
 import { GitHubRemote, SyncError, type SyncConfig } from '../sync/github';
@@ -12,10 +13,8 @@ import { syncOnce } from '../sync/sync';
 
 export type SyncStatus = 'uit' | 'bezig' | 'ok' | 'fout' | 'offline';
 
-export interface AppState {
+export interface AppState extends Collections {
   loaded: boolean;
-  tours: Tour[];
-  landmarks: Landmark[];
   online: boolean;
   persisted: boolean | null;
   syncConfig: SyncConfig | null;
@@ -29,6 +28,9 @@ let state: AppState = {
   loaded: false,
   tours: [],
   landmarks: [],
+  products: [],
+  departures: [],
+  bookings: [],
   online: typeof navigator === 'undefined' ? true : navigator.onLine,
   persisted: null,
   syncConfig: null,
@@ -67,11 +69,12 @@ const LAST_SYNC_KEY = 'lastSyncAt';
 const SYNC_DEBOUNCE_MS = 15_000;
 
 export async function init(): Promise<void> {
-  const { tours, landmarks } = await loadAll();
+  const all = await loadAll();
   const syncConfig = (await getMeta<SyncConfig>(SYNC_CONFIG_KEY)) ?? null;
   const lastSyncAt = (await getMeta<string>(LAST_SYNC_KEY)) ?? null;
-  set({ loaded: true, tours, landmarks, syncConfig, lastSyncAt, syncStatus: syncConfig ? 'ok' : 'uit' });
+  set({ loaded: true, ...all, syncConfig, lastSyncAt, syncStatus: syncConfig ? 'ok' : 'uit' });
   await refreshCatalog();
+  await erasePersonalData();
   set({ persisted: await requestPersistence().catch(() => null) });
 
   window.addEventListener('online', () => { set({ online: true }); void syncNow(); });
@@ -99,20 +102,38 @@ async function refreshCatalog(): Promise<void> {
   changed();
 }
 
-// ---- Edits (local first) ----
-
-export async function saveTour(tour: Tour): Promise<void> {
-  const t = touch(tour);
-  set({ tours: upsert(state.tours, t) });
-  await putRecords('tours', [t]);
+/** Erases guests' personal data RETENTION_MONTHS after their tour (deterministic, so devices agree). */
+async function erasePersonalData(): Promise<void> {
+  const erased = dueForErasure(state.bookings, state.departures, isoDate(new Date()));
+  if (!erased.length) return;
+  let bookings = state.bookings;
+  for (const b of erased) bookings = upsert(bookings, b);
+  set({ bookings });
+  await putRecords('bookings', erased);
   changed();
 }
 
-export async function saveLandmark(landmark: Landmark): Promise<void> {
-  const l = touch(landmark);
-  set({ landmarks: upsert(state.landmarks, l) });
-  await putRecords('landmarks', [l]);
+// ---- Edits (local first) ----
+
+/** Saves any record with a fresh updatedAt. */
+export async function saveRecord<K extends Kind>(kind: K, record: Collections[K][number]): Promise<void> {
+  const r = touch(record as SyncedEntity) as Collections[K][number];
+  set({ [kind]: upsert(state[kind] as SyncedEntity[], r as SyncedEntity) } as Partial<AppState>);
+  await putRecords(kind, [r] as Collections[K]);
   changed();
+}
+
+export const saveTour = (tour: Tour) => saveRecord('tours', tour);
+export const saveLandmark = (landmark: Landmark) => saveRecord('landmarks', landmark);
+
+/** Soft delete (tombstone) so the deletion reaches other devices. */
+export function deleteRecord<K extends Kind>(kind: K, record: Collections[K][number]): Promise<void> {
+  return saveRecord(kind, { ...record, deleted: true });
+}
+
+/** Latest saved version of a record (avoids applying edits to a stale render copy). */
+export function currentRecord<K extends Kind>(kind: K, id: string): Collections[K][number] | undefined {
+  return (state[kind] as SyncedEntity[]).find((r) => r.id === id && !r.deleted) as Collections[K][number] | undefined;
 }
 
 /**
@@ -146,20 +167,27 @@ function upsert<T extends { id: string }>(xs: T[], x: T): T[] {
 
 // ---- Backup ----
 
-export function exportJson(): string {
-  return serializeDataset(state.tours, state.landmarks, { includeDeleted: false });
+/** Backup file. Bookings (guests' personal data) only when asked. */
+export function exportJson(includeBookings = false): string {
+  return serializeDataset(state, { includeDeleted: false, includeBookings });
 }
 
 export async function importJson(text: string): Promise<string> {
   try {
     const data = parseDataset(text);
-    const tours = importRecords(state.tours, data.tours);
-    const landmarks = importRecords(state.landmarks, data.landmarks);
-    set({ tours: tours.merged, landmarks: landmarks.merged });
-    await putRecords('tours', tours.merged);
-    await putRecords('landmarks', landmarks.merged);
+    const counts: Partial<Record<Kind, number>> = {};
+    const patch: Partial<Collections> = {};
+    for (const k of KINDS) {
+      const r = importRecords(state[k] as SyncedEntity[], data[k] as SyncedEntity[]);
+      (patch as Record<Kind, SyncedEntity[]>)[k] = r.merged;
+      counts[k] = r.changed;
+      await putRecords(k, r.merged as Collections[typeof k]);
+    }
+    set(patch);
     changed();
-    return `Geïmporteerd: ${tours.changed} tour(s) en ${landmarks.changed} bezienswaardigheid/-heden bijgewerkt of toegevoegd.`;
+    const business = (counts.products ?? 0) + (counts.departures ?? 0) + (counts.bookings ?? 0);
+    return `Geïmporteerd: ${counts.tours} tour(s) en ${counts.landmarks} bezienswaardigheid/-heden bijgewerkt of toegevoegd` +
+      (business ? `, plus ${business} touraanbod/vertrek(ken)/boeking(en).` : '.');
   } catch (e) {
     if (e instanceof DatasetError) throw e;
     throw new DatasetError('Importeren mislukt.');
@@ -202,31 +230,31 @@ async function runSync(): Promise<void> {
   const cfg = state.syncConfig!;
   if (debounce) { clearTimeout(debounce); debounce = null; }
   set({ syncStatus: 'bezig', syncMessage: 'Synchroniseren…' });
-  const snapshot = new Map([...state.tours, ...state.landmarks].map((r) => [r.id, r.updatedAt]));
+  const all = () => KINDS.flatMap((k) => state[k] as SyncedEntity[]);
+  const snapshot = new Map(all().map((r) => [r.id, r.updatedAt]));
   try {
     const base = (await getMeta<SyncBase>(SYNC_BASE_KEY)) ?? {};
-    const out = await syncOnce(new GitHubRemote(cfg), { tours: state.tours, landmarks: state.landmarks, base }, deviceLabel());
+    const input = Object.fromEntries(KINDS.map((k) => [k, state[k]])) as unknown as Collections;
+    const out = await syncOnce(new GitHubRemote(cfg), { ...input, base }, deviceLabel());
 
     // Apply results, but never overwrite a record edited while the sync was running.
-    const untouched = <T extends { id: string; updatedAt: string }>(current: T[]) => {
-      const cur = new Map(current.map((r) => [r.id, r.updatedAt]));
-      return (r: T) => cur.get(r.id) === snapshot.get(r.id);
-    };
-    const tours = out.tours.filter(untouched(state.tours));
-    const landmarks = out.landmarks.filter(untouched(state.landmarks));
-    let nextTours = state.tours;
-    for (const t of tours) nextTours = upsert(nextTours, t);
-    let nextLandmarks = state.landmarks;
-    for (const l of landmarks) nextLandmarks = upsert(nextLandmarks, l);
-    await putRecords('tours', tours);
-    await putRecords('landmarks', landmarks);
+    const cur = new Map(all().map((r) => [r.id, r.updatedAt]));
+    const untouched = (r: SyncedEntity) => cur.get(r.id) === snapshot.get(r.id);
+    const patch: Partial<Collections> = {};
+    let editedDuring = false;
+    for (const k of KINDS) {
+      const results = (out[k] as SyncedEntity[]).filter(untouched);
+      editedDuring ||= results.length !== out[k].length;
+      let next = state[k] as SyncedEntity[];
+      for (const r of results) next = upsert(next, r);
+      (patch as Record<Kind, SyncedEntity[]>)[k] = next;
+      await putRecords(k, results as Collections[typeof k]);
+    }
     await setMeta(SYNC_BASE_KEY, out.base);
     const now = new Date().toISOString();
     await setMeta(LAST_SYNC_KEY, now);
-    const editedDuring = tours.length !== out.tours.length || landmarks.length !== out.landmarks.length;
     set({
-      tours: nextTours,
-      landmarks: nextLandmarks,
+      ...patch,
       lastSyncAt: now,
       pendingChanges: editedDuring,
       syncStatus: 'ok',

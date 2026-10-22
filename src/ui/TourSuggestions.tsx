@@ -13,7 +13,8 @@ import { navigate } from './router';
 
 type MaxChoice = 'standaard' | 'alle' | '6' | '8' | '10' | '12' | '16';
 
-export function TourSuggestions() {
+/** `hasTours`: once the guide has own tours, those lead and suggestions stay quiet (no accent buttons). */
+export function TourSuggestions({ hasTours }: { hasTours: boolean }) {
   const { landmarks } = useAppState();
   const deck = useMemo(() => buildDeck(landmarks), [landmarks]);
   const [maxChoice, setMaxChoice] = useState<MaxChoice>('standaard');
@@ -66,7 +67,11 @@ export function TourSuggestions() {
       <div class="page__head">
         <h2>Kant-en-klare tours</h2>
       </div>
-      <p class="hint">Maakt een nieuwe tour uit de kaarten met deze tags. Het is een startpunt: de volgorde is geografisch of chronologisch, niet verhalend, en de tags zijn nog onbevestigd. Daarna kun je alles slepen en aanpassen.</p>
+      <p class="hint">Een startpunt uit de kaarten met deze tags; daarna sleep en pas je alles aan.</p>
+      <details class="more">
+        <summary>Meer uitleg</summary>
+        <p class="hint">De volgorde is geografisch of chronologisch, niet verhalend, en de tags zijn nog onbevestigd. Elke nieuwe stop krijgt drie vertelpunten uit het onderzoek, als concept.</p>
+      </details>
       <div class="suggest__options">
         <label>Aantal stops
           <select value={maxChoice} onChange={(e) => setMaxChoice(e.currentTarget.value as MaxChoice)}>
@@ -84,16 +89,33 @@ export function TourSuggestions() {
         <label class="check"><input type="checkbox" checked={outside} onChange={(e) => setOutside(e.currentTarget.checked)} /> Ook plekken buiten het centrum (vervoer nodig)</label>
       </div>
 
-      <ul class="suggest__grid">
-        {TEMPLATES.map((t) => {
-          const max = maxFor(t);
+      {/* One featured all-in-one tour, then the themes as a quiet list: the accent is used at most once. */}
+      {TEMPLATES.filter((t) => t.id === 'compleet').map((t) => {
+        const p = previews.get(t.id)!;
+        return (
+          <div key={t.id} class="suggest-feature">
+            <div class="suggest-feature__text">
+              <h3 class="lit">{t.title}</h3>
+              <p class="meta">{t.description} {p.count} plekken · ± {formatDistance(p.length)} hemelsbreed.</p>
+            </div>
+            <button class={`btn ${hasTours ? '' : 'btn--primary'}`} disabled={busy || !p.count} onClick={() => create(t.title, t.filter, maxFor(t))}>Maak tour</button>
+          </div>
+        );
+      })}
+      <ul class="suggest-list">
+        {TEMPLATES.filter((t) => t.id !== 'compleet').map((t) => {
           const p = previews.get(t.id)!;
           return (
-            <li key={t.id} class={`suggest-card ${t.id === 'compleet' ? 'suggest-card--all' : ''}`}>
-              <h3 class="lit">{t.title}</h3>
-              <p class="meta">{t.description}</p>
-              <p class="suggest-card__stats">{p.count} van {p.total} plekken · ± {formatDistance(p.length)} hemelsbreed</p>
-              <button class="btn btn--primary" disabled={busy || !p.count} onClick={() => create(t.title, t.filter, max)}>Maak tour</button>
+            <li key={t.id}>
+              <button class="suggest-row" disabled={busy || !p.count} onClick={() => create(t.title, t.filter, maxFor(t))}
+                aria-label={`Maak tour: ${t.title}, ${p.count} plekken`}>
+                <span class="suggest-row__main">
+                  <span class="suggest-row__name lit">{t.title}</span>
+                  <span class="meta">{t.description}</span>
+                </span>
+                <span class="suggest-row__stats">{p.count} plekken · ± {formatDistance(p.length)}</span>
+                <span class="suggest-row__go" aria-hidden="true">Maak tour ›</span>
+              </button>
             </li>
           );
         })}
@@ -109,7 +131,7 @@ export function TourSuggestions() {
         <div class="row">
           <span class="hint">{customCount} passende plekken</span>
           <button
-            class="btn btn--primary"
+            class="btn"
             disabled={busy || !customActive || !customCount}
             onClick={() => create(`Tour: ${[...custom.eras, ...custom.themes, ...custom.districts].map(tagLabel).join(' + ')}`, custom, maxChoice === 'alle' ? null : maxChoice === 'standaard' ? 10 : Number(maxChoice))}
           >

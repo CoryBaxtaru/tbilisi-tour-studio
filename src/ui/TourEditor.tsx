@@ -17,8 +17,11 @@ import { StopCard } from './StopCard';
 import { navigate } from './router';
 import { useRouteSortable } from './sortable';
 import { useMapStored } from '../map/offlineMap';
+import { useTheme } from './theme';
 
 type Pick = { mode: 'nieuw' } | { mode: 'positie'; landmarkId: string } | null;
+
+const TOUR_STATUS: Record<TourStatus, string> = { concept: 'Concept', beoordeeld: 'Beoordeeld', klaar: 'Klaar om te gidsen' };
 
 // Kept across navigation within the session.
 let lastFilter: DeckFilter = EMPTY_FILTER;
@@ -38,6 +41,8 @@ export function TourEditor({ id }: { id: string }) {
   const [focus, setFocus] = useState<{ key: string; position: LatLng; n: number } | null>(null);
   const mapSection = useRef<HTMLElement>(null);
   const mapStored = useMapStored();
+  // The map style is chosen when the map is created, so the map is rebuilt (key) when the theme changes.
+  const { dark } = useTheme();
   const lmById = useMemo(() => new Map(landmarks.map((l) => [l.id, l])), [landmarks]);
   const deck = useMemo(() => buildDeck(landmarks), [landmarks]);
 
@@ -182,20 +187,19 @@ export function TourEditor({ id }: { id: string }) {
           </div>
         </div>
         <input class="title-input lit" value={tour.title} aria-label="Titel" onInput={(e) => update({ title: e.currentTarget.value })} />
-        <div class="row">
-          <label>Status
-            <select value={tour.status} onChange={(e) => update({ status: e.currentTarget.value as TourStatus })}>
-              <option value="concept">Concept</option>
-              <option value="beoordeeld">Beoordeeld</option>
-              <option value="klaar">Klaar om te gidsen</option>
-            </select>
-          </label>
-          <label class="narrow">Pauzes (min)
-            <input type="number" min={0} step={5} value={tour.breakMinutes} onInput={(e) => update({ breakMinutes: Math.max(0, Number(e.currentTarget.value) || 0) })} />
-          </label>
-        </div>
+        {/* Rarely changed settings stay folded, so the timeline and the route lead the panel. */}
         <details class="tour-meta">
-          <summary>Thema en beschrijving</summary>
+          <summary>Tourgegevens · {TOUR_STATUS[tour.status]}{tour.breakMinutes ? ` · ${tour.breakMinutes} min pauze` : ''}</summary>
+          <div class="row">
+            <label>Status
+              <select value={tour.status} onChange={(e) => update({ status: e.currentTarget.value as TourStatus })}>
+                {Object.entries(TOUR_STATUS).map(([k, l]) => <option key={k} value={k}>{l}</option>)}
+              </select>
+            </label>
+            <label class="narrow">Pauzes (min)
+              <input type="number" min={0} step={5} value={tour.breakMinutes} onInput={(e) => update({ breakMinutes: Math.max(0, Number(e.currentTarget.value) || 0) })} />
+            </label>
+          </div>
           <label>Thema<input value={tour.theme} onInput={(e) => update({ theme: e.currentTarget.value })} /></label>
           <label>Beschrijving<textarea rows={2} value={tour.description} onInput={(e) => update({ description: e.currentTarget.value })} /></label>
         </details>
@@ -266,6 +270,8 @@ export function TourEditor({ id }: { id: string }) {
         {pick && <div class="map-banner">Klik op de kaart om {pick.mode === 'nieuw' ? 'een eigen stop te plaatsen' : 'de positie te kiezen'} · <button class="link" onClick={() => setPick(null)}>Annuleren</button></div>}
         {!online && mapStored === false && <div class="map-banner map-banner--warn">Offline en geen opgeslagen kaart: alleen stops en opgeslagen routes. Sla de kaart op via Instellingen.</div>}
         <MapView
+          key={dark ? 'donker' : 'licht'}
+          dark={dark}
           stops={mapStops}
           dots={dots}
           onDotAdd={(key) => void addLandmarkAt(key)}

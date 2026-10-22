@@ -1,47 +1,45 @@
 // Local-first storage: every device keeps a full copy in IndexedDB.
 import { openDB, type IDBPDatabase } from 'idb';
-import type { Landmark, Tour } from '../domain/types';
+import { KINDS, type Collections, type Kind } from '../domain/types';
 
 const DB_NAME = 'tbilisi-tourstudio';
-const DB_VERSION = 1;
-
-type Store = 'tours' | 'landmarks' | 'meta';
+// 2 adds the business stores (products, departures, bookings).
+const DB_VERSION = 2;
 
 let dbPromise: Promise<IDBPDatabase> | null = null;
 
 function db(): Promise<IDBPDatabase> {
   dbPromise ??= openDB(DB_NAME, DB_VERSION, {
     upgrade(d) {
-      d.createObjectStore('tours', { keyPath: 'id' });
-      d.createObjectStore('landmarks', { keyPath: 'id' });
-      d.createObjectStore('meta');
+      for (const kind of KINDS) if (!d.objectStoreNames.contains(kind)) d.createObjectStore(kind, { keyPath: 'id' });
+      if (!d.objectStoreNames.contains('meta')) d.createObjectStore('meta');
     },
   });
   return dbPromise;
 }
 
-export async function loadAll(): Promise<{ tours: Tour[]; landmarks: Landmark[] }> {
+export async function loadAll(): Promise<Collections> {
   const d = await db();
-  const [tours, landmarks] = await Promise.all([d.getAll('tours'), d.getAll('landmarks')]);
-  return { tours, landmarks };
+  const lists = await Promise.all(KINDS.map((k) => d.getAll(k)));
+  return Object.fromEntries(KINDS.map((k, i) => [k, lists[i]])) as unknown as Collections;
 }
 
-export async function putRecords(store: 'tours' | 'landmarks', records: (Tour | Landmark)[]): Promise<void> {
+export async function putRecords<K extends Kind>(store: K, records: Collections[K]): Promise<void> {
   if (!records.length) return;
   const tx = (await db()).transaction(store, 'readwrite');
   await Promise.all([...records.map((r) => tx.store.put(r)), tx.done]);
 }
 
 export async function getMeta<T>(key: string): Promise<T | undefined> {
-  return (await db()).get('meta' satisfies Store, key);
+  return (await db()).get('meta', key);
 }
 
 export async function setMeta(key: string, value: unknown): Promise<void> {
-  await (await db()).put('meta' satisfies Store, value, key);
+  await (await db()).put('meta', value, key);
 }
 
 export async function deleteMeta(key: string): Promise<void> {
-  await (await db()).delete('meta' satisfies Store, key);
+  await (await db()).delete('meta', key);
 }
 
 /** Asks the browser not to evict our data under storage pressure. Returns the resulting state. */

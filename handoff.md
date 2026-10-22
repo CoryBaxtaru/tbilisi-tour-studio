@@ -15,6 +15,12 @@ Tbilisi Walking Tour Studio — desktop tour design and mobile live guiding for 
 ## Latest session
 - Date: 2026-10-23 (session 01):
   - Business hub plan: the vision widened to a founder-only business hub; the plan, prices and build order are in the private data repo (`business/HUB_PLAN.md`; see CLAUDE.md); the licence check is in `docs/HOSTING.md`. CLAUDE.md and the spec are updated (commercial-use rule).
+  - Step 3: agenda with tour products, departures and bookings (see the breakdown). Deleting uses an in-page confirmation, because the in-app browser blocks `confirm()`. After a design review, the Agenda and the departure page were rebuilt around upcoming departures, occupancy and guests. A whole-app review followed:
+    - Tours: a single accent and the themes as a list;
+    - guide mode: a minimal header, no app menu;
+    - Onderzoek: verification progress;
+    - editor: settings folded.
+  - Dark mode: follows the system setting, with a "Weergave" toggle (Systeem / Licht / Donker) under Instellingen. Uncommitted; the founder is reviewing it in the local preview.
   - Then step 2: 52 new source-checked claims, so all 58 sites have ≥ 3 (203 total). New stops auto-get 3 starter talking points. Deployed as `f138839`, verified live.
   - The business plan moved from the public code repo to the private data repo, and the public history was rewritten and force-pushed without it (main = `fc2a343`; old commits may stay reachable by ID on GitHub until purged). Local backup branch: `backup-before-plan-rewrite`. Breakdown: `docs/session-breakdowns/session-2026-10-23-01.md`.
 - Previous: 2026-10-22 (session 01)
@@ -47,5 +53,6 @@ Tbilisi Walking Tour Studio — desktop tour design and mobile live guiding for 
 - Sync token is set up on both devices. The founder chose to keep using a token that was pasted into the chat once; revoke and replace it if the transcript is ever shared. Renew it before it expires.
 
 ## Next recommended task
-1. Step 3 of the business plan: tour products, departures and calendar with slots, and bookings entered by hand. The founder still needs to pick the customer-data retention period and the languages.
+1. Step 3 is built (Agenda, Touraanbod, bookings, 6-month erasure, Dutch only) but **not committed or deployed**. With the founder's go-ahead: commit, deploy and check live. After deploying, **both devices must tap "Vernieuwen"**: an old app version refuses the new sync file (schema 2) until updated.
+2. Next build: step 4, weather (MET Norway forecast per departure, then climate averages).
 4. Still open on the founder's side: verify claims under Onderzoek; phone test of the offline map.

@@ -2,6 +2,9 @@ import { useState } from 'preact/hooks';
 import { exportJson, importJson, setSyncConfig, syncNow, useAppState } from '../state/store';
 import { DatasetError } from '../storage/backup';
 import { OfflineMapControl } from './OfflineMapControl';
+import { setThemeChoice, useTheme, type ThemeChoice } from './theme';
+
+const THEMES: [ThemeChoice, string][] = [['systeem', 'Systeem'], ['licht', 'Licht'], ['donker', 'Donker']];
 
 export function Settings() {
   const s = useAppState();
@@ -12,6 +15,8 @@ export function Settings() {
     token: '',
   });
   const [msg, setMsg] = useState<{ text: string; warn?: boolean } | null>(null);
+  const [withBookings, setWithBookings] = useState(false);
+  const theme = useTheme();
 
   async function saveSync(e: Event) {
     e.preventDefault();
@@ -23,7 +28,7 @@ export function Settings() {
   }
 
   function download() {
-    const blob = new Blob([exportJson()], { type: 'application/json' });
+    const blob = new Blob([exportJson(withBookings)], { type: 'application/json' });
     const a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
     a.download = `tbilisi-tours-${new Date().toISOString().slice(0, 10)}.json`;
@@ -47,6 +52,18 @@ export function Settings() {
   return (
     <main class="page settings">
       <h1>Instellingen</h1>
+
+      <section class="card">
+        <h2>Weergave</h2>
+        <div class="seg seg--choice" role="radiogroup" aria-label="Weergave">
+          {THEMES.map(([value, label]) => (
+            <button key={value} type="button" role="radio" aria-checked={theme.choice === value} onClick={() => setThemeChoice(value)}>{label}</button>
+          ))}
+        </div>
+        <p class="hint">
+          {theme.choice === 'systeem' ? `Volgt de instelling van dit apparaat (nu ${theme.dark ? 'donker' : 'licht'}).` : 'Geldt alleen op dit apparaat.'} Gidsmodus is altijd donker.
+        </p>
+      </section>
 
       <section class="card">
         <h2>Synchronisatie tussen laptop en telefoon</h2>
@@ -73,7 +90,11 @@ export function Settings() {
 
       <section class="card">
         <h2>Back-up</h2>
-        <p class="hint">Download een volledig bestand met alle tours en bezienswaardigheden. Importeren voegt toe en vervangt alleen oudere versies; er wordt niets verwijderd.</p>
+        <p class="hint">Download een bestand met alle tours, bezienswaardigheden, touraanbod en vertrekken. Importeren voegt toe en vervangt alleen oudere versies; er wordt niets verwijderd.</p>
+        <label class="check backup-check">
+          <input type="checkbox" checked={withBookings} onChange={(e) => setWithBookings(e.currentTarget.checked)} />
+          Ook boekingen meenemen (namen en contactgegevens van gasten: bewaar het bestand zorgvuldig)
+        </label>
         <div class="row">
           <button class="btn" onClick={download}>Back-up downloaden</button>
           <label class="btn file-btn">Back-up importeren<input type="file" accept="application/json,.json" onChange={upload} /></label>

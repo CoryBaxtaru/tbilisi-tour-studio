@@ -5,7 +5,9 @@ import '@fontsource/public-sans/latin-500.css';
 import { render } from 'preact';
 import { init } from './state/store';
 import { App } from './ui/App';
+import { applyTheme } from './ui/theme';
 import './styles.css';
 
+applyTheme();
 render(<App />, document.getElementById('app')!);
 void init();

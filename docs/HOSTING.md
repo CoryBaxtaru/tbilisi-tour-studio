@@ -65,6 +65,12 @@ Since the app supports a business, every service must be free for commercial use
 
 GPS itself needs no data connection. It does need HTTPS, which GitHub Pages provides, and location permission.
 
+## Guests' personal data (bookings)
+- Bookings hold a lead guest's name, one contact field (phone or e-mail) and notes. They live in IndexedDB on the guide's devices and in the private data repo's sync file, never in the public code repo.
+- They are erased automatically **6 months after the tour** (founder's choice; `RETENTION_MONTHS` in `src/domain/agenda.ts`). Counts and amounts stay for the books. The erased version is deterministic, so both devices produce the same record and sync sees no conflict.
+- Erased data remains in the private repo's Git history (each sync is a commit). That history is only visible to the founder. Cleaning it would need a history rewrite of the data repo; if that ever matters, do it then.
+- Backup files leave bookings out unless "Ook boekingen meenemen" is ticked.
+
 ## Security
 - No API keys exist in the app. The only credential is the user's fine-grained token, entered per device and stored in that device's IndexedDB. It is never committed, never included in exports, and is removed by "Synchronisatie uitzetten".
 - Scope the token to the single private data repo with Contents read/write only. If a device is lost, revoke the token on GitHub.

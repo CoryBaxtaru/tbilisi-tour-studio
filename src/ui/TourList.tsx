@@ -38,13 +38,13 @@ export function TourList() {
               </div>
               <div class="tour-row__actions">
                 <a class="btn" href={`#/tour/${t.id}`}>Bewerken</a>
-                <a class="btn btn--primary" href={`#/gids/${t.id}`}>Gidsen</a>
+                <a class="btn" href={`#/gids/${t.id}`}>Gidsen</a>
               </div>
             </li>
           ))}
         </ul>
       )}
-      <TourSuggestions />
+      <TourSuggestions hasTours={visible.length > 0} />
     </main>
   );
 }

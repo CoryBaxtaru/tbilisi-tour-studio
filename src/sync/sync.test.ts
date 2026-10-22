@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { createBooking, createDeparture, createProduct } from '../domain/agenda';
 import { createLandmark, createTour } from '../domain/factory';
 import type { Dataset, Tour } from '../domain/types';
 import { parseDataset } from '../storage/backup';
@@ -24,6 +25,20 @@ class MemoryRemote implements Remote {
 }
 
 const withTitle = (t: Tour, title: string, updatedAt: string): Tour => ({ ...t, title, updatedAt });
+
+describe('syncOnce with business records', () => {
+  it('carries tour products, departures and bookings from laptop to phone', async () => {
+    const remote = new MemoryRemote();
+    const p = createProduct('Oude stad');
+    const d = createDeparture(p, '2026-11-14');
+    const b = { ...createBooking(d.id), leadName: 'Jan', adults: 2 };
+    await syncOnce(remote, { products: [p], departures: [d], bookings: [b], base: {} }, 'laptop');
+    const phone = await syncOnce(remote, { base: {} }, 'telefoon');
+    expect(phone.products.map((x) => x.name)).toEqual(['Oude stad']);
+    expect(phone.departures[0].date).toBe('2026-11-14');
+    expect(phone.bookings[0]).toMatchObject({ leadName: 'Jan', adults: 2 });
+  });
+});
 
 describe('syncOnce', () => {
   it('two devices converge on the same data', async () => {
@@ -84,7 +99,8 @@ describe('GitHubRemote', () => {
   });
 
   it('reads the file and sends the sha and auth header on write', async () => {
-    const data: Dataset = { schemaVersion: 1, tours: [], landmarks: [] };
+    // A version 1 file (before tour products, departures and bookings) must still be read.
+    const data = { schemaVersion: 1, tours: [], landmarks: [] } as unknown as Dataset;
     let sent: { headers: Record<string, string>; body: any } | null = null;
     const fake: typeof fetch = async (_url, init) => {
       if (init?.method === 'PUT') {

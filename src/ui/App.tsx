@@ -2,6 +2,7 @@ import { useEffect, useState } from 'preact/hooks';
 import { registerSW } from 'virtual:pwa-register';
 import { useAppState } from '../state/store';
 import { GuideMode } from './GuideMode';
+import { Agenda, DeparturePage, ProductPage, Products } from './Agenda';
 import { ResearchList, ResearchPage } from './Research';
 import { usePath } from './router';
 import { Settings } from './Settings';
@@ -44,15 +45,18 @@ export function App() {
 
   return (
     <div class={`app ${guiding ? 'app--guide' : ''}`}>
-      <header class="topbar">
+      {!guiding && <header class="topbar">
         <a href="#/" class="brand lit">Tourstudio</a>
         <nav>
           <a href="#/" class={!section ? 'active' : ''}>Tours</a>
+          <a href="#/agenda" class={['agenda', 'vertrek', 'aanbod'].includes(section) ? 'active' : ''}>Agenda</a>
           <a href="#/onderzoek" class={section === 'onderzoek' ? 'active' : ''}>Onderzoek</a>
-          <a href="#/instellingen" class={section === 'instellingen' ? 'active' : ''}>Instellingen</a>
+          <a href="#/instellingen" class={section === 'instellingen' ? 'active' : ''} aria-label="Instellingen">
+            <span class="nav-full">Instellingen</span><span class="nav-icon" aria-hidden="true">⚙</span>
+          </a>
         </nav>
         <a href="#/instellingen" class={`sync-pill sync-pill--${syncKey}`} title={s.syncMessage}>{syncText}</a>
-      </header>
+      </header>}
       {needRefresh && (
         <div class="update-banner">
           Nieuwe versie beschikbaar.
@@ -63,6 +67,9 @@ export function App() {
       {section === 'tour' && id ? <TourEditor id={id} />
         : guiding && id ? <GuideMode id={id} />
         : section === 'onderzoek' ? (id ? <ResearchPage id={id} /> : <ResearchList />)
+        : section === 'agenda' ? <Agenda month={id} />
+        : section === 'vertrek' && id ? <DeparturePage key={id} id={id} />
+        : section === 'aanbod' ? (id ? <ProductPage key={id} id={id} /> : <Products />)
         : section === 'instellingen' ? <Settings />
         : <TourList />}
     </div>

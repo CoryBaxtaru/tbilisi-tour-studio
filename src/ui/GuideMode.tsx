@@ -47,6 +47,8 @@ export function GuideMode({ id }: { id: string }) {
   const [fix, setFix] = useState<Fix | null>(null);
   const [arrivalHint, setArrivalHint] = useState(false);
   const [showPoints, setShowPoints] = useState(true);
+  // The GPS explanation shows once, at the start of a tour; after that it sits behind the ⓘ button.
+  const [gpsInfo, setGpsInfo] = useState<boolean | null>(null);
   const [now, setNow] = useState(Date.now());
   const watchId = useRef<number | null>(null);
   const arrival = useRef<ArrivalState>(INITIAL_ARRIVAL);
@@ -106,6 +108,7 @@ export function GuideMode({ id }: { id: string }) {
   }
 
   const isDone = progress.done.includes(stop.id);
+  const showGpsInfo = gpsInfo ?? (gps === 'uit' && index === 0 && !progress.done.length);
   const allDone = stops.every((s) => progress.done.includes(s.id));
   const distToTarget = fix && target ? haversineM(fix.position, target) : null;
   const fixAgeS = fix ? Math.round((now - fix.at) / 1000) : null;
@@ -120,15 +123,19 @@ export function GuideMode({ id }: { id: string }) {
 
   return (
     <main class="guide">
-      <div class="guide__top">
-        <a href={`#/tour/${tour.id}`} class="back">← Bewerken</a>
-        <span class="meta">{index + 1} / {stops.length}{allDone ? ' · tour afgerond' : ''}</span>
+      {/* Minimal header: the app menu is hidden while guiding (App.tsx), so a stray tap never leaves the tour. */}
+      <header class="guide__top">
+        <a href={`#/tour/${tour.id}`} class="back">← Tour</a>
+        <span class="guide__count">{index + 1} / {stops.length}{allDone ? ' · afgerond' : ''}</span>
+        <GpsBadge state={gps} fix={fix} ageS={fixAgeS} />
+      </header>
+      <div class="guide__progress" role="progressbar" aria-label="Voortgang van de tour" aria-valuemin={0} aria-valuemax={stops.length} aria-valuenow={progress.done.length}>
+        <span style={{ width: `${(progress.done.length / stops.length) * 100}%` }} />
       </div>
 
       <section class="next-card">
         <div class="next-card__label">
           <span>{isDone ? 'Afgerond' : index === 0 && !progress.done.length ? 'Eerste stop' : 'Volgende stop'}</span>
-          <GpsBadge state={gps} fix={fix} ageS={fixAgeS} />
         </div>
         <h1 class="next-card__name lit">{landmark?.name ?? 'Onbekende stop'}</h1>
         {landmark?.nameKa && <p class="next-card__ka" lang="ka">{landmark.nameKa}</p>}
@@ -151,11 +158,14 @@ export function GuideMode({ id }: { id: string }) {
         </div>
         <div class="next-card__nav">
           <button class="btn btn--ghost" onClick={() => go(index - 1)} disabled={index === 0}>← Vorige</button>
-          {gps === 'uit' || gps === 'geweigerd' || gps === 'fout' || gps === 'niet-ondersteund'
-            ? <button class="btn btn--ghost" onClick={startGps}>GPS aanzetten</button>
-            : <button class="btn btn--ghost" onClick={stopGps}>GPS uit</button>}
+          <span class="next-card__gps">
+            {gps === 'uit' || gps === 'geweigerd' || gps === 'fout' || gps === 'niet-ondersteund'
+              ? <button class="btn btn--ghost" onClick={startGps}>GPS aanzetten</button>
+              : <button class="btn btn--ghost" onClick={stopGps}>GPS uit</button>}
+            <button class="icon-btn" aria-label="Uitleg over GPS" aria-expanded={showGpsInfo} onClick={() => setGpsInfo(!showGpsInfo)}>ⓘ</button>
+          </span>
         </div>
-        {gps === 'uit' && <p class="hint">GPS wordt alleen gebruikt om je afstand tot de volgende stop te tonen. Er wordt geen locatiegeschiedenis bewaard.</p>}
+        {showGpsInfo && <p class="hint">GPS wordt alleen gebruikt om je afstand tot de volgende stop te tonen. Er wordt geen locatiegeschiedenis bewaard.</p>}
         {gps === 'geweigerd' && <p class="hint hint--warn">Locatietoegang geweigerd. Sta locatie toe in de browserinstellingen; handmatig gidsen werkt gewoon.</p>}
         {gps === 'niet-ondersteund' && <p class="hint hint--warn">Dit apparaat ondersteunt geen GPS in de browser.</p>}
       </section>

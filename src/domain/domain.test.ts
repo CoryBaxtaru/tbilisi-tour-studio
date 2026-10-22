@@ -66,7 +66,7 @@ describe('backup format', () => {
   it('round-trips and drops tombstones on export', () => {
     const t = createTour('A');
     const gone = { ...createTour('B'), deleted: true };
-    const parsed = parseDataset(serializeDataset([t, gone], [], { includeDeleted: false }));
+    const parsed = parseDataset(serializeDataset({ tours: [t, gone], landmarks: [], products: [], departures: [], bookings: [] }, { includeDeleted: false }));
     expect(parsed.tours.map((x) => x.title)).toEqual(['A']);
   });
   it('rejects invalid files with a clear message', () => {

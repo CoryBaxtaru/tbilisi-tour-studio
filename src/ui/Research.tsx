@@ -18,19 +18,23 @@ type Counts = ReturnType<typeof researchCounts>;
 const isEmpty = (n: Counts) => n.sources + n.concept + n.geverifieerd + n.afgewezen === 0;
 
 export function ResearchList() {
-  const { landmarks } = useAppState();
+  const { landmarks, tours } = useAppState();
   const [filter, setFilter] = useState<Filter>('alles');
   const [query, setQuery] = useState('');
-  const rows = useMemo(
-    () => buildDeck(landmarks)
-      .map((card) => ({ card, n: researchCounts(mergedResearch(card.landmark, card.site?.id)) }))
-      .sort((a, b) => a.card.name.localeCompare(b.card.name, 'nl')),
-    [landmarks],
-  );
+  const rows = useMemo(() => {
+    const inTours = new Map<string, number>();
+    for (const t of tours) if (!t.deleted) for (const id of new Set(t.stops.map((s) => s.landmarkId))) inTours.set(id, (inTours.get(id) ?? 0) + 1);
+    return buildDeck(landmarks)
+      .map((card) => ({ card, n: researchCounts(mergedResearch(card.landmark, card.site?.id)), tours: inTours.get(card.landmarkId) ?? 0 }))
+      .sort((a, b) => a.card.name.localeCompare(b.card.name, 'nl'));
+  }, [landmarks, tours]);
+  const total = rows.reduce((t, { n }) => ({ claims: t.claims + n.concept + n.geverifieerd + n.afgewezen, verified: t.verified + n.geverifieerd, rejected: t.rejected + n.afgewezen }), { claims: 0, verified: 0, rejected: 0 });
   const q = query.trim().toLowerCase();
   const visible = rows.filter(({ card, n }) =>
     (filter === 'alles' || (filter === 'open' ? n.concept > 0 : isEmpty(n)))
     && (!q || card.name.toLowerCase().includes(q) || card.nameKa.includes(query.trim())));
+  // To verify: places used in tours first (they get told), then the most open claims.
+  if (filter === 'open') visible.sort((a, b) => b.tours - a.tours || b.n.concept - a.n.concept || a.card.name.localeCompare(b.card.name, 'nl'));
   const filters: [Filter, string, number][] = [
     ['alles', 'Alles', rows.length],
     ['open', 'Te verifiëren', rows.filter((r) => r.n.concept > 0).length],
@@ -40,10 +44,15 @@ export function ResearchList() {
   return (
     <main class="page research">
       <div class="page__head"><h1>Onderzoek</h1></div>
-      <p class="hint research__intro">
-        Beweringen per plek, met bronnen. Concepten van Claude zijn gecontroleerd in de oorspronkelijke bron, niet in Wikipedia.
-        Controleer ze zelf en kies Bevestigen of Afwijzen voordat je ze vertelt.
-      </p>
+      {/* The page's job: verify claims before telling them. Progress leads. */}
+      <section class="progress-head" aria-label="Voortgang">
+        <p class="progress-head__line lit">
+          <strong>{total.verified}</strong> van {total.claims} beweringen geverifieerd
+          {total.rejected > 0 && <span class="meta"> · {total.rejected} afgewezen</span>}
+        </p>
+        <span class="progress-bar"><span style={{ width: `${total.claims ? ((total.verified + total.rejected) / total.claims) * 100 : 0}%` }} /></span>
+        <p class="hint">Concepten zijn gecontroleerd in de oorspronkelijke bron, niet in Wikipedia; bevestig of wijs ze af voordat je ze vertelt.</p>
+      </section>
       <details class="research__method">
         <summary>Hoe zijn de concepten gemaakt?</summary>
         <p class="hint">{DRAFTS_METHOD}</p>
@@ -58,19 +67,34 @@ export function ResearchList() {
           ))}
         </div>
       </div>
-      <ul class="tour-list">
-        {visible.map(({ card, n }) => (
-          <li key={card.key} class="tour-row research-row">
-            <div class="tour-row__main">
-              <a class="tour-row__title" href={`#/onderzoek/${card.landmarkId}`}>{card.name}</a>
-              <span class="meta">
-                {card.district ? `${tagLabel(card.district)} · ` : ''}
-                {isEmpty(n) ? 'Nog geen onderzoek' : `${n.concept} te verifiëren · ${n.geverifieerd} geverifieerd · ${n.sources} ${n.sources === 1 ? 'bron' : 'bronnen'}`}
-              </span>
-            </div>
-          </li>
-        ))}
-        {!visible.length && <li class="tour-row meta">Geen plekken gevonden.</li>}
+      <ul class="research-list">
+        {visible.map(({ card, n, tours: used }) => {
+          const claims = n.concept + n.geverifieerd + n.afgewezen;
+          return (
+            <li key={card.key} class="research-row">
+              <a class="research-row__link" href={`#/onderzoek/${card.landmarkId}`}>
+                <span class="research-row__main">
+                  <span class="research-row__name lit">{card.name}</span>
+                  <span class="meta">
+                    {card.district ? tagLabel(card.district) : ''}{used ? ` · in ${used} tour${used > 1 ? 's' : ''}` : ''}
+                    {isEmpty(n) ? ' · nog geen onderzoek' : ` · ${n.sources} ${n.sources === 1 ? 'bron' : 'bronnen'}`}
+                  </span>
+                </span>
+                {claims > 0 && (
+                  <span class="research-row__progress" aria-label={`${n.geverifieerd} van ${claims} geverifieerd`}>
+                    <span class="claim-bars" aria-hidden="true">
+                      {Array.from({ length: claims }, (_, i) => (
+                        <span key={i} class={`claim-bar ${i < n.geverifieerd ? 'claim-bar--ok' : i < n.geverifieerd + n.afgewezen ? 'claim-bar--no' : ''}`} />
+                      ))}
+                    </span>
+                    <span class="research-row__count">{n.geverifieerd}/{claims}</span>
+                  </span>
+                )}
+              </a>
+            </li>
+          );
+        })}
+        {!visible.length && <li class="research-row meta research-row--empty">Geen plekken gevonden.</li>}
       </ul>
     </main>
   );
