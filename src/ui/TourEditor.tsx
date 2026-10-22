@@ -15,6 +15,7 @@ import { Ribbon } from './Ribbon';
 import { StopCard } from './StopCard';
 import { navigate } from './router';
 import { useRouteSortable } from './sortable';
+import { useMapStored } from '../map/offlineMap';
 
 type Pick = { mode: 'nieuw' } | { mode: 'positie'; landmarkId: string } | null;
 
@@ -35,6 +36,7 @@ export function TourEditor({ id }: { id: string }) {
   const [sort, setSortState] = useState<DeckSort>(lastSort);
   const [focus, setFocus] = useState<{ key: string; position: LatLng; n: number } | null>(null);
   const mapSection = useRef<HTMLElement>(null);
+  const mapStored = useMapStored();
   const lmById = useMemo(() => new Map(landmarks.map((l) => [l.id, l])), [landmarks]);
   const deck = useMemo(() => buildDeck(landmarks), [landmarks]);
 
@@ -259,7 +261,7 @@ export function TourEditor({ id }: { id: string }) {
 
       <section class={`editor__map ${pick ? 'editor__map--picking' : ''}`} ref={mapSection}>
         {pick && <div class="map-banner">Klik op de kaart om {pick.mode === 'nieuw' ? 'een eigen stop te plaatsen' : 'de positie te kiezen'} · <button class="link" onClick={() => setPick(null)}>Annuleren</button></div>}
-        {!online && <div class="map-banner map-banner--warn">Offline: kaartachtergrond niet beschikbaar; stops en opgeslagen routes wel.</div>}
+        {!online && mapStored === false && <div class="map-banner map-banner--warn">Offline en geen opgeslagen kaart: alleen stops en opgeslagen routes. Sla de kaart op via Instellingen.</div>}
         <MapView
           stops={mapStops}
           dots={dots}

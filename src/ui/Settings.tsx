@@ -1,6 +1,7 @@
 import { useState } from 'preact/hooks';
 import { exportJson, importJson, setSyncConfig, syncNow, useAppState } from '../state/store';
 import { DatasetError } from '../storage/backup';
+import { OfflineMapControl } from './OfflineMapControl';
 
 export function Settings() {
   const s = useAppState();
@@ -87,15 +88,16 @@ export function Settings() {
           {s.persisted === false && 'De browser kan gegevens opruimen bij weinig ruimte. Installeer de app of zet synchronisatie aan als vangnet.'}
           {s.persisted === null && 'Onbekend of de browser je gegevens vasthoudt.'}
         </p>
+        <OfflineMapControl />
         <ul class="caps">
-          <li><strong>Werkt offline:</strong> tours, vertelpunten, aankomstnotities, stopposities, opgeslagen looproutes en aanwijzingen, GPS-positie en afstand.</li>
-          <li><strong>Vereist internet:</strong> kaartachtergrond, nieuwe looproute berekenen, synchroniseren.</li>
+          <li><strong>Werkt offline:</strong> tours, vertelpunten, aankomstnotities, stopposities, opgeslagen looproutes en aanwijzingen, GPS-positie en afstand, achtergrondinformatie, en de kaart van Tbilisi als die hierboven is opgeslagen.</li>
+          <li><strong>Vereist internet:</strong> kaart buiten Tbilisi, nieuwe looproute berekenen, synchroniseren.</li>
         </ul>
       </section>
 
       <section class="card">
         <h2>Bronnen en licenties</h2>
-        <p class="hint">Kaart © OpenStreetMap-bijdragers (ODbL). Looproutes via FOSSGIS OSRM (routing.openstreetmap.de). Lettertypen Literata en Public Sans (SIL OFL).</p>
+        <p class="hint">Kaart © OpenStreetMap-bijdragers (ODbL); offline kaart via Protomaps (OSM-gegevens, ODbL). Looproutes via FOSSGIS OSRM (routing.openstreetmap.de). Achtergrond: Wikipedia (CC BY-SA 4.0) en Wikidata (CC0). Lettertypen Literata en Public Sans (SIL OFL).</p>
       </section>
     </main>
   );

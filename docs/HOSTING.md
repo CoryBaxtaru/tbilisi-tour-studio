@@ -15,7 +15,7 @@ Phone (PWA)   ──┘                          └─ api.github.com → priva
 - **Merge:** per record, three-way against the last sync. If both devices changed the same tour or landmark, the newer one wins and the other is kept as a visible "(conflictkopie)". Deletions are tombstones, and an edit beats a concurrent delete. The sha check prevents blind overwrites (retried up to 3 times).
 - **Backups:** (1) the Git history of the data repo, where every sync is a restorable version; (2) the "Back-up downloaden" JSON export and import in Instellingen; (3) the local copy on each device.
 - **Routing:** FOSSGIS OSRM foot profile, calculated on the laptop when planning. Geometry, distance, duration and turn steps are stored in the tour, so the phone needs no routing service while walking.
-- **Maps:** OpenStreetMap standard tiles, online only.
+- **Maps:** a self-hosted Protomaps vector extract of Tbilisi (`public/maps/tbilisi-YYYYMMDD.pmtiles`, about 10 MB), drawn with protomaps-leaflet. The user stores it on a device with "Kaart offline opslaan" (Cache Storage); it then works without signal. OpenStreetMap raster tiles sit underneath for online context outside the extract.
 
 ## Why this option
 | Option | Verdict |
@@ -36,15 +36,17 @@ Phone (PWA)   ──┘                          └─ api.github.com → priva
 - **Fonts:** Literata and Public Sans (SIL OFL), self-hosted and precached.
 - **Nominatim** (`nominatim.openstreetmap.org`): used **only at build time** by `scripts/build-catalog.mjs` to geocode the site catalogue. Max 1 request/s with an identifying User-Agent; never called by the app. The resulting catalogue is ODbL (see `docs/CATALOG.md`).
 - **Wikidata and Wikipedia APIs**: used **only at build time** by `scripts/enrich-catalog.mjs` (identifying User-Agent, a few dozen requests). **Overpass** was used once, by hand, to find the cable car station.
-- **Licences:** Leaflet BSD-2, Preact MIT, idb ISC, SortableJS MIT, Workbox/vite-plugin-pwa MIT. Catalogue data: positions ODbL (OpenStreetMap); background text CC BY-SA 4.0 (Wikipedia, attributed per card); facts CC0 (Wikidata). No non-commercial licences are currently in use.
+- **Protomaps basemap** (checked 2026-10-22): daily world builds at `build.protomaps.com/YYYYMMDD.pmtiles` (about 139 GB). The data is an ODbL Produced Work and needs OpenStreetMap attribution. Protomaps discourages hotlinking and recommends copying or extracting to your own hosting, which this project does. `pmtiles extract` downloads only the needed byte ranges (about 10 MB for Tbilisi). The served file is static on GitHub Pages; Range requests (206) are verified on the local preview; verify on GitHub Pages after the first deploy. Each refresh adds about 10 MB to the code repo's history, so refresh rarely (a few times a year is plenty).
+- **Licences:** Leaflet BSD-2, Preact MIT, idb ISC, SortableJS MIT, protomaps-leaflet BSD-3, pmtiles BSD-3, Workbox/vite-plugin-pwa MIT. Catalogue data: positions ODbL (OpenStreetMap); background text CC BY-SA 4.0 (Wikipedia, attributed per card); facts CC0 (Wikidata). No non-commercial licences are currently in use.
 
 ## Online vs. offline
 | Works offline (after the app has been opened once) | Needs internet |
 |---|---|
-| App itself (precached by the service worker) | Map background tiles |
-| All tours, landmarks, talking points, arrival notes | Calculating a new walking route |
+| App itself (precached by the service worker) | Map outside the Tbilisi extract (OSM tiles) |
+| All tours, landmarks, talking points, arrival notes, "Toon meer" | Calculating a new walking route |
 | Stop positions, stored route lines, turn steps, walking times | Sync between devices |
-| GPS position, distance to the next stop, arrival suggestions | First visit or install |
+| GPS position, distance to the next stop, arrival suggestions | First visit or install; storing the offline map |
+| **Map of Tbilisi**, once stored via "Kaart offline opslaan" | |
 | Export and import | |
 
 GPS itself needs no data connection. It does need HTTPS, which GitHub Pages provides, and location permission.
@@ -83,6 +85,12 @@ Steps 1 and 2 below are done.
 - **Deployment:** never touches data. Data lives in IndexedDB and the data repo, not in the app repo. A new version shows a "Nieuwe versie beschikbaar" prompt instead of reloading in the middle of a tour.
 
 ## Known limitations
-- No offline map background (OSM policy). A self-hosted vector extract of Tbilisi (Protomaps PMTiles, OSM data, ODbL) is the planned zero-cost fix.
+- The offline map covers only the extract area (west 44.732, south 41.673, east 44.842, north 41.783: all catalogue sites plus about 1 km). It has street detail up to zoom 15, and closer zooms are scaled up. Labels use English names where OSM has them, otherwise the Georgian name.
+
+## Refreshing the offline map (manual, rare)
+1. Get the `pmtiles` CLI (go-pmtiles, GitHub releases; BSD-3). Keep it outside the repo.
+2. `pmtiles extract https://build.protomaps.com/<YYYYMMDD>.pmtiles public/maps/tbilisi-<YYYYMMDD>.pmtiles --bbox=44.732,41.673,44.842,41.783` (widen the bbox if new catalogue sites fall outside it).
+3. Delete the old file in `public/maps/`. Update `MAP_FILE`, `MAP_SIZE_BYTES` and `MAP_DATA_DATE` in `src/map/offlineMap.ts`.
+4. After deploying, devices show the map as "not stored" (new file name) and prompt to store it again. The old copy is deleted when the new one is stored.
 - Conflict resolution is per whole tour or landmark, not per field. Device clocks decide "newer".
 - Real-device GPS accuracy and iOS background behaviour are not yet tested: the screen must stay on and the app open. Arrival detection was only tested with simulated positions.

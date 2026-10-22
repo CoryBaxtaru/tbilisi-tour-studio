@@ -9,6 +9,8 @@ import { fossgisFoot } from '../routing/osrm';
 import { useAppState } from '../state/store';
 import { MapView, type MapStop } from './MapView';
 import { SiteInfo } from './SiteInfo';
+import { OfflineMapControl } from './OfflineMapControl';
+import { useMapStored } from '../map/offlineMap';
 import { CATALOG } from '../domain/catalog';
 
 interface Progress {
@@ -46,6 +48,7 @@ export function GuideMode({ id }: { id: string }) {
   const [now, setNow] = useState(Date.now());
   const watchId = useRef<number | null>(null);
   const arrival = useRef<ArrivalState>(INITIAL_ARRIVAL);
+  const mapStored = useMapStored();
 
   useEffect(() => { localStorage.setItem(progressKey(id), JSON.stringify(progress)); }, [id, progress]);
   useEffect(() => () => stopGps(), []);
@@ -183,8 +186,10 @@ export function GuideMode({ id }: { id: string }) {
         </details>
       )}
 
+      <OfflineMapControl compact />
+
       <section class="guide__map">
-        {!online && <div class="map-banner map-banner--warn">Offline: geen kaartachtergrond. Stops, route en je positie worden wel getoond.</div>}
+        {!online && mapStored === false && <div class="map-banner map-banner--warn">Offline en geen opgeslagen kaart: alleen stops, route en je positie.</div>}
         <MapView dark stops={mapStops} routes={routes} user={fix} fitKey={`${tour.id}:${mapStops.length}`} attribution={fossgisFoot.attribution} />
       </section>
     </main>

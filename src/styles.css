@@ -215,7 +215,7 @@ fieldset.shared legend { color: var(--balkon); }
 .steps li .meta { margin-left: 8px; }
 .guide__map { position: relative; height: 320px; margin-top: 16px; border-radius: var(--r-lg); overflow: hidden; border: 1px solid var(--line); }
 .map--dark { background: #2A2724; }
-.map--dark .leaflet-tile-pane { filter: brightness(0.75) saturate(0.7); }
+.map--dark .osm-raster { filter: brightness(0.7) saturate(0.6); }
 
 /* Responsive: phone */
 @media (max-width: 860px) {
@@ -342,3 +342,12 @@ fieldset.shared legend { color: var(--balkon); }
 .suggest__custom { margin-top: 16px; }
 .suggest__custom summary { cursor: pointer; font-weight: 500; padding: 8px 0; }
 .editor__map { scroll-margin-top: 60px; }
+
+/* ---- Offline map ---- */
+.offline-map { display: flex; flex-direction: column; gap: 8px; margin: 12px 0; padding: 12px; border: 1px solid var(--line); border-radius: var(--r-md); }
+.offline-map--compact { margin: 16px 0 0; }
+.offline-map__status { margin: 0; font-size: 13px; color: var(--ink-2); }
+.offline-map__status--ok { color: var(--balkon); }
+.app--guide .offline-map__status { color: var(--zand); font-size: 14px; }
+.offline-map__bar { height: 6px; border-radius: 3px; background: var(--line); overflow: hidden; }
+.offline-map__bar span { display: block; height: 100%; background: var(--balkon); transform-origin: left; transition: transform 120ms linear; }

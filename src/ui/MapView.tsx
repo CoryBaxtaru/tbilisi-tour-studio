@@ -1,8 +1,11 @@
-// Leaflet map. Tiles are online-only (OSM tile policy forbids offline use); stops, route
-// lines and the GPS position are drawn from local data and remain visible offline.
+// Leaflet map. Base: self-hosted Tbilisi vector map (offline once stored, see map/offlineMap.ts),
+// with OSM raster tiles underneath for online context outside the extract. Stops, route lines
+// and the GPS position are drawn from local data and remain visible offline.
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
+import { leafletLayer } from 'protomaps-leaflet';
 import { useEffect, useRef } from 'preact/hooks';
+import { MAP_ATTRIBUTION, MAP_BOUNDS, mapArchive } from '../map/offlineMap';
 import type { LatLng } from '../domain/types';
 
 export interface MapStop {
@@ -52,10 +55,21 @@ export function MapView({ stops, dots = [], onDotAdd, focus, routes, gaps = [], 
 
   useEffect(() => {
     const m = L.map(el.current!, { zoomControl: true }).setView(DEFAULT_VIEW, 15);
+    // Online context outside the extract (OSM tiles; never cached for offline use).
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
+      className: 'osm-raster',
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>-bijdragers',
     }).addTo(m);
+    // Self-hosted Tbilisi vector map on top: works offline once stored on the device.
+    (leafletLayer({
+      url: mapArchive() as never,
+      flavor: dark ? 'dark' : 'light',
+      lang: 'en',
+      bounds: MAP_BOUNDS,
+      maxDataZoom: 15,
+      attribution: MAP_ATTRIBUTION,
+    }) as unknown as L.Layer).addTo(m);
     if (attribution) m.attributionControl.addAttribution(attribution);
     m.on('click', (e: L.LeafletMouseEvent) => clickRef.current?.({ lat: e.latlng.lat, lng: e.latlng.lng }));
     dotLayer.current = L.layerGroup().addTo(m);
