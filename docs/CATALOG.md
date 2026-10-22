@@ -13,6 +13,7 @@ The editor's card deck holds the built-in Tbilisi sites (`src/data/tbilisi-sites
   2. **Wikidata facts** (CC0): built/founded, architect, style, heritage status, named after;
   3. the **Wikipedia introduction** (CC BY-SA 4.0): Dutch if an article exists, otherwise English, shown in English and labelled as such (no machine translation). Cut at a sentence boundary at 1,400 characters and marked "ingekort".
 - Each card shows title, link, licence, Wikidata id and retrieval date. Background is for reading, not verified talking points.
+- Claims checked against the original sources (not Wikipedia) are under **Onderzoek**; "Toon meer" links there as "Bronnen en beweringen". See `docs/RESEARCH.md`.
 - Status 2026-10-21: 55/58 sites linked (8 Dutch texts, 31 English, 16 facts only). No source for Waterval van Leghvtakhevi, Fabrika and Dezerter-bazaar.
 - Links checked by hand: every Wikidata label matched its site, except Freedom Square. Its OSM object carried Rustavelilaan's id, so it was corrected to Q36998. Shardeni (Q3448534), Aghmashenebeli Avenue (Q5242038) and the cable car (Q25378215) were added by hand after checking the Wikidata description.
 
@@ -22,6 +23,7 @@ Catalogue landmarks carry the catalogue build time as createdAt and updatedAt. I
 ## Status of the data: read before guiding
 - **Positions and Georgian names** come from OpenStreetMap via Nominatim, with the exact OSM object recorded per site (© OpenStreetMap contributors, **ODbL**). The catalogue file is a derived database and is also under ODbL; attribution is shown in the app.
 - **Dutch names, short notes, era tags, tour-type tags and districts are suggestions by Claude, not verified research.** Every catalogue landmark starts as `onbevestigd`. Verify them before presenting anything as fact. Edit them in the stop card (Gedeelde kennis); edits sync and override the catalogue text.
+- The concept claims under Onderzoek (151 for 53 sites) were checked by Claude in the original sources, but they still need your verification before you tell them (`docs/RESEARCH.md`).
 - Era boundaries (`src/domain/tags.ts`) are conventional periodisations meant for planning, not precise claims.
 - No opening hours, prices or accessibility information is included.
 

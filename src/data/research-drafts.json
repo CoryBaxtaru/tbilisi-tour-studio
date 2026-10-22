@@ -1,0 +1,2615 @@
+{
+ "generatedAt": "2026-10-22T10:48:30.119Z",
+ "author": "Claude (concept, door de gids te verifiëren)",
+ "method": "Elke bewering is gecontroleerd in de oorspronkelijke bron: de bronnen die Wikipedia en Wikidata zelf aanhalen, het officiële Georgische erfgoedregister en T. Kvirkvelia, Dzveltbilisuri dasakhelebani (1985). Wikipedia en Wikidata zelf zijn geen bron. Teksten zijn eigen Nederlandse formuleringen; \"evidence\" vat samen wat de bron zegt. Niet bevestigde beweringen zijn weggelaten; tegenstrijdige bronnen staan als \"onzeker\". Zie docs/RESEARCH.md.",
+ "sites": {
+  "vrijheidsplein": {
+   "sources": [
+    {
+     "id": "s1",
+     "title": "Nationaal Agentschap voor het Behoud van Cultureel Erfgoed van Georgië — erfgoedregister: Vrijheidsplein",
+     "url": "https://memkvidreoba.gov.ge/objects/immovable/immovableObject?id=17033",
+     "type": "overheid",
+     "language": "ka"
+    },
+    {
+     "id": "s2",
+     "title": "T. Kvirkvelia, Dzveltbilisuri dasakhelebani (Oude Tbilisische plaatsnamen), Tbilisi 1985 — lemma \"Erevanskis moedani\" (online: Nationale Parlementaire Bibliotheek van Georgië)",
+     "url": "http://www.nplg.gov.ge/gwdict/index.php?a=term&d=36&t=200",
+     "type": "naslagwerk",
+     "language": "ka"
+    },
+    {
+     "id": "s3",
+     "title": "Nationaal Archief van Georgië — blog",
+     "url": "https://archive.ge/ka/blog/55",
+     "type": "archief",
+     "language": "ka"
+    },
+    {
+     "id": "s4",
+     "title": "Tbilisi Architecture Network — Vrijheidsplein (2013)",
+     "url": "https://www.tbilisiarchitecture.net/ka/freedom-square/",
+     "type": "architectuur",
+     "language": "ka"
+    },
+    {
+     "id": "s5",
+     "title": "Tbilisi Week (georgianpress.ru) — Тбилисская опера: история создания (09-01-2013)",
+     "url": "https://web.archive.org/web/20130215102312/http://www.georgianpress.ru/tbilisi-week/our-past/10594-tbilisskaya-opera-istoriya-sozdaniya.html",
+     "type": "nieuws",
+     "language": "ru"
+    },
+    {
+     "id": "s6",
+     "title": "Nationaal Agentschap voor het Behoud van Cultureel Erfgoed van Georgië — erfgoedregister: Opera- en balletheater",
+     "url": "https://memkvidreoba.gov.ge/objects/immovable/immovableObject?id=4282",
+     "type": "overheid",
+     "language": "ka"
+    }
+   ],
+   "claims": [
+    {
+     "id": "c1",
+     "kind": "feit",
+     "text": "Op het Vrijheidsplein komen de Roestavelilaan en vijf andere straten samen, onder meer de Kote Afchazistraat en de Poesjkinstraat.",
+     "sourceIds": [
+      "s1"
+     ],
+     "evidence": "Register-beschrijving noemt Roestavelilaan, Leonidze-, Galaktion Tabidze-, Sj. Dadiani-, Kote Afchazi- en Poesjkinstraat."
+    },
+    {
+     "id": "c2",
+     "kind": "feit",
+     "text": "In 1829 werd het plein genoemd naar de Russische veldheer Paskevitsj, die de titel graaf van Erivan had gekregen; later werd dat ingekort tot Erivanplein.",
+     "sourceIds": [
+      "s2"
+     ],
+     "evidence": "Kvirkvelia: in 1829 kreeg Paskevitsj de titel graaf van Erivan en het plein de naam Paskevitsj-Erivanski; later bleef \"Erivanski\" over."
+    },
+    {
+     "id": "c3",
+     "kind": "feit",
+     "text": "In 1940 kreeg het plein de naam van Lavrenti Beria. Na zijn executie in 1953 werd het Leninplein; sinds 1990 heet het weer Vrijheidsplein.",
+     "sourceIds": [
+      "s3"
+     ],
+     "evidence": "archive.ge: 1940 vernoemd naar Lavrenti Beria; na zijn executie in 1953 naar Lenin; vanaf 1990 weer Vrijheid."
+    },
+    {
+     "id": "c4",
+     "kind": "feit",
+     "text": "Op 21 april 1956 werd midden op het plein een standbeeld van Lenin onthuld. In 1990 werd het weggehaald.",
+     "sourceIds": [
+      "s2",
+      "s4"
+     ],
+     "evidence": "Kvirkvelia: 21 april 1956 plechtig geopend (beeldhouwer V. Topuridze). TAN: 1956 geplaatst, 1990 verwijderd."
+    },
+    {
+     "id": "c5",
+     "kind": "feit",
+     "text": "Op het plein stond het theater met karavanserai van koopman Gabriel Tamamsjev, in 1851 geopend als eerste operahuis van de stad. Het brandde in 1874 af.",
+     "sourceIds": [
+      "s5",
+      "s6"
+     ],
+     "evidence": "Tbilisi Week: theater en karavanserai van Tamamsjev op het Erivanplein, voorjaar 1851 klaar. Register (opera): oude Tamamsjev-theater brandde in 1874. Register-object 26573 \"Karvasla-theater (verwoest), 1851\" ligt aan het plein."
+    }
+   ]
+  },
+  "metekhi": {
+   "sources": [
+    {
+     "id": "s1",
+     "title": "Nationaal Agentschap voor het Behoud van Cultureel Erfgoed van Georgië — erfgoedregister: Metekhi-kerk",
+     "url": "https://memkvidreoba.gov.ge/objects/immovable/immovableObject?id=3364",
+     "type": "overheid",
+     "language": "ka"
+    },
+    {
+     "id": "s2",
+     "title": "T. Kvirkvelia, Dzveltbilisuri dasakhelebani (Oude Tbilisische plaatsnamen), Tbilisi 1985 — lemma \"Metekhi\" (online: Nationale Parlementaire Bibliotheek van Georgië)",
+     "url": "http://www.nplg.gov.ge/gwdict/index.php?a=term&d=36&t=397",
+     "type": "naslagwerk",
+     "language": "ka"
+    }
+   ],
+   "claims": [
+    {
+     "id": "c1",
+     "kind": "feit",
+     "text": "De Metekhi-kerk van de Heilige Moeder Gods staat op de Metekhi-rots op de linkeroever van de Mtkvari, recht tegenover Meidan en Abanotubani.",
+     "sourceIds": [
+      "s1"
+     ],
+     "evidence": "Register: tegenover Meidan en Abanotubani, op de linkeroever, kerk op de kaap van de rots."
+    },
+    {
+     "id": "c2",
+     "kind": "feit",
+     "text": "De kerk werd verwoest in 1226 en 1235. Koning Demetre II, \"de Zelfopofferende\", bouwde haar eind 13e eeuw opnieuw op: volgens het erfgoedregister tussen 1278 en 1289, volgens Kvirkvelia tussen 1278 en 1284.",
+     "sourceIds": [
+      "s1",
+      "s2"
+     ],
+     "evidence": "Register: 1226 en 1235 verwoest; 1278–1289 herbouwd door Demetre II. Kvirkvelia (met verwijzing naar Beridze e.a. 1969): 1278–1284."
+    },
+    {
+     "id": "c3",
+     "kind": "anekdote",
+     "text": "Volgens de overlevering liet koning Vachtang Gorgasali hier al in de 5e eeuw een kerk en vesting bouwen. Betrouwbaar bewijs daarvoor is er niet.",
+     "sourceIds": [
+      "s1",
+      "s2"
+     ],
+     "evidence": "Register: overlevering verbindt de bouw met Gorgasali. Kvirkvelia: overlevering 2e helft 5e eeuw; geen betrouwbaar bewijs."
+    },
+    {
+     "id": "c4",
+     "kind": "feit",
+     "text": "In de 17e eeuw diende de kerk als buskruitopslag, ook voor de Perzen. Koning Erekle II herstelde haar tussen 1748 en 1753.",
+     "sourceIds": [
+      "s1"
+     ],
+     "evidence": "Register: Vachtang V maakte er een kruitmagazijn van; in de jaren 1690 aan de Perzen overgedragen, die het zo bleven gebruiken; 1748–1753 hersteld door Erekle II."
+    },
+    {
+     "id": "c5",
+     "kind": "feit",
+     "text": "In 1819 werd de vesting rond de kerk afgebroken; met de stenen bouwden de Russen een gevangenis, die in 1938 werd opgeheven.",
+     "sourceIds": [
+      "s2"
+     ],
+     "evidence": "Kvirkvelia: 1819 vesting afgebroken en met de stenen een gevangenis gebouwd; gevangenis in 1938 opgeheven, na de oorlog gesloopt."
+    }
+   ]
+  },
+  "narikala": {
+   "sources": [
+    {
+     "id": "s1",
+     "title": "Nationaal Agentschap voor het Behoud van Cultureel Erfgoed van Georgië — erfgoedregister: Narikala",
+     "url": "https://memkvidreoba.gov.ge/objects/immovable/immovableObject?id=3616",
+     "type": "overheid",
+     "language": "ka"
+    },
+    {
+     "id": "s2",
+     "title": "T. Kvirkvelia, Dzveltbilisuri dasakhelebani (Oude Tbilisische plaatsnamen), Tbilisi 1985 — lemma \"Narikala\" (online: Nationale Parlementaire Bibliotheek van Georgië)",
+     "url": "http://www.nplg.gov.ge/gwdict/index.php?a=term&d=36&t=462",
+     "type": "naslagwerk",
+     "language": "ka"
+    },
+    {
+     "id": "s3",
+     "title": "Nationaal Agentschap voor het Behoud van Cultureel Erfgoed van Georgië — erfgoedregister: Sint-Nicolaaskerk van Narikala",
+     "url": "https://memkvidreoba.gov.ge/objects/immovable/immovableObject?id=7942",
+     "type": "overheid",
+     "language": "ka"
+    }
+   ],
+   "claims": [
+    {
+     "id": "c1",
+     "kind": "feit",
+     "text": "Narikala is een vesting waarvan de geschiedenis volgens de bronnen in de 4e eeuw begint. Ze is sindsdien vaak verwoest, hersteld en verbouwd; de bewaarde delen komen uit verschillende perioden.",
+     "sourceIds": [
+      "s1",
+      "s2"
+     ],
+     "evidence": "Register: datering 4e eeuw, geschiedenis begint volgens de bronnen in de 4e eeuw, veel verbouwingen. Kvirkvelia: muren en torens vaak verwoest en herbouwd; fragmenten uit verschillende perioden."
+    },
+    {
+     "id": "c2",
+     "kind": "interpretatie",
+     "text": "De naam komt waarschijnlijk van \"narin-kala\": narin is een Mongools woord voor \"klein\" of \"jonger\". Zo onderscheidde men de kleine vesting van de hoofdvesting.",
+     "sourceIds": [
+      "s2",
+      "s1"
+     ],
+     "evidence": "Kvirkvelia (met verwijzing naar Gvritishvili & Meskhia, Geschiedenis van Tbilisi, p. 100): afleiding van narin-qala, narin Mongools voor jonger/klein. Register: naam veranderde tijdens de Mongoolse inval."
+    },
+    {
+     "id": "c3",
+     "kind": "feit",
+     "text": "De kerk op Narikala werd begin 19e eeuw als kruitmagazijn gebruikt en ontplofte in 1827. Bij opgravingen in 1966 kwamen resten van een 13e-eeuwse kerk tevoorschijn; in 1996–1997 is de Sint-Nicolaaskerk op het oude grondplan herbouwd.",
+     "sourceIds": [
+      "s2",
+      "s3"
+     ],
+     "evidence": "Kvirkvelia: kruitmagazijn, explosie 1827, opgraving 1966, resten 13e-eeuwse kerk. Register: 1996–1997 volledig herbouwd op het oude plan, met resten van de 13e-eeuwse kerk."
+    },
+    {
+     "id": "c4",
+     "kind": "feit",
+     "text": "De vesting had twee ondergrondse gangen, naar de Mtkvari en naar de Tsavkisistskali. Ze staan op de stadsplattegrond van 1800.",
+     "sourceIds": [
+      "s2"
+     ],
+     "evidence": "Kvirkvelia: twee onderaardse uitgangen naar Mtkvari en Tsavkisistskali, aangegeven op het plan van 1800."
+    }
+   ]
+  },
+  "sioni": {
+   "sources": [
+    {
+     "id": "s1",
+     "title": "T. Kvirkvelia, Dzveltbilisuri dasakhelebani (Oude Tbilisische plaatsnamen), Tbilisi 1985 — lemma \"Sioni\" (online: Nationale Parlementaire Bibliotheek van Georgië)",
+     "url": "http://www.nplg.gov.ge/gwdict/index.php?a=term&d=36&t=570",
+     "type": "naslagwerk",
+     "language": "ka"
+    },
+    {
+     "id": "s2",
+     "title": "Nationaal Agentschap voor het Behoud van Cultureel Erfgoed van Georgië — erfgoedregister: Sioni",
+     "url": "https://memkvidreoba.gov.ge/objects/immovable/immovableObject?id=3433",
+     "type": "overheid",
+     "language": "ka"
+    },
+    {
+     "id": "s3",
+     "title": "Nationaal Agentschap voor het Behoud van Cultureel Erfgoed van Georgië — erfgoedregister: Klokkentoren van Sioni",
+     "url": "https://memkvidreoba.gov.ge/objects/immovable/immovableObject?id=3447",
+     "type": "overheid",
+     "language": "ka"
+    }
+   ],
+   "claims": [
+    {
+     "id": "c1",
+     "kind": "feit",
+     "text": "Sioni is vernoemd naar de berg Sion in Jeruzalem. In Georgië zijn namen van heilige plaatsen vaak overgenomen, zoals Betlemi en Mtatsminda; volgens kunsthistoricus Giorgi Chubinashvili kregen alleen kerken van de Moeder Gods de naam Sioni.",
+     "sourceIds": [
+      "s1"
+     ],
+     "evidence": "Kvirkvelia: naam van Sion in Jeruzalem; herhaalde namen van heilige plaatsen; Chubinashvili: alleen Mariakerken heetten Sioni."
+    },
+    {
+     "id": "c2",
+     "kind": "feit",
+     "text": "De bouw begon in de jaren 570–580 onder Guaram en was in de jaren 620 klaar, onder Adarnase.",
+     "sourceIds": [
+      "s2",
+      "s1"
+     ],
+     "evidence": "Register: fundament gelegd 570–580 door Guaram Kuropalates, voltooid 620-jaren onder Adarnase. Kvirkvelia: gesticht 6e eeuw, voltooid jaren 620 onder Adarnase."
+    },
+    {
+     "id": "c3",
+     "kind": "anekdote",
+     "text": "Volgens de overlevering was Sioni een van de vier kerken die koning Vachtang Gorgasali eind 5e eeuw in Tbilisi bouwde.",
+     "sourceIds": [
+      "s2"
+     ],
+     "evidence": "Register: \"volgens de overlevering\" een van de vier kerken van Gorgasali, eind 5e eeuw."
+    },
+    {
+     "id": "c4",
+     "kind": "feit",
+     "text": "De kathedraal is vaak verwoest en herbouwd, onder meer na aanvallen van de Chazaren in 764, van de Arabieren in 853 en van de Perzen in 1522.",
+     "sourceIds": [
+      "s2"
+     ],
+     "evidence": "Register: beschadigd 764 (Chazaren), 853 (Bugha-Turk), 1522 verwoest door de Iraanse sjah, jaren 1530 herbouwd."
+    },
+    {
+     "id": "c5",
+     "kind": "feit",
+     "text": "De lage klokkentoren ten noorden van de kerk liet koning Alexander I in 1425 bouwen. De hoge toren aan de overkant van de straat is uit 1812, een van de eerste Russisch-classicistische gebouwen in Tbilisi.",
+     "sourceIds": [
+      "s3",
+      "s1"
+     ],
+     "evidence": "Register: driedelige klokkentoren, gebouwd door Alexander I in 1425. Kvirkvelia: hoge toren 1812, een van de eerste voorbeelden van Russisch classicisme."
+    }
+   ]
+  },
+  "abanotubani": {
+   "sources": [
+    {
+     "id": "s1",
+     "title": "T. Kvirkvelia, Dzveltbilisuri dasakhelebani (Oude Tbilisische plaatsnamen), Tbilisi 1985 — lemma \"Abanoebis ubani (badwijk)\" (online: Nationale Parlementaire Bibliotheek van Georgië)",
+     "url": "http://www.nplg.gov.ge/gwdict/index.php?a=term&d=36&t=5",
+     "type": "naslagwerk",
+     "language": "ka"
+    }
+   ],
+   "claims": [
+    {
+     "id": "c1",
+     "kind": "interpretatie",
+     "text": "De badwijk geldt als het oudste deel van Tbilisi: volgens Kvirkvelia ontstond hier waarschijnlijk de naam van de stad, de \"wieg van Tbilisi\".",
+     "sourceIds": [
+      "s1"
+     ],
+     "evidence": "Kvirkvelia: oudste deel van Tbilisi; hier ontstond \"zo te zien\" de eerste naam; hier stond de wieg van Tbilisi."
+    },
+    {
+     "id": "c2",
+     "kind": "feit",
+     "text": "Een Arabische geograaf uit de 10e eeuw schreef over deze bronnen: \"hier kookt het water zonder vuur\".",
+     "sourceIds": [
+      "s1"
+     ],
+     "evidence": "Kvirkvelia citeert een Arabische geograaf uit de 10e eeuw: water kookt hier zonder vuur."
+    },
+    {
+     "id": "c3",
+     "kind": "feit",
+     "text": "In de 18e eeuw telde Vachoesjti Bagrationi zes badhuizen. Op de stadsplattegrond van 1800 staan er nog maar vier, waarschijnlijk door de inval van Agha Mohammad Khan; halverwege de 19e eeuw waren het er weer zes.",
+     "sourceIds": [
+      "s1"
+     ],
+     "evidence": "Kvirkvelia: Vachoesjti telde zes baden; plan van 1800 vier (\"zo te zien\" slachtoffer van Agha Mohammad Khan); plan midden 19e eeuw weer zes."
+    },
+    {
+     "id": "c4",
+     "kind": "anekdote",
+     "text": "De baden waren ook ontmoetingsplek. Dichter Ioseb Grisjasjvili beschreef hoe boeren er voor een paar munten overnachtten en vrouwen er hele dagen doorbrachten: het was hun \"club en theater\", en menig huwelijk werd er bekokstoofd.",
+     "sourceIds": [
+      "s1"
+     ],
+     "evidence": "Kvirkvelia citeert Ioseb Grisjasjvili: baden open tot de ochtend, boeren sliepen er, vrouwen bleven de hele dag, \"club en theater\", koppelaarsters."
+    }
+   ]
+  },
+  "chreli-abano": {
+   "sources": [
+    {
+     "id": "s1",
+     "title": "Nationaal Agentschap voor het Behoud van Cultureel Erfgoed van Georgië — erfgoedregister: Chreli Abano",
+     "url": "https://memkvidreoba.gov.ge/objects/immovable/immovableObject?id=3740",
+     "type": "overheid",
+     "language": "ka"
+    },
+    {
+     "id": "s2",
+     "title": "T. Kvirkvelia, Dzveltbilisuri dasakhelebani (Oude Tbilisische plaatsnamen), Tbilisi 1985 — lemma \"Abanoebis ubani (badwijk)\" (online: Nationale Parlementaire Bibliotheek van Georgië)",
+     "url": "http://www.nplg.gov.ge/gwdict/index.php?a=term&d=36&t=5",
+     "type": "naslagwerk",
+     "language": "ka"
+    }
+   ],
+   "claims": [
+    {
+     "id": "c1",
+     "kind": "feit",
+     "text": "Het badhuis gaat volgens het erfgoedregister terug tot het begin van de 17e eeuw. In de tweede helft van de 19e eeuw kreeg het zijn oosterse voorgevel; de veelkleurige tegels van het portaal, met minaretachtige torentjes, gaven het de naam Chreli Abano, \"bont bad\".",
+     "sourceIds": [
+      "s1",
+      "s2"
+     ],
+     "evidence": "Register: datering begin 17e eeuw, uitgesproken oosterse stijl. Kvirkvelia: in de 2e helft 19e eeuw in oosterse trant verbouwd; naam van de veelkleurige tegels op het portaal met minaretachtige torentjes."
+    }
+   ]
+  },
+  "anchiskhati": {
+   "sources": [
+    {
+     "id": "s1",
+     "title": "T. Kvirkvelia, Dzveltbilisuri dasakhelebani (Oude Tbilisische plaatsnamen), Tbilisi 1985 — lemma \"Anchiskhati\" (online: Nationale Parlementaire Bibliotheek van Georgië)",
+     "url": "http://www.nplg.gov.ge/gwdict/index.php?a=term&d=36&t=65",
+     "type": "naslagwerk",
+     "language": "ka"
+    },
+    {
+     "id": "s2",
+     "title": "Nationaal Agentschap voor het Behoud van Cultureel Erfgoed van Georgië — erfgoedregister: Anchiskhati",
+     "url": "https://memkvidreoba.gov.ge/objects/immovable/immovableObject?id=3914",
+     "type": "overheid",
+     "language": "ka"
+    },
+    {
+     "id": "s3",
+     "title": "Nationaal Agentschap voor het Behoud van Cultureel Erfgoed van Georgië — erfgoedregister: Klokkentoren van Anchiskhati",
+     "url": "https://memkvidreoba.gov.ge/objects/immovable/immovableObject?id=3787",
+     "type": "overheid",
+     "language": "ka"
+    }
+   ],
+   "claims": [
+    {
+     "id": "c1",
+     "kind": "feit",
+     "text": "De Anchiskhati-basiliek is het oudste bewaarde monument van Tbilisi: een driebeukige basiliek, gebouwd in de 6e eeuw onder koning Dachi, de opvolger van Vachtang Gorgasali.",
+     "sourceIds": [
+      "s1",
+      "s2"
+     ],
+     "evidence": "Kvirkvelia: kerk van de heilige Maria, gebouwd onder Dachi Ujarmeli (6e eeuw); oudste van de bewaarde monumenten in Tbilisi; driebeukige basiliek. Register: datering 6e eeuw, een van de vroegste gebouwen."
+    },
+    {
+     "id": "c2",
+     "kind": "feit",
+     "text": "De naam komt van een icoon van de Verlosser uit het klooster van Anchi in Klarjeti. Katholikos Domenti III kocht hem in de 17e eeuw van een koopman in Tbilisi en bracht hem hierheen. De lijst is van de beroemde edelsmid Beka Opizari; de icoon is nu in het Kunstmuseum.",
+     "sourceIds": [
+      "s2",
+      "s1"
+     ],
+     "evidence": "Register: Domenti III herstelde de kerk in de jaren 1660 en plaatste de van een Tbilisische koopman gekochte icoon uit Anchi; bewaard in het Staatskunstmuseum. Kvirkvelia: icoon uit Anchi (Klarjeti), lijst door Beka Opizari (inscriptie)."
+    },
+    {
+     "id": "c3",
+     "kind": "feit",
+     "text": "De bakstenen klokkentoren aan de straat liet katholikos Domenti bouwen; volgens de inscriptie in 1675.",
+     "sourceIds": [
+      "s1",
+      "s3"
+     ],
+     "evidence": "Kvirkvelia: inscriptie boven de poort, gebouwd door katholikos Domenti in 1675. Register 3787: 17e eeuw, in opdracht van Domenti III. (Register 3914 noemt 1775; vermoedelijk een tikfout.)"
+    },
+    {
+     "id": "c4",
+     "kind": "feit",
+     "text": "Bij een restauratie in 1958 kwamen onder 19e-eeuwse schilderingen resten van muurschilderingen uit de 17e eeuw tevoorschijn.",
+     "sourceIds": [
+      "s1"
+     ],
+     "evidence": "Kvirkvelia: restauratie 1958, onder 19e-eeuwse schildering delen van 17e-eeuwse muurschildering."
+    }
+   ]
+  },
+  "ateshgah": {
+   "sources": [
+    {
+     "id": "s1",
+     "title": "Nationaal Agentschap voor het Behoud van Cultureel Erfgoed van Georgië — erfgoedregister: Ateshgah",
+     "url": "https://memkvidreoba.gov.ge/objects/immovable/immovableObject?id=3564",
+     "type": "overheid",
+     "language": "ka"
+    },
+    {
+     "id": "s2",
+     "title": "T. Kvirkvelia, Dzveltbilisuri dasakhelebani (Oude Tbilisische plaatsnamen), Tbilisi 1985 — lemma \"Ateshka\" (online: Nationale Parlementaire Bibliotheek van Georgië)",
+     "url": "http://www.nplg.gov.ge/gwdict/index.php?a=term&d=36&t=45",
+     "type": "naslagwerk",
+     "language": "ka"
+    },
+    {
+     "id": "s3",
+     "title": "Agenda.ge — Ancient fire-worship temple among Georgia's sites of national significance (2017)",
+     "url": "http://web.archive.org/web/20171110061751/http://agenda.ge/news/74892/eng",
+     "type": "nieuws",
+     "language": "en"
+    }
+   ],
+   "claims": [
+    {
+     "id": "c1",
+     "kind": "feit",
+     "text": "Ateshgah is een tempel van vuuraanbidders, een van de oudste gebouwen van Tbilisi, met het grondplan van een zoroastrische vuurtempel. Het erfgoedregister dateert hem in de 6e–7e eeuw; in het Oudgeorgisch heette zo'n tempel \"artosjani\".",
+     "sourceIds": [
+      "s1"
+     ],
+     "evidence": "Register: een van de oudste gebouwen; tempel van vuuraanbidders, in het Oudgeorgisch artoshani; traditioneel zoroastrisch plan; datering 6e–7e eeuw."
+    },
+    {
+     "id": "c2",
+     "kind": "feit",
+     "text": "De naam komt uit het Perzisch en betekent \"vuurtempel\".",
+     "sourceIds": [
+      "s2",
+      "s3"
+     ],
+     "evidence": "Kvirkvelia: van Perzisch atesh-kiade, vuurtempel. Agenda.ge: Perzisch, \"plaats van vuur\"."
+    },
+    {
+     "id": "c3",
+     "kind": "feit",
+     "text": "Volgens de 19e-eeuwse historicus Platon Ioseliani bouwden de Ottomanen in de jaren 1720 een moskee op de plek van de oude vuurtempel.",
+     "sourceIds": [
+      "s2"
+     ],
+     "evidence": "Kvirkvelia, naar Platon Ioseliani: in de jaren 1720 bouwden de Ottomanen twee moskeeën in Tbilisi, een ervan bij de oude Ateshka."
+    },
+    {
+     "id": "c4",
+     "kind": "feit",
+     "text": "In 2007 werd de tempel gerestaureerd door ICOMOS Georgië, met steun van onder meer het Noorse ministerie van Buitenlandse Zaken en UNESCO. In 2017 kreeg hij de status van monument van nationaal belang.",
+     "sourceIds": [
+      "s3"
+     ],
+     "evidence": "Agenda.ge: 2007 gereconstrueerd door Georgisch ICOMOS met steun van het Noorse MFA, UNESCO en Riksantikvaren; status nationaal belang (artikel 2017)."
+    }
+   ]
+  },
+  "betlemi": {
+   "sources": [
+    {
+     "id": "s1",
+     "title": "Nationaal Agentschap voor het Behoud van Cultureel Erfgoed van Georgië — erfgoedregister: Kerk Boven-Betlemi",
+     "url": "https://memkvidreoba.gov.ge/objects/immovable/immovableObject?id=3807",
+     "type": "overheid",
+     "language": "ka"
+    },
+    {
+     "id": "s2",
+     "title": "T. Kvirkvelia, Dzveltbilisuri dasakhelebani (Oude Tbilisische plaatsnamen), Tbilisi 1985 — lemma \"Betlemi\" (online: Nationale Parlementaire Bibliotheek van Georgië)",
+     "url": "http://www.nplg.gov.ge/gwdict/index.php?a=term&d=36&t=118",
+     "type": "naslagwerk",
+     "language": "ka"
+    }
+   ],
+   "claims": [
+    {
+     "id": "c1",
+     "kind": "feit",
+     "text": "De kerk van de Geboorte van de Verlosser, al eeuwen bekend als Betlemi (Bethlehem), staat hoog in Kldisubani boven de huizen van de oude stad. Tbilisianen noemden haar ook \"Petchaini\".",
+     "sourceIds": [
+      "s1"
+     ],
+     "evidence": "Register: Kerk van de Geboorte van de Verlosser, van oudsher Betlemi (later Boven-Betlemi), in Kldisubani boven de huizen; tot voor kort bekend als \"Petkhaini\"."
+    },
+    {
+     "id": "c2",
+     "kind": "anekdote",
+     "text": "Op deze plek stond al in de vroege middeleeuwen een kerk; de overlevering schrijft die toe aan Vachtang Gorgasali.",
+     "sourceIds": [
+      "s1"
+     ],
+     "evidence": "Register: kerk sinds de vroege middeleeuwen; overlevering: Vachtang Gorgasali."
+    },
+    {
+     "id": "c3",
+     "kind": "feit",
+     "text": "In de 15e eeuw stichtten Armeniërs uit Tbilisi hier een klooster. De huidige kerk is uit de 18e eeuw; volgens Kvirkvelia liet vorst Givi Amilachvari haar in 1740 bouwen.",
+     "sourceIds": [
+      "s1",
+      "s2"
+     ],
+     "evidence": "Register: 15e eeuw Armeens klooster; nieuwe kerk 1e helft 18e eeuw (met steun van Givi Amilachvari). Kvirkvelia: gebouwd door vorst Givi Amilachvari in 1740."
+    },
+    {
+     "id": "c4",
+     "kind": "feit",
+     "text": "In de Sovjettijd zat er een werkplaats in de kerk. In 1994 kwam zij bij de Georgisch-Orthodoxe Kerk. Op de koepel is een beeld van een geketende leeuw te zien.",
+     "sourceIds": [
+      "s1"
+     ],
+     "evidence": "Register: grote ramen dichtgemetseld in de Sovjettijd toen er een werkplaats was; 1994 aan de Georgisch-Orthodoxe Kerk; op de koepel een sculptuur van een geketende leeuw."
+    }
+   ]
+  },
+  "norashen": {
+   "sources": [
+    {
+     "id": "s1",
+     "title": "Nationaal Agentschap voor het Behoud van Cultureel Erfgoed van Georgië — erfgoedregister: Kerk Norashen",
+     "url": "https://memkvidreoba.gov.ge/objects/immovable/immovableObject?id=3742",
+     "type": "overheid",
+     "language": "ka"
+    },
+    {
+     "id": "s2",
+     "title": "T. Kvirkvelia, Dzveltbilisuri dasakhelebani (Oude Tbilisische plaatsnamen), Tbilisi 1985 — lemma \"Norashen\" (online: Nationale Parlementaire Bibliotheek van Georgië)",
+     "url": "http://www.nplg.gov.ge/gwdict/index.php?a=term&d=36&t=479",
+     "type": "naslagwerk",
+     "language": "ka"
+    },
+    {
+     "id": "s3",
+     "title": "Institute for War and Peace Reporting — Tbilisi Witnesses Unholy Row (22-12-2008)",
+     "url": "https://web.archive.org/web/20190429133855/https://iwpr.net/global-voices/tbilisi-witnesses-unholy-row",
+     "type": "nieuws",
+     "language": "en"
+    },
+    {
+     "id": "s4",
+     "title": "Hetq — An Historical Overview of the Norashen Sourb Astvatzatzin Church (08-12-2008)",
+     "url": "https://hetq.am/en/article/53423",
+     "type": "nieuws",
+     "language": "en"
+    }
+   ],
+   "claims": [
+    {
+     "id": "c1",
+     "kind": "feit",
+     "text": "Norashen is van oorsprong een Armeense kerk, gewijd aan de Heilige Moeder Gods (Soerb Astvatsatsin). Ze staat aan de Kote Afchazistraat 41, op dezelfde binnenplaats als de kerk Jvaris Mama. De naam betekent \"nieuwe nederzetting\".",
+     "sourceIds": [
+      "s1",
+      "s2"
+     ],
+     "evidence": "Register: Surb Astvatsatsin, Kote Afchazi 41, ±20 m van Jvaris Mama in dezelfde binnenplaats. Kvirkvelia: Armeens-Gregoriaanse kerk; \"Norashen\" = nieuwe nederzetting."
+    },
+    {
+     "id": "c2",
+     "kind": "onzeker",
+     "text": "De ouderdom is omstreden. Het Georgische erfgoedregister dateert het huidige gebouw in 1790–1796 en Kvirkvelia in 1793; het Armeense bisdom spreekt van een kerk uit de 15e eeuw. Een oudere kerk met deze naam werd al genoemd door Jean Chardin, die Tbilisi in 1672 bezocht.",
+     "sourceIds": [
+      "s1",
+      "s2",
+      "s3"
+     ],
+     "evidence": "Register: 1790–1796. Kvirkvelia: huidige kerk 1793; oudere kerk genoemd door Chardin (1672). IWPR: Armeens bisdom zegt 15e eeuw; Georgische historicus betwist dat."
+    },
+    {
+     "id": "c3",
+     "kind": "feit",
+     "text": "Volgens het Armeense bisdom sloten de bolsjewieken de kerk in de jaren 1930 voor de eredienst en gebruikten zij haar als boekenopslag. Op 15 februari 1995 wijdden Georgische geestelijken de kerk in volgens de Georgische ritus; sindsdien is ze inzet van een conflict tussen beide kerken.",
+     "sourceIds": [
+      "s3",
+      "s4"
+     ],
+     "evidence": "IWPR: volgens het Armeense bisdom (Avakian) in de jaren 1930 gesloten en als boekenopslag gebruikt; langlopende ruzie. Hetq: op 15 februari 1995 door Georgische geestelijken ingewijd volgens Georgische ritus.",
+     "note": "Gevoelig onderwerp: vertel beide perspectieven en noem de bron."
+    }
+   ]
+  },
+  "synagoge": {
+   "sources": [
+    {
+     "id": "s1",
+     "title": "Nationaal Agentschap voor het Behoud van Cultureel Erfgoed van Georgië — erfgoedregister: Synagoge",
+     "url": "https://memkvidreoba.gov.ge/objects/immovable/immovableObject?id=3937",
+     "type": "overheid",
+     "language": "ka"
+    },
+    {
+     "id": "s2",
+     "title": "Center for Jewish Art, Hebrew University of Jerusalem — Great Synagogue of Jews from Akhaltsikhe (Georgian Synagogue) in Tbilisi",
+     "url": "https://cja.huji.ac.il/mhs/browser.php?mode=set&id=396",
+     "type": "academisch",
+     "language": "en"
+    },
+    {
+     "id": "s3",
+     "title": "JewishGen KehilaLinks — Tbilisi Synagogues",
+     "url": "https://kehilalinks.jewishgen.org/tbilisi/synagogues.htm",
+     "type": "website",
+     "language": "en"
+    }
+   ],
+   "claims": [
+    {
+     "id": "c1",
+     "kind": "feit",
+     "text": "De Grote Synagoge werd gebouwd door Georgische joden uit Achaltsiche, die in de 19e eeuw naar Tbilisi waren verhuisd. Daarom heet ze ook \"het gebedshuis van de Achaltsichelingen\".",
+     "sourceIds": [
+      "s1",
+      "s2"
+     ],
+     "evidence": "Register: Georgische joden noemden een synagoge \"lotsva\"; deze heet \"Achaltsikhelta lotsva\", gebouwd door uit Achaltsiche gekomen joden (19e eeuw). CJA: \"Great Synagogue of Jews from Akhaltsikhe\"."
+    },
+    {
+     "id": "c2",
+     "kind": "feit",
+     "text": "Het is een groot bakstenen gebouw van 24,5 bij 15 meter en 14 meter hoog, aan de Kote Afchazistraat 45–47, de vroegere Leselidzestraat.",
+     "sourceIds": [
+      "s1",
+      "s2"
+     ],
+     "evidence": "Register: 24,5 × 15 m, hoogte 14 m, Russische baksteen. CJA: 45–47 Kote Afkhazi (former Leselidze) St."
+    },
+    {
+     "id": "c3",
+     "kind": "onzeker",
+     "text": "Over de bouwjaren verschillen de bronnen: het erfgoedregister noemt 1904, het Center for Jewish Art 1904–1913 en JewishGen 1895–1903.",
+     "sourceIds": [
+      "s1",
+      "s2",
+      "s3"
+     ],
+     "evidence": "Register 1904; CJA \"Building Date 1904-1913\"; JewishGen \"built from 1895 to 1903\"."
+    }
+   ]
+  },
+  "jumah-moskee": {
+   "sources": [
+    {
+     "id": "s1",
+     "title": "Nationaal Agentschap voor het Behoud van Cultureel Erfgoed van Georgië — erfgoedregister: Moskee",
+     "url": "https://memkvidreoba.gov.ge/objects/immovable/immovableObject?id=3827",
+     "type": "overheid",
+     "language": "ka"
+    },
+    {
+     "id": "s2",
+     "title": "Advantour — Jumah Mosque in Tbilisi",
+     "url": "https://www.advantour.com/georgia/tbilisi/jumah-mosque.htm",
+     "type": "reisgids",
+     "language": "en"
+    },
+    {
+     "id": "s3",
+     "title": "Eurasia Travel — Juma Mosque in Tbilisi",
+     "url": "https://eurasia.travel/georgia/tbilisi/juma-mosque/",
+     "type": "reisgids",
+     "language": "en"
+    }
+   ],
+   "claims": [
+    {
+     "id": "c1",
+     "kind": "feit",
+     "text": "De Ottomanen, die Tbilisi toen bezet hielden, bouwden hier in 1723–1735 een soennitische moskee aan de voet van Narikala. In de jaren 1740 verwoestten de Perzen haar.",
+     "sourceIds": [
+      "s1"
+     ],
+     "evidence": "Register: 1723–35 door de Ottomanen gebouwd, soennitisch, aan de voet van Narikala; jaren 1740 door de Perzen verwoest."
+    },
+    {
+     "id": "c2",
+     "kind": "feit",
+     "text": "In 1846–1851 werd de moskee herbouwd naar ontwerp van Giovanni Scudieri. Eind 19e eeuw werd ook dat gebouw afgebroken en kwam de huidige bakstenen moskee, waarin neogotiek en islamitische elementen samenkomen.",
+     "sourceIds": [
+      "s1"
+     ],
+     "evidence": "Register: 1846–1851 herbouwd naar ontwerp van Giovanni Scudieri; eind 19e eeuw afgebroken en nieuwe moskee gebouwd; neogotische en islamitische elementen."
+    },
+    {
+     "id": "c3",
+     "kind": "feit",
+     "text": "De moskee wordt gebruikt door zowel soennitische als sjiitische moslims. Volgens reisgidsen hing er tot 1996 een gordijn tussen beide groepen.",
+     "sourceIds": [
+      "s1",
+      "s2",
+      "s3"
+     ],
+     "evidence": "Register: dient nu zowel soennieten als sjiieten. Advantour en Eurasia Travel: gordijn in 1996 verwijderd.",
+     "note": "Het gordijn-detail komt alleen uit reisgidsen."
+    }
+   ]
+  },
+  "meidan": {
+   "sources": [
+    {
+     "id": "s1",
+     "title": "Nationaal Agentschap voor het Behoud van Cultureel Erfgoed van Georgië — erfgoedregister: Vachtang Gorgasaliplein",
+     "url": "https://memkvidreoba.gov.ge/objects/immovable/immovableObject?id=17028",
+     "type": "overheid",
+     "language": "ka"
+    },
+    {
+     "id": "s2",
+     "title": "T. Kvirkvelia, Dzveltbilisuri dasakhelebani (Oude Tbilisische plaatsnamen), Tbilisi 1985 — lemma \"Tatris moedani\" (online: Nationale Parlementaire Bibliotheek van Georgië)",
+     "url": "http://www.nplg.gov.ge/gwdict/index.php?a=term&d=36&t=279",
+     "type": "naslagwerk",
+     "language": "ka"
+    },
+    {
+     "id": "s3",
+     "title": "T. Kvirkvelia, Dzveltbilisuri dasakhelebani (Oude Tbilisische plaatsnamen), Tbilisi 1985 — lemma \"Meidani\" (online: Nationale Parlementaire Bibliotheek van Georgië)",
+     "url": "http://www.nplg.gov.ge/gwdict/index.php?a=term&d=36&t=386",
+     "type": "naslagwerk",
+     "language": "ka"
+    }
+   ],
+   "claims": [
+    {
+     "id": "c1",
+     "kind": "feit",
+     "text": "Het Gorgasaliplein bij de Metechi-brug heette vroeger onder meer Tsichis Meidani (\"vestingplein\"), Tatris Meidani (\"Tatarenplein\") en Sjeitan-bazari.",
+     "sourceIds": [
+      "s1",
+      "s2"
+     ],
+     "evidence": "Register: plein bij de Metechi-brug, ook Tsikhis meidani, Tatris meidani, Sheitan bazari. Kvirkvelia: dezelfde namen, plus \"Kvemo moedani\"."
+    },
+    {
+     "id": "c2",
+     "kind": "feit",
+     "text": "Het was een van de oudste pleinen van Tbilisi en het handelshart van de stad. De Franse reiziger Jean Chardin noemde het het \"militaire plein\".",
+     "sourceIds": [
+      "s2",
+      "s3"
+     ],
+     "evidence": "Kvirkvelia 279: een van de oudste pleinen; Chardin noemde het \"militair plein\". Kvirkvelia 386: handelscentrum van Tbilisi bij de Metechi-brug."
+    },
+    {
+     "id": "c3",
+     "kind": "anekdote",
+     "text": "Midden op het plein stond een grote weegschaal, de kapani. Volgens Ioseb Grisjasjvili mochten alleen stadsbewoners kopen zolang er een vlag op hing; om twaalf uur ging de vlag neer en begon de handel tussen kooplieden en boeren.",
+     "sourceIds": [
+      "s2"
+     ],
+     "evidence": "Kvirkvelia citeert Grisjasjvili (Dzveli Tpilisis literaturuli bohema, 1927, p. 12): kapani, vlag, om 12 uur handel vrij."
+    }
+   ]
+  },
+  "rustaveli-avenue": {
+   "sources": [
+    {
+     "id": "s1",
+     "title": "T. Kvirkvelia, Dzveltbilisuri dasakhelebani (Oude Tbilisische plaatsnamen), Tbilisi 1985 — lemma \"Golovinis prospekti\" (online: Nationale Parlementaire Bibliotheek van Georgië)",
+     "url": "http://www.nplg.gov.ge/gwdict/index.php?a=term&d=36&t=156",
+     "type": "naslagwerk",
+     "language": "ka"
+    },
+    {
+     "id": "s2",
+     "title": "N. Chikovani, \"April 9, 1989, as a Paradigmatic Event\", Plural. History, Culture, Society 11/1 (2023), p. 88–106",
+     "url": "https://plural.upsc.md/wp-content/uploads/2023/09/Revista-Plural_Vol-11_nr_1_2023_pag-88_106.pdf",
+     "type": "academisch",
+     "language": "en"
+    }
+   ],
+   "claims": [
+    {
+     "id": "c1",
+     "kind": "feit",
+     "text": "In de 19e en begin 20e eeuw heette deze hoofdstraat het Golovinprospekt, naar de Russische onderkoning Golovin. Daarvoor was het simpelweg \"de weg naar Rusland\".",
+     "sourceIds": [
+      "s1"
+     ],
+     "evidence": "Kvirkvelia: zo heette de hoofdstraat in de vorige en begin deze eeuw; vanaf de jaren 1840 kreeg \"de weg naar Rusland\" de naam van opperbevelhebber Golovin."
+    },
+    {
+     "id": "c2",
+     "kind": "feit",
+     "text": "In 1848 kreeg de laan stoepen en een bomenrij; in 1862 kwam er waterleiding, met water dat met een stoommachine uit de Mtkvari werd gepompt. Vanaf de jaren 1880 reed er een paardentram, die in 1905 door een tram werd vervangen.",
+     "sourceIds": [
+      "s1"
+     ],
+     "evidence": "Kvirkvelia: 1848 trottoirs en laan; 1862 waterleiding, water met stoommachine uit de Mtkvari; jaren 1880 \"konka\" vanaf het Erivanplein; 1905 vervangen door tram."
+    },
+    {
+     "id": "c3",
+     "kind": "feit",
+     "text": "In de vroege ochtend van 9 april 1989 sloeg het Sovjetleger hier zonder waarschuwing een vreedzaam protest uiteen. Zestien mensen, vooral vrouwen, kwamen ter plekke om; in de dagen daarna stierven nog vier gewonden en één persoon kwam om tijdens de avondklok.",
+     "sourceIds": [
+      "s2"
+     ],
+     "evidence": "Chikovani: om 4 uur 's ochtends, zonder waarschuwing, door het Sovjetleger uiteengeslagen; zestien mensen, vooral vrouwen, ter plekke gedood; vier gewonden stierven later; één persoon gedood tijdens de avondklok."
+    },
+    {
+     "id": "c4",
+     "kind": "feit",
+     "text": "Precies twee jaar later, op 9 april 1991, werd op dezelfde plek het herstel van de Georgische onafhankelijkheid uitgeroepen.",
+     "sourceIds": [
+      "s2"
+     ],
+     "evidence": "Chikovani: op de tweede verjaardag, 9 april 1991, op de plek waar het Sovjetleger de demonstranten aanviel, werd het herstel van de onafhankelijkheid uitgeroepen."
+    }
+   ]
+  },
+  "oud-parlement": {
+   "sources": [
+    {
+     "id": "s1",
+     "title": "Stadhuis van Tbilisi — Het parlementsgebouw van Georgië",
+     "url": "https://web.archive.org/web/20190107233147/http://new.tbilisi.gov.ge/news/453",
+     "type": "overheid",
+     "language": "ka"
+    },
+    {
+     "id": "s2",
+     "title": "T. Kvirkvelia, Dzveltbilisuri dasakhelebani (Oude Tbilisische plaatsnamen), Tbilisi 1985 — lemma \"Golovinis prospekti\" (online: Nationale Parlementaire Bibliotheek van Georgië)",
+     "url": "http://www.nplg.gov.ge/gwdict/index.php?a=term&d=36&t=156",
+     "type": "naslagwerk",
+     "language": "ka"
+    },
+    {
+     "id": "s3",
+     "title": "Nationaal Agentschap voor het Behoud van Cultureel Erfgoed van Georgië — erfgoedregister: Parlement",
+     "url": "https://memkvidreoba.gov.ge/objects/immovable/immovableObject?id=4845",
+     "type": "overheid",
+     "language": "ka"
+    }
+   ],
+   "claims": [
+    {
+     "id": "c1",
+     "kind": "feit",
+     "text": "Op deze plek stond de Russische militaire kathedraal, gebouwd in 1865–1866 om de verovering van de Kaukasus te vieren. Na de sovjetisering werd hij afgebroken; vanaf 1938 verrees hier in fasen het Regeringsgebouw, dat pas in 1965 af was.",
+     "sourceIds": [
+      "s1",
+      "s2"
+     ],
+     "evidence": "Stadhuis: militaire kathedraal (\"sobor\"), 1865–1866 gebouwd ter herinnering aan de verovering van de Kaukasus; na de sovjetisering afgebroken; vanaf 1938 in fasen gebouwd, tot 1965. Kvirkvelia: Alexander Nevski-kathedraal op de plek van het Regeringsgebouw."
+    },
+    {
+     "id": "c2",
+     "kind": "feit",
+     "text": "In de fundamenten liggen de graven van cadetten die sneuvelden bij de sovjetisering van Georgië.",
+     "sourceIds": [
+      "s1"
+     ],
+     "evidence": "Stadhuis: in de fundering zijn de graven van de bij de sovjetisering gesneuvelde junkers opgenomen."
+    },
+    {
+     "id": "c3",
+     "kind": "feit",
+     "text": "Het complex bestaat uit twee gebouwen van de architecten V. Kokorin en G. Lezhava; aan het latere deel werkte ook V. Nasaridze mee. De gevel aan de laan is bekleed met goudkleurige tufsteen uit Bolnisi, en de pilaren dragen motieven uit de Georgische middeleeuwse bouwkunst.",
+     "sourceIds": [
+      "s3"
+     ],
+     "evidence": "Register: twee korpussen door Kokorin en Lezhava (Nasaridze bij het latere); gevel met goudkleurige tuf uit Bolnisi; pilaren met lijsten ontleend aan de Georgische middeleeuwse bouwkunst."
+    },
+    {
+     "id": "c4",
+     "kind": "feit",
+     "text": "Hier vergaderde de Opperste Sovjet van de Georgische SSR. Voor dit gebouw sloeg het Sovjetleger op 9 april 1989 een vreedzame betoging uiteen.",
+     "sourceIds": [
+      "s1"
+     ],
+     "evidence": "Stadhuis: vroeger zetel van de Opperste Sovjet; voor het gebouw sloeg het Sovjetleger op 9 april 1989 een vreedzame bijeenkomst uiteen, met slachtoffers."
+    }
+   ]
+  },
+  "paleis-onderkoning": {
+   "sources": [
+    {
+     "id": "s1",
+     "title": "Nationaal Paleis — History of National Palace",
+     "url": "https://web.archive.org/web/20220419203553/https://nationalpalace.ge/history/",
+     "type": "instelling",
+     "language": "en"
+    },
+    {
+     "id": "s2",
+     "title": "Scan Tbilisi — National Palace",
+     "url": "https://www.scantbilisi.ge/en/objects/408/erovnuli-sasaxle",
+     "type": "website",
+     "language": "en"
+    }
+   ],
+   "claims": [
+    {
+     "id": "c1",
+     "kind": "feit",
+     "text": "Vanaf 1802 stond hier de residentie van de Russische opperbevelhebber in de Kaukasus. Het gebouw werd verschillende keren vervangen; zijn huidige vorm kreeg het paleis in 1865–1869 door de architect Otto Jacob Simonson.",
+     "sourceIds": [
+      "s1",
+      "s2"
+     ],
+     "evidence": "Nationaal Paleis: 1802 klein gebouw, na vijf jaar vervangen; 1818 nieuw gebouw (Braunmiller); 1865–1869 grondige verbouwing door Otto Jacob Simonson, definitieve vorm 1869. Scan Tbilisi: idem.",
+     "note": "Het paleis noemt Simonson een Zweedse architect; andere bronnen een Duitse."
+    },
+    {
+     "id": "c2",
+     "kind": "feit",
+     "text": "Op 26 mei 1918 kwam hier de Georgische Nationale Raad onder Noe Zjordania bijeen en werd de onafhankelijkheid van Georgië uitgeroepen. Twee dagen later verklaarden Azerbeidzjan en Armenië in hetzelfde gebouw hun onafhankelijkheid.",
+     "sourceIds": [
+      "s1",
+      "s2"
+     ],
+     "evidence": "Nationaal Paleis: 26 mei 1918 Georgische vlag op het paleis, regering van Noe Zjordania riep onafhankelijkheid uit; twee dagen later volgden Azerbeidzjan en Armenië in dit gebouw. Scan Tbilisi: eerste zitting van de Nationale Raad, voorzitter Zjordania, Akte van Onafhankelijkheid."
+    },
+    {
+     "id": "c3",
+     "kind": "feit",
+     "text": "In 1937 nam Lavrenti Beria het initiatief het paleis aan de kinderen te geven; op 2 mei 1941 ging het officieel open als Pionierspaleis.",
+     "sourceIds": [
+      "s1"
+     ],
+     "evidence": "Nationaal Paleis: 1937 initiatief van Beria (Pioneers and Children's House); officieel geopend 2 mei 1941."
+    }
+   ]
+  },
+  "rustaveli-theater": {
+   "sources": [
+    {
+     "id": "s1",
+     "title": "Nationaal Agentschap voor het Behoud van Cultureel Erfgoed van Georgië — erfgoedregister: Rustaveli-theater",
+     "url": "https://memkvidreoba.gov.ge/objects/immovable/immovableObject?id=3889",
+     "type": "overheid",
+     "language": "ka"
+    },
+    {
+     "id": "s2",
+     "title": "T. Kvirkvelia, Dzveltbilisuri dasakhelebani (Oude Tbilisische plaatsnamen), Tbilisi 1985 — lemma \"Golovinis prospekti\" (online: Nationale Parlementaire Bibliotheek van Georgië)",
+     "url": "http://www.nplg.gov.ge/gwdict/index.php?a=term&d=36&t=156",
+     "type": "naslagwerk",
+     "language": "ka"
+    },
+    {
+     "id": "s3",
+     "title": "The Guardian — Before the purge: when the avant garde swept Georgia (25-02-2021)",
+     "url": "http://www.theguardian.com/artanddesign/gallery/2021/feb/25/great-purge-avant-garde-georgia-modernist-art-poetry-red-army-in-pictures",
+     "type": "nieuws",
+     "language": "en"
+    }
+   ],
+   "claims": [
+    {
+     "id": "c1",
+     "kind": "feit",
+     "text": "Het theatergebouw is uit 1901 en werd gebouwd voor de Artistieke Vereniging. De eclectische voorgevel met rococo-elementen is nog in oorspronkelijke staat.",
+     "sourceIds": [
+      "s1",
+      "s2"
+     ],
+     "evidence": "Register: datering 1901; westgevel aan de laan in oorspronkelijke staat, eclectisch met rococo-elementen. Kvirkvelia: gebouw van de Artistieke Vereniging (nu Rustaveli-theater)."
+    },
+    {
+     "id": "c2",
+     "kind": "feit",
+     "text": "In de kelder zat restaurant Anona, later het café Kimerioni. Daar hangen muurschilderingen van Lado Gudiashvili, zoals \"Stepko's taverne\".",
+     "sourceIds": [
+      "s1",
+      "s3"
+     ],
+     "evidence": "Register: kelder met kruisgewelven, restaurant \"Anona\", later café \"Kimerioni\". Guardian: \"Stepko's Tavern by Lado Gudiashvili, a mural in Tbilisi's Kimerioni cafe\"."
+    }
+   ]
+  },
+  "opera": {
+   "sources": [
+    {
+     "id": "s1",
+     "title": "Tbilisi Week (georgianpress.ru) — Тбилисская опера: история создания (09-01-2013)",
+     "url": "https://web.archive.org/web/20130215102312/http://www.georgianpress.ru/tbilisi-week/our-past/10594-tbilisskaya-opera-istoriya-sozdaniya.html",
+     "type": "nieuws",
+     "language": "ru"
+    },
+    {
+     "id": "s2",
+     "title": "Nationaal Agentschap voor het Behoud van Cultureel Erfgoed van Georgië — erfgoedregister: Opera- en balletheater",
+     "url": "https://memkvidreoba.gov.ge/objects/immovable/immovableObject?id=4282",
+     "type": "overheid",
+     "language": "ka"
+    },
+    {
+     "id": "s3",
+     "title": "The Guardian — Tbilisi to reopen opera house that has survived tsars, Soviets and civil war (27-01-2016)",
+     "url": "https://www.theguardian.com/world/2016/jan/27/tibilisi-to-reopen-opera-house-that-has-survived-tsars-soviets-and-civil-war",
+     "type": "nieuws",
+     "language": "en"
+    }
+   ],
+   "claims": [
+    {
+     "id": "c1",
+     "kind": "feit",
+     "text": "De opera van Tbilisi begon in 1851 in het theater van koopman Gabriel Tamamsjev op het Erivanplein, het huidige Vrijheidsplein, gebouwd door de Italiaanse architect Giovanni Scudieri. De kroonluchter van 1218 kilo kwam uit Parijs en ging op buffelkarren van de Zwarte Zee naar Tbilisi.",
+     "sourceIds": [
+      "s1"
+     ],
+     "evidence": "Tbilisi Week: Vorontsov sloot een contract met koopman Gabriel Tamamsjev voor theater en karavanserai op het Erivanplein; fundament april 1847, architect Giovanni Scudieri; voorjaar 1851 klaar; kroonluchter 1218 kg uit Parijs via Marseille, per buffelkar naar Tbilisi."
+    },
+    {
+     "id": "c2",
+     "kind": "feit",
+     "text": "Nadat dat theater in 1874 was afgebrand, werd dit gebouw in 1880–1896 neergezet naar ontwerp van Victor Schröter, een Duitse architect uit Sint-Petersburg. Voor het grondplan stond het Festspielhaus van Richard Wagner in Bayreuth model.",
+     "sourceIds": [
+      "s2"
+     ],
+     "evidence": "Register: gebouwd 1880–1896 naar ontwerp van de Petersburgse Duitse architect V. Schröter; prototype Wagners theater in Bayreuth; idee na de brand van het oude Tamamsjev-theater (1874)."
+    },
+    {
+     "id": "c3",
+     "kind": "feit",
+     "text": "De Moorse gevel heeft donkere en lichte banden, hoefijzer- en spitsbogen en torentjes met stalactietversiering. Het bouwjaar is verwerkt in de rozetten van de gevel.",
+     "sourceIds": [
+      "s2"
+     ],
+     "evidence": "Register: Moorse stijl met donkere en lichte horizontale banden, mashrabiya-vensters, spits- en hoefijzerbogen, torentjes met stalactieten; bouwdatum in de rozetten van de gevel."
+    },
+    {
+     "id": "c4",
+     "kind": "feit",
+     "text": "In januari 2016 ging het operahuis weer open na een verbouwing van zes jaar, betaald door oud-premier Bidzina Ivanishvili.",
+     "sourceIds": [
+      "s3"
+     ],
+     "evidence": "Guardian: heropening dit weekend na een zesjarige verbouwing van vele miljoenen, betaald door Bidzina Ivanishvili."
+    }
+   ]
+  },
+  "kashveti": {
+   "sources": [
+    {
+     "id": "s1",
+     "title": "Nationaal Agentschap voor het Behoud van Cultureel Erfgoed van Georgië — erfgoedregister: Kashveti-kerk",
+     "url": "https://memkvidreoba.gov.ge/objects/immovable/immovableObject?id=4229",
+     "type": "overheid",
+     "language": "ka"
+    },
+    {
+     "id": "s2",
+     "title": "T. Kvirkvelia, Dzveltbilisuri dasakhelebani (Oude Tbilisische plaatsnamen), Tbilisi 1985 — lemma \"Betlemi\" (online: Nationale Parlementaire Bibliotheek van Georgië)",
+     "url": "http://www.nplg.gov.ge/gwdict/index.php?a=term&d=36&t=118",
+     "type": "naslagwerk",
+     "language": "ka"
+    }
+   ],
+   "claims": [
+    {
+     "id": "c1",
+     "kind": "feit",
+     "text": "De huidige Kashveti-kerk werd in 1904–1910 gebouwd naar ontwerp van architect Leopold Bilfeldt, als kopie van de middeleeuwse kerk van Samtavisi.",
+     "sourceIds": [
+      "s1"
+     ],
+     "evidence": "Register: nieuwe kerk 1904–1910 naar ontwerp van Leopold Bilfeldt; kopie van de koepelkerk van Samtavisi."
+    },
+    {
+     "id": "c2",
+     "kind": "feit",
+     "text": "Tot de 18e eeuw stond hier een oude kerk die met David van Gareja wordt verbonden. De familie Amilachvari verving haar door een bakstenen kerk; volgens Kvirkvelia gebeurde dat in 1742 op initiatief van vorst Givi Amilachvari.",
+     "sourceIds": [
+      "s1",
+      "s2"
+     ],
+     "evidence": "Register: tot de 18e eeuw een oude kerk verbonden met David Garejeli, in de 18e eeuw vervangen door de bakstenen kerk van de Amilachvari's. Kvirkvelia: in 1742 nieuwe bakstenen Kashveti-kerk op initiatief van Givi Amilachvari."
+    },
+    {
+     "id": "c3",
+     "kind": "feit",
+     "text": "Het rijke steenhouwwerk is van de Georgische meester Neofite Agladze. In 1946–1948 beschilderde Lado Gudiashvili het altaar, in opdracht van patriarch Kalistrate Tsintsadze.",
+     "sourceIds": [
+      "s1"
+     ],
+     "evidence": "Register: ornamenten (ontwerp E. L. Andrioletti) uitgevoerd door Neofite Agladze; in opdracht van patriarch Kalistrate Tsintsadze beschilderde Lado Gudiashvili in 1946–48 het altaar."
+    }
+   ]
+  },
+  "nationaal-museum": {
+   "sources": [
+    {
+     "id": "s1",
+     "title": "Georgian National Museum — About (website, 2007)",
+     "url": "https://web.archive.org/web/20070926225109/http://www.museum.ge/web_page/index.php?id=39",
+     "type": "instelling",
+     "language": "en"
+    },
+    {
+     "id": "s2",
+     "title": "Nationaal Agentschap voor het Behoud van Cultureel Erfgoed van Georgië — erfgoedregister: Staatsmuseum van Georgië",
+     "url": "https://memkvidreoba.gov.ge/objects/immovable/immovableObject?id=4157",
+     "type": "overheid",
+     "language": "ka"
+    },
+    {
+     "id": "s3",
+     "title": "T. Kvirkvelia, Dzveltbilisuri dasakhelebani (Oude Tbilisische plaatsnamen), Tbilisi 1985 — lemma \"Golovinis prospekti\" (online: Nationale Parlementaire Bibliotheek van Georgië)",
+     "url": "http://www.nplg.gov.ge/gwdict/index.php?a=term&d=36&t=156",
+     "type": "naslagwerk",
+     "language": "ka"
+    }
+   ],
+   "claims": [
+    {
+     "id": "c1",
+     "kind": "feit",
+     "text": "Het Georgisch Nationaal Museum werd eind 2004 bij presidentieel decreet opgericht als overkoepelende organisatie. De wortels gaan terug tot het museum van de Kaukasische afdeling van de Russische Geografische Vereniging uit 1852.",
+     "sourceIds": [
+      "s1"
+     ],
+     "evidence": "museum.ge: opgericht eind 2004 bij presidentieel decreet; oorsprong in het museum van de Kaukasische afdeling van de Russische Geografische Vereniging, 1852."
+    },
+    {
+     "id": "c2",
+     "kind": "feit",
+     "text": "Het hoofdgebouw aan de Roestavelilaan beslaat een heel bouwblok en wordt in het erfgoedregister gedateerd op 1927; architect was N. Neprintsev, de gevel is van N. Severov. Er stond eerder een ouder museumgebouw, dat in 1910 werd afgebroken.",
+     "sourceIds": [
+      "s2",
+      "s3"
+     ],
+     "evidence": "Register: 1927; gebouwd door N. Neprintsev, gevel door N. Severov; ensemble over een heel bouwblok. Kvirkvelia: ouder museumgebouw in 1910 afgebroken voor het huidige museum."
+    }
+   ]
+  },
+  "museum-schone-kunsten": {
+   "sources": [
+    {
+     "id": "s1",
+     "title": "Nationaal Agentschap voor het Behoud van Cultureel Erfgoed van Georgië — erfgoedregister: Staatsmuseum (Poesjkinstraat 4)",
+     "url": "https://memkvidreoba.gov.ge/objects/immovable/immovableObject?id=4441",
+     "type": "overheid",
+     "language": "ka"
+    }
+   ],
+   "claims": [
+    {
+     "id": "c1",
+     "kind": "feit",
+     "text": "Het Kunstmuseum zit in een gebouw van drie verdiepingen uit de eerste helft van de 19e eeuw, ontworpen door Giuseppe Bernardazzi. De smalle hoofdgevel met een portiek van Ionische zuilen kijkt uit op het Poesjkinplantsoen.",
+     "sourceIds": [
+      "s1"
+     ],
+     "evidence": "Register: gebouwd naar ontwerp van Giuseppe Bernardazzi, eerste helft 19e eeuw; drie verdiepingen; portiek met Ionische zuilen naar het Poesjkinplantsoen."
+    }
+   ]
+  },
+  "staatsuniversiteit": {
+   "sources": [
+    {
+     "id": "s1",
+     "title": "Nationaal Agentschap voor het Behoud van Cultureel Erfgoed van Georgië — erfgoedregister: Staatsuniversiteit, I-gebouw",
+     "url": "https://memkvidreoba.gov.ge/objects/immovable/immovableObject?id=4091",
+     "type": "overheid",
+     "language": "ka"
+    }
+   ],
+   "claims": [
+    {
+     "id": "c1",
+     "kind": "feit",
+     "text": "Het eerste gebouw van de universiteit werd in 1900–1906 gebouwd door architect S. Kldiashvili: drie verdiepingen rond een gesloten binnenplaats, met een portiek van vier Ionische zuilen en een brede trap met hellingen aan weerszijden.",
+     "sourceIds": [
+      "s1"
+     ],
+     "evidence": "Register: 1900–1906 door architect S. Kldiashvili; type met gesloten binnenplaats; drie verdiepingen; portiek met vier Ionische zuilen; brede trap met pandus."
+    }
+   ]
+  },
+  "moeder-georgie": {
+   "sources": [
+    {
+     "id": "s1",
+     "title": "Nationaal Agentschap voor het Behoud van Cultureel Erfgoed van Georgië — erfgoedregister: Kartlis Deda",
+     "url": "https://memkvidreoba.gov.ge/objects/immovable/immovableObject?id=25106",
+     "type": "overheid",
+     "language": "ka"
+    },
+    {
+     "id": "s2",
+     "title": "HuffPost — D. J. Constable, Kartlis Deda: The Importance of Georgia's Most Famous Woman",
+     "url": "http://www.huffingtonpost.co.uk/david-j-constable/kartlis-deda-the-importan_b_1776626.html",
+     "type": "reisverhaal",
+     "language": "en"
+    },
+    {
+     "id": "s3",
+     "title": "Georgian Travel Guide — Kartlis Deda (Mother of Kartli) (2020)",
+     "url": "https://georgiantravelguide.com/en/kartlis-deda-mother-of-kartli",
+     "type": "reisgids",
+     "language": "en"
+    }
+   ],
+   "claims": [
+    {
+     "id": "c1",
+     "kind": "feit",
+     "text": "Kartlis Deda, de \"Moeder van Kartli\", is uit 1958 en werd gemaakt door beeldhouwer Elguja Amashukeli.",
+     "sourceIds": [
+      "s1",
+      "s2"
+     ],
+     "evidence": "Register: 1958, auteur E. Amashukeli. HuffPost: ontworpen door beeldhouwer Elguja Amashukeli, geplaatst in 1958."
+    },
+    {
+     "id": "c2",
+     "kind": "feit",
+     "text": "Het beeld kwam er in 1958, het jaar waarin Tbilisi 1500 jaar bestond. Het is ongeveer 20 meter hoog, van aluminium, en draagt Georgische klederdracht.",
+     "sourceIds": [
+      "s2",
+      "s3"
+     ],
+     "evidence": "Beide: 1958, 1500-jarig jubileum van de stad, 20 meter, aluminium, Georgische klederdracht.",
+     "note": "Hoogte, materiaal en jubileum komen uit reisbronnen."
+    },
+    {
+     "id": "c3",
+     "kind": "interpretatie",
+     "text": "In de ene hand houdt ze een schaal wijn voor gasten, in de andere een zwaard voor vijanden. Zo wordt het beeld meestal uitgelegd: gastvrijheid en verdediging van de vrijheid.",
+     "sourceIds": [
+      "s3",
+      "s2"
+     ],
+     "evidence": "Georgian Travel Guide: wijn voor gasten, zwaard voor vijanden. HuffPost: wijn staat voor gastvrijheid, zwaard voor vrijheidsliefde."
+    },
+    {
+     "id": "c4",
+     "kind": "anekdote",
+     "text": "Amashukeli noemde zijn beeld \"Hoofdstad\"; de naam \"Moeder van Kartli\" gaven de mensen het later. In 1966 kreeg hij er de Sjota Roestaveli-staatsprijs voor.",
+     "sourceIds": [
+      "s3"
+     ],
+     "evidence": "Georgian Travel Guide: hij noemde het beeld \"Capital\", later noemden mensen het \"Mother of Kartli\"; Rustaveli-staatsprijs in 1966."
+    }
+   ]
+  },
+  "vakhtang-gorgasali": {
+   "sources": [
+    {
+     "id": "s1",
+     "title": "Nationaal Agentschap voor het Behoud van Cultureel Erfgoed van Georgië — erfgoedregister: Monument Vachtang Gorgasali",
+     "url": "https://memkvidreoba.gov.ge/objects/immovable/immovableObject?id=25104",
+     "type": "overheid",
+     "language": "ka"
+    },
+    {
+     "id": "s2",
+     "title": "T. Kvirkvelia, Dzveltbilisuri dasakhelebani (Oude Tbilisische plaatsnamen), Tbilisi 1985 — lemma \"Metekhi\" (online: Nationale Parlementaire Bibliotheek van Georgië)",
+     "url": "http://www.nplg.gov.ge/gwdict/index.php?a=term&d=36&t=397",
+     "type": "naslagwerk",
+     "language": "ka"
+    },
+    {
+     "id": "s3",
+     "title": "Nationaal Agentschap voor het Behoud van Cultureel Erfgoed van Georgië — erfgoedregister: Kartlis Deda",
+     "url": "https://memkvidreoba.gov.ge/objects/immovable/immovableObject?id=25106",
+     "type": "overheid",
+     "language": "ka"
+    },
+    {
+     "id": "s4",
+     "title": "Nationaal Agentschap voor het Behoud van Cultureel Erfgoed van Georgië — erfgoedregister: Metekhi-kerk",
+     "url": "https://memkvidreoba.gov.ge/objects/immovable/immovableObject?id=3364",
+     "type": "overheid",
+     "language": "ka"
+    }
+   ],
+   "claims": [
+    {
+     "id": "c1",
+     "kind": "feit",
+     "text": "Het ruiterstandbeeld van Vachtang Gorgasali op de rand van de Metechi-rots is van beeldhouwer E. Amashukeli, dezelfde die Kartlis Deda maakte; de architecten waren Kandelaki en D. Morbedadze.",
+     "sourceIds": [
+      "s1",
+      "s2",
+      "s3"
+     ],
+     "evidence": "Register: ruiterfiguur, beeldhouwer E. Amashukeli, architecten Kandelaki en D. Morbedadze. Kvirkvelia: Gorgasali-monument op de rand van de Metechi-rots (Amashukeli, Kandelaki, Morbedadze). Register 25106: Kartlis Deda ook van E. Amashukeli."
+    },
+    {
+     "id": "c2",
+     "kind": "anekdote",
+     "text": "Volgens de overlevering stonden op de Metechi-rots al in de tijd van Vachtang Gorgasali een kerk en een vesting. Betrouwbaar bewijs daarvoor ontbreekt.",
+     "sourceIds": [
+      "s2",
+      "s4"
+     ],
+     "evidence": "Kvirkvelia: overlevering 2e helft 5e eeuw onder Gorgasali; geen betrouwbaar bewijs. Register: overlevering verbindt de kerk met Gorgasali."
+    }
+   ]
+  },
+  "sameba": {
+   "sources": [
+    {
+     "id": "s1",
+     "title": "Nationaal Agentschap voor het Behoud van Cultureel Erfgoed van Georgië — erfgoedregister: Sameba-kathedraal",
+     "url": "https://memkvidreoba.gov.ge/objects/immovable/immovableObject?id=7981",
+     "type": "overheid",
+     "language": "ka"
+    }
+   ],
+   "claims": [
+    {
+     "id": "c1",
+     "kind": "feit",
+     "text": "De Sameba-kathedraal, de kathedraal van de Heilige Drie-eenheid, is de belangrijkste orthodoxe kerk van Georgië. Ze staat op de Elia-heuvel in Avlabari en werd in 1995–2004 gebouwd naar ontwerp van architect Archil Mindiashvili.",
+     "sourceIds": [
+      "s1"
+     ],
+     "evidence": "Register: belangrijkste orthodoxe kathedraal van Georgië; Elia-heuvel, Avlabari; gebouwd 1995–2004 naar ontwerp van Archil Mindiashvili."
+    }
+   ]
+  },
+  "darejan-paleis": {
+   "sources": [
+    {
+     "id": "s1",
+     "title": "Nationaal Agentschap voor het Behoud van Cultureel Erfgoed van Georgië — erfgoedregister: Paleis van Darejan \"Sachino\"",
+     "url": "https://memkvidreoba.gov.ge/objects/immovable/immovableObject?id=3339",
+     "type": "overheid",
+     "language": "ka"
+    }
+   ],
+   "claims": [
+    {
+     "id": "c1",
+     "kind": "feit",
+     "text": "In 1776 liet koningin Darejan, de vrouw van Erekle II, in Avlabari op de ruïne van een oude vesting een paleis bouwen, met een hofkerk gewijd aan de heilige Irakli en Daria.",
+     "sourceIds": [
+      "s1"
+     ],
+     "evidence": "Register: in 1776 bouwde koningin Darejan, echtgenote van Erekle II, op de ruïne van een oude vesting een paleis en hofkerk van Sint-Irakli en Sint-Daria."
+    },
+    {
+     "id": "c2",
+     "kind": "feit",
+     "text": "Het deel dat \"Sachino\" heet bekroont een bastion van de oude stadsmuur van Avlabari. Het ronde, overhangende houten balkon, met opengewerkte klaverbogen, is vanuit grote delen van de stad te zien.",
+     "sourceIds": [
+      "s1"
+     ],
+     "evidence": "Register: \"Sachino\" bekroont een bastion van de muur van oud-Avlabari; rond overhangend houten balkon, zichtbaar vanuit veel delen van de stad; opengewerkte ornamenten van de klaverbogen."
+    }
+   ]
+  },
+  "stalin-drukkerij": {
+   "sources": [
+    {
+     "id": "s1",
+     "title": "Nationaal Agentschap voor het Behoud van Cultureel Erfgoed van Georgië — erfgoedregister: Oude drukkerij",
+     "url": "https://memkvidreoba.gov.ge/objects/immovable/immovableObject?id=16057",
+     "type": "overheid",
+     "language": "ka"
+    }
+   ],
+   "claims": [
+    {
+     "id": "c1",
+     "kind": "feit",
+     "text": "Onder een woonhuis zat van 1903 tot 1906 een illegale drukkerij. Je kwam er via een put in een houten hut: 17 meter naar beneden, door een tunnel naar een tweede put en dan door een kleine gang naar de drukkerij.",
+     "sourceIds": [
+      "s1"
+     ],
+     "evidence": "Register: illegale drukkerij onder een woonhuis, in bedrijf 1903–1906; toegang via een put van 17 m in een houten hut, tunnel van 5 m naar een tweede put van 15 m, daarna een kleine gang."
+    },
+    {
+     "id": "c2",
+     "kind": "feit",
+     "text": "Tsaristische gendarmes staken de drukkerij en het huis in brand. In 1937 werden ze hersteld en werd hier een museum geopend.",
+     "sourceIds": [
+      "s1"
+     ],
+     "evidence": "Register: door de tsaristische gendarmes in brand gestoken; in 1937 gerestaureerd en museum geopend."
+    },
+    {
+     "id": "c3",
+     "kind": "onzeker",
+     "text": "Het erfgoedregister noemt geen namen van de drukkers. De gangbare koppeling met Stalin is in de gecontroleerde bronnen niet bevestigd.",
+     "sourceIds": [
+      "s1"
+     ],
+     "evidence": "Register-beschrijving noemt Stalin/Dzjoegasjvili niet.",
+     "note": "Eerst een betrouwbare bron zoeken voordat je Stalin noemt."
+    }
+   ]
+  },
+  "schrijvershuis": {
+   "sources": [
+    {
+     "id": "s1",
+     "title": "Nationaal Agentschap voor het Behoud van Cultureel Erfgoed van Georgië — erfgoedregister: Schrijvershuis",
+     "url": "https://memkvidreoba.gov.ge/objects/immovable/immovableObject?id=4135",
+     "type": "overheid",
+     "language": "ka"
+    },
+    {
+     "id": "s2",
+     "title": "Atinati — Writer's House in Tbilisi (30-11-2020)",
+     "url": "https://www.atinati.com/news/60504f7df2482b003897205f",
+     "type": "tijdschrift",
+     "language": "en"
+    },
+    {
+     "id": "s3",
+     "title": "Süddeutsche Zeitung — Georgien: Betten und Buchstaben (10-10-2018)",
+     "url": "https://www.sueddeutsche.de/reise/georgien-betten-und-buchstaben-1.4164032",
+     "type": "nieuws",
+     "language": "de"
+    },
+    {
+     "id": "s4",
+     "title": "Investor.ge — Paolo Iashvili and the Writer's House of Georgia (H. Gutbrod, 2023)",
+     "url": "https://www.investor.ge/2023/07/18/paolo-iashvili-and-the-writers-house-of-georgia-museum-of-repressed-writers-opens-in-sololaki/",
+     "type": "tijdschrift",
+     "language": "en"
+    },
+    {
+     "id": "s5",
+     "title": "New York Review of Books — M. Jaggi, Resurrecting the Poets of Tbilisi (24-11-2022)",
+     "url": "https://www.nybooks.com/articles/2022/11/24/resurrecting-the-poets-of-tbilisi-maya-jaggi/",
+     "type": "tijdschrift",
+     "language": "en"
+    }
+   ],
+   "claims": [
+    {
+     "id": "c1",
+     "kind": "feit",
+     "text": "Dit herenhuis werd in 1903–1905 gebouwd voor cognacproducent en weldoener David Sarajishvili, naar ontwerp van de Duitse architect Karl Zaar. Het geldt als een van de beste art-nouveauhuizen van Tbilisi.",
+     "sourceIds": [
+      "s1",
+      "s2"
+     ],
+     "evidence": "Register: 1903–1905, ontwerp van de Duitse architect Karl Zaar, een van de beste voorbeelden van moderne stijl. Atinati: huis van cognacproducent David Sarajishvili, filantroop."
+    },
+    {
+     "id": "c2",
+     "kind": "feit",
+     "text": "Het terras is versierd met een mozaïek van Villeroy & Boch.",
+     "sourceIds": [
+      "s3"
+     ],
+     "evidence": "SZ: de terras siert een filigraan mozaïek van Villeroy & Boch."
+    },
+    {
+     "id": "c3",
+     "kind": "feit",
+     "text": "Na de Sovjetbezetting van 1921 kwam het huis in handen van de Schrijversbond.",
+     "sourceIds": [
+      "s4"
+     ],
+     "evidence": "Investor.ge: na de bezetting in 1921 werd het Sarajishvili-huis overgedragen aan de Schrijversbond."
+    },
+    {
+     "id": "c4",
+     "kind": "feit",
+     "text": "Op 22 juli 1937, tijdens de Grote Terreur, schoot dichter Paolo Iashvili, een van de leiders van de symbolistische dichtersgroep Blauwe Hoorns, zich hier dood terwijl de Schrijversbond over zijn lot vergaderde. Zes dagen later veroordeelde de bond hem als \"verrader\".",
+     "sourceIds": [
+      "s4",
+      "s5"
+     ],
+     "evidence": "Investor.ge: 22 juli 1937, schoot zich dood met een jachtgeweer terwijl het presidium vergaderde; zes dagen later \"paria, verrader en huurling\". NYRB: leider van de Blue Horns; zelfmoord in de Schrijversbond terwijl men over zijn uitsluiting debatteerde."
+    },
+    {
+     "id": "c5",
+     "kind": "feit",
+     "text": "Sinds 2011 is dit het Schrijvershuis, met lezingen en concerten. Er is nu ook een klein Museum van Onderdrukte Schrijvers.",
+     "sourceIds": [
+      "s5"
+     ],
+     "evidence": "NYRB: met staatssteun gerenoveerd en in 2011 geopend als Writers' House; poëzievoordrachten en kamermuziek; Museum of Repressed Writers."
+    }
+   ]
+  },
+  "pantheon-mtatsminda": {
+   "sources": [
+    {
+     "id": "s1",
+     "title": "T. Kvirkvelia, Dzveltbilisuri dasakhelebani (Oude Tbilisische plaatsnamen), Tbilisi 1985 — lemma \"Mamadaviti\" (online: Nationale Parlementaire Bibliotheek van Georgië)",
+     "url": "http://www.nplg.gov.ge/gwdict/index.php?a=term&d=36&t=377",
+     "type": "naslagwerk",
+     "language": "ka"
+    },
+    {
+     "id": "s2",
+     "title": "Nationaal Agentschap voor het Behoud van Cultureel Erfgoed van Georgië — erfgoedregister: Pantheon van Mtatsminda",
+     "url": "https://memkvidreoba.gov.ge/objects/immovable/immovableObject?id=4242",
+     "type": "overheid",
+     "language": "ka"
+    }
+   ],
+   "claims": [
+    {
+     "id": "c1",
+     "kind": "feit",
+     "text": "Volgens de overlevering koos in de 6e eeuw de monnik David, een van de Dertien Assyrische Vaders, deze helling als woonplaats. Hij bouwde er een kapel en vertrok later naar de woestijn van Gareja, waar hij een rotsklooster stichtte. De kerk heet daarom Mamadaviti, \"vader David\".",
+     "sourceIds": [
+      "s1"
+     ],
+     "evidence": "Kvirkvelia: in de 6e eeuw koos David, een van de dertien Assyrische vaders, deze plek; bouwde een kapel en cel; vertrok naar de woestijn van Gareja en stichtte daar een rotsklooster."
+    },
+    {
+     "id": "c2",
+     "kind": "feit",
+     "text": "Het idee voor een pantheon op Mtatsminda ontstond in 1915, bij de begrafenis van dichter Akaki Tsereteli. Officieel werd het pantheon geopend in 1929, op de honderdste sterfdag van de Russische schrijver Aleksandr Gribojedov.",
+     "sourceIds": [
+      "s2"
+     ],
+     "evidence": "Register: idee in 1915, bij de begrafenis van Akaki Tsereteli; geopend in 1929, op de 100e verjaardag van het overlijden van Gribojedov, toen het kerkhof van Mamadaviti officieel pantheon werd."
+    },
+    {
+     "id": "c3",
+     "kind": "feit",
+     "text": "De graven beginnen bij een grot achter een stenen boog: daar liggen Gribojedov en zijn Georgische vrouw Nino Tsjavtsjavadze. Op het bovenste terras, aan weerszijden van de kerk, liggen vooraanstaande Georgische schrijvers en publieke figuren.",
+     "sourceIds": [
+      "s1",
+      "s2"
+     ],
+     "evidence": "Kvirkvelia: twee niveaus; onderste terras met grot met graven van Gribojedov en Nino Tsjavtsjavadze; bovenste terras met graven van schrijvers. Register: pantheon begint met de grot van Gribojedov, naast hem zijn vrouw."
+    }
+   ]
+  },
+  "gabriadze": {
+   "sources": [
+    {
+     "id": "s1",
+     "title": "Nationaal Agentschap voor het Behoud van Cultureel Erfgoed van Georgië — erfgoedregister: Toren van Rezo Gabriadze",
+     "url": "https://memkvidreoba.gov.ge/objects/immovable/immovableObject?id=16937",
+     "type": "overheid",
+     "language": "ka"
+    },
+    {
+     "id": "s2",
+     "title": "Nationaal Agentschap voor het Behoud van Cultureel Erfgoed van Georgië — erfgoedregister: Theater-werkplaats van Rezo Gabriadze",
+     "url": "https://memkvidreoba.gov.ge/objects/immovable/immovableObject?id=3469",
+     "type": "overheid",
+     "language": "ka"
+    }
+   ],
+   "claims": [
+    {
+     "id": "c1",
+     "kind": "feit",
+     "text": "De scheve klokkentoren hoort bij het theater van Rezo Gabriadze en werd in 2010 gebouwd, van oude Georgische bakstenen en natuursteen die van verschillende plekken kwamen. Bovenaan zitten een uurwerk en een klein balkon; beneden is de kassa van het theater.",
+     "sourceIds": [
+      "s1"
+     ],
+     "evidence": "Register: in 2010 gebouwd, deel van het Gabriadze-theater; oude Georgische baksteen en van verschillende plaatsen gehaalde steen; scheef gestapelde blokken; uurwerk en decoratief balkon bovenaan; kassa op de begane grond."
+    },
+    {
+     "id": "c2",
+     "kind": "feit",
+     "text": "Het theatergebouw zelf, op de hoek tegenover de Anchiskhati-kerk, dateert van eind 19e eeuw.",
+     "sourceIds": [
+      "s2"
+     ],
+     "evidence": "Register: gebouw op de hoek van de Shavtelistraat, tegenover Anchiskhati; datering eind 19e eeuw."
+    }
+   ]
+  },
+  "kabelspoor": {
+   "sources": [
+    {
+     "id": "s1",
+     "title": "Nationaal Agentschap voor het Behoud van Cultureel Erfgoed van Georgië — erfgoedregister: Viaduct van de kabelspoorweg",
+     "url": "https://memkvidreoba.gov.ge/objects/immovable/immovableObject?id=4367",
+     "type": "overheid",
+     "language": "ka"
+    },
+    {
+     "id": "s2",
+     "title": "Nationaal Agentschap voor het Behoud van Cultureel Erfgoed van Georgië — erfgoedregister: Bovenstation van de kabelspoorweg",
+     "url": "https://memkvidreoba.gov.ge/objects/immovable/immovableObject?id=4306",
+     "type": "overheid",
+     "language": "ka"
+    }
+   ],
+   "claims": [
+    {
+     "id": "c1",
+     "kind": "feit",
+     "text": "De kabelspoorweg naar Mtatsminda werd in 1903–1905 aangelegd en ging op 27 maart 1905 open. Volgens het erfgoedregister was het de eerste kabelspoorweg in het Russische Rijk: 501 meter lang, met een helling van 28 tot 33 graden.",
+     "sourceIds": [
+      "s1"
+     ],
+     "evidence": "Register: gebouwd 1903–1905, geopend 27 maart 1905; eerste kabel-spoorweg in het Russische Rijk; lengte 501 m, helling 28–33°."
+    },
+    {
+     "id": "c2",
+     "kind": "anekdote",
+     "text": "De krant Iveria meldde in 1905 na de keuring: een rit duurt zes minuten, er kunnen 50 mensen in een wagon, en heen en terug kost 20 kopeken.",
+     "sourceIds": [
+      "s1"
+     ],
+     "evidence": "Register citeert Iveria (1905): zes minuten op en neer, 50 personen per wagon, 20 kopeken."
+    },
+    {
+     "id": "c3",
+     "kind": "feit",
+     "text": "Het witte bovenstation op 727 meter hoogte, met bar-restaurant, werd gebouwd in 1936–1938, bij de eerste vernieuwing van de kabelspoorweg.",
+     "sourceIds": [
+      "s2"
+     ],
+     "evidence": "Register: gebouwd 1936–1938 bij de eerste reconstructie (architecten Z. en N. Kurdiani, A. Valabuev); 727 m; station en bar-restaurant."
+    }
+   ]
+  },
+  "mtatsminda-park": {
+   "sources": [
+    {
+     "id": "s1",
+     "title": "Nationaal Agentschap voor het Behoud van Cultureel Erfgoed van Georgië — erfgoedregister: Park op het plateau van Mtatsminda",
+     "url": "https://memkvidreoba.gov.ge/objects/immovable/immovableObject?id=4113",
+     "type": "overheid",
+     "language": "ka"
+    }
+   ],
+   "claims": [
+    {
+     "id": "c1",
+     "kind": "feit",
+     "text": "Al in 1905 stonden boven op Mtatsminda een eerste draaimolen en een paar kraampjes; het eigenlijke park werd in 1930 aangelegd. Het ligt op 727 meter hoogte.",
+     "sourceIds": [
+      "s1"
+     ],
+     "evidence": "Register: eerste carrousel en enkele winkeltjes in 1905; gepland en beplant park in 1930 (dendroloog N. Tsitsishvili); 727 m."
+    },
+    {
+     "id": "c2",
+     "kind": "feit",
+     "text": "De tv-mast ernaast is 210 meter hoog en staat er sinds 1956.",
+     "sourceIds": [
+      "s1"
+     ],
+     "evidence": "Register: televisiemast van 210 m, geplaatst in 1956."
+    }
+   ]
+  },
+  "droge-brug": {
+   "sources": [
+    {
+     "id": "s1",
+     "title": "Nationaal Agentschap voor het Behoud van Cultureel Erfgoed van Georgië — erfgoedregister: Droge Brug",
+     "url": "https://memkvidreoba.gov.ge/objects/immovable/immovableObject?id=4866",
+     "type": "overheid",
+     "language": "ka"
+    },
+    {
+     "id": "s2",
+     "title": "T. Kvirkvelia, Dzveltbilisuri dasakhelebani (Oude Tbilisische plaatsnamen), Tbilisi 1985 — lemma \"Droge Brug\" (online: Nationale Parlementaire Bibliotheek van Georgië)",
+     "url": "http://www.nplg.gov.ge/gwdict/index.php?a=term&d=36&t=449",
+     "type": "naslagwerk",
+     "language": "ka"
+    }
+   ],
+   "claims": [
+    {
+     "id": "c1",
+     "kind": "feit",
+     "text": "De Droge Brug is een hoge brug met één boog, in 1848 gebouwd door Giovanni Scudieri. Oorspronkelijk lag ze over een zijarm van de Mtkvari; die stroomde er tot de jaren 1930. Nu loopt er een snelweg onder door, vandaar de naam.",
+     "sourceIds": [
+      "s1",
+      "s2"
+     ],
+     "evidence": "Register: datering midden 19e eeuw, 1848; eenbogige hoge brug van Giovanni Scudieri, oorspronkelijk over een rivierarm, nu een snelweg eronder. Kvirkvelia: onder deze brug stroomde tot de jaren 1930 een arm van de Mtkvari; nu loopt de oeverweg er."
+    }
+   ]
+  },
+  "marjanishvili-theater": {
+   "sources": [
+    {
+     "id": "s1",
+     "title": "Nationaal Agentschap voor het Behoud van Cultureel Erfgoed van Georgië — erfgoedregister: Marjanishvili-theater",
+     "url": "https://memkvidreoba.gov.ge/objects/immovable/immovableObject?id=3278",
+     "type": "overheid",
+     "language": "ka"
+    }
+   ],
+   "claims": [
+    {
+     "id": "c1",
+     "kind": "feit",
+     "text": "Het gebouw werd in 1907 neergezet als \"Volkshuis\" van Konstantine Zubalashvili, met geld van hem en zijn erfgenamen, naar ontwerp van de Petersburgse architect Stefan Krzyczyński.",
+     "sourceIds": [
+      "s1"
+     ],
+     "evidence": "Register: besluit 1901 tot een Volkshuis van Konstantine Zubalashvili; prijsvraag 8 oktober 1901; gebouwd in 1907 met geld van Zubalashvili en zijn erfgenamen, ontwerp Stefan Krzyczyński (Sint-Petersburg, Poolse afkomst)."
+    },
+    {
+     "id": "c2",
+     "kind": "feit",
+     "text": "In 1930 trok het toneelgezelschap dat Kote Marjanishvili in Koetaisi had opgericht in dit gebouw. Sinds zijn dood in 1933 draagt het theater zijn naam.",
+     "sourceIds": [
+      "s1"
+     ],
+     "evidence": "Register: in 1930 vestigde zich hier het door Kote Marjanishvili opgerichte theater uit Koetaisi; vanaf 1933, na zijn dood, naar hem genoemd."
+    }
+   ]
+  },
+  "circus": {
+   "sources": [
+    {
+     "id": "s1",
+     "title": "Nationaal Agentschap voor het Behoud van Cultureel Erfgoed van Georgië — erfgoedregister: Circusgebouw",
+     "url": "https://memkvidreoba.gov.ge/objects/immovable/immovableObject?id=4763",
+     "type": "overheid",
+     "language": "ka"
+    }
+   ],
+   "claims": [
+    {
+     "id": "c1",
+     "kind": "feit",
+     "text": "Het circusgebouw is uit 1940, ontworpen door de architecten Neprintsev en Urushadze: een rond, classicistisch gebouw op een verhoogde voet, met een portiek van acht witte zuilen met vergulde Korinthische kapitelen.",
+     "sourceIds": [
+      "s1"
+     ],
+     "evidence": "Register: in 1940 gebouwd door Neprintsev en Urushadze; classicistisch; rond, twee verdiepingen op een verhoogde ronde basis; portiek van acht witte zuilen met goudkleurige Korinthische kapitelen."
+    }
+   ]
+  },
+  "vake-park": {
+   "sources": [
+    {
+     "id": "s1",
+     "title": "T. Kvirkvelia, Dzveltbilisuri dasakhelebani (Oude Tbilisische plaatsnamen), Tbilisi 1985 — lemma \"Vake\" (online: Nationale Parlementaire Bibliotheek van Georgië)",
+     "url": "http://www.nplg.gov.ge/gwdict/index.php?a=term&d=36&t=205",
+     "type": "naslagwerk",
+     "language": "ka"
+    },
+    {
+     "id": "s2",
+     "title": "Nationaal Agentschap voor het Behoud van Cultureel Erfgoed van Georgië — erfgoedregister: Overwinningspark",
+     "url": "https://memkvidreoba.gov.ge/objects/immovable/immovableObject?id=4726",
+     "type": "overheid",
+     "language": "ka"
+    }
+   ],
+   "claims": [
+    {
+     "id": "c1",
+     "kind": "feit",
+     "text": "Het Vakepark werd in 1946 aangelegd als Overwinningspark, naar ontwerp van architect K. Dgebuadze en dendroloog N. Tsitsishvili. Het gold als een van de belangrijkste groenprojecten van Tbilisi.",
+     "sourceIds": [
+      "s1",
+      "s2"
+     ],
+     "evidence": "Kvirkvelia: een van de belangrijkste vergroeningsmaatregelen van Tbilisi was de aanleg van het Overwinningspark in 1946 (architect K. Dgebuadze, dendroloog N. Tsitsishvili). Register: Overwinningspark, 1946."
+    },
+    {
+     "id": "c2",
+     "kind": "feit",
+     "text": "De naam Vake betekent \"vlakte\": \"vake, vlak land\", zoals het oude woordenboek van Saba het uitlegt.",
+     "sourceIds": [
+      "s1"
+     ],
+     "evidence": "Kvirkvelia: naam door de aard van het terrein; \"vake, ქვეყანა ბრტყელი\" (Saba)."
+    }
+   ]
+  },
+  "lurji-monastiri": {
+   "sources": [
+    {
+     "id": "s1",
+     "title": "Nationaal Agentschap voor het Behoud van Cultureel Erfgoed van Georgië — erfgoedregister: Blauw Klooster",
+     "url": "https://memkvidreoba.gov.ge/objects/immovable/immovableObject?id=4902",
+     "type": "overheid",
+     "language": "ka"
+    },
+    {
+     "id": "s2",
+     "title": "T. Kvirkvelia, Dzveltbilisuri dasakhelebani (Oude Tbilisische plaatsnamen), Tbilisi 1985 — lemma \"Lurji monastiri\" (online: Nationale Parlementaire Bibliotheek van Georgië)",
+     "url": "http://www.nplg.gov.ge/gwdict/index.php?a=term&d=36&t=357",
+     "type": "naslagwerk",
+     "language": "ka"
+    }
+   ],
+   "claims": [
+    {
+     "id": "c1",
+     "kind": "feit",
+     "text": "Het Blauwe Klooster is de kerk van de heilige Andreas. Ze werd in de jaren 1180 gebouwd door Basili, oud-aartsbisschop van Kartli, als grafkerk voor zichzelf en zijn broer; dat staat in de inscriptie boven de zuidpoort.",
+     "sourceIds": [
+      "s1",
+      "s2"
+     ],
+     "evidence": "Register: kerk van Andreas de Eerstgeroepene, gebouwd in de jaren 1180 door Basili, oud-aartsbisschop van Kartli. Kvirkvelia: inscriptie boven de zuidpoort; grafkerk voor hem en zijn broer."
+    },
+    {
+     "id": "c2",
+     "kind": "feit",
+     "text": "De naam komt van de koepel, die met blauwe geglazuurde tegels was bedekt.",
+     "sourceIds": [
+      "s2"
+     ],
+     "evidence": "Kvirkvelia: zo genoemd omdat de koepel met blauwe tegels was bedekt."
+    },
+    {
+     "id": "c3",
+     "kind": "feit",
+     "text": "In de 16e eeuw verwoestten de Perzen het klooster. Begin 19e eeuw diende de kerk als kruitmagazijn, in de jaren 1950 als zagerij en daarna als museum voor de geschiedenis van de geneeskunde. Sinds de jaren 1990 is het weer een kerk.",
+     "sourceIds": [
+      "s1"
+     ],
+     "evidence": "Register: 16e eeuw door Perzen verwoest; vanaf begin 19e eeuw kruitmagazijn; jaren 1950 zagerij, daarna museum voor geschiedenis van de geneeskunde; jaren 1990 eredienst hersteld."
+    },
+    {
+     "id": "c4",
+     "kind": "feit",
+     "text": "De huidige koepel kwam er in 1873 bij een herstel naar ontwerp van architect Aleksandr Tsjizjov; volgens Kvirkvelia was dat in 1872.",
+     "sourceIds": [
+      "s1",
+      "s2"
+     ],
+     "evidence": "Register: 1873 hersteld naar ontwerp van Aleksandr Tsjizjov, nieuwe koepel. Kvirkvelia: 1872."
+    }
+   ]
+  },
+  "dezerter-bazaar": {
+   "sources": [
+    {
+     "id": "s1",
+     "title": "T. Kvirkvelia, Dzveltbilisuri dasakhelebani (Oude Tbilisische plaatsnamen), Tbilisi 1985 — lemma \"Dezertiris bazari\" (online: Nationale Parlementaire Bibliotheek van Georgië)",
+     "url": "http://www.nplg.gov.ge/gwdict/index.php?a=term&d=36&t=174",
+     "type": "naslagwerk",
+     "language": "ka"
+    }
+   ],
+   "claims": [
+    {
+     "id": "c1",
+     "kind": "feit",
+     "text": "\"Dezerter\" was in Tbilisi de volksnaam voor de kolchozmarkt van Didube.",
+     "sourceIds": [
+      "s1"
+     ],
+     "evidence": "Kvirkvelia: de vroeger onder Tbilisianen gangbare naam van de Didube-kolchozmarkt.",
+     "note": "Over de herkomst van de naam zegt deze bron niets."
+    }
+   ]
+  },
+  "sololaki": {
+   "sources": [
+    {
+     "id": "s1",
+     "title": "T. Kvirkvelia, Dzveltbilisuri dasakhelebani (Oude Tbilisische plaatsnamen), Tbilisi 1985 — lemma \"Salalaki (Sololaki)\" (online: Nationale Parlementaire Bibliotheek van Georgië)",
+     "url": "http://www.nplg.gov.ge/gwdict/index.php?a=term&d=36&t=518",
+     "type": "naslagwerk",
+     "language": "ka"
+    }
+   ],
+   "claims": [
+    {
+     "id": "c1",
+     "kind": "anekdote",
+     "text": "Volgens de overlevering komt de naam Sololaki van \"sulu-lah\": de Arabische naam van een irrigatiekanaal uit de tijd van de Arabische overheersing, dat de vestingtuin bevloeide. Die naam ging over op de beek, de berg en later de wijk.",
+     "sourceIds": [
+      "s1"
+     ],
+     "evidence": "Kvirkvelia: volgens de overlevering een aquaduct uit de Arabische tijd voor de vestingtuin; het kanaal heette in het Arabisch \"sulu-lah\"; naam ging over op de beek en de berg."
+    },
+    {
+     "id": "c2",
+     "kind": "feit",
+     "text": "Sololaki was eeuwenlang bedekt met tuinen; op de plattegrond van 1735 staan er tuinen van de koning en de koningin. Pas vanaf de jaren 1840–1850 werd de wijk volgebouwd.",
+     "sourceIds": [
+      "s1"
+     ],
+     "evidence": "Kvirkvelia: tuinen van koning, koningin e.a. op het plan van 1735 (Vachoesjti); tuinen tot de jaren 1840–50, daarna intensieve bebouwing."
+    }
+   ]
+  },
+  "presidentieel-paleis": {
+   "sources": [
+    {
+     "id": "s1",
+     "title": "President van Georgië — History (paleis)",
+     "url": "http://web.archive.org/web/20260821124138/https://president.spl.ge/en/ThePalace/History.html",
+     "type": "overheid",
+     "language": "en"
+    },
+    {
+     "id": "s2",
+     "title": "Agenda.ge — Avlabari presidential palace to be used for high-level ceremonies (09-04-2019)",
+     "url": "http://web.archive.org/web/20250115093824/https://agenda.ge/en/news/2019/977",
+     "type": "nieuws",
+     "language": "en"
+    }
+   ],
+   "claims": [
+    {
+     "id": "c1",
+     "kind": "feit",
+     "text": "Het presidentieel paleis in Avlabari werd gebouwd van 2004 tot 2009, op last van president Micheil Saakasjvili, naar ontwerp van de Italiaanse architect Michele De Lucchi.",
+     "sourceIds": [
+      "s1",
+      "s2"
+     ],
+     "evidence": "President.spl.ge: bouw begon in 2004, een jaar na de Rozenrevolutie, klaar in 2009; ontwerp Michele De Lucchi. Agenda.ge: gebouwd in opdracht van Saakasjvili, voltooid 2009."
+    },
+    {
+     "id": "c2",
+     "kind": "feit",
+     "text": "De glazen koepel is ontworpen door Vachtang Zesasjvili en Franco Zagari en werd in Duitsland gemaakt van driedimensionaal gebogen glas.",
+     "sourceIds": [
+      "s1"
+     ],
+     "evidence": "President.spl.ge: glazen koepel ontworpen door Vakhtang Zesashvili en Franco Zagari, gemaakt in Duitsland van driedimensionaal gebogen glas."
+    },
+    {
+     "id": "c3",
+     "kind": "feit",
+     "text": "In de achtertuin ligt een mozaïek-waterspiegel, \"Wie we zijn en waar we vandaan komen\", met de belangrijkste perioden en personen uit de Georgische geschiedenis.",
+     "sourceIds": [
+      "s1"
+     ],
+     "evidence": "President.spl.ge: water mirror-mozaïek \"Who we are and where we come from\" met de belangrijkste perioden en personen."
+    },
+    {
+     "id": "c4",
+     "kind": "feit",
+     "text": "Sinds 2019 wordt het paleis gebruikt voor plechtigheden en recepties op hoog niveau.",
+     "sourceIds": [
+      "s2"
+     ],
+     "evidence": "Agenda.ge (2019): het paleis wordt gebruikt voor plechtigheden en recepties op hoog niveau."
+    }
+   ]
+  },
+  "vredesbrug": {
+   "sources": [
+    {
+     "id": "s1",
+     "title": "Archibase — The Bridge of Peace, Tbilisi, Georgia (2010)",
+     "url": "http://www.archibaseplanet.com/blog/view/2754.html",
+     "type": "architectuur",
+     "language": "en"
+    },
+    {
+     "id": "s2",
+     "title": "President van Georgië — History (paleis)",
+     "url": "http://web.archive.org/web/20260821124138/https://president.spl.ge/en/ThePalace/History.html",
+     "type": "overheid",
+     "language": "en"
+    }
+   ],
+   "claims": [
+    {
+     "id": "c1",
+     "kind": "feit",
+     "text": "De Vredesbrug is een voetgangersbrug over de Mtkvari, ontworpen door de Italiaanse architect Michele De Lucchi; de verlichting is van de Franse lichtontwerper Philippe Martinaud. Ze heeft een overkapping van staal en glas van 150 meter.",
+     "sourceIds": [
+      "s1",
+      "s2"
+     ],
+     "evidence": "Archibase: Italiaanse architect Michele De Lucchi en Franse lichtregisseur Philippe Martinaud; glas en ijzer; overkapping van 150 m staal en glas. President.spl.ge noemt de Vredesbrug als werk van De Lucchi."
+    },
+    {
+     "id": "c2",
+     "kind": "feit",
+     "text": "De brug werd op 6 mei 2010 officieel geopend. Het stadsbestuur liet haar bouwen om Tbilisi op de architectuurkaart te zetten.",
+     "sourceIds": [
+      "s1"
+     ],
+     "evidence": "Archibase (bericht van juli 2010): officieel geopend op 6 mei \"dit jaar\"; besteld door het stadhuis om de hoofdstad op de architectuurkaart te zetten."
+    }
+   ]
+  },
+  "bank-of-georgia": {
+   "sources": [
+    {
+     "id": "s1",
+     "title": "The New York Times — N. Ouroussoff, Soviet Architects and Their Edifice Complex (16-05-2007)",
+     "url": "http://web.archive.org/web/20250528103657/https://www.nytimes.com/2007/05/16/arts/design/16cold.html",
+     "type": "nieuws",
+     "language": "en"
+    },
+    {
+     "id": "s2",
+     "title": "The Guardian — Swansongs of a superpower: Russia's secret architecture (07-02-2011)",
+     "url": "https://www.theguardian.com/artanddesign/2011/feb/07/russian-architecture-soviet-union-photography",
+     "type": "nieuws",
+     "language": "en"
+    }
+   ],
+   "claims": [
+    {
+     "id": "c1",
+     "kind": "feit",
+     "text": "Het voormalige ministerie van Wegenbouw (1975) is een ontwerp van George Chakhava: een monumentaal raster van in elkaar grijpende betonblokken op een steile, beboste helling.",
+     "sourceIds": [
+      "s1"
+     ],
+     "evidence": "NYT: Georgy Chakhava's 1975 Roads Ministry building, a monumental grid of interlocking concrete forms on a steep wooded site."
+    },
+    {
+     "id": "c2",
+     "kind": "anekdote",
+     "text": "Chakhava was niet alleen de architect maar ook minister van Wegenbouw. Hij was dus zijn eigen opdrachtgever en kon de bouwplek zelf uitkiezen.",
+     "sourceIds": [
+      "s1",
+      "s2"
+     ],
+     "evidence": "NYT: Chakhava was ook minister, zijn eigen opdrachtgever, kon de plek kiezen. Guardian: hoofdarchitect én minister van wegenbouw."
+    },
+    {
+     "id": "c3",
+     "kind": "feit",
+     "text": "In 2007, het jaar waarin Chakhava overleed, werd het gebouw tot nationaal monument verklaard.",
+     "sourceIds": [
+      "s2"
+     ],
+     "evidence": "Guardian: declared a national monument in 2007, the year the architect died."
+    }
+   ]
+  },
+  "botanische-tuin": {
+   "sources": [
+    {
+     "id": "s1",
+     "title": "T. Kvirkvelia, Dzveltbilisuri dasakhelebani (Oude Tbilisische plaatsnamen), Tbilisi 1985 — lemma \"Tsikhis baghi (vestingtuin)\" (online: Nationale Parlementaire Bibliotheek van Georgië)",
+     "url": "http://www.nplg.gov.ge/gwdict/index.php?a=term&d=36&t=686",
+     "type": "naslagwerk",
+     "language": "ka"
+    },
+    {
+     "id": "s2",
+     "title": "Nationaal Agentschap voor het Behoud van Cultureel Erfgoed van Georgië — erfgoedregister: Botanische tuin",
+     "url": "https://memkvidreoba.gov.ge/objects/immovable/immovableObject?id=2687",
+     "type": "overheid",
+     "language": "ka"
+    }
+   ],
+   "claims": [
+    {
+     "id": "c1",
+     "kind": "feit",
+     "text": "Op de plek van de botanische tuin lag al een ommuurde \"vestingtuin\": zo staat hij op de stadsplattegrond van Vachoesjti uit 1735.",
+     "sourceIds": [
+      "s1"
+     ],
+     "evidence": "Kvirkvelia: tuin op het terrein van de huidige botanische tuin; op Vachoesjti's plan van 1735 \"vestingtuin\", ommuurd."
+    },
+    {
+     "id": "c2",
+     "kind": "feit",
+     "text": "In 1845 kreeg de tuin voor het eerst de naam \"botanisch\". In 1848 raakte hij beschadigd door de ontploffing van het kruitmagazijn op Narikala; in 1884 kwam hij definitief in handen van de staat.",
+     "sourceIds": [
+      "s1",
+      "s2"
+     ],
+     "evidence": "Kvirkvelia: 1845 voor het eerst \"botanisch\"; 1848 beschadigd door ontploffing van het kruitmagazijn op Narikala; 1884 definitief staatsbezit. Register: datering 1845."
+    },
+    {
+     "id": "c3",
+     "kind": "anekdote",
+     "text": "Rond 1856 was het een wandeltuin. Volgens een tijdgenoot werden er losbandige feesten gehouden, waarbij kostbare planten sneuvelden.",
+     "sourceIds": [
+      "s1"
+     ],
+     "evidence": "Kvirkvelia: vanaf 1856 wandeltuin; volgens een getuige uit die tijd losbandige feesten en vernielde plantensoorten."
+    },
+    {
+     "id": "c4",
+     "kind": "feit",
+     "text": "De tuin ligt in het dal van de Tsavkisistskali, onder Narikala, en beslaat volgens het erfgoedregister 97 hectare, waarvan 58 hectare natuurlijke begroeiing. In de Sovjettijd werd hij vier keer zo groot.",
+     "sourceIds": [
+      "s2",
+      "s1"
+     ],
+     "evidence": "Register: dal van de Tsavkisistskali, Narikala ten noorden; 97 ha (±40 ha aanplant, 58 ha natuurlijke vegetatie). Kvirkvelia: in de Sovjettijd vier keer zo groot."
+    },
+    {
+     "id": "c5",
+     "kind": "feit",
+     "text": "De gemetselde boogbrug over de Tsavkisistskali, nu de Tamarbrug genoemd, is oud: ze staat al als \"Okuantbrug\" op Vachoesjti's stadsplattegrond van 1735.",
+     "sourceIds": [
+      "s2"
+     ],
+     "evidence": "Register: eenbogige brug van \"Georgische\" baksteen over de Tsavkisistskali, nu bekend als de Tamarbrug; al op Vachoesjti's plan van 1735 als \"Okuantbrug\"."
+    },
+    {
+     "id": "c6",
+     "kind": "feit",
+     "text": "De slanke boogbrug boven de waterval, met een overspanning van 32 meter, werd in 1914 gebouwd naar een ontwerp van ingenieur-architect Denisenko. Het is een van de vroegste constructies van gewapend beton in Georgië.",
+     "sourceIds": [
+      "s2",
+      "s1"
+     ],
+     "evidence": "Register: in 1914 naar ontwerp van ingenieur-architect Denisenko, boog van 32 m boven de waterval, een van de vroegste gewapend-betonconstructies in Georgië. Kvirkvelia: een van de eerste gewapend-betonbruggen van begin 20e eeuw."
+    },
+    {
+     "id": "c7",
+     "kind": "feit",
+     "text": "De meeste historische gebouwen in de tuin zijn van het begin van de 20e eeuw, toen de Tbilisische Duitser Adolf Christian Rolov de tuin leidde (1889–1919).",
+     "sourceIds": [
+      "s2"
+     ],
+     "evidence": "Register: het grootste deel van de historische gebouwen is van begin 20e eeuw, verbonden met de nieuwe directeur, de Tbilisische Duitser Adolf Christian Rolov (leiding 1889–1919).",
+     "note": "Spelling volgens het Georgische register; de Duitse spelling kan afwijken."
+    },
+    {
+     "id": "c8",
+     "kind": "anekdote",
+     "text": "Al in de jaren 1860 bedacht ingenieur-kolonel S. Weisenhof een tunnel door de Sololaki-heuvelrug, als kortste weg van de stad (de toenmalige Bebutovstraat) naar de tuin. Er werd toen al gegraven, maar de tunnel kwam pas in de Sovjettijd klaar.",
+     "sourceIds": [
+      "s1"
+     ],
+     "evidence": "Kvirkvelia: in de jaren 60 van de vorige eeuw stelde ingenieur-kolonel S. Weisenhof een tunnel door de Sololaki-rug voor; later een project om de Engels- (toen Bebutov)straat met de botanische tuin te verbinden; men begon te graven; voltooid in de Sovjettijd.",
+     "note": "Waar de tunnel nu uitkomt staat niet in de bron; ter plekke nagaan."
+    }
+   ]
+  },
+  "rike-park": {
+   "sources": [
+    {
+     "id": "s1",
+     "title": "T. Kvirkvelia, Dzveltbilisuri dasakhelebani (Oude Tbilisische plaatsnamen), Tbilisi 1985 — lemma \"Rike\" (online: Nationale Parlementaire Bibliotheek van Georgië)",
+     "url": "http://www.nplg.gov.ge/gwdict/index.php?a=term&d=36&t=504",
+     "type": "naslagwerk",
+     "language": "ka"
+    }
+   ],
+   "claims": [
+    {
+     "id": "c1",
+     "kind": "feit",
+     "text": "De linkeroever tussen de huidige Baratashvili- en Metekhibrug bleef tot de jaren 1830 onbebouwd; dat tonen de stadsplattegronden van 1735, 1800 en 1828. Hier liep de weg van de Avlabaripoort naar Avchala.",
+     "sourceIds": [
+      "s1"
+     ],
+     "evidence": "Kvirkvelia: gebied op de linkeroever tussen de huidige Baratashvili- en Metekhibrug, tot de jaren 30 van de vorige eeuw onbebouwd (plannen van 1735, 1800, 1828); weg van de Avlabaripoort naar Avchala."
+    },
+    {
+     "id": "c2",
+     "kind": "feit",
+     "text": "Toen een zijtak van de Mtkvari verzandde en droogviel, werd de oever volgebouwd met woningen. Er zaten veel winkeltjes en werkplaatsen van onder anderen leerbewerkers, smeden en vertinners. Bij hoogwater liep de wijk onder, soms met doden tot gevolg.",
+     "sourceIds": [
+      "s1"
+     ],
+     "evidence": "Kvirkvelia: linkertak van de Mtkvari verzandde en droogde op, oever bebouwd; overstromingen, soms met slachtoffers; veel dukans en werkplaatsen (leerbewerkers, smeden, vertinners)."
+    },
+    {
+     "id": "c3",
+     "kind": "feit",
+     "text": "De wijk Rike werd in 1973 gesloopt. De plek hield haar oude naam.",
+     "sourceIds": [
+      "s1"
+     ],
+     "evidence": "Kvirkvelia: de wijk Rike werd in 1973 afgebroken; de plek behield de oude naam."
+    }
+   ]
+  },
+  "aghmashenebeli": {
+   "sources": [
+    {
+     "id": "s1",
+     "title": "T. Kvirkvelia, Dzveltbilisuri dasakhelebani (Oude Tbilisische plaatsnamen), Tbilisi 1985 — lemma \"Mikheilis prospekti\" (online: Nationale Parlementaire Bibliotheek van Georgië)",
+     "url": "http://www.nplg.gov.ge/gwdict/index.php?a=term&d=36&t=421",
+     "type": "naslagwerk",
+     "language": "ka"
+    },
+    {
+     "id": "s2",
+     "title": "Nationaal Agentschap voor het Behoud van Cultureel Erfgoed van Georgië — erfgoedregister: Filmpaviljoen (Aghmashenebelilaan 164)",
+     "url": "https://memkvidreoba.gov.ge/objects/immovable/immovableObject?id=5208",
+     "type": "overheid",
+     "language": "ka"
+    },
+    {
+     "id": "s3",
+     "title": "Georgische Encyclopedie — Tbilisi: architectuur",
+     "url": "https://georgianencyclopedia.ge/ka/form/9650",
+     "type": "naslagwerk",
+     "language": "ka"
+    },
+    {
+     "id": "s4",
+     "title": "Stadhuis van Tbilisi — Aghmashenebeli Avenue Rehabilitation",
+     "url": "https://web.archive.org/web/20110107105020/http://www.tbilisi.gov.ge/index.php?lang_id=ENG&sec_id=5062",
+     "type": "overheid",
+     "language": "en"
+    }
+   ],
+   "claims": [
+    {
+     "id": "c1",
+     "kind": "feit",
+     "text": "Deze laan heette eerst het Michailprospekt, naar Michail, in de jaren 1860 de Russische onderkoning. Later werd het de Plechanovstraat; die naam had ze in 1985 nog.",
+     "sourceIds": [
+      "s1",
+      "s2"
+     ],
+     "evidence": "Kvirkvelia (1985): zo heette het huidige Plechanovprospekt; Michail was onderkoning in de jaren 1860. Register 5208: kruising van de \"toenmalige Plechanov- en Tsjeljoeskinstraat (nu de Davit Aghmashenebeli- en Tamar Mepelaan)\".",
+     "note": "Kvirkvelia noemt Michail een neef van tsaar Nicolaas I. Grootvorst Michail Nikolajevitsj, onderkoning vanaf 1862, was volgens andere gegevens diens zoon. Daarom niet in de tekst; zelf nagaan."
+    },
+    {
+     "id": "c2",
+     "kind": "feit",
+     "text": "Sinds 1985 valt de laan onder de beschermde zone van het historische Tbilisi, samen met Mtatsminda en Sololaki.",
+     "sourceIds": [
+      "s3"
+     ],
+     "evidence": "Georgische Encyclopedie: in 1985 kwamen Mtatsminda, Sololaki en de huidige Davit Aghmashenebeli-laan in de beschermde zone."
+    },
+    {
+     "id": "c3",
+     "kind": "feit",
+     "text": "Rond 2011 begon het stadsbestuur een grote renovatie; in de eerste fase werden 70 huizen tussen de Koningin Tamarlaan en het Marjanishviliplein hersteld.",
+     "sourceIds": [
+      "s4"
+     ],
+     "evidence": "Stadhuis (2011): rehabilitatie van de laan; eerste fase herstel van 70 huizen tussen Koningin Tamarlaan en Marjanishviliplein."
+    }
+   ]
+  },
+  "etnografisch-museum": {
+   "sources": [
+    {
+     "id": "s1",
+     "title": "Georgian National Museum — The Open Air Museum (website, 2006)",
+     "url": "https://web.archive.org/web/20110721030758/http://www.museum.ge/web_page/index.php?id=3",
+     "type": "instelling",
+     "language": "en"
+    }
+   ],
+   "claims": [
+    {
+     "id": "c1",
+     "kind": "feit",
+     "text": "Het Openluchtmuseum voor Etnografie werd op 27 april 1966 opgericht door etnograaf Giorgi Chitaia.",
+     "sourceIds": [
+      "s1"
+     ],
+     "evidence": "museum.ge: opgericht 27 april 1966 door etnograaf George Chitaia."
+    },
+    {
+     "id": "c2",
+     "kind": "feit",
+     "text": "Het ligt in Vake, ten westen van het Schildpaddenmeer, beslaat 52 hectare en heeft meer dan 8.000 objecten uit heel Georgië.",
+     "sourceIds": [
+      "s1"
+     ],
+     "evidence": "museum.ge: Vake, ten westen van het Schildpaddenmeer, 52 ha, ruim 8.000 objecten uit heel Georgië."
+    }
+   ]
+  },
+  "schildpaddenmeer": {
+   "sources": [
+    {
+     "id": "s1",
+     "title": "Georgian National Museum — The Open Air Museum (website, 2006)",
+     "url": "https://web.archive.org/web/20110721030758/http://www.museum.ge/web_page/index.php?id=3",
+     "type": "instelling",
+     "language": "en"
+    }
+   ],
+   "claims": [
+    {
+     "id": "c1",
+     "kind": "feit",
+     "text": "Het Schildpaddenmeer ligt in de wijk Vake, net boven de stad. Ten westen ervan ligt het Openluchtmuseum voor Etnografie.",
+     "sourceIds": [
+      "s1"
+     ],
+     "evidence": "museum.ge: het openluchtmuseum ligt in Vake, ten westen van \"Turtle Lake\".",
+     "note": "De Georgische naam Kus Tba betekent letterlijk \"schildpaddenmeer\"."
+    }
+   ]
+  },
+  "kroniek-georgie": {
+   "sources": [
+    {
+     "id": "s1",
+     "title": "Georgische Encyclopedie — Tbilisi: architectuur",
+     "url": "https://georgianencyclopedia.ge/ka/form/9650",
+     "type": "naslagwerk",
+     "language": "ka"
+    },
+    {
+     "id": "s2",
+     "title": "Russische Academie van Kunsten — biografie van Z. K. Tsereteli",
+     "url": "https://rah.ru/exhibitions/detail.php?ID=34472",
+     "type": "instelling",
+     "language": "ru"
+    },
+    {
+     "id": "s3",
+     "title": "Georgia About — History of Georgia Monument (2014)",
+     "url": "https://georgiaabout.com/2014/08/05/history-of-georgia-monument/",
+     "type": "reisblog",
+     "language": "en"
+    },
+    {
+     "id": "s4",
+     "title": "The Brave Dame — The Chronicle of Georgia (2016)",
+     "url": "https://web.archive.org/web/20210123012745/https://www.thebravedame.com/tbilisi-chronicle-georgia/",
+     "type": "reisblog",
+     "language": "en"
+    }
+   ],
+   "claims": [
+    {
+     "id": "c1",
+     "kind": "feit",
+     "text": "De Kroniek van Georgië is een sculpturale compositie van beeldhouwer Zurab Tsereteli. Hij begon er in 1980 aan; de Georgische Encyclopedie dateert het werk 1980–2012.",
+     "sourceIds": [
+      "s1",
+      "s2"
+     ],
+     "evidence": "Georgische Encyclopedie: \"Kroniek van Georgië\" (1980–2012, sculpturale compositie, beeldhouwer Z. Tsereteli). RAH: in 1980 begint hij aan het monumentale complex \"Geschiedenis van Georgië\" (Tbilisi)."
+    },
+    {
+     "id": "c2",
+     "kind": "feit",
+     "text": "Bovenaan de zuilen staan koningen, koninginnen en helden, onderaan taferelen uit het leven van Christus. Voor het monument staat het kruis van Sint-Nino, erachter een kapel. Je kijkt uit over de Tbilisi-zee, een stuwmeer.",
+     "sourceIds": [
+      "s3",
+      "s4"
+     ],
+     "evidence": "Beide blogs: boven koningen en koninginnen (en helden), onder het leven van Christus; Brave Dame: kruis van Sint-Nino ervoor, kapel erachter, uitzicht op de Tbilisi-zee (stuwmeer).",
+     "note": "Alleen reisblogs; ter plekke controleren."
+    }
+   ]
+  },
+  "gudiashvili-plein": {
+   "sources": [
+    {
+     "id": "s1",
+     "title": "BM.ge — 50 mln GEL will be spent for Gudiashvili Square rehabilitation",
+     "url": "https://bm.ge/en/news/50-mln-gel-will-be-spent-for-gudiashvili-square-rehabilitation/17452",
+     "type": "nieuws",
+     "language": "en"
+    },
+    {
+     "id": "s2",
+     "title": "Nationaal Agentschap voor het Behoud van Cultureel Erfgoed van Georgië — erfgoedregister: Kashveti-kerk",
+     "url": "https://memkvidreoba.gov.ge/objects/immovable/immovableObject?id=4229",
+     "type": "overheid",
+     "language": "ka"
+    },
+    {
+     "id": "s3",
+     "title": "openDemocracy — S. Jashi, Tbilisi: where restoration means redevelopment (04-07-2012)",
+     "url": "https://www.opendemocracy.net/en/odr/tbilisi-where-restoration-means-redevelopment/",
+     "type": "nieuws",
+     "language": "en"
+    },
+    {
+     "id": "s4",
+     "title": "IWPR — Alarm Bells at \"Renovation\" of Historic Tbilisi Square (2012)",
+     "url": "http://web.archive.org/web/20251113171541/https://iwpr.net/global-voices/alarm-bells-renovation-historic-tbilisi-square",
+     "type": "nieuws",
+     "language": "en"
+    },
+    {
+     "id": "s5",
+     "title": "T. Kvirkvelia, Dzveltbilisuri dasakhelebani (Oude Tbilisische plaatsnamen), Tbilisi 1985 — lemma \"Abas-abadis moedani\" (online: Nationale Parlementaire Bibliotheek van Georgië)",
+     "url": "http://www.nplg.gov.ge/gwdict/index.php?a=term&d=36&t=13",
+     "type": "naslagwerk",
+     "language": "ka"
+    }
+   ],
+   "claims": [
+    {
+     "id": "c1",
+     "kind": "feit",
+     "text": "Het plein draagt de naam van Lado Gudiashvili. Een schilder met die naam beschilderde in 1946–1948 het altaar van de Kashveti-kerk.",
+     "sourceIds": [
+      "s1",
+      "s2"
+     ],
+     "evidence": "BM.ge: \"Lado Gudiashvili Square\". Register Kashveti: Lado Gudiashvili beschilderde in 1946–48 het altaar."
+    },
+    {
+     "id": "c2",
+     "kind": "feit",
+     "text": "Aan het plein staan gebouwen uit het begin van de 19e eeuw. In 2012 leidde de herontwikkeling tot protesten: het \"Blauwe Huis\" op nummer 2, officieel erkend erfgoed, werd toen afgebroken.",
+     "sourceIds": [
+      "s3",
+      "s4"
+     ],
+     "evidence": "openDemocracy: nr. 2, begin 19e eeuw, \"Blue House\", erkend erfgoed, wordt gesloopt. IWPR: protesten; gebouw uit de jaren 1820 afgebroken."
+    },
+    {
+     "id": "c3",
+     "kind": "onzeker",
+     "text": "Volgens Kvirkvelia stond op het Abbas-Abadplein, in 1985 Alaverdovplein geheten, de Russische hoofdwacht waar dichter Michail Lermontov een nacht doorbracht. Dat dit het huidige Gudiashviliplein is, is in de gecontroleerde bronnen niet bevestigd.",
+     "sourceIds": [
+      "s5"
+     ],
+     "evidence": "Kvirkvelia: Abbas-Abad (nu Alaverdov) plein, vernoemd naar de verovering van de Perzische vesting in 1827 onder Paskevitsj; hier was de hoofdwacht waar Lermontov een nacht doorbracht.",
+     "note": "Eerst bevestigen dat het om dit plein gaat."
+    }
+   ]
+  },
+  "kote-afkhazi": {
+   "sources": [
+    {
+     "id": "s1",
+     "title": "Center for Jewish Art, Hebrew University of Jerusalem — Great Synagogue of Jews from Akhaltsikhe",
+     "url": "https://cja.huji.ac.il/mhs/browser.php?mode=set&id=396",
+     "type": "academisch",
+     "language": "en"
+    },
+    {
+     "id": "s2",
+     "title": "Nationaal Agentschap voor het Behoud van Cultureel Erfgoed van Georgië — erfgoedregister: Kerk Norashen",
+     "url": "https://memkvidreoba.gov.ge/objects/immovable/immovableObject?id=3742",
+     "type": "overheid",
+     "language": "ka"
+    },
+    {
+     "id": "s3",
+     "title": "Nationaal Agentschap voor het Behoud van Cultureel Erfgoed van Georgië — erfgoedregister: Synagoge",
+     "url": "https://memkvidreoba.gov.ge/objects/immovable/immovableObject?id=3937",
+     "type": "overheid",
+     "language": "ka"
+    },
+    {
+     "id": "s4",
+     "title": "Nationaal Agentschap voor het Behoud van Cultureel Erfgoed van Georgië — erfgoedregister: Vrijheidsplein",
+     "url": "https://memkvidreoba.gov.ge/objects/immovable/immovableObject?id=17033",
+     "type": "overheid",
+     "language": "ka"
+    }
+   ],
+   "claims": [
+    {
+     "id": "c1",
+     "kind": "feit",
+     "text": "De Kote Afchazistraat heette vroeger de Leselidzestraat.",
+     "sourceIds": [
+      "s1",
+      "s2"
+     ],
+     "evidence": "CJA: 45-47 Kote Afkhazi (former Leselidze) St. Register Norashen: Kote Afkhazi (Leselidze)straat 41."
+    },
+    {
+     "id": "c2",
+     "kind": "feit",
+     "text": "Aan deze straat staan onder meer de Grote Synagoge (nr. 45–47) en de Armeense Norashen-kerk (nr. 41). De straat komt uit op het Vrijheidsplein.",
+     "sourceIds": [
+      "s2",
+      "s3",
+      "s1",
+      "s4"
+     ],
+     "evidence": "Register: Norashen op Kote Afchazi 41; synagoge aan de Kote Afchazistraat; op het Vrijheidsplein komen o.a. de Rustavelilaan en de Kote Afchazistraat samen. CJA: synagoge op nr. 45–47."
+    }
+   ]
+  },
+  "shardeni": {
+   "sources": [
+    {
+     "id": "s1",
+     "title": "Georgische Encyclopedie — Tbilisi: architectuur",
+     "url": "https://georgianencyclopedia.ge/ka/form/9650",
+     "type": "naslagwerk",
+     "language": "ka"
+    }
+   ],
+   "claims": [
+    {
+     "id": "c1",
+     "kind": "feit",
+     "text": "De straat kreeg haar huidige gezicht bij de stadsvernieuwing van 1980–1990, onder leiding van architect G. Batiashvili.",
+     "sourceIds": [
+      "s1"
+     ],
+     "evidence": "Georgische Encyclopedie: 1980–90 bebouwing/regeneratie van o.a. de Sioni-kade en de Shardenistraat (architect G. Batiashvili)."
+    }
+   ]
+  },
+  "tbilisi-history-museum": {
+   "sources": [
+    {
+     "id": "s1",
+     "title": "T. Kvirkvelia, Dzveltbilisuri dasakhelebani (Oude Tbilisische plaatsnamen), Tbilisi 1985 — lemma \"Artsrunis karvasla\" (online: Nationale Parlementaire Bibliotheek van Georgië)",
+     "url": "http://www.nplg.gov.ge/gwdict/index.php?a=term&d=36&t=80",
+     "type": "naslagwerk",
+     "language": "ka"
+    },
+    {
+     "id": "s2",
+     "title": "Nationaal Agentschap voor het Behoud van Cultureel Erfgoed van Georgië — erfgoedregister: Karavanserai (Sionistraat 8)",
+     "url": "https://memkvidreoba.gov.ge/objects/immovable/immovableObject?id=3863",
+     "type": "overheid",
+     "language": "ka"
+    }
+   ],
+   "claims": [
+    {
+     "id": "c1",
+     "kind": "feit",
+     "text": "Het museum zit in de Artsruni-karavanserai. Die werd in de 19e eeuw gebouwd op de ruïne van de karavanserai die koning Rostom in 1650 naast Sioni had laten bouwen, en die bij de inval van Agha Mohammad Khan was verwoest. De overwelfde kelders zijn nog van Rostoms karavanserai.",
+     "sourceIds": [
+      "s1",
+      "s2"
+     ],
+     "evidence": "Kvirkvelia: karavanserai van koning Rostom (1650) naast Sioni; na de verwoesting door Agha Mohammad Khan in de 19e eeuw de Artsruni-karavanserai op de ruïne. Register: Artsruni-karavanserai, nu het Historisch Museum van Tbilisi; de kelder met gewelven is van de karavanserai uit de tijd van koning Rostom."
+    },
+    {
+     "id": "c2",
+     "kind": "feit",
+     "text": "De gevel aan de rivierkant is uit 1820 en geldt als een van de mooiste voorbeelden van Russisch classicisme in Tbilisi. Na een brand werd het gebouw in 1855 verbouwd; de art-nouveaugevel aan de Sionistraat is uit 1912.",
+     "sourceIds": [
+      "s2",
+      "s1"
+     ],
+     "evidence": "Register: rivierfaçade 1820, opmerkelijk voorbeeld van Russisch classicisme; Sionistraat-gevel 1912, moderne stijl. Kvirkvelia: na brand in 1855 verbouwd; gevel 1912 in moderne stijl."
+    },
+    {
+     "id": "c3",
+     "kind": "feit",
+     "text": "In de gevel aan de Sionistraat zie je naast de hoofdingang, op de eerste verdieping, twee slangen rond een staf met daarboven een gevleugelde hoed.",
+     "sourceIds": [
+      "s2"
+     ],
+     "evidence": "Register: op de penanten aan weerszijden van de hoofdingang, op de hoogte van de tweede (Georgische telling) verdieping, twee slangen rond een paal met daarboven een gevleugelde hoed.",
+     "note": "Mogelijke uitleg, niet uit de bron: de staf van Hermes, god van de handel, passend bij een karavanserai. Zelf nagaan voordat je dit vertelt."
+    }
+   ]
+  },
+  "erekle-plein": {
+   "sources": [
+    {
+     "id": "s1",
+     "title": "T. Kvirkvelia, Dzveltbilisuri dasakhelebani (Oude Tbilisische plaatsnamen), Tbilisi 1985 — lemma \"Batonis moedani\" (online: Nationale Parlementaire Bibliotheek van Georgië)",
+     "url": "http://www.nplg.gov.ge/gwdict/index.php?a=term&d=36&t=109",
+     "type": "naslagwerk",
+     "language": "ka"
+    }
+   ],
+   "claims": [
+    {
+     "id": "c1",
+     "kind": "feit",
+     "text": "Het middeleeuwse Koningsplein (Batonis of Mepis Moedani) lag tussen Sioni en Anchiskhati, net ten zuiden van het huidige Erekle II-plein. Volgens Kvirkvelia worden de twee vaak ten onrechte gelijkgesteld.",
+     "sourceIds": [
+      "s1"
+     ],
+     "evidence": "Kvirkvelia: Batonis/Mepis moedani tussen Sioni en Anchiskhati, ten zuiden van het Erekleplein; gelijkstellen met het Erekleplein is niet juist."
+    },
+    {
+     "id": "c2",
+     "kind": "feit",
+     "text": "De bebouwing rond het plein ging verloren bij de inval van Agha Mohammad Khan. In de 19e eeuw werd de buurt opnieuw bebouwd, zonder iets van het middeleeuwse stratenplan te bewaren.",
+     "sourceIds": [
+      "s1"
+     ],
+     "evidence": "Kvirkvelia: bebouwing volledig vernietigd bij de inval van Agha Mohammad Khan; in de 19e eeuw herbouwd zodat van het middeleeuwse plan niets over is."
+    }
+   ]
+  }
+ }
+}

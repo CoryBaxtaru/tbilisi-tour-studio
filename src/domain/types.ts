@@ -28,9 +28,36 @@ export interface TalkingPoint {
   kind: ClaimKind;
   /** Free-text source reference(s) the guide entered; empty means unsourced. */
   source: string;
+  /** Research claim (Landmark.claims or a catalogue draft) this point was copied from; its status is shown with the point. */
+  claimId?: Id;
 }
 
 export type Verification = 'onbevestigd' | 'deels' | 'geverifieerd';
+
+/** Where a claim comes from. `type` is a key of SOURCE_TYPES (src/domain/research.ts); `language` an ISO 639-1 code. */
+export interface SourceRef {
+  id: Id;
+  title: string;
+  url: string;
+  type: string;
+  language: string;
+}
+
+export type ClaimStatus = 'concept' | 'geverifieerd' | 'afgewezen';
+
+/** A reusable statement about a landmark with its sources and the guide's verdict (docs/RESEARCH.md). */
+export interface Claim {
+  id: Id;
+  kind: ClaimKind;
+  text: string;
+  sourceIds: Id[];
+  status: ClaimStatus;
+  /** 'claude' = concept from the bundled research drafts; 'gids' = written by the guide. */
+  origin: 'claude' | 'gids';
+  /** Short summary of what the source says, so the guide can check quickly. */
+  evidence?: string;
+  note?: string;
+}
 
 /** Where a coordinate came from. Coordinates are never invented by the app. */
 export type PositionSource = 'kaart' | 'gps' | 'import' | 'osm';
@@ -50,6 +77,10 @@ export interface Landmark extends SyncedEntity {
   catalogId?: string;
   /** OpenStreetMap object the position came from, e.g. "way/123". */
   osm?: string;
+  /** The guide's own sources and saved versions of draft sources (see mergedResearch). */
+  sources?: SourceRef[];
+  /** The guide's own claims and draft claims the guide verified, rejected or edited. */
+  claims?: Claim[];
 }
 
 export interface TourStop {

@@ -121,6 +121,7 @@ export function CardDeck({ cards, filter, onFilter, sort, onSort, anchors, usedA
                 <span>{c.district ? tagLabel(c.district) : ''}{c.site ? ' · catalogus' : ' · eigen'}</span>
               </div>
               {infoOpen && <SiteInfo info={c.info} osm={c.site?.osm} fallback={c.site ? undefined : c.landmark?.researchNotes || undefined} />}
+              {infoOpen && <a class="deck-card__more" href={`#/onderzoek/${c.landmarkId}`}>Bronnen en beweringen</a>}
             </li>
           );
         })}

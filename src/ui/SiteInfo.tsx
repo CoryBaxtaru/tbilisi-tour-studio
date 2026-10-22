@@ -8,7 +8,7 @@ export function SiteInfo({ info, osm, fallback }: { info: Info | null; osm?: str
     return (
       <div class="site-info">
         <p class="hint">
-          Nog geen achtergrondbron gekoppeld. {fallback ? fallback : 'Voeg eigen onderzoek toe in de stopkaart.'}
+          Nog geen achtergrondbron gekoppeld. {fallback ? fallback : 'Voeg eigen bronnen toe onder Onderzoek.'}
         </p>
         {osm && <p class="site-info__src"><a href={`https://www.openstreetmap.org/${osm}`} target="_blank" rel="noopener noreferrer">OpenStreetMap {osm}</a></p>}
       </div>

@@ -12,6 +12,7 @@ import { SiteInfo } from './SiteInfo';
 import { OfflineMapControl } from './OfflineMapControl';
 import { useMapStored } from '../map/offlineMap';
 import { CATALOG } from '../domain/catalog';
+import { linkedClaim, mergedResearch } from '../domain/research';
 
 interface Progress {
   index: number;
@@ -108,6 +109,7 @@ export function GuideMode({ id }: { id: string }) {
   const distToTarget = fix && target ? haversineM(fix.position, target) : null;
   const fixAgeS = fix ? Math.round((now - fix.at) / 1000) : null;
   const steps = leg ? instructionList(leg.steps) : [];
+  const research = mergedResearch(landmark);
 
   const mapStops: MapStop[] = stops.flatMap((s, i) => {
     const pos = lmById.get(s.landmarkId)?.position;
@@ -161,9 +163,19 @@ export function GuideMode({ id }: { id: string }) {
         <button class="section-toggle" onClick={() => setShowPoints(!showPoints)} aria-expanded={showPoints}>Vertelpunten ({stop.talkingPoints.length})</button>
         {showPoints && (
           <ul class="points">
-            {stop.talkingPoints.map((tp) => (
-              <li key={tp.id}><span class={`stamp stamp--${tp.kind}`}>{tp.kind}</span><span class="lit">{tp.text}</span></li>
-            ))}
+            {stop.talkingPoints.map((tp) => {
+              // Points copied from research show when their claim is not verified (yet).
+              const status = linkedClaim(tp, research)?.status;
+              return (
+                <li key={tp.id}>
+                  <span class="points__stamps">
+                    <span class={`stamp stamp--${tp.kind}`}>{tp.kind}</span>
+                    {status && status !== 'geverifieerd' && <span class={`stamp stamp--${status}`}>{status === 'concept' ? 'niet geverifieerd' : 'afgewezen'}</span>}
+                  </span>
+                  <span class="lit">{tp.text}</span>
+                </li>
+              );
+            })}
             {!stop.talkingPoints.length && <li class="meta">Geen vertelpunten.</li>}
           </ul>
         )}

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'preact/hooks';
 import { registerSW } from 'virtual:pwa-register';
 import { useAppState } from '../state/store';
 import { GuideMode } from './GuideMode';
+import { ResearchList, ResearchPage } from './Research';
 import { usePath } from './router';
 import { Settings } from './Settings';
 import { TourEditor } from './TourEditor';
@@ -40,6 +41,7 @@ export function App() {
         <a href="#/" class="brand lit">Tourstudio</a>
         <nav>
           <a href="#/" class={!section ? 'active' : ''}>Tours</a>
+          <a href="#/onderzoek" class={section === 'onderzoek' ? 'active' : ''}>Onderzoek</a>
           <a href="#/instellingen" class={section === 'instellingen' ? 'active' : ''}>Instellingen</a>
         </nav>
         <a href="#/instellingen" class={`sync-pill sync-pill--${syncKey}`} title={s.syncMessage}>{syncText}</a>
@@ -53,6 +55,7 @@ export function App() {
       )}
       {section === 'tour' && id ? <TourEditor id={id} />
         : guiding && id ? <GuideMode id={id} />
+        : section === 'onderzoek' ? (id ? <ResearchPage id={id} /> : <ResearchList />)
         : section === 'instellingen' ? <Settings />
         : <TourList />}
     </div>

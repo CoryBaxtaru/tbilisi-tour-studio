@@ -1,7 +1,8 @@
 import { useState } from 'preact/hooks';
 import { createTalkingPoint } from '../domain/factory';
+import { CLAIM_STATUS, linkedClaim, mergedResearch, talkingPointFromClaim } from '../domain/research';
 import { DISTRICTS, ERAS, THEMES, type TagDef } from '../domain/tags';
-import type { ClaimKind, Landmark, TalkingPoint, TourStop, Verification } from '../domain/types';
+import type { Claim, ClaimKind, Landmark, TalkingPoint, TourStop, Verification } from '../domain/types';
 
 const KINDS: ClaimKind[] = ['feit', 'interpretatie', 'anekdote', 'onzeker'];
 const VERIFICATION: Record<Verification, string> = { onbevestigd: 'Onbevestigd', deels: 'Deels geverifieerd', geverifieerd: 'Geverifieerd' };
@@ -30,6 +31,9 @@ export function StopCard(p: Props) {
   const setTp = (tp: TalkingPoint) => setStop({ talkingPoints: stop.talkingPoints.map((x) => (x.id === tp.id ? tp : x)) });
   const tags = landmark?.tags ?? [];
   const toggleTag = (id: string) => landmark && p.onLandmark({ ...landmark, tags: tags.includes(id) ? tags.filter((t) => t !== id) : [...tags, id] });
+  const research = mergedResearch(landmark);
+  const used = new Set(stop.talkingPoints.flatMap((tp) => tp.claimId ?? []));
+  const available = research.claims.filter((c) => c.status !== 'afgewezen' && !used.has(c.id));
 
   return (
     <li class={`stop-card ${open ? 'stop-card--open' : ''}`} data-stop-id={stop.id}>
@@ -97,10 +101,31 @@ export function StopCard(p: Props) {
                   </select>
                   <textarea class="lit" rows={2} value={tp.text} placeholder="Wat je hardop zegt" onInput={(e) => setTp({ ...tp, text: e.currentTarget.value })} />
                   <input value={tp.source} placeholder="Bron (titel, link)" onInput={(e) => setTp({ ...tp, source: e.currentTarget.value })} />
+                  <ClaimFlag claim={linkedClaim(tp, research)} />
                   <button class="icon-btn" aria-label="Vertelpunt verwijderen" onClick={() => setStop({ talkingPoints: stop.talkingPoints.filter((x) => x.id !== tp.id) })}>×</button>
                 </div>
               ))}
               <button class="btn btn--ghost" onClick={() => setStop({ talkingPoints: [...stop.talkingPoints, createTalkingPoint()] })}>Vertelpunt toevoegen</button>
+              {landmark && (
+                <details class="tp-research">
+                  <summary>Uit onderzoek ({available.length} beschikbaar)</summary>
+                  {available.length > 0 && (
+                    <ul class="tp-research__list">
+                      {available.map((c) => (
+                        <li key={c.id}>
+                          <div class="claim__top">
+                            <span class={`stamp stamp--${c.kind}`}>{c.kind}</span>
+                            <span class={`stamp stamp--${c.status}`}>{CLAIM_STATUS[c.status]}</span>
+                          </div>
+                          <p class="lit">{c.text}</p>
+                          <button class="btn btn--small" onClick={() => setStop({ talkingPoints: [...stop.talkingPoints, talkingPointFromClaim(c, research.sources)] })}>Als vertelpunt gebruiken</button>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  <a class="tp-research__link" href={`#/onderzoek/${landmark.id}`}>Bronnen en beweringen van deze plek</a>
+                </details>
+              )}
             </div>
             <label>Overgang naar volgende stop<textarea rows={2} value={stop.transition} onInput={(e) => setStop({ transition: e.currentTarget.value })} /></label>
             <label>Notities voor de gids<textarea rows={2} value={stop.guideNotes} onInput={(e) => setStop({ guideNotes: e.currentTarget.value })} /></label>
@@ -112,6 +137,13 @@ export function StopCard(p: Props) {
       )}
     </li>
   );
+}
+
+/** Verification status of the research claim a talking point was copied from. */
+function ClaimFlag({ claim }: { claim: Claim | undefined }) {
+  if (!claim) return null;
+  const text = claim.status === 'concept' ? 'Concept: nog niet geverifieerd' : claim.status === 'afgewezen' ? 'Afgewezen in onderzoek' : 'Geverifieerd';
+  return <span class={`stamp stamp--${claim.status} tp__flag`}>{text}</span>;
 }
 
 function positionLabel(l: Landmark): string {

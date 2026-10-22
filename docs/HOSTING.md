@@ -36,14 +36,15 @@ Phone (PWA)   ──┘                          └─ api.github.com → priva
 - **Fonts:** Literata and Public Sans (SIL OFL), self-hosted and precached.
 - **Nominatim** (`nominatim.openstreetmap.org`): used **only at build time** by `scripts/build-catalog.mjs` to geocode the site catalogue. Max 1 request/s with an identifying User-Agent; never called by the app. The resulting catalogue is ODbL (see `docs/CATALOG.md`).
 - **Wikidata and Wikipedia APIs**: used **only at build time** by `scripts/enrich-catalog.mjs` (identifying User-Agent, a few dozen requests). **Overpass** was used once, by hand, to find the cable car station.
+- **Research sources** (2026-10-22): the Georgian heritage register (`memkvidreoba.gov.ge`, public ArcGIS REST service, no key), the National Parliamentary Library's online dictionary (`nplg.gov.ge`) and the web sources Wikipedia cites were read **only during the research session**, with an identifying User-Agent. The app never calls them; it only links to them (`docs/RESEARCH.md`).
 - **Protomaps basemap** (checked 2026-10-22): daily world builds at `build.protomaps.com/YYYYMMDD.pmtiles` (about 139 GB). The data is an ODbL Produced Work and needs OpenStreetMap attribution. Protomaps discourages hotlinking and recommends copying or extracting to your own hosting, which this project does. `pmtiles extract` downloads only the needed byte ranges (about 10 MB for Tbilisi). The served file is static on GitHub Pages; GitHub Pages serves it with `Accept-Ranges: bytes`, correct 206 partial responses, no compression and `Cache-Control: max-age=600` (verified 2026-10-22; the served file's SHA-256 matches the repo copy). Each refresh adds about 10 MB to the code repo's history, so refresh rarely (a few times a year is plenty).
-- **Licences:** Leaflet BSD-2, Preact MIT, idb ISC, SortableJS MIT, protomaps-leaflet BSD-3, pmtiles BSD-3, Workbox/vite-plugin-pwa MIT. Catalogue data: positions ODbL (OpenStreetMap); background text CC BY-SA 4.0 (Wikipedia, attributed per card); facts CC0 (Wikidata). No non-commercial licences are currently in use.
+- **Licences:** Leaflet BSD-2, Preact MIT, idb ISC, SortableJS MIT, protomaps-leaflet BSD-3, pmtiles BSD-3, Workbox/vite-plugin-pwa MIT. Catalogue data: positions ODbL (OpenStreetMap); background text CC BY-SA 4.0 (Wikipedia, attributed per card); facts CC0 (Wikidata). Research drafts (`src/data/research-drafts.json`): Claude's own Dutch phrasing with short summaries of, and links to, the sources; no source text is copied. No non-commercial licences are currently in use.
 
 ## Online vs. offline
 | Works offline (after the app has been opened once) | Needs internet |
 |---|---|
 | App itself (precached by the service worker) | Map outside the Tbilisi extract (OSM tiles) |
-| All tours, landmarks, talking points, arrival notes, "Toon meer" | Calculating a new walking route |
+| All tours, landmarks, talking points, arrival notes, "Toon meer", Onderzoek (claims and source titles) | Calculating a new walking route; opening source links |
 | Stop positions, stored route lines, turn steps, walking times | Sync between devices |
 | GPS position, distance to the next stop, arrival suggestions | First visit or install; storing the offline map |
 | **Map of Tbilisi**, once stored via "Kaart offline opslaan" | |

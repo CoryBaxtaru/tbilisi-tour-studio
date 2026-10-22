@@ -5,13 +5,17 @@
 ## Product
 Tbilisi Walking Tour Studio: a personal desktop tour editor and mobile live-guiding tool for Dutch-language historical walking tours in Tbilisi.
 
-## Current status (verified 2026-10-21)
+## Current status (verified 2026-10-22)
 - Phase: first working app. Tour builder, map and routing, mobile guiding, sync and offline (spec phases 2, 3, 6 and 7 in basic form).
 - Repository: https://github.com/CoryBaxtaru/tbilisi-tour-studio (public). Live: https://corybaxtaru.github.io/tbilisi-tour-studio/. Data repo CoryBaxtaru/tbilisi-tour-data (private, empty until the first sync).
 - Working (verified locally on a production build):
   - Tour CRUD and stop cards (shared landmark knowledge vs. tour-specific notes)
   - Card deck builder: 58 catalogue sites (OSM positions, unverified tags) + own landmarks; filter by era, tour type, district and text; drag cards into the route, drag the handle to reorder, + button, map-dot popup; automatic route recalculation; proximity sort to the last stop; card click flies the map to the site; "Toon meer" with sourced Wikipedia/Wikidata background (also in guide mode); pre-generated tours (11 themes + Tbilisi compleet + custom tags); catalogue refresh for unedited landmarks (docs/CATALOG.md)
   - Talking points with provenance stamps
+  - Onderzoek (research): per-site claims with sources and a verdict (Concept, Geverifieerd, Afgewezen), plus own claims and sources (`docs/RESEARCH.md`).
+    - 151 concept claims for 53 sites, checked by Claude in the original sources. Wikipedia is not used as a source.
+    - The stop card copies a claim into a talking point; the editor and guide mode flag points whose claim is not verified.
+    - Verified on a local production build (2026-10-22); not deployed yet.
   - Map placement of stops (Leaflet + OSM)
   - Offline Tbilisi map: self-hosted Protomaps extract (9.7 MB), stored per device via "Kaart offline opslaan"; verified rendering from the stored copy with the server stopped (local preview, 2026-10-22). Live on GitHub Pages since commit 7ea9b2e: range requests return 206, and after storing, new tiles are drawn with no network requests. Light style in the editor, dark in guide mode.
   - Pedestrian routes via FOSSGIS OSRM, stored per leg
@@ -22,7 +26,7 @@ Tbilisi Walking Tour Studio: a personal desktop tour editor and mobile live-guid
   - Update prompt
   - GitHub sync: verified on real devices 2026-10-22. The founder tested laptop ↔ phone; the private data repo shows "Sync vanaf laptop" and "Sync vanaf telefoon" commits.
 - Handoff hooks: Stop and SessionStart hooks both confirmed live. See `docs/HANDOFF_HOOKS.md`.
-- Tests/build: `npm test` passes 43 unit tests; `npm run build` (tsc + vite) is clean.
+- Tests/build: `npm test` passes 50 unit tests; `npm run build` (tsc + vite) succeeds. Vite warns that the main chunk exceeds 500 kB (578 kB, 172 kB gzip; the bundled research drafts add about 100 kB).
 - Real-device test (2026-10-22, founder-reported "it all works"): sync both ways, phone install, offline reopen, GPS in guide mode, card deck on the phone. Details (phone model, GPS accuracy) were not reported.
 - Known blockers: none.
 
@@ -46,14 +50,17 @@ Tbilisi Walking Tour Studio: a personal desktop tour editor and mobile live-guid
 - 2026-10-21: Map tiles are never cached for offline use (OSM tile policy).
 - 2026-10-21: Card deck uses SortableJS in pointer-fallback mode (same for mouse and touch); catalogue landmarks have fixed ids and timestamps so devices never conflict.
 - 2026-10-21: Updates use a prompt, not auto-reload, so a tour in progress is never interrupted.
+- 2026-10-22: Wikipedia and Wikidata are never a source for talking points; only the original sources they cite, the official heritage register and Kvirkvelia's dictionary are used (founder's rule).
+- 2026-10-22: Concept claims are bundled with the app and stay virtual until the guide acts on one, so they cause no sync conflicts.
 
 ## Known issues and constraints
 - The offline map covers only the extract area; refreshing it is manual (docs/HOSTING.md). The dark map style in guide mode is untested in sunlight.
 - Catalogue names, notes and era/theme tags are unverified suggestions; the founder should review docs/CATALOG.md.
-- Landmark sources, claim-level references and a separate knowledge-base page are not built yet. Talking points carry free-text sources.
+- Concept claims still need the founder's verification. Five sites have none yet: Leghvtakhevi waterfall, cable car, Europe Square, Public Service Hall, Fabrika.
+- A talking point is a snapshot of its claim: later edits to the claim's text do not reach it, but its status does.
 - No stop-order suggestions yet (spec phase 4).
 - Real-phone test reported as passing by the founder. Measured GPS accuracy and the device/OS are unrecorded; standby behaviour is untested.
 - Stop hook reminds once per turn in which work files changed without a handoff update.
 
 ## Next step
-The founder stores the offline map on the phone and tests with airplane mode, and checks the dark map style in sunlight. Then the research → verified talking points workflow (decide whether Claude also writes Dutch draft talking points from the linked sources).
+Deploy the research panel after the founder's go-ahead, then check it on GitHub Pages. The founder verifies concept claims under Onderzoek (confirm or reject per claim), stores the offline map on the phone, tests in airplane mode and checks the dark map style in sunlight.
