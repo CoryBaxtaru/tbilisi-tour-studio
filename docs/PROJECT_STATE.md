@@ -13,7 +13,7 @@ Tbilisi Walking Tour Studio: a personal desktop tour editor and mobile live-guid
   - Card deck builder: 58 catalogue sites (OSM positions, unverified tags) + own landmarks; filter by era, tour type, district and text; drag cards into the route, drag the handle to reorder, + button, map-dot popup; automatic route recalculation; proximity sort to the last stop; card click flies the map to the site; "Toon meer" with sourced Wikipedia/Wikidata background (also in guide mode); pre-generated tours (11 themes + Tbilisi compleet + custom tags); catalogue refresh for unedited landmarks (docs/CATALOG.md)
   - Talking points with provenance stamps
   - Map placement of stops (Leaflet + OSM)
-  - Offline Tbilisi map: self-hosted Protomaps extract (9.7 MB), stored per device via "Kaart offline opslaan"; verified rendering from the stored copy with the server stopped (local preview, 2026-10-22). Light style in the editor, dark in guide mode.
+  - Offline Tbilisi map: self-hosted Protomaps extract (9.7 MB), stored per device via "Kaart offline opslaan"; verified rendering from the stored copy with the server stopped (local preview, 2026-10-22). Live on GitHub Pages since commit 7ea9b2e: range requests return 206, and after storing, new tiles are drawn with no network requests. Light style in the editor, dark in guide mode.
   - Pedestrian routes via FOSSGIS OSRM, stored per leg
   - Walk-and-talk ribbon and duration breakdown
   - Guide mode: next stop, arrival notes, manual controls, GPS with arrival suggestion (simulated positions only), stored turn steps
@@ -56,4 +56,4 @@ Tbilisi Walking Tour Studio: a personal desktop tour editor and mobile live-guid
 - Stop hook reminds once per turn in which work files changed without a handoff update.
 
 ## Next step
-Deploy the offline map (founder go-ahead), verify Range requests on GitHub Pages, and have the founder store the map on the phone and test with airplane mode. Then the research → verified talking points workflow.
+The founder stores the offline map on the phone and tests with airplane mode, and checks the dark map style in sunlight. Then the research → verified talking points workflow (decide whether Claude also writes Dutch draft talking points from the linked sources).

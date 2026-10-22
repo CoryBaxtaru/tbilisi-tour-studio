@@ -35,4 +35,4 @@ Tbilisi Walking Tour Studio — desktop tour design and mobile live guiding for 
 - Sync token is set up on both devices. The founder chose to keep using a token that was pasted into the chat once; revoke and replace it if the transcript is ever shared. Renew it before it expires.
 
 ## Next recommended task
-The offline Tbilisi map is built and verified locally but not committed or deployed. Next: deploy it, check Range requests on GitHub Pages, then the founder taps "Kaart offline opslaan" on the phone and tests in airplane mode. After that, the research → verified talking points workflow. The founder can review catalogue tags (`docs/CATALOG.md`) at any time.
+The offline Tbilisi map is live (commit `7ea9b2e`, verified on GitHub Pages). Next: the founder taps "Kaart offline opslaan" on the phone, tests in airplane mode and checks the dark map in sunlight. Then the research → verified talking points workflow; the open question is whether Claude also writes Dutch draft talking points (marked "concept", with source) or only builds the tooling. The founder can review catalogue tags (`docs/CATALOG.md`) at any time.
