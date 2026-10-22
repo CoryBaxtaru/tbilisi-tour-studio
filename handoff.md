@@ -16,7 +16,7 @@ Tbilisi Walking Tour Studio — desktop tour design and mobile live guiding for 
 - Date: 2026-10-23 (session 01):
   - Business hub plan: the vision widened to a founder-only business hub; the plan, prices and build order are in the private data repo (`business/HUB_PLAN.md`; see CLAUDE.md); the licence check is in `docs/HOSTING.md`. CLAUDE.md and the spec are updated (commercial-use rule).
   - Then step 2: 52 new source-checked claims, so all 58 sites have ≥ 3 (203 total). New stops auto-get 3 starter talking points. Deployed as `f138839`, verified live.
-  - The business plan moved from the public code repo to the private data repo (founder request). Breakdown: `docs/session-breakdowns/session-2026-10-23-01.md`.
+  - The business plan moved from the public code repo to the private data repo, and the public history was rewritten and force-pushed without it (main = `fc2a343`; old commits may stay reachable by ID on GitHub until purged). Local backup branch: `backup-before-plan-rewrite`. Breakdown: `docs/session-breakdowns/session-2026-10-23-01.md`.
 - Previous: 2026-10-22 (session 01)
 - Summary:
   - Deployed the card deck improvements (`9898329`) and the offline map (`7ea9b2e`).
