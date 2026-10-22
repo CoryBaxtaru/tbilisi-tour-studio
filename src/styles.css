@@ -379,7 +379,10 @@ fieldset.shared legend { color: var(--balkon); }
 .claim__top { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
 .claim__origin { margin-left: auto; }
 .claim__text { font-size: 16px; line-height: 1.55; margin: 8px 0; text-wrap: pretty; }
-.claim__sources { list-style: none; padding: 0; margin: 0 0 6px; font-size: 12px; display: flex; flex-direction: column; gap: 2px; }
+.claim__sources { margin: 4px 0 0; font-size: 12px; }
+.claim__sources summary, .research__sources summary { cursor: pointer; color: var(--ink-2); font-size: 12px; padding: 4px 0; width: fit-content; }
+.claim__sources ul { list-style: none; padding: 0; margin: 2px 0 4px; display: flex; flex-direction: column; gap: 2px; }
+.research__sources .source-list { margin-top: 4px; }
 .claim__evidence { font-size: 13px; color: var(--ink-2); margin: 6px 0; padding-left: 10px; border-left: 2px solid var(--line-strong); text-wrap: pretty; }
 .claim__evidence .label { margin-right: 4px; }
 .claim__actions { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }

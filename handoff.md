@@ -18,6 +18,7 @@ Tbilisi Walking Tour Studio — desktop tour design and mobile live guiding for 
   - Deployed the card deck improvements (`9898329`) and the offline map (`7ea9b2e`).
   - Built and deployed the research panel ("Onderzoek", commit `236470b`, verified live) with 151 concept claims for 53 sites, checked in the original sources, never Wikipedia.
   - After founder feedback: one spelling convention for the drafts (Jerevan, Rustaveli, …) and Wikipedia previews on 76 names and places (bundled, offline). Deployed as `4cfd8dd`, verified live.
+  - Source links per claim collapsed behind "Bronnen (n)" (founder feedback). Uncommitted; awaiting go-ahead to commit and deploy.
 - Breakdown: `docs/session-breakdowns/session-2026-10-22-01.md`. Research method, corrections and dropped claims: `docs/RESEARCH.md`.
 
 ## Decisions that matter now

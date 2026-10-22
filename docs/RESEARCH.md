@@ -6,7 +6,7 @@ Reusable research per site: claims with sources and the guide's verdict. Talking
 - **Onderzoek** (`#/onderzoek`): every site with its counts (te verifiëren · geverifieerd · bronnen). Filters: Alles, Te verifiëren, Zonder onderzoek. Search by name.
 - **Per site** (`#/onderzoek/<landmarkId>`), each claim shows:
   - its provenance stamp (feit, interpretatie, anekdote, onzeker) and its status (Concept, Geverifieerd, Afgewezen);
-  - the linked sources and "wat de bron zegt" (a short summary of what the source says);
+  - "wat de bron zegt" (a short summary of what the source says), with the linked sources behind a collapsed "Bronnen (n)" toggle;
   - any warning note.
   - Actions:
     - **Bevestigen**: you checked the source yourself.

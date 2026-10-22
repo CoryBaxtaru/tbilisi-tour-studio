@@ -136,6 +136,8 @@ export function ResearchPage({ id }: { id: string }) {
 
       <h2>Bronnen</h2>
       {research.sources.length ? (
+        <details class="research__sources">
+        <summary>Alle bronnen van deze plek ({research.sources.length})</summary>
         <ol class="source-list">
           {research.sources.map((s) => (
             <li key={s.id}>
@@ -144,6 +146,7 @@ export function ResearchPage({ id }: { id: string }) {
             </li>
           ))}
         </ol>
+        </details>
       ) : <p class="hint">Nog geen bronnen.</p>}
       {adding === 'source'
         ? <SourceForm onSave={(s) => { void apply((l) => withSource(l, s)); setAdding(null); }} onCancel={() => setAdding(null)} />
@@ -178,11 +181,16 @@ function ClaimItem({ claim, sources, onSave, onRemove }: { claim: Claim; sources
         <span class="meta claim__origin">{claim.origin === 'claude' ? 'Concept van Claude' : 'Eigen bewering'}</span>
       </div>
       <p class="claim__text lit"><WikiText text={claim.text} /></p>
-      {linked.length
-        ? <ul class="claim__sources">{linked.map((s) => <li key={s.id}><SourceLink source={s} /></li>)}</ul>
-        : <p class="hint hint--warn">Geen bron gekoppeld.</p>}
       {claim.evidence && <p class="claim__evidence"><span class="label">wat de bron zegt</span> {claim.evidence}</p>}
       {claim.note && <p class="hint hint--warn">{claim.note}</p>}
+      {linked.length
+        ? (
+          <details class="claim__sources">
+            <summary>{linked.length === 1 ? 'Bron' : `Bronnen (${linked.length})`}</summary>
+            <ul>{linked.map((s) => <li key={s.id}><SourceLink source={s} /></li>)}</ul>
+          </details>
+        )
+        : <p class="hint hint--warn">Geen bron gekoppeld.</p>}
       <div class="claim__actions">
         {claim.status !== 'geverifieerd' && <button class="btn btn--small" onClick={() => set('geverifieerd')}>Bevestigen</button>}
         {claim.status !== 'afgewezen' && <button class="btn btn--small btn--ghost" onClick={() => set('afgewezen')}>Afwijzen</button>}
