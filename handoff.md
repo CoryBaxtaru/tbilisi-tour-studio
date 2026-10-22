@@ -17,7 +17,7 @@ Tbilisi Walking Tour Studio — desktop tour design and mobile live guiding for 
 - Summary:
   - Deployed the card deck improvements (`9898329`) and the offline map (`7ea9b2e`).
   - Built and deployed the research panel ("Onderzoek", commit `236470b`, verified live) with 151 concept claims for 53 sites, checked in the original sources, never Wikipedia.
-  - After founder feedback: one spelling convention for the drafts (Jerevan, Rustaveli, …) and Wikipedia previews on 76 names and places (bundled, offline). Uncommitted; awaiting go-ahead to commit and deploy.
+  - After founder feedback: one spelling convention for the drafts (Jerevan, Rustaveli, …) and Wikipedia previews on 76 names and places (bundled, offline). Deployed as `4cfd8dd`, verified live.
 - Breakdown: `docs/session-breakdowns/session-2026-10-22-01.md`. Research method, corrections and dropped claims: `docs/RESEARCH.md`.
 
 ## Decisions that matter now
@@ -42,7 +42,6 @@ Tbilisi Walking Tour Studio — desktop tour design and mobile live guiding for 
 - Sync token is set up on both devices. The founder chose to keep using a token that was pasted into the chat once; revoke and replace it if the transcript is ever shared. Renew it before it expires.
 
 ## Next recommended task
-0. With the founder's go-ahead: commit and deploy the spelling fix and name previews, then check live.
 1. The founder verifies concept claims under Onderzoek (Bevestigen / Afwijzen) and checks that a confirmed claim reaches the other device after sync.
 2. On the phone: "Kaart offline opslaan", airplane mode, dark map in sunlight.
 3. Possible next build: sources for the five sites without claims, or stop-order suggestions (spec phase 4).
