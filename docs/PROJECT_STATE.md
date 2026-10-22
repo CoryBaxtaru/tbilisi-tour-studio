@@ -13,7 +13,8 @@ Tbilisi Walking Tour Studio: a personal desktop tour editor and mobile live-guid
   - Card deck builder: 58 catalogue sites (OSM positions, unverified tags) + own landmarks; filter by era, tour type, district and text; drag cards into the route, drag the handle to reorder, + button, map-dot popup; automatic route recalculation; proximity sort to the last stop; card click flies the map to the site; "Toon meer" with sourced Wikipedia/Wikidata background (also in guide mode); pre-generated tours (11 themes + Tbilisi compleet + custom tags); catalogue refresh for unedited landmarks (docs/CATALOG.md)
   - Talking points with provenance stamps
   - Onderzoek (research): per-site claims with sources and a verdict (Concept, Geverifieerd, Afgewezen), plus own claims and sources (`docs/RESEARCH.md`).
-    - 151 concept claims for 53 sites, checked by Claude in the original sources. Wikipedia is not used as a source.
+    - 203 concept claims for all 58 sites (≥ 3 each, since 2026-10-23), checked by Claude in the original sources. Wikipedia is not used as a source.
+    - New stops start with the site's 3 best claims as talking points (`starterPoints`).
     - The stop card copies a claim into a talking point; the editor and guide mode flag points whose claim is not verified.
     - Verified on a local production build, then live on GitHub Pages since commit 236470b (2026-10-22).
   - Map placement of stops (Leaflet + OSM)
@@ -26,7 +27,7 @@ Tbilisi Walking Tour Studio: a personal desktop tour editor and mobile live-guid
   - Update prompt
   - GitHub sync: verified on real devices 2026-10-22. The founder tested laptop ↔ phone; the private data repo shows "Sync vanaf laptop" and "Sync vanaf telefoon" commits.
 - Handoff hooks: Stop and SessionStart hooks both confirmed live. See `docs/HANDOFF_HOOKS.md`.
-- Tests/build: `npm test` passes 50 unit tests; `npm run build` (tsc + vite) succeeds. Vite warns that the main chunk exceeds 500 kB (578 kB, 172 kB gzip; the bundled research drafts add about 100 kB).
+- Tests/build: `npm test` passes 57 unit tests; `npm run build` (tsc + vite) succeeds. Vite warns that the main chunk exceeds 500 kB (578 kB, 172 kB gzip; the bundled research drafts add about 100 kB).
 - Real-device test (2026-10-22, founder-reported "it all works"): sync both ways, phone install, offline reopen, GPS in guide mode, card deck on the phone. Details (phone model, GPS accuracy) were not reported.
 - Known blockers: none.
 

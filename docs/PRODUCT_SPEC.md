@@ -3,6 +3,8 @@
 ## 1. Product vision
 A personal tour-building studio for a guide living in Georgia who plans to lead Dutch-speaking visitors on walking tours through Tbilisi, mainly focused on Georgian and Tbilisi history. It is a guide's work tool, not primarily a tourist-facing discovery app.
 
+Since 2026-10-23 it is also becoming the internal hub of the founder's walking-tour business: tour products, departures with slots, bookings entered by the founder (from GetYourGuide, WhatsApp, e-mail, walk-ins), a weather forecast per departure, per-person pricing with channel commission, and a money overview. Customers never use the app themselves. Details, decisions and build order are in `docs/HUB_PLAN.md`.
+
 Two main environments:
 - **Desktop authoring:** research, plan, edit, map and review tours.
 - **Mobile guiding:** follow the route, track position and read short notes while leading visitors.
@@ -147,10 +149,10 @@ A single landmark may be used in several tours with different narrative purposes
 - Prefer open data, open-source components and free options where practical, but verify all terms and real operating costs.
 - Keep maps, routing, geocoding, storage and research retrieval behind replaceable interfaces when reasonable.
 - Avoid unnecessary paid APIs, frameworks, abstractions and speculative features.
-- Design for one guide and a growing collection of reusable tours first. Do not add public accounts, booking, payments or tourist-facing features unless explicitly requested.
+- Design for one guide and a growing collection of reusable tours first. Do not add public accounts, booking, payments or tourist-facing features unless explicitly requested. Bookings that the guide enters by hand are in scope (`docs/HUB_PLAN.md`).
 
 ## 10a. Zero-cost hosting and cross-device access (permanent requirement)
-- No paid services, APIs, subscriptions, hosting or infrastructure, and no billing accounts or credit cards. Free and open-source preferred; non-commercial licences acceptable and documented.
+- No paid services, APIs, subscriptions, hosting or infrastructure, and no billing accounts or credit cards. Free and open-source preferred. Since 2026-10-23 everything must be free for **commercial** use: non-commercial-only licences or tiers are no longer acceptable.
 - The guide designs on a laptop and guides with a phone. Both must open the app over HTTPS (required for GPS, service workers and installation) and see the same tours, landmarks, notes and routes.
 - Local-first: every device keeps a full copy and works without connectivity; synchronization merges changes without silent data loss.
 - Data must survive browser-cache clearing, redeployments and device changes: a remote copy with history plus a manual export/import file.
@@ -168,5 +170,6 @@ Adapt these to the actual repository; do not implement everything in one session
 6. Mobile guiding: responsive guide view, GPS and arrival detection.
 7. Offline reliability: cached tour/route data, sync and explicit capability boundaries.
 8. Polish: end-to-end workflows, accessibility, backups and documentation.
+9. Business hub (from 2026-10-23): build order in `docs/HUB_PLAN.md`. It covers research to ≥ 3 claims per site with auto-add, tour products, departures and bookings, weather, pricing and finances, guest check-in and message templates.
 
 Deliver small, testable increments and keep the application runnable.

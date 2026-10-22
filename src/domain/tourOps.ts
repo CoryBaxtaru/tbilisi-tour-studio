@@ -1,10 +1,11 @@
 // Pure stop-list operations used by drag and drop and the buttons.
 import { createStop } from './factory';
-import type { Tour } from './types';
+import type { TalkingPoint, Tour } from './types';
 
-export function insertStop(tour: Tour, landmarkId: string, index = tour.stops.length): Tour {
+/** Inserts a stop; `talkingPoints` pre-fills it (e.g. starter points from research). */
+export function insertStop(tour: Tour, landmarkId: string, index = tour.stops.length, talkingPoints: TalkingPoint[] = []): Tour {
   const stops = tour.stops.slice();
-  stops.splice(clamp(index, 0, stops.length), 0, createStop(landmarkId));
+  stops.splice(clamp(index, 0, stops.length), 0, { ...createStop(landmarkId), talkingPoints });
   return { ...tour, stops };
 }
 

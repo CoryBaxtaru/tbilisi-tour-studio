@@ -23,7 +23,7 @@ Catalogue landmarks carry the catalogue build time as createdAt and updatedAt. I
 ## Status of the data: read before guiding
 - **Positions and Georgian names** come from OpenStreetMap via Nominatim, with the exact OSM object recorded per site (© OpenStreetMap contributors, **ODbL**). The catalogue file is a derived database and is also under ODbL; attribution is shown in the app.
 - **Dutch names, short notes, era tags, tour-type tags and districts are suggestions by Claude, not verified research.** Every catalogue landmark starts as `onbevestigd`. Verify them before presenting anything as fact. Edit them in the stop card (Gedeelde kennis); edits sync and override the catalogue text.
-- The concept claims under Onderzoek (151 for 53 sites) were checked by Claude in the original sources, but they still need your verification before you tell them (`docs/RESEARCH.md`).
+- The concept claims under Onderzoek (203 for all 58 sites, at least 3 each) were checked by Claude in the original sources, but they still need your verification before you tell them (`docs/RESEARCH.md`).
 - Era boundaries (`src/domain/tags.ts`) are conventional periodisations meant for planning, not precise claims.
 - No opening hours, prices or accessibility information is included.
 

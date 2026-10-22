@@ -123,6 +123,23 @@ export function talkingPointFromClaim(claim: Claim, sources: SourceRef[]): Talki
   return { id: newId(), text: claim.text, kind: claim.kind, source: titles.join('; '), claimId: claim.id };
 }
 
+const KIND_ORDER: ClaimKind[] = ['feit', 'anekdote', 'interpretatie', 'onzeker'];
+
+/**
+ * Talking points for a new stop: the best `n` claims that are not rejected. Verified claims come first, then by
+ * kind (feit, anekdote, interpretatie, onzeker), otherwise in research order. Copies keep their claim link, so
+ * guide mode shows "niet geverifieerd" until the guide confirms the claim.
+ */
+export function starterPoints(research: Research, n = 3): TalkingPoint[] {
+  const rank = (c: Claim) => (c.status === 'geverifieerd' ? 0 : 10) + KIND_ORDER.indexOf(c.kind);
+  return research.claims
+    .map((c, i) => ({ c, i }))
+    .filter(({ c }) => c.status !== 'afgewezen')
+    .sort((a, b) => rank(a.c) - rank(b.c) || a.i - b.i)
+    .slice(0, n)
+    .map(({ c }) => talkingPointFromClaim(c, research.sources));
+}
+
 /** The claim a talking point was copied from, if it still exists. */
 export function linkedClaim(tp: TalkingPoint, research: Research): Claim | undefined {
   return tp.claimId ? research.claims.find((c) => c.id === tp.claimId) : undefined;

@@ -13,7 +13,10 @@ Tbilisi Walking Tour Studio — desktop tour design and mobile live guiding for 
 - Run locally: `npm install`, `npm test`, `npm run build`, then `npx vite preview` (or the `preview` entry in `.claude/launch.json`).
 
 ## Latest session
-- Date: 2026-10-22 (session 01)
+- Date: 2026-10-23 (session 01):
+  - Business hub plan: the vision widened to a founder-only business hub; the plan, prices, licence check and build order are in `docs/HUB_PLAN.md`. CLAUDE.md and the spec are updated (commercial-use rule).
+  - Then step 2: 52 new source-checked claims, so all 58 sites have ≥ 3 (203 total). New stops auto-get 3 starter talking points. Not committed yet. Breakdown: `docs/session-breakdowns/session-2026-10-23-01.md`.
+- Previous: 2026-10-22 (session 01)
 - Summary:
   - Deployed the card deck improvements (`9898329`) and the offline map (`7ea9b2e`).
   - Built and deployed the research panel ("Onderzoek", commit `236470b`, verified live) with 151 concept claims for 53 sites, checked in the original sources, never Wikipedia.
@@ -43,6 +46,6 @@ Tbilisi Walking Tour Studio — desktop tour design and mobile live guiding for 
 - Sync token is set up on both devices. The founder chose to keep using a token that was pasted into the chat once; revoke and replace it if the transcript is ever shared. Renew it before it expires.
 
 ## Next recommended task
-1. The founder verifies concept claims under Onderzoek (Bevestigen / Afwijzen) and checks that a confirmed claim reaches the other device after sync.
-2. On the phone: "Kaart offline opslaan", airplane mode, dark map in sunlight.
-3. Possible next build: sources for the five sites without claims, or stop-order suggestions (spec phase 4).
+1. With the founder's go-ahead: commit and deploy step 2 (research + starter points), then check live.
+2. Step 3 of `docs/HUB_PLAN.md`: tour products, departures and calendar with slots, and bookings entered by hand. The founder still needs to pick the customer-data retention period and the languages.
+4. Still open on the founder's side: verify claims under Onderzoek; phone test of the offline map.

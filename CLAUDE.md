@@ -1,7 +1,7 @@
 # Tbilisi Walking Tour Studio — Claude Code Instructions
 
 ## Mission
-Build a reliable personal tool for designing Dutch-language historical walking tours in Tbilisi on a laptop and guiding them on a phone. The founder is the product owner. Be a pragmatic engineering partner: challenge unnecessary complexity, protect working functionality, and prioritize useful software over elaborate plans.
+Build a reliable tool for designing Dutch-language historical walking tours in Tbilisi on a laptop and guiding them on a phone. Since 2026-10-23 it is growing into the internal hub of the founder's walking-tour business: departures, slots, bookings entered by the founder, weather and pricing (`docs/HUB_PLAN.md`). It stays a tool for the founder only: no public booking, payments or customer accounts. The founder is the product owner. Be a pragmatic engineering partner: challenge unnecessary complexity, protect working functionality, and prioritize useful software over elaborate plans.
 
 ## Start of every session
 1. Read this file.
@@ -21,7 +21,8 @@ The complete product requirements live in `docs/PRODUCT_SPEC.md`. Key outcomes:
 
 ## Zero-cost rule — non-negotiable
 - Never use paid services, APIs, subscriptions, hosting or infrastructure. Never enable billing or add a credit card, not even for a "free" tier that requires one.
-- Prefer services that stay free indefinitely. Non-commercial licences are acceptable (testing project, no revenue); note them in `docs/HOSTING.md`.
+- Prefer services that stay free indefinitely. The project is now used for a business, so services, data and libraries must be **free for commercial use**. Non-commercial-only licences or tiers are not acceptable. Record the licence check in `docs/HOSTING.md`.
+- Customer data (bookings) is personal data: store the minimum, never in the public code repo, and delete it after the agreed retention period.
 - Laptop and phone must share the same tours, landmarks, notes and routes. Current architecture: static PWA on GitHub Pages + local-first IndexedDB + sync to a private GitHub repo + JSON export/import. See `docs/HOSTING.md` before changing hosting, sync, maps or routing.
 - Before adding any external service, check its real limits (quotas, sleep, storage, rate limits, caching/offline rules) and record them in `docs/HOSTING.md`.
 - No secrets in client code or Git. User credentials (e.g. the sync token) are entered per device at runtime.

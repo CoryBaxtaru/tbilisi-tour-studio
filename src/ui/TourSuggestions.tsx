@@ -5,6 +5,7 @@ import { createTour } from '../domain/factory';
 import { formatDistance } from '../domain/geo';
 import { candidatesFor, pathLength, suggestTour, TEMPLATES, type OrderMode, type TourTemplate } from '../domain/suggest';
 import { DISTRICTS, ERAS, EMPTY_FILTER, tagLabel, THEMES, type DeckFilter } from '../domain/tags';
+import { mergedResearch, starterPoints } from '../domain/research';
 import { insertStop } from '../domain/tourOps';
 import { ensureLandmark, saveTour, useAppState } from '../state/store';
 import { ChipGroup } from './CardDeck';
@@ -31,7 +32,7 @@ export function TourSuggestions() {
       for (const c of sites) {
         const site = c.site ?? CATALOG.find((s) => catalogLandmarkId(s.id) === c.landmarkId);
         if (site) await ensureLandmark(landmarkFromCatalog(site));
-        tour = insertStop(tour, c.landmarkId);
+        tour = insertStop(tour, c.landmarkId, undefined, starterPoints(mergedResearch(c.landmark, site?.id)));
       }
       const tags = [...(filter.eras ?? []), ...(filter.themes ?? []), ...(filter.districts ?? [])].map(tagLabel);
       tour = {

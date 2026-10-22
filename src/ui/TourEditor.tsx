@@ -8,7 +8,8 @@ import { insertStop, moveStop, removeStop } from '../domain/tourOps';
 import type { Landmark, LatLng, Tour, TourStatus } from '../domain/types';
 import { fossgisFoot } from '../routing/osrm';
 import { RoutingError } from '../routing/provider';
-import { currentTour, deleteTour, ensureLandmark, saveLandmark, saveTour, useAppState } from '../state/store';
+import { mergedResearch, starterPoints } from '../domain/research';
+import { currentTour, deleteTour, ensureLandmark, getState, saveLandmark, saveTour, useAppState } from '../state/store';
 import { CardDeck, type Anchor, type DeckSort } from './CardDeck';
 import { MapView, type MapDot, type MapStop } from './MapView';
 import { Ribbon } from './Ribbon';
@@ -49,7 +50,9 @@ export function TourEditor({ id }: { id: string }) {
   async function addLandmarkAt(landmarkId: string, index?: number) {
     const site = CATALOG.find((s) => catalogLandmarkId(s.id) === landmarkId);
     if (site) await ensureLandmark(landmarkFromCatalog(site));
-    await edit((t) => (t.stops.some((s) => s.landmarkId === landmarkId) ? t : insertStop(t, landmarkId, index)));
+    // A new stop starts with the site's three best research claims as (concept) talking points.
+    const points = starterPoints(mergedResearch(getState().landmarks.find((l) => l.id === landmarkId && !l.deleted), site?.id));
+    await edit((t) => (t.stops.some((s) => s.landmarkId === landmarkId) ? t : insertStop(t, landmarkId, index, points)));
   }
 
   const listRef = useRouteSortable({

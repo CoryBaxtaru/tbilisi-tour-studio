@@ -3,7 +3,7 @@ import drafts from '../data/research-drafts.json';
 import { CATALOG, landmarkFromCatalog } from './catalog';
 import { createLandmark } from './factory';
 import {
-  createClaim, draftResearch, isWebUrl, linkedClaim, mergedResearch, researchCounts, talkingPointFromClaim,
+  createClaim, draftResearch, isWebUrl, linkedClaim, mergedResearch, researchCounts, starterPoints, talkingPointFromClaim,
   withClaim, withoutClaim, withoutSource, withSource,
 } from './research';
 
@@ -78,6 +78,28 @@ describe('talking points from claims', () => {
     expect(tp.source).toContain(r.sources.find((s) => s.id === c.sourceIds[0])!.title);
     expect(linkedClaim(tp, r)).toBe(c);
     expect(linkedClaim({ ...tp, claimId: undefined }, r)).toBeUndefined();
+  });
+});
+
+describe('starterPoints', () => {
+  it('takes three non-rejected claims, verified first, and links them', () => {
+    const r = draftResearch(SITE);
+    const rejected = { ...r.claims[0], status: 'afgewezen' as const };
+    const verified = { ...r.claims[4], status: 'geverifieerd' as const };
+    const research = { sources: r.sources, claims: [rejected, ...r.claims.slice(1, 4), verified] };
+    const pts = starterPoints(research);
+    expect(pts).toHaveLength(3);
+    expect(pts[0].claimId).toBe(verified.id);
+    expect(pts.some((p) => p.claimId === rejected.id)).toBe(false);
+    expect(pts.every((p) => p.claimId && p.source)).toBe(true);
+  });
+
+  it('every catalogue site yields three starter points', () => {
+    for (const s of CATALOG) expect(starterPoints(draftResearch(s.id)), s.id).toHaveLength(3);
+  });
+
+  it('gives nothing for a site without research', () => {
+    expect(starterPoints({ sources: [], claims: [] })).toEqual([]);
   });
 });
 

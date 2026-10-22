@@ -46,8 +46,9 @@ The founder's rule: **Wikipedia is not a source.** Claude traced the sources tha
 - **Travel blogs and guides:** used only where nothing better exists. They are labelled as such and carry a note to check on site.
 
 Result:
-- 151 claims for 53 of the 58 sites, with 122 sources.
-- Kinds: 132 feit, 12 anekdote, 3 interpretatie, 4 onzeker.
+- 2026-10-22: 151 claims for 53 of the 58 sites, with 122 sources.
+- 2026-10-23: 52 more claims, so **every site has at least 3**. Total: 203 claims for all 58 sites, with 155 sources.
+- Kinds: 179 feit, 13 anekdote, 4 interpretatie, 7 onzeker. Source languages: Georgian 97, English 53, Russian 4, German 1.
 - Source languages: Georgian 85, English 33, Russian 3, German 1.
 
 Rules applied:
@@ -90,8 +91,21 @@ Rules applied:
 - **Shardeni:** named after Chardin.
 - **Rike Park, Public Service Hall and the cable car:** Wikidata dates only. Rike now has claims about the old Rike district from Kvirkvelia.
 
-### Sites without concept claims
-Waterval van Leghvtakhevi, Kabelbaan Rike–Narikala, Europaplein, Public Service Hall and Fabrika have no confirmed source yet. Add your own under Onderzoek.
+### Additions of 2026-10-23
+- **Sources:**
+  - mostly the heritage register's descriptions and Kvirkvelia entries not yet used before;
+  - for modern sites, sources found on the web and checked against the page itself: the national tourism administration (georgia.travel), the architects' own pages (MUA, e-architect for Fuksas), Scan Tbilisi, the university's own site, and news (Civil.ge, 1TV, EurasiaNet, New East).
+- **Weaker sources** carry a note saying so: travel blogs for the Chronicle of Georgia and the Dezerter Bazaar name, a travel portal for Europe Square.
+- **Conflicts recorded as "onzeker" or in a note:**
+  - Cable car: Civil.ge reported its opening in November 2010; a travel guide says 2012 and 600 m instead of 500 m.
+  - Peace Bridge: 150 m (Archibase) versus 160 m bridge / 115 m roof (the builder Cimolai).
+  - University: built 1900–1906 (register) versus completed 1916 (Scan Tbilisi).
+  - Berlin Wall fragment: given in 2016 (New East) versus handed over on 16 June 2017 (1TV).
+- **Corrected:** the Droge Brug was not "built in 1848". Kvirkvelia says construction of the bridge complex began in 1848, and this bridge was built in 1851. Its name comes from the river arm drying up in 1938, not from the road underneath.
+- **Sensitive:** Sameba stands on Khojivank hill, a former Armenian cemetery. That claim is "onzeker", from the Armenian organisation AGBU, and noted as one side's perspective.
+
+### Starter points (auto-add)
+When a site joins a tour (drag, +, or a suggested tour), the new stop gets its 3 best research claims as talking points: verified claims first, then by kind (feit, anekdote, interpretatie, onzeker), rejected ones never. They are copies with a link to the claim, so the editor and guide mode show "niet geverifieerd" until you confirm the claim. Existing stops are not changed; use "Uit onderzoek" in the stop card for those.
 
 ## Adding or fixing drafts
 - Edit `src/data/research-drafts.json`. Per site:
