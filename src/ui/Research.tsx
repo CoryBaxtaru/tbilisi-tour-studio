@@ -10,6 +10,7 @@ import { tagLabel } from '../domain/tags';
 import type { Claim, ClaimKind, Landmark, SourceRef } from '../domain/types';
 import { ensureLandmark, getState, saveLandmark, useAppState } from '../state/store';
 import { SiteInfo } from './SiteInfo';
+import { WikiText } from './WikiText';
 
 const KINDS: ClaimKind[] = ['feit', 'interpretatie', 'anekdote', 'onzeker'];
 type Filter = 'alles' | 'open' | 'leeg';
@@ -176,7 +177,7 @@ function ClaimItem({ claim, sources, onSave, onRemove }: { claim: Claim; sources
         <span class={`stamp stamp--${claim.status}`}>{CLAIM_STATUS[claim.status]}</span>
         <span class="meta claim__origin">{claim.origin === 'claude' ? 'Concept van Claude' : 'Eigen bewering'}</span>
       </div>
-      <p class="claim__text lit">{claim.text}</p>
+      <p class="claim__text lit"><WikiText text={claim.text} /></p>
       {linked.length
         ? <ul class="claim__sources">{linked.map((s) => <li key={s.id}><SourceLink source={s} /></li>)}</ul>
         : <p class="hint hint--warn">Geen bron gekoppeld.</p>}

@@ -19,6 +19,15 @@ Reusable research per site: claims with sources and the guide's verdict. Talking
   - Guide mode shows "niet geverifieerd" or "afgewezen" next to it until you confirm the claim.
 - The copy is a snapshot. Later edits to a claim's text do not change points already copied; its status does show.
 - "Toon meer" in the card deck links to the site's research page ("Bronnen en beweringen").
+- **Name previews:** names and places in claims, the stop card's research list and guide-mode talking points are dotted-underlined. Hovering (desktop) or tapping (phone, opens as a sheet at the bottom) shows the Wikipedia lead, Dutch when an article exists.
+  - Background only, never a source, and labelled as such with the CC BY-SA licence.
+  - The leads are bundled at build time (`scripts/wiki-terms.mjs` lists phrase → article; `node scripts/build-wiki-terms.mjs` fetches them and prints each article's description so a wrong match is easy to spot). So they work offline and the app makes no calls to Wikipedia.
+  - A phrase links wherever it appears (first occurrence per text), also in your own talking points, so only unambiguous phrases are listed.
+
+## Spelling convention
+- Georgian names follow the spelling on Tbilisi street signs and in the app's site names (Georgian national romanization: Rustaveli, Kote Afkhazi, Vakhtang Gorgasali, Akhaltsikhe, Kutaisi).
+- Russian names and established Dutch exonyms use Dutch spelling (Paskevitsj, Poesjkin, Gribojedov, Jerevan).
+- Applied to all drafts on 2026-10-22 (72 replacements), after the founder pointed out "Erivanplein" (now Jerevanplein) and mixed spellings.
 
 ## Storage and sync
 - Concept claims ship with the app in `src/data/research-drafts.json` and stay **virtual**. Only when you confirm, reject or edit one is that single claim saved on the landmark (`Landmark.claims`; own sources in `Landmark.sources`).

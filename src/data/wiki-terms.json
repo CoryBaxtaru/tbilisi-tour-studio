@@ -1,0 +1,690 @@
+{
+ "retrievedAt": "2026-10-22",
+ "licence": "Tekst: Wikipedia, CC BY-SA 4.0 (titel en link per term).",
+ "terms": {
+  "Vrijheidsplein": {
+   "lang": "nl",
+   "title": "Vrijheidsplein (Tbilisi)",
+   "url": "https://nl.wikipedia.org/wiki/Vrijheidsplein_(Tbilisi)",
+   "description": "plein in Tbilisi",
+   "extract": "Het Vrijheidsplein, voorheen Jerevanplein en Leninplein, is een plein in de Georgische hoofdstad Tbilisi. Het ligt aan de rand van het oude centrum in de wijk Sololaki en is het zuidelijke uiteinde van de prominente Roestavelilaan.",
+   "truncated": false,
+   "en": "Freedom Square, Tbilisi"
+  },
+  "Rustavelilaan": {
+   "lang": "nl",
+   "title": "Roestavelilaan",
+   "url": "https://nl.wikipedia.org/wiki/Roestavelilaan",
+   "description": "straat in Tbilisi",
+   "extract": "De Roestavelilaan, voorheen bekend als Golovin Prospekt, is een anderhalve kilometer lange laan in het centrum van Tbilisi, die vernoemd is naar de middeleeuwse Georgische dichter Sjota Roestaveli. De straat begint aan het Vrijheidsplein aan de rand van het oude stadscentrum en loopt ter hoogte van het Plein van de Eerste Republiek over in de Merab Kostavastraat.",
+   "truncated": false,
+   "en": "Rustaveli Avenue"
+  },
+  "Paskevitsj": {
+   "lang": "nl",
+   "title": "Ivan Paskevitsj",
+   "url": "https://nl.wikipedia.org/wiki/Ivan_Paskevitsj",
+   "description": "Russisch officier (1782-1856)",
+   "extract": "Ivan Fjodorovitsj Paskevitsj was een Russisch generaal.",
+   "truncated": false,
+   "en": "Ivan Paskevich"
+  },
+  "Lavrenti Beria": {
+   "lang": "nl",
+   "title": "Lavrenti Beria",
+   "url": "https://nl.wikipedia.org/wiki/Lavrenti_Beria",
+   "description": "politicus uit de Sovjet Unie (1899–1953)",
+   "extract": "Lavrenti Pavlovitsj Beria was een Sovjet-Russisch politicus van Georgische afkomst. De gevreesde baas van de geheime diensten werd op de Conferentie van Jalta door Stalin cynisch “onze Himmler” genoemd.",
+   "truncated": false,
+   "en": "Lavrentiy Beria"
+  },
+  "Lenin": {
+   "lang": "nl",
+   "title": "Vladimir Lenin",
+   "url": "https://nl.wikipedia.org/wiki/Vladimir_Lenin",
+   "description": "Russisch politicus, revolutionair, marxistisch theoreticus en grondlegger van de Sovjet-Unie (1870–1924)",
+   "extract": "Vladimir Iljitsj Lenin was een Russisch revolutionair en de eerste premier van de Sovjet-Unie en naamgever van de marxistische stroming leninisme.",
+   "truncated": false,
+   "en": "Vladimir Lenin"
+  },
+  "Mtkvari": {
+   "lang": "nl",
+   "title": "Koera (rivier in Transkaukasië)",
+   "url": "https://nl.wikipedia.org/wiki/Koera_(rivier_in_Transkaukasi%C3%AB)",
+   "description": "rivier in Transkaukasië",
+   "extract": "De Koera of Kura, dan wel Mtkvari is een rivier in Turkije, Georgië en Azerbeidzjan en de belangrijkste rivier in de Zuidelijke Kaukasus. Met haar lengte van 1515 km verzorgt de rivier de afwatering van het grootste deel van de zuidkant van de Grote Kaukasus.",
+   "truncated": false,
+   "en": "Kura (South Caucasus river)"
+  },
+  "Abanotubani": {
+   "lang": "en",
+   "title": "Abanotubani",
+   "url": "https://en.wikipedia.org/wiki/Abanotubani",
+   "description": "District in Tbilisi, Georgia",
+   "extract": "Abanotubani is the ancient district of Tbilisi, Georgia, known for its sulphuric baths.",
+   "truncated": false,
+   "en": "Abanotubani"
+  },
+  "Demetre II": {
+   "lang": "nl",
+   "title": "Demetrius II van Georgië",
+   "url": "https://nl.wikipedia.org/wiki/Demetrius_II_van_Georgi%C3%AB",
+   "description": "politicus uit Georgië (1259-1289)",
+   "extract": "Demetrius II uit het huis Bagrationi was koning van Georgië van 1270-1289.",
+   "truncated": false,
+   "en": "Demetrius II of Georgia"
+  },
+  "Vakhtang Gorgasali": {
+   "lang": "nl",
+   "title": "Vachtang I",
+   "url": "https://nl.wikipedia.org/wiki/Vachtang_I",
+   "description": "koning uit Georgië (440-502)",
+   "extract": "Vachtang I Gorgasali was koning van Iberië, bekend als Kartli, in de tweede helft van de 5e en de eerste kwart van de 6e eeuw. Hij behoorde tot de Chosroïden-dynastie. Gorgasali was een geuzennaam met een Iraanse betekenis van \"wolfshoofd\". Hij sloot een noodlottig bondgenootschap met het Oost-Romeinse Rijk dat een langdurige strijd opleverde tegen de Iraanse Sassaniden onder Kavad I, die eindigde met de nederlaag van Vachtang en de verzwakking van het koninkrijk. Traditiegetrouw schrijft men hem de stichting van Tbilisi toe, wat geëerd wordt met een standbeeld en een plein in het centrum van de stad.",
+   "truncated": false,
+   "en": "Vakhtang I"
+  },
+  "Erekle II": {
+   "lang": "nl",
+   "title": "Heraclius II",
+   "url": "https://nl.wikipedia.org/wiki/Heraclius_II",
+   "description": "koning uit Koninkrijk Kartli-Kachetië (1720-1798)",
+   "extract": "Heraclius II uit het huis Bagrationi was koning van Georgië, die van 1744 tot 1762 heerste over Kachetië en van 1762 tot 1798 over het verenigde koninkrijk Kartli-Kachetië.",
+   "truncated": false,
+   "en": "Heraclius II of Georgia"
+  },
+  "Narikala": {
+   "lang": "en",
+   "title": "Narikala",
+   "url": "https://en.wikipedia.org/wiki/Narikala",
+   "description": "Ancient fortress overlooking Tbilisi, Georgia (country)",
+   "extract": "Narikala is an ancient fortress overlooking Tbilisi, the capital of Georgia, and the Mtkvari (Kura) River. The fortress consists of two walled sections on a steep hill between the sulfur baths and the botanical gardens of Tbilisi. On the lower court there is the recently restored St Nicholas church. Newly built in 1996–1997, it replaces the original 13th-century church that was destroyed in a fire. The new church is of \"prescribed cross\" type, having doors on three sides. The internal part of the church is decorated with the frescos showing scenes from both the Bible and the history of Georgia.",
+   "truncated": false,
+   "en": "Narikala"
+  },
+  "Giorgi Chubinashvili": {
+   "lang": "en",
+   "title": "Giorgi Chubinashvili",
+   "url": "https://en.wikipedia.org/wiki/Giorgi_Chubinashvili",
+   "description": "Georgian art historian",
+   "extract": "Giorgi Chubinashvili was a Georgian art historian.",
+   "truncated": false,
+   "en": "Giorgi Chubinashvili"
+  },
+  "Guaram": {
+   "lang": "nl",
+   "title": "Goearam I",
+   "url": "https://nl.wikipedia.org/wiki/Goearam_I",
+   "description": "prins van Iberië bekend als Kartli (huidige Georgië) 588 tot 590",
+   "extract": "Goearam I was prins van Iberië bekend als Kartli 588 tot 590.",
+   "truncated": false,
+   "en": "Guaram I"
+  },
+  "Adarnase": {
+   "lang": "en",
+   "title": "Adarnase I",
+   "url": "https://en.wikipedia.org/wiki/Adarnase_I",
+   "description": "Prince of Iberia from 627 to c. 640",
+   "extract": "Adarnase I or Adrnerse, of the Chosroid dynasty, was a presiding prince of Iberia from 627 to 637/642.",
+   "truncated": false,
+   "en": "Adarnase I"
+  },
+  "Chazaren": {
+   "lang": "nl",
+   "title": "Rijk der Chazaren",
+   "url": "https://nl.wikipedia.org/wiki/Rijk_der_Chazaren",
+   "description": "historisch land in de Pontisch-Kaspische Steppe van de Kaspische Zee tot aan de Dnepr en het Kaukasusgebergte",
+   "extract": "Het Rijk der Chazaren was een rijk dat gevormd werd door een Turks nomadenvolk dat de steppen van Centraal-Azië en de noordkant van de Zwarte Zee beheerste van de zevende tot de tiende eeuw. De Chazaren bewoonden het steppegebied tussen de rivieren de Wolga en de Dnjepr ten zuidoosten van Moskou en de benedenloop van de Wolga en de zuidelijke Kaukasus.",
+   "truncated": false,
+   "en": "Khazars"
+  },
+  "Alexander I": {
+   "lang": "nl",
+   "title": "Alexander I van Georgië",
+   "url": "https://nl.wikipedia.org/wiki/Alexander_I_van_Georgi%C3%AB",
+   "description": "koning uit Georgië (1390-1445)",
+   "extract": "Alexander I, uit het huis Bagrationi, was koning van Georgië van 1412 tot 1442. Ondanks zijn inspanningen om het land te herstellen van de ruïnes die achtergelaten waren na de invasies van Timoer Lenk, kon Georgië zich nooit meer herstellen en de onvermijdelijke versplintering werd gevolgd door een lange periode van stagnatie. In 1442 abdiceerde hij en trok zich terug in een klooster.",
+   "truncated": false,
+   "en": "Alexander I of Georgia"
+  },
+  "Vakhushti Bagrationi": {
+   "lang": "en",
+   "title": "Prince Vakhushti of Kartli",
+   "url": "https://en.wikipedia.org/wiki/Prince_Vakhushti_of_Kartli",
+   "description": "Georgian prince (1696–1757)",
+   "extract": "Vakhushti was a Georgian royal prince (batonishvili), geographer, historian and cartographer. His principal historical and geographic works, Description of the Kingdom of Georgia and the Geographical Atlas, were inscribed on UNESCO's Memory of the World Programme in 2013.",
+   "truncated": false,
+   "en": "Prince Vakhushti of Kartli"
+  },
+  "Agha Mohammad Khan": {
+   "lang": "en",
+   "title": "Agha Mohammad Khan Qajar",
+   "url": "https://en.wikipedia.org/wiki/Agha_Mohammad_Khan_Qajar",
+   "description": "Shah of Iran from 1789 to 1797",
+   "extract": "Agha Mohammad Khan Qajar, also known by his regnal name of Agha Mohammad Shah, was the founder of the Qajar dynasty of Iran, ruling as Shah from 1789 to 1797, after reunifying the country and establishing Tehran as its capital.",
+   "truncated": false,
+   "en": "Agha Mohammad Khan Qajar"
+  },
+  "Ioseb Grishashvili": {
+   "lang": "en",
+   "title": "Ioseb Grishashvili",
+   "url": "https://en.wikipedia.org/wiki/Ioseb_Grishashvili",
+   "description": "Georgian poet and historian",
+   "extract": "Ioseb Grishashvili was a pen name of Ioseb Mamulishvili was a noted poet and historian from Georgia. A history museum in Tbilisi, his birth- and death place is named for him. Composer Tamara Antonovna Shaverzashvili used his text for her song “Regret.”",
+   "truncated": false,
+   "en": "Ioseb Grishashvili"
+  },
+  "Anchiskhati-basiliek": {
+   "lang": "en",
+   "title": "Anchiskhati Basilica",
+   "url": "https://en.wikipedia.org/wiki/Anchiskhati_Basilica",
+   "description": "Church in Tbilisi, Georgia",
+   "extract": "The Anchiskhati Basilica of St Mary is the oldest surviving church in Tbilisi, Georgia. It belongs to the Georgian Orthodox Church and dates from the sixth century.",
+   "truncated": false,
+   "en": "Anchiskhati Basilica"
+  },
+  "Dachi": {
+   "lang": "nl",
+   "title": "Datsji van Iberië",
+   "url": "https://nl.wikipedia.org/wiki/Datsji_van_Iberi%C3%AB",
+   "description": "monarch uit Kaukasisch Iberië (?-534)",
+   "extract": "Datsji of Dachi of Darchi was koning van Iberië, bekend als Kartli, in de eerste helft van de 6de eeuw. Hij behoorde tot de Chosroïden dynastie. Datsji was de oudste zoon van koning Vachtang I en een Sassanidische prinses.",
+   "truncated": false,
+   "en": "Dachi of Iberia"
+  },
+  "Klarjeti": {
+   "lang": "nl",
+   "title": "Klardzjeti",
+   "url": "https://nl.wikipedia.org/wiki/Klardzjeti",
+   "description": "",
+   "extract": "Klardzjeti was een gebied van het oude Georgië, dat nu deel uitmaakt van de Turkse provincie Artvin. Klardzjeti, het naburige Tao en verschillende andere kleinere gebieden vormden een grotere regio met gedeelde geschiedenis en cultuur die gewoonlijk bekend staat als Tao-Klardzjeti.",
+   "truncated": false,
+   "en": "Klarjeti"
+  },
+  "Platon Ioseliani": {
+   "lang": "en",
+   "title": "Platon Ioseliani",
+   "url": "https://en.wikipedia.org/wiki/Platon_Ioseliani",
+   "description": "Georgian historian and civil servant",
+   "extract": "Platon Ioseliani was a Georgian historian and civil servant in the Russian Empire.",
+   "truncated": false,
+   "en": "Platon Ioseliani"
+  },
+  "ICOMOS": {
+   "lang": "nl",
+   "title": "ICOMOS",
+   "url": "https://nl.wikipedia.org/wiki/ICOMOS",
+   "description": "internationale NGO voor behoud van culturele monumenten",
+   "extract": "De ICOMOS is een internationale NGO die zich bezighoudt met het behoud van culturele monumenten zoals gebouwen, historische steden, cultuurlandschappen en archeologische vindplaatsen.",
+   "truncated": false,
+   "en": "International Council on Monuments and Sites"
+  },
+  "Jean Chardin": {
+   "lang": "en",
+   "title": "Jean Chardin",
+   "url": "https://en.wikipedia.org/wiki/Jean_Chardin",
+   "description": "French-born English traveller and writer (1643–1713)",
+   "extract": "Jean Chardin, known as Sir John Chardin in England, was a French jeweller, traveller and writer, who emigrated to England in 1681, at the age of 37. His ten-volume book The Travels of Sir John Chardin is regarded as one of the finest works of early Western scholarship on Safavid Iran and the Near East in general.",
+   "truncated": false,
+   "en": "Jean Chardin"
+  },
+  "Akhaltsikhe": {
+   "lang": "nl",
+   "title": "Achaltsiche (stad)",
+   "url": "https://nl.wikipedia.org/wiki/Achaltsiche_(stad)",
+   "description": "stad in Georgië",
+   "extract": "Achaltsiche is een stad in het zuidwesten van Georgië met ruim 19.000 inwoners (2025). Ze is het bestuurlijk centrum van de gelijknamige gemeente en tevens de hoofdstad van de regio Samtsche-Dzjavacheti. In de oude stad, Rabati, bevindt zich de middeleeuwse vesting die Achaltische domineert. De gefortificeerde stad werd in de periode 2010-12 grondig gerestaureerd en is sindsdien een toeristische bestemming.",
+   "truncated": false,
+   "en": "Akhaltsikhe"
+  },
+  "Golovin": {
+   "lang": "en",
+   "title": "Yevgeny Golovin",
+   "url": "https://en.wikipedia.org/wiki/Yevgeny_Golovin",
+   "description": "",
+   "extract": "Yevgeny Aleksandrovich Golovin was a general in the Imperial Russian Army. In 1811 was appointed commander of Fanagoriyskaya Regiment and steadily rose through the ranks until he was promoted to General of Infantry in 1839. He was also Commander-in-Chief in the Caucasus from 1838 to 1842 and Governor-General of Baltic provinces from 1845 to 1848.",
+   "truncated": false,
+   "en": "Yevgeny Golovin"
+  },
+  "Bolnisi": {
+   "lang": "nl",
+   "title": "Bolnisi (stad)",
+   "url": "https://nl.wikipedia.org/wiki/Bolnisi_(stad)",
+   "description": "stad in Georgië",
+   "extract": "Bolnisi is een stad in het zuiden van Georgië, gelegen in de regio Kvemo Kartli, met ongeveer 9.650 inwoners (2025). Ze is het bestuurlijk centrum van de gelijknamige gemeente. Bolnisi is gesitueerd op 500-550 meter boven zeeniveau op de linkeroever van de Masjavera-rivier en ligt hemelsbreed 35 kilometer ten noordoosten van hoofdstad Tbilisi. De stad verloor een groot gedeelte van haar niet-Georgische bevolking na het uiteenvallen van de Sovjet-Unie.",
+   "truncated": false,
+   "en": "Bolnisi"
+  },
+  "Otto Jacob Simonson": {
+   "lang": "en",
+   "title": "Otto Simonson",
+   "url": "https://en.wikipedia.org/wiki/Otto_Simonson",
+   "description": "German architect (1829–1914)",
+   "extract": "Otto Jakob Simonson was a German architect known for his contributions to public architecture in Germany, Russia, and Georgia.",
+   "truncated": false,
+   "en": "Otto Simonson"
+  },
+  "Noe Zhordania": {
+   "lang": "nl",
+   "title": "Noë Zjordania",
+   "url": "https://nl.wikipedia.org/wiki/No%C3%AB_Zjordania",
+   "description": "politicus uit Georgië (1868-1953)",
+   "extract": "Noë Zjordania was een Georgisch journalist en politicus. Hij speelde als mensjewiek een vooraanstaande rol in de sociaaldemocratische revolutionaire beweging in het Russische Rijk en daarna in de vorming van de onafhankelijke Democratische Republiek Georgië.",
+   "truncated": false,
+   "en": "Noe Zhordania"
+  },
+  "Lado Gudiashvili": {
+   "lang": "nl",
+   "title": "Lado Goediasjvili",
+   "url": "https://nl.wikipedia.org/wiki/Lado_Goediasjvili",
+   "description": "Georgisch kunstenaar (1896-1980)",
+   "extract": "Vladimir (Lado) Goediasjvili was een Georgisch schilder, graficus en theater- en filmkunstenaar. Voor zijn werk werd hij in 1972 uitgeroepen tot Volksartiest van de Sovjet-Unie en in 1976 tot Held van de Socialistische Arbeid.",
+   "truncated": false,
+   "en": "Lado Gudiashvili"
+  },
+  "Victor Schröter": {
+   "lang": "en",
+   "title": "Victor Schröter",
+   "url": "https://en.wikipedia.org/wiki/Victor_Schr%C3%B6ter",
+   "description": "Russian architect (1839–1901)",
+   "extract": "Victor Alexandrovich Schröter was a Russian architect of German ethnicity.",
+   "truncated": false,
+   "en": "Victor Schröter"
+  },
+  "Richard Wagner": {
+   "lang": "nl",
+   "title": "Richard Wagner",
+   "url": "https://nl.wikipedia.org/wiki/Richard_Wagner",
+   "description": "Duits componist en dirigent (1813–1883)",
+   "extract": "Wilhelm Richard Wagner was een Duits componist, dichter en librettist.",
+   "truncated": false,
+   "en": "Richard Wagner"
+  },
+  "Bidzina Ivanishvili": {
+   "lang": "nl",
+   "title": "Bidzina Ivanisjvili",
+   "url": "https://nl.wikipedia.org/wiki/Bidzina_Ivanisjvili",
+   "description": "zakenman en politicus uit Georgië",
+   "extract": "Bidzina Ivanisjvili is een Georgisch multimiljardair, oligarch en politicus voor Georgische Droom, de politieke partij die hij in 2012 oprichtte. Van 25 oktober 2012 tot 20 november 2013 was hij premier van Georgië. Na zijn premierschap bleef hij op de achtergrond grote invloed uitoefenen op het landsbestuur.",
+   "truncated": false,
+   "en": "Bidzina Ivanishvili"
+  },
+  "Samtavisi": {
+   "lang": "nl",
+   "title": "Samtavisi-kathedraal",
+   "url": "https://nl.wikipedia.org/wiki/Samtavisi-kathedraal",
+   "description": "kathedraal in Georgië",
+   "extract": "De Samtavisi-kathedraal is een elfde-eeuwse monumentale Georgisch-Orthodoxe kathedraal in Georgië, gelegen in Samtavisi op 45 kilometer van hoofdstad Tbilisi en elf kilometer van Kaspi. De kathedraal is de hoofdzetel van het bisdom Samtavisi en Gori.",
+   "truncated": false,
+   "en": "Samtavisi Cathedral"
+  },
+  "David van Gareja": {
+   "lang": "nl",
+   "title": "David Garedzja-klooster",
+   "url": "https://nl.wikipedia.org/wiki/David_Garedzja-klooster",
+   "description": "klooster in Georgië",
+   "extract": "Het David Garedzja-klooster is een in rots uitgehouwen Georgisch-orthodox kloostercomplex, gelegen in de gemeente Sagarejo in het zuidoosten van Georgië. Het kloostercomplex is gesitueerd op en in de hellingen van de berg Gareja en omvat honderden cellen, kerken, kapellen, refectoria en woonverblijven in de uitgeholde rotswand.",
+   "truncated": false,
+   "en": "David Gareji monastery complex"
+  },
+  "Elguja Amashukeli": {
+   "lang": "en",
+   "title": "Elguja Amashukeli",
+   "url": "https://en.wikipedia.org/wiki/Elguja_Amashukeli",
+   "description": "Georgian sculptor and painter (1928–2002)",
+   "extract": "Elguja Amashukeli was a Georgian sculptor and painter. From 1981 to 1996 he was the chairman of the Georgian Association of Visual Artists.",
+   "truncated": false,
+   "en": "Elguja Amashukeli"
+  },
+  "Kartlis Deda": {
+   "lang": "nl",
+   "title": "Kartlis Deda",
+   "url": "https://nl.wikipedia.org/wiki/Kartlis_Deda",
+   "description": "",
+   "extract": "Kartlis Deda is een monumentaal standbeeld in de Georgische hoofdstad Tbilisi. Het standbeeld is een van de symbolen van Tbilisi en kijkt vanaf de Sololaki-heuvel uit over de stad. Het beeldt een vrouw uit in traditionele Georgische klederdracht.",
+   "truncated": false,
+   "en": "Kartlis Deda"
+  },
+  "Shota Rustaveli": {
+   "lang": "nl",
+   "title": "Sjota Roestaveli",
+   "url": "https://nl.wikipedia.org/wiki/Sjota_Roestaveli",
+   "description": "dichter uit Georgië (1172-1216)",
+   "extract": "Sjota Roestaveli was een Georgische dichter uit de 12e eeuw. Zijn werken behoren tot de klassiekers van de Georgische literatuur. Hij is onder andere de auteur van De ridder in het pantervel, het nationaal epos van Georgië.",
+   "truncated": false,
+   "en": "Shota Rustaveli"
+  },
+  "Sameba-kathedraal": {
+   "lang": "nl",
+   "title": "Samebakathedraal",
+   "url": "https://nl.wikipedia.org/wiki/Samebakathedraal",
+   "description": "kathedraal in Georgië",
+   "extract": "De Kathedraal van de heilige Drievuldigheid van Tbilisi is de belangrijkste kathedraal van de Georgisch-Orthodoxe Kerk in de Georgische hoofdstad Tbilisi.",
+   "truncated": false,
+   "en": "Holy Trinity Cathedral of Tbilisi"
+  },
+  "Darejan": {
+   "lang": "en",
+   "title": "Darejan Dadiani",
+   "url": "https://en.wikipedia.org/wiki/Darejan_Dadiani",
+   "description": "Queen of Georgia from 1750 to 1798",
+   "extract": "Darejan Dadiani, also known as Daria, was Queen Consort of Kakheti, and later Kartli-Kakheti in Eastern Georgia, as the third wife of King Heraclius II of Georgia. She was a daughter of Katsia-Giorgi Dadiani, a member of the princely house of Mingrelia. Darajan married Heraclius in 1750 and their marriage lasted 48 years until his death in 1798; the marriage produced 23 children. In the final years of her husband's reign, Darejan exerted significant influence on politics and court affairs. She was skeptical of the pro-Russian policies of Heraclius II and his successor, her step-son, George XII, whose progeny she tried to prevent from succeeding to the throne of Georgia.",
+   "truncated": true,
+   "en": "Darejan Dadiani"
+  },
+  "David Sarajishvili": {
+   "lang": "en",
+   "title": "David Sarajishvili",
+   "url": "https://en.wikipedia.org/wiki/David_Sarajishvili",
+   "description": "Georgian philanthropist",
+   "extract": "David Zacharias dze Sarajishvili (Georgian: დავით ზაქარიას ძე სარაჯიშვილი; was a Georgian scientist, entrepreneur and philanthropist. Founder of several brandy plants in the Russian Empire, including the Tbilisi and Kizlyar Brandy Factory.",
+   "truncated": false,
+   "en": "David Sarajishvili"
+  },
+  "Villeroy & Boch": {
+   "lang": "nl",
+   "title": "Villeroy & Boch",
+   "url": "https://nl.wikipedia.org/wiki/Villeroy_%26_Boch",
+   "description": "bedrijf in Duitsland",
+   "extract": "Villeroy & Boch AG is een Europees bedrijf, met het hoofdkantoor te Mettlach in het Saarland (Duitsland). Het bedrijf maakt zowel sanitair als tafelcultuur. De afdeling tafelcultuur omvat porseleinserviezen en decoratie in porselein. In de tweede helft van de 20e eeuw kwamen hier ook bestek, en voorwerpen in kristal bij.",
+   "truncated": false,
+   "en": "Villeroy & Boch"
+  },
+  "Grote Terreur": {
+   "lang": "nl",
+   "title": "Grote Zuivering",
+   "url": "https://nl.wikipedia.org/wiki/Grote_Zuivering",
+   "description": "",
+   "extract": "De Grote Zuivering of Grote Terreur was een grootschalige campagne van politieke vervolgingen in de Sovjet-Unie, in de periode van 1936 tot 1938. Jozef Stalin begon de 'Grote Zuiveringen' om volgens hem de Sovjet-Unie te zuiveren van 'tegenstanders', een verdenking die zich tot gehele bevolkingsgroepen zou gaan uitstrekken.",
+   "truncated": false,
+   "en": "Great Purge"
+  },
+  "Paolo Iashvili": {
+   "lang": "en",
+   "title": "Paolo Iashvili",
+   "url": "https://en.wikipedia.org/wiki/Paolo_Iashvili",
+   "description": "Georgian poet and symbolist (1894–1937)",
+   "extract": "Paolo Iashvili was a Georgian poet and one of the leaders of the Georgian symbolist movement. Under the Soviet Union, his obligatory conformism and the loss of his friends at the height of Joseph Stalin’s Great Purge heavily affected Iashvili, who committed suicide at the Writers’ Union of Georgia.",
+   "truncated": false,
+   "en": "Paolo Iashvili"
+  },
+  "Blauwe Hoorns": {
+   "lang": "en",
+   "title": "Blue Horns",
+   "url": "https://en.wikipedia.org/wiki/Blue_Horns",
+   "description": "Georgian literary group",
+   "extract": "Tsisperqantselebi was a group of Georgian Symbolist poets and prose-writers which dominated the Georgian literature in the 1920s. It was founded as a coterie of young talented writers in Kutaisi in 1915 and was suppressed under the Soviet rule early in the 1930s.",
+   "truncated": false,
+   "en": "Blue Horns"
+  },
+  "Dertien Assyrische Vaders": {
+   "lang": "en",
+   "title": "Thirteen Assyrian Fathers",
+   "url": "https://en.wikipedia.org/wiki/Thirteen_Assyrian_Fathers",
+   "description": "Group of monastic missionaries",
+   "extract": "The Thirteen Assyrian Fathers are, according to Georgian church tradition, a group of monastic missionaries who arrived from Mesopotamia to Georgia to strengthen Christianity in the country in the 6th century. They are credited by the Georgian church historians with the foundation of several monasteries and hermitages and initiation of the ascetic movement in Georgia.",
+   "truncated": false,
+   "en": "Thirteen Assyrian Fathers"
+  },
+  "Akaki Tsereteli": {
+   "lang": "nl",
+   "title": "Akaki Tsereteli",
+   "url": "https://nl.wikipedia.org/wiki/Akaki_Tsereteli",
+   "description": "dichter uit Keizerrijk Rusland (1840-1915)",
+   "extract": "Prins Akaki Tsereteli was een prominente Georgische dichter en speelde een prominente rol in de nationale bevrijdingsbeweging. Hij werd geboren op 9 juni 1840 in het dorpje Schvitori in een adellijke Georgische familie. Zijn vader was prins Rostom Tsereteli. Naar een oude traditie bracht Ak'ak'i Tsereteli zijn kinderjaren in het dorp Savane in een boerenfamilie door en werd opgevoed door een kinderjuffrouw. Hierdoor kreeg hij veel empathie voor de boeren en het Georgische boerenleven. Hij studeerde in 1852 af aan het gymnasium in Koetaisi en in 1863 aan de Universiteit van Sint-Petersburg, aan de faculteit Oosterse Talen.",
+   "truncated": false,
+   "en": "Akaki Tsereteli"
+  },
+  "Aleksandr Gribojedov": {
+   "lang": "nl",
+   "title": "Aleksandr Gribojedov",
+   "url": "https://nl.wikipedia.org/wiki/Aleksandr_Gribojedov",
+   "description": "toneelschrijver uit Keizerrijk Rusland (1795-1829)",
+   "extract": "Aleksandr Sergejevitsj Gribojedov was een Russisch toneelschrijver en diplomaat. Hij is vooral bekend geworden door zijn toneelstuk Lijden door verstand, dat het meest opgevoerde toneelstuk in Rusland is.",
+   "truncated": false,
+   "en": "Alexander Griboyedov"
+  },
+  "Nino Chavchavadze": {
+   "lang": "en",
+   "title": "Nino Chavchavadze",
+   "url": "https://en.wikipedia.org/wiki/Nino_Chavchavadze",
+   "description": "Georgian-Russian aristocrat (1812–1857)",
+   "extract": "Princess Nino Chavchavadze was a daughter of the famous Georgian knyaz (prince) and poet Alexander Chavchavadze and wife of Russian diplomat and playwright Alexander Griboyedov.",
+   "truncated": false,
+   "en": "Nino Chavchavadze"
+  },
+  "Rezo Gabriadze": {
+   "lang": "en",
+   "title": "Revaz Gabriadze",
+   "url": "https://en.wikipedia.org/wiki/Revaz_Gabriadze",
+   "description": "Georgian theatre and film director (1936–2021)",
+   "extract": "Revaz \"Rezo\" Gabriadze  was a Georgian theatre and film director, playwright, writer, painter, and sculptor. His son, Levan Gabriadze, is also an actor and film director.",
+   "truncated": false,
+   "en": "Revaz Gabriadze"
+  },
+  "Kote Marjanishvili": {
+   "lang": "en",
+   "title": "Kote Marjanishvili",
+   "url": "https://en.wikipedia.org/wiki/Kote_Marjanishvili",
+   "description": "Georgian theatre and film director (1872–1933)",
+   "extract": "Konstantine \"Kote\" Marjanishvili was a Georgian and Soviet theater and film director. Considered the founder of modern Georgian theatre, Marjanishvili was awarded the People's Artist of the Georgian SSR in 1931.",
+   "truncated": false,
+   "en": "Kote Marjanishvili"
+  },
+  "Kutaisi": {
+   "lang": "nl",
+   "title": "Koetaisi",
+   "url": "https://nl.wikipedia.org/wiki/Koetaisi",
+   "description": "stad in Georgië",
+   "extract": "Koetaisi is de derde stad van Georgië met ongeveer 161.000 inwoners (2024). Ze is de hoofdstad van de regio (mchare) Imereti.",
+   "truncated": false,
+   "en": "Kutaisi"
+  },
+  "Mikheil Saakashvili": {
+   "lang": "nl",
+   "title": "Micheil Saakasjvili",
+   "url": "https://nl.wikipedia.org/wiki/Micheil_Saakasjvili",
+   "description": "president van Georgië (2004-2013)",
+   "extract": "Micheil Saakasjvili is een Georgisch-Oekraïens politicus. Hij was van 2004 tot 2013 de president van Georgië namens zijn partij de Verenigde Nationale Beweging. Saakasjvili was oppositieleider tijdens de Rozenrevolutie in november 2003, toen president Sjevardnadze tot aftreden werd gedwongen.",
+   "truncated": false,
+   "en": "Mikheil Saakashvili"
+  },
+  "Michele De Lucchi": {
+   "lang": "nl",
+   "title": "Michele de Lucchi",
+   "url": "https://nl.wikipedia.org/wiki/Michele_de_Lucchi",
+   "description": "Italiaans ontwerper (1951)",
+   "extract": "Michele de Lucchi is een Italiaans architect en ontwerper. Hij was een van de oprichters van de 'Gruppo Cavart' in de jaren van radical design. Ook was hij een van de grondleggers van de Memphisgroep, een groep ontwerpers die de designer-scene veranderde in de jaren 80.",
+   "truncated": false,
+   "en": "Michele De Lucchi"
+  },
+  "George Chakhava": {
+   "lang": "en",
+   "title": "George Chakhava",
+   "url": "https://en.wikipedia.org/wiki/George_Chakhava",
+   "description": "Georgian architect",
+   "extract": "George Chakhava was an architect from Georgia, best known for co-designing the Bank of Georgia headquarters in Tbilisi.",
+   "truncated": false,
+   "en": "George Chakhava"
+  },
+  "Tbilisi-zee": {
+   "lang": "en",
+   "title": "Tbilisi sea",
+   "url": "https://en.wikipedia.org/wiki/Tbilisi_sea",
+   "description": "Reservoir in Tbilisi, Georgia",
+   "extract": "The Tbilisi Sea, also known as the Tbilisi Reservoir and the Samgori Reservoir, is a reservoir on the Iori Plateau in northeastern Tbilisi, Georgia. It forms part of the Samgori irrigation system and is used for municipal drinking-water supply, irrigation and recreation.",
+   "truncated": false,
+   "en": "Tbilisi sea"
+  },
+  "Zurab Tsereteli": {
+   "lang": "nl",
+   "title": "Zoerab Tsereteli",
+   "url": "https://nl.wikipedia.org/wiki/Zoerab_Tsereteli",
+   "description": "Georgisch kunstschilder en beeldhouwer (1934–2025)",
+   "extract": "Zoerab Konstantinovitsj Tsereteli was een schilder, architect en vooral beeldhouwer van Georgische origine, met de Russische nationaliteit. Sedert 1997 was Tsereteli voorzitter van de Academie voor Beeldende Kunsten te Sint-Petersburg. Tsereteli werd vooral bekend vanwege monumentale, naar de smaak van sommigen pompeuze, beeldhouwwerken.",
+   "truncated": false,
+   "en": "Zurab Tsereteli"
+  },
+  "Sint-Nino": {
+   "lang": "nl",
+   "title": "Nino (heilige)",
+   "url": "https://nl.wikipedia.org/wiki/Nino_(heilige)",
+   "description": "heilige die Georgië bekeerde",
+   "extract": "Nino was een vroegchristelijke heilige die evangeliseerde in het koninkrijk Iberië, het huidige Georgië. Haar feestdag is op 14 januari. Ze is beschermheilige van Georgië en haar attribuut, het wijnstokkruis, is een symbool van de Georgisch-Orthodoxe Kerk.",
+   "truncated": false,
+   "en": "Saint Nino"
+  },
+  "Michail Lermontov": {
+   "lang": "nl",
+   "title": "Michail Lermontov",
+   "url": "https://nl.wikipedia.org/wiki/Michail_Lermontov",
+   "description": "dichter uit Keizerrijk Rusland (1814-1841)",
+   "extract": "Michail Joerjevitsj Lermontov was een Russische schrijver. Hij wordt in Rusland algemeen beschouwd als een van de grootste schrijvers van zijn generatie, naast Aleksandr Poesjkin en Nikolaj Gogol.",
+   "truncated": false,
+   "en": "Mikhail Lermontov"
+  },
+  "koning Rostom": {
+   "lang": "nl",
+   "title": "Rostom van Kartli",
+   "url": "https://nl.wikipedia.org/wiki/Rostom_van_Kartli",
+   "description": "militair leider uit Iran (1565-1658)",
+   "extract": "Rostom of Rustam Khan (1565-1658), uit het huis Bagrationi, was koning (Wali) van het oostelijk koninkrijk Kartlië van 1633 tot aan zijn dood. Hij zag zichzelf als Koning der Koningen en soeverein.",
+   "truncated": false,
+   "en": "Rostom of Kartli"
+  },
+  "Plechanovstraat": {
+   "lang": "nl",
+   "title": "Georgi Plechanov",
+   "url": "https://nl.wikipedia.org/wiki/Georgi_Plechanov",
+   "description": "Russisch filosoof (1856-1918)",
+   "extract": "Georgi Valentinovitsj Plechanov was een Russisch revolutionair die vaak wordt aangeduid als de vader van het Russisch marxisme.",
+   "truncated": false,
+   "en": "Georgi Plekhanov"
+  },
+  "Kartli": {
+   "lang": "nl",
+   "title": "Kartli (gebied)",
+   "url": "https://nl.wikipedia.org/wiki/Kartli_(gebied)",
+   "description": "historische regio",
+   "extract": "Kartli of Kartlië is het grootste historische en geografische gebied van Georgië en omvat het centrale deel van het land. Het was historisch het centrale deel van de Georgische koninkrijken Iberië en Kartlië.",
+   "truncated": false,
+   "en": "Kartli"
+  },
+  "Agha Mohammad": {
+   "lang": "en",
+   "title": "Agha Mohammad Khan Qajar",
+   "url": "https://en.wikipedia.org/wiki/Agha_Mohammad_Khan_Qajar",
+   "description": "Shah of Iran from 1789 to 1797",
+   "extract": "Agha Mohammad Khan Qajar, also known by his regnal name of Agha Mohammad Shah, was the founder of the Qajar dynasty of Iran, ruling as Shah from 1789 to 1797, after reunifying the country and establishing Tehran as its capital.",
+   "truncated": false,
+   "en": "Agha Mohammad Khan Qajar"
+  },
+  "Sioni": {
+   "lang": "nl",
+   "title": "Sioni-kathedraal",
+   "url": "https://nl.wikipedia.org/wiki/Sioni-kathedraal",
+   "description": "kathedraal in Georgië",
+   "extract": "De Sioni-kathedraal is een Georgisch-Orthodoxe kathedraal in de hoofdstad van Georgië, Tbilisi. De kerk is gewijd aan het hoogfeest Ontslapen van de Moeder Gods. De kathedraal van Sioni draagt de naam van de berg Zion in Jeruzalem zoals het een traditie was in het middeleeuwse Georgië om religieuze gebouwen te vernoemen naar plaatsen in het Heilige Land.",
+   "truncated": false,
+   "en": "Tbilisi Sioni Cathedral"
+  },
+  "Metekhi-kerk": {
+   "lang": "en",
+   "title": "Metekhi Church",
+   "url": "https://en.wikipedia.org/wiki/Metekhi_Church",
+   "description": "Church in Tbilisi, Georgia",
+   "extract": "The Metekhi church of the Nativity of the Mother of God, known simply as Metekhi, is a Georgian Orthodox Christian church located on the left bank of the river Kura. It sits on the Metekhi Cliff opposite the old town of Tbilisi, Georgia. Much of the existing structure dates back to the Middle Ages and was built between 1278 and 1289 AD under the reign of King Demetrius II of Georgia, although oral tradition traces Metekhi's origins further to the 5th century.",
+   "truncated": false,
+   "en": "Metekhi Church"
+  },
+  "Norashen": {
+   "lang": "en",
+   "title": "Norashen Church",
+   "url": "https://en.wikipedia.org/wiki/Norashen_Church",
+   "description": "Church building in Tbilisi, Georgia",
+   "extract": "Norashen is a non-functioning Armenian Apostolic church in Tbilisi, Georgia. It is located in the old town, near Sioni Cathedral and Jvaris Mama Church.",
+   "truncated": false,
+   "en": "Norashen Church"
+  },
+  "Avlabari": {
+   "lang": "en",
+   "title": "Avlabari",
+   "url": "https://en.wikipedia.org/wiki/Avlabari",
+   "description": "Neighborhood of Isani District in Old Tbilisi, Tbilisi, Georgia",
+   "extract": "Avlabari is a neighborhood of Old Tbilisi on the left bank of the Mtkvari River. The 11th-13th century chronicles mention it as Isani, which is now one of the larger municipal regions of Tbilisi. Nowadays one of the upcoming hip neighborhoods of the city, Avlabari is being extensively gentrified.",
+   "truncated": false,
+   "en": "Avlabari"
+  },
+  "Sololaki": {
+   "lang": "en",
+   "title": "Sololaki",
+   "url": "https://en.wikipedia.org/wiki/Sololaki",
+   "description": "Neighbourhood in Tbilisi",
+   "extract": "Sololaki is one of the oldest neighborhoods of Tbilisi, located in the southwestern part of the city. It is located on the right side of Mtkvari, on the slope of Mount Mtatsminda. It occupies the area between the western slopes of the Sololaki ridge and the southern slopes of the Mtatsminda ridge.",
+   "truncated": false,
+   "en": "Sololaki"
+  },
+  "Vake": {
+   "lang": "en",
+   "title": "Vake, Tbilisi",
+   "url": "https://en.wikipedia.org/wiki/Vake%2C_Tbilisi",
+   "description": "Neighborhood in Tbilisi, Georgia",
+   "extract": "Vake is a neighborhood in the southwestern part of Tbilisi, Georgia, on the right bank of the river Mtkvari; it is part of Vake District.",
+   "truncated": false,
+   "en": "Vake, Tbilisi"
+  },
+  "Blauwe Klooster": {
+   "lang": "en",
+   "title": "Lurji Monastery",
+   "url": "https://en.wikipedia.org/wiki/Lurji_Monastery",
+   "description": "Georgian Orthodox monastery in Tbilisi, Georgia",
+   "extract": "The Lurji Monastery, that is the \"Blue Monastery\", is a 12th-century Georgian Orthodox church built in the name of Saint Andrew in the Vere neighborhood of Tbilisi, Georgia. The popular historical name lurji (\"blue\") is derived from its roof, adorned with glazed blue tile.",
+   "truncated": false,
+   "en": "Lurji Monastery"
+  },
+  "Vredesbrug": {
+   "lang": "en",
+   "title": "Bridge of Peace",
+   "url": "https://en.wikipedia.org/wiki/Bridge_of_Peace",
+   "description": "Bridge in Tbilisi, Georgia",
+   "extract": "The Bridge of Peace is a bow-shaped pedestrian bridge, a steel and glass construction illuminated with numerous LEDs, over the Kura River, linking the Rike Park with Old town in central Tbilisi. Since its opening in 2010 the structure has become an important pedestrian crossing in the city, as well as a significant tourist attraction and one of the most well-recognized landmarks of the capital.",
+   "truncated": false,
+   "en": "Bridge of Peace"
+  },
+  "Kashveti-kerk": {
+   "lang": "en",
+   "title": "Kashveti Church",
+   "url": "https://en.wikipedia.org/wiki/Kashveti_Church",
+   "description": "Church building in Tbilisi, Georgia",
+   "extract": "The Kashveti Church of St. George is a Georgian Orthodox Church in central Tbilisi, located across from the Parliament building on Rustaveli Avenue.",
+   "truncated": false,
+   "en": "Kashveti Church"
+  },
+  "Ateshgah": {
+   "lang": "en",
+   "title": "Atashgah of Tbilisi",
+   "url": "https://en.wikipedia.org/wiki/Atashgah_of_Tbilisi",
+   "description": "Zoroastrian fire temple in Tbilisi, Georgia",
+   "extract": "The Atashgah, also transcribed as Ateshgah, is an ancient Zoroastrian fire temple located in Tbilisi, Georgia. The monument is generally dated to the Sasanian era, when eastern Georgia was under Persian political and cultural influence. It has been described as the \"northernmost Zoroastrian fire-temple in the world.\"",
+   "truncated": false,
+   "en": "Atashgah of Tbilisi"
+  },
+  "9 april 1989": {
+   "lang": "nl",
+   "title": "Tragedie van 9 april",
+   "url": "https://nl.wikipedia.org/wiki/Tragedie_van_9_april",
+   "description": "",
+   "extract": "De Tragedie van 9 april was een op 9 april 1989 door het Rode Leger neergeslagen protest van burgers in Tbilisi, destijds hoofdstad van de Georgische Socialistische Sovjetrepubliek in de Sovjet-Unie. De tragedie leidde tot een sterkere Georgische roep om onafhankelijkheid van de Sovjet-Unie, die voor het eerst ook door de Georgische Opperste Sovjet werd onderschreven. In Georgië geldt 9 april als nationale gedenkdag: de Dag van de Nationale Eenheid.",
+   "truncated": false,
+   "en": "Massacre of Tbilisi"
+  },
+  "Kroniek van Georgië": {
+   "lang": "en",
+   "title": "Chronicle of Georgia",
+   "url": "https://en.wikipedia.org/wiki/Chronicle_of_Georgia",
+   "description": "Monument in Tbilisi, Georgia",
+   "extract": "The Chronicle of Georgia or History Memorial of Georgia is a monument located on Keeni Hill near the Tbilisi Sea. It was created by the Georgian sculptor Zurab Tsereteli in 1985 but was never fully finished. The monument sits at the top of a large set of stairs, overlooking the northern part of the city from different directions. There are 16 pillars that are between 30–35 meters tall. The top half features kings, queens, and heroes while the bottom part depicts stories from the life of Christ. Beside bronze pillars, there is a grapevine cross of Saint Nino, who first brought Christianity to Georgia, and a chapel.",
+   "truncated": false,
+   "en": "Chronicle of Georgia"
+  }
+ }
+}

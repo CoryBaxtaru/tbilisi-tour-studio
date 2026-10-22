@@ -2,6 +2,7 @@ import { useState } from 'preact/hooks';
 import { createTalkingPoint } from '../domain/factory';
 import { CLAIM_STATUS, linkedClaim, mergedResearch, talkingPointFromClaim } from '../domain/research';
 import { DISTRICTS, ERAS, THEMES, type TagDef } from '../domain/tags';
+import { WikiText } from './WikiText';
 import type { Claim, ClaimKind, Landmark, TalkingPoint, TourStop, Verification } from '../domain/types';
 
 const KINDS: ClaimKind[] = ['feit', 'interpretatie', 'anekdote', 'onzeker'];
@@ -117,7 +118,7 @@ export function StopCard(p: Props) {
                             <span class={`stamp stamp--${c.kind}`}>{c.kind}</span>
                             <span class={`stamp stamp--${c.status}`}>{CLAIM_STATUS[c.status]}</span>
                           </div>
-                          <p class="lit">{c.text}</p>
+                          <p class="lit"><WikiText text={c.text} /></p>
                           <button class="btn btn--small" onClick={() => setStop({ talkingPoints: [...stop.talkingPoints, talkingPointFromClaim(c, research.sources)] })}>Als vertelpunt gebruiken</button>
                         </li>
                       ))}

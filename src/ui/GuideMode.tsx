@@ -13,6 +13,7 @@ import { OfflineMapControl } from './OfflineMapControl';
 import { useMapStored } from '../map/offlineMap';
 import { CATALOG } from '../domain/catalog';
 import { linkedClaim, mergedResearch } from '../domain/research';
+import { WikiText } from './WikiText';
 
 interface Progress {
   index: number;
@@ -172,7 +173,7 @@ export function GuideMode({ id }: { id: string }) {
                     <span class={`stamp stamp--${tp.kind}`}>{tp.kind}</span>
                     {status && status !== 'geverifieerd' && <span class={`stamp stamp--${status}`}>{status === 'concept' ? 'niet geverifieerd' : 'afgewezen'}</span>}
                   </span>
-                  <span class="lit">{tp.text}</span>
+                  <span class="lit"><WikiText text={tp.text} /></span>
                 </li>
               );
             })}

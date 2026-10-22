@@ -399,6 +399,23 @@ fieldset.shared legend { color: var(--balkon); }
 @media (max-width: 860px) {
   .claim__actions .btn, .tp-research .btn { min-height: 40px; }
 }
+
+/* Wikipedia previews on names (src/ui/WikiText.tsx) */
+.wiki-term { position: relative; }
+.wiki-term__name { background: none; border: 0; padding: 0; font: inherit; color: inherit; cursor: help; text-decoration: underline dotted var(--ink-2); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+.wiki-term__name[aria-expanded="true"] { text-decoration-color: var(--balkon); }
+.wiki-pop { position: absolute; left: 0; top: 100%; z-index: 1100; width: min(340px, 80vw); display: flex; flex-direction: column; gap: 4px; padding: 10px 12px; background: var(--surface); color: var(--ink); border: 1px solid var(--line-strong); border-radius: var(--r-md); font: 400 13px/1.5 var(--font-ui); text-align: left; white-space: normal; }
+.wiki-pop__head { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+.wiki-pop__head strong { font: 500 14px var(--font-story); }
+.wiki-pop__head .icon-btn { width: 24px; height: 24px; font-size: 14px; flex: none; }
+.wiki-pop__text { max-height: 220px; overflow-y: auto; text-wrap: pretty; }
+.wiki-pop__src { font-size: 11px; color: var(--ink-2); }
+.app--guide .wiki-pop { font-size: 15px; }
+@media (max-width: 600px) {
+  /* On a phone the preview is a sheet at the bottom of the screen, so it never runs off the edge. */
+  .wiki-pop { position: fixed; left: 12px; right: 12px; top: auto; bottom: 12px; width: auto; max-height: 60vh; }
+  .wiki-pop__head .icon-btn { width: 36px; height: 36px; }
+}
 @media (max-width: 480px) {
   /* Three nav links plus the sync pill do not fit next to the brand; "Tours" also leads home. */
   .topbar .brand { display: none; }
