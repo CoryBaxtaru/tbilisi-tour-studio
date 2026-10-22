@@ -20,7 +20,7 @@ Tbilisi Walking Tour Studio — desktop tour design and mobile live guiding for 
     - guide mode: a minimal header, no app menu;
     - Onderzoek: verification progress;
     - editor: settings folded.
-  - Dark mode: follows the system setting, with a "Weergave" toggle (Systeem / Licht / Donker) under Instellingen. Uncommitted; the founder is reviewing it in the local preview.
+  - Dark mode: follows the system setting, with a "Weergave" toggle (Systeem / Licht / Donker) under Instellingen. Deployed in `b7ea80f`.
   - Then step 2: 52 new source-checked claims, so all 58 sites have ≥ 3 (203 total). New stops auto-get 3 starter talking points. Deployed as `f138839`, verified live.
   - The business plan moved from the public code repo to the private data repo, and the public history was rewritten and force-pushed without it (main = `fc2a343`; old commits may stay reachable by ID on GitHub until purged). Local backup branch: `backup-before-plan-rewrite`. Breakdown: `docs/session-breakdowns/session-2026-10-23-01.md`.
 - Previous: 2026-10-22 (session 01)
@@ -53,6 +53,6 @@ Tbilisi Walking Tour Studio — desktop tour design and mobile live guiding for 
 - Sync token is set up on both devices. The founder chose to keep using a token that was pasted into the chat once; revoke and replace it if the transcript is ever shared. Renew it before it expires.
 
 ## Next recommended task
-1. Step 3 is built (Agenda, Touraanbod, bookings, 6-month erasure, Dutch only) but **not committed or deployed**. With the founder's go-ahead: commit, deploy and check live. After deploying, **both devices must tap "Vernieuwen"**: an old app version refuses the new sync file (schema 2) until updated.
+1. Step 3, the design fixes and dark mode are live (`b7ea80f`, checked on GitHub Pages). **Both devices must tap "Vernieuwen"**: an old app refuses the new sync file (schema 2) until updated. Then check that a test booking syncs laptop → phone.
 2. Next build: step 4, weather (MET Norway forecast per departure, then climate averages).
 4. Still open on the founder's side: verify claims under Onderzoek; phone test of the offline map.
