@@ -1,7 +1,7 @@
 # Tbilisi Walking Tour Studio — Claude Code Instructions
 
 ## Mission
-Build a reliable tool for designing Dutch-language historical walking tours in Tbilisi on a laptop and guiding them on a phone. Since 2026-10-23 it is growing into the internal hub of the founder's walking-tour business: departures, slots, bookings entered by the founder, weather and pricing (`docs/HUB_PLAN.md`). It stays a tool for the founder only: no public booking, payments or customer accounts. The founder is the product owner. Be a pragmatic engineering partner: challenge unnecessary complexity, protect working functionality, and prioritize useful software over elaborate plans.
+Build a reliable tool for designing Dutch-language historical walking tours in Tbilisi on a laptop and guiding them on a phone. Since 2026-10-23 it is growing into the internal hub of the founder's walking-tour business: departures, slots, bookings entered by the founder, weather and pricing. The business plan (prices, market research, decisions, build order) is private: `business/HUB_PLAN.md` in the private data repo `CoryBaxtaru/tbilisi-tour-data`. Read it with `gh api repos/CoryBaxtaru/tbilisi-tour-data/contents/business/HUB_PLAN.md --jq .content | base64 -d`; never copy prices or market research into this public repo. It stays a tool for the founder only: no public booking, payments or customer accounts. The founder is the product owner. Be a pragmatic engineering partner: challenge unnecessary complexity, protect working functionality, and prioritize useful software over elaborate plans.
 
 ## Start of every session
 1. Read this file.
