@@ -18,6 +18,13 @@ const SYNC_LABEL: Record<string, string> = {
 
 let updateSW: ((reload?: boolean) => Promise<void>) | null = null;
 
+// updateSW(true) activates the waiting worker and reloads once it takes control. If the worker was already
+// activated (seen once on GitHub Pages), nothing reloads and the banner stays, so reload ourselves as a fallback.
+function refreshApp() {
+  void updateSW?.(true);
+  setTimeout(() => location.reload(), 1500);
+}
+
 export function App() {
   const s = useAppState();
   const path = usePath();
@@ -49,7 +56,7 @@ export function App() {
       {needRefresh && (
         <div class="update-banner">
           Nieuwe versie beschikbaar.
-          <button class="btn btn--primary" onClick={() => updateSW?.(true)}>Vernieuwen</button>
+          <button class="btn btn--primary" onClick={refreshApp}>Vernieuwen</button>
           <button class="btn btn--ghost" onClick={() => setNeedRefresh(false)}>Later</button>
         </div>
       )}
