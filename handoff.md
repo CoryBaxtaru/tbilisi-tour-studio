@@ -16,7 +16,7 @@ Tbilisi Walking Tour Studio — desktop tour design and mobile live guiding for 
 - Date: 2026-10-22 (session 01)
 - Summary:
   - Deployed the card deck improvements (`9898329`) and the offline map (`7ea9b2e`).
-  - Built the research panel ("Onderzoek") with 151 concept claims for 53 sites, checked in the original sources, never Wikipedia. Not committed yet.
+  - Built and deployed the research panel ("Onderzoek", commit `236470b`, verified live) with 151 concept claims for 53 sites, checked in the original sources, never Wikipedia.
 - Breakdown: `docs/session-breakdowns/session-2026-10-22-01.md`. Research method, corrections and dropped claims: `docs/RESEARCH.md`.
 
 ## Decisions that matter now
@@ -28,7 +28,7 @@ Tbilisi Walking Tour Studio — desktop tour design and mobile live guiding for 
 
 ## Tests and verification
 - `npm test`: 50 passed. `npm run build` succeeds, with Vite's chunk-size warning (578 kB / 172 kB gzip).
-- Research panel: tested in the browser on a local production build (desktop and 375 px); not yet on a real phone or live.
+- Research panel: tested on a local production build (desktop and 375 px). Live since `236470b`: the update prompt works, the counts are 58/53/5, a site page renders with its sources, and there are no console errors. Not yet tested on a real phone or for claim sync between devices.
 - Live deploy: page, manifest, service worker and precache verified over HTTPS; card deck (commit 119faa9) deployed, the update prompt switched the live site to the new version, and the deck showed 58 cards; commit 9898329 deployed, and the live site shows 12 suggested tours.
 - Browser (production build): main workflow, offline reload, update prompt, import, simulated GPS, live GitHub 401 path.
 - Real devices (2026-10-22): founder reports sync both ways, phone install, offline, GPS and the card deck all work; the data repo history confirms laptop and phone syncs.
@@ -37,9 +37,10 @@ Tbilisi Walking Tour Studio — desktop tour design and mobile live guiding for 
 ## Blockers / unfinished work
 - Catalogue names, notes and tags are unverified suggestions: founder review via `docs/CATALOG.md`.
 - Concept claims need the founder's verification under Onderzoek. Five sites have no claims yet.
-- Research panel changes are uncommitted; waiting for the founder's go-ahead to commit and deploy.
+- nplg.gov.ge (Kvirkvelia links) sometimes answers 502; reload.
 - Sync token is set up on both devices. The founder chose to keep using a token that was pasted into the chat once; revoke and replace it if the transcript is ever shared. Renew it before it expires.
 
 ## Next recommended task
-1. With the founder's go-ahead, commit and push the research panel, then check it on GitHub Pages: update prompt, `#/onderzoek`, Bevestigen, and that a confirmed claim syncs to the phone.
-2. The founder verifies concept claims under Onderzoek. On the phone: "Kaart offline opslaan", airplane mode, dark map in sunlight.
+1. The founder verifies concept claims under Onderzoek (Bevestigen / Afwijzen) and checks that a confirmed claim reaches the other device after sync.
+2. On the phone: "Kaart offline opslaan", airplane mode, dark map in sunlight.
+3. Possible next build: sources for the five sites without claims, or stop-order suggestions (spec phase 4).

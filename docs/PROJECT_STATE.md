@@ -15,7 +15,7 @@ Tbilisi Walking Tour Studio: a personal desktop tour editor and mobile live-guid
   - Onderzoek (research): per-site claims with sources and a verdict (Concept, Geverifieerd, Afgewezen), plus own claims and sources (`docs/RESEARCH.md`).
     - 151 concept claims for 53 sites, checked by Claude in the original sources. Wikipedia is not used as a source.
     - The stop card copies a claim into a talking point; the editor and guide mode flag points whose claim is not verified.
-    - Verified on a local production build (2026-10-22); not deployed yet.
+    - Verified on a local production build, then live on GitHub Pages since commit 236470b (2026-10-22).
   - Map placement of stops (Leaflet + OSM)
   - Offline Tbilisi map: self-hosted Protomaps extract (9.7 MB), stored per device via "Kaart offline opslaan"; verified rendering from the stored copy with the server stopped (local preview, 2026-10-22). Live on GitHub Pages since commit 7ea9b2e: range requests return 206, and after storing, new tiles are drawn with no network requests. Light style in the editor, dark in guide mode.
   - Pedestrian routes via FOSSGIS OSRM, stored per leg
@@ -63,4 +63,4 @@ Tbilisi Walking Tour Studio: a personal desktop tour editor and mobile live-guid
 - Stop hook reminds once per turn in which work files changed without a handoff update.
 
 ## Next step
-Deploy the research panel after the founder's go-ahead, then check it on GitHub Pages. The founder verifies concept claims under Onderzoek (confirm or reject per claim), stores the offline map on the phone, tests in airplane mode and checks the dark map style in sunlight.
+The founder verifies concept claims under Onderzoek (confirm or reject per claim) and checks that confirmed claims sync to the other device. On the phone: store the offline map, test with airplane mode, and check the dark map style in sunlight.
