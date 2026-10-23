@@ -36,7 +36,7 @@ Tbilisi Walking Tour Studio: a personal desktop tour editor and mobile live-guid
     - Departure page: revenue, commission, costs, net and the break-even number of adults.
     - Financiën (`#/geld/<year>`): totals, per month (with occupancy), per channel, per product; CSV of the year's bookings for the accountant, without names, contact details or notes.
     - Costs follow the product's current profile (also for past departures); revenue and commission are stored per booking.
-    - Tested on a local production build only; not deployed yet.
+    - Live since commit b7c8c2b.
     - The stop card copies a claim into a talking point; the editor and guide mode flag points whose claim is not verified.
     - Verified on a local production build, then live on GitHub Pages since commit 236470b (2026-10-22).
   - Map placement of stops (Leaflet + OSM)

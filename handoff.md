@@ -22,7 +22,7 @@ Tbilisi Walking Tour Studio — desktop tour design and mobile live guiding for 
     - editor: settings folded.
   - Dark mode: follows the system setting, with a "Weergave" toggle (Systeem / Licht / Donker) under Instellingen. Deployed in `b7ea80f`.
   - Old commits with the business plan (`f138839`, `732f486`, `7f7be3e`, `0b389a7`) are still reachable by SHA on GitHub. A purge request for GitHub Support has been drafted; the founder sends it. Support may refuse non-credential data.
-  - Step 5 (built, **not committed or deployed**): a price profile per tour product (amounts default to 0, real prices only in synced data); bookings prefill price and commission; departure costs, net and break-even; Financiën page (`#/geld/<year>`) with a CSV for the accountant without personal data.
+  - Step 5 (live in `b7c8c2b`, checked on GitHub Pages): a price profile per tour product (amounts default to 0, real prices only in synced data); bookings prefill price and commission; departure costs, net and break-even; Financiën page (`#/geld/<year>`) with a CSV for the accountant without personal data.
   - Step 4 (live in `08f1907`, checked on GitHub Pages): weather per departure.
     - MET Norway forecast within about 9 days: one cached request for central Tbilisi, refetched after `Expires`.
     - Beyond the forecast: monthly climate averages from NOAA GHCN-Daily, bundled at build time; temperatures 2005–2024, rain 1961–1990, because the station's recent rain record is missing.
@@ -62,5 +62,5 @@ Tbilisi Walking Tour Studio — desktop tour design and mobile live guiding for 
 
 ## Next recommended task
 1. Step 3, the design fixes and dark mode are live (`b7ea80f`, checked on GitHub Pages). **Both devices must tap "Vernieuwen"**: an old app refuses the new sync file (schema 2) until updated. Then check that a test booking syncs laptop → phone.
-2. Step 5 (prices and finances) is built and tested locally: commit, push, check live and mark it in the private plan once the founder gives the go-ahead. Then the founder enters real prices per product. The founder also sends the GitHub Support purge request. Next build: step 6 (guest check-in, message templates).
+2. Step 5 (prices and finances) is live and marked in the private plan. The founder taps "Vernieuwen" on both devices and enters real prices per tour product. The founder also sends the GitHub Support purge request. Next build: step 6 (guest check-in, message templates).
 3. Still open on the founder's side: verify claims under Onderzoek; phone test of the offline map.
