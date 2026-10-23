@@ -21,7 +21,8 @@ Tbilisi Walking Tour Studio — desktop tour design and mobile live guiding for 
     - Onderzoek: verification progress;
     - editor: settings folded.
   - Dark mode: follows the system setting, with a "Weergave" toggle (Systeem / Licht / Donker) under Instellingen. Deployed in `b7ea80f`.
-  - Step 4 (built, **not committed or deployed**): weather per departure.
+  - Old commits with the business plan (`f138839`, `732f486`, `7f7be3e`, `0b389a7`) are still reachable by SHA on GitHub. A purge request for GitHub Support has been drafted; the founder sends it. Support may refuse non-credential data.
+  - Step 4 (live in `08f1907`, checked on GitHub Pages): weather per departure.
     - MET Norway forecast within about 9 days: one cached request for central Tbilisi, refetched after `Expires`.
     - Beyond the forecast: monthly climate averages from NOAA GHCN-Daily, bundled at build time; temperatures 2005–2024, rain 1961–1990, because the station's recent rain record is missing.
     - Sunrise/sunset calculated locally.
@@ -60,5 +61,5 @@ Tbilisi Walking Tour Studio — desktop tour design and mobile live guiding for 
 
 ## Next recommended task
 1. Step 3, the design fixes and dark mode are live (`b7ea80f`, checked on GitHub Pages). **Both devices must tap "Vernieuwen"**: an old app refuses the new sync file (schema 2) until updated. Then check that a test booking syncs laptop → phone.
-2. Step 4 (weather) is built and tested locally: commit, push and check live once the founder gives the go-ahead. Then step 5 (pricing profiles and finances, private plan).
+2. Step 4 (weather) is live. The founder sends the GitHub Support purge request. Next build: step 5 (pricing profiles and finances, private plan).
 3. Still open on the founder's side: verify claims under Onderzoek; phone test of the offline map.
