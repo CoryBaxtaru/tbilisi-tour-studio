@@ -28,6 +28,14 @@ Tbilisi Walking Tour Studio: a personal desktop tour editor and mobile live-guid
     - shown on departure cards, as a glyph in calendar cells, as a line for the selected day, and as a panel on the departure page;
     - beyond the forecast: monthly climate averages from NOAA GHCN-Daily, bundled at build time;
     - sunrise and sunset are calculated locally, with a warning when a tour runs into the dark.
+    - Live since commit 08f1907.
+  - Prices and finances (business hub step 5, 2026-10-23):
+    - A price profile per tour product: per person (adult/child/infant) or private (flat fee up to N guests plus a price per extra guest); costs per guest and per departure; commission % per channel; optional gross-up so commission channels give the same net.
+    - All amounts default to 0. Real prices are entered by the founder and live only in synced data, never in code.
+    - New bookings fill price and commission from the profile until a price is typed; existing bookings get an "Overnemen" suggestion.
+    - Departure page: revenue, commission, costs, net and the break-even number of adults.
+    - Financiën (`#/geld/<year>`): totals, per month (with occupancy), per channel, per product; CSV of the year's bookings for the accountant, without names, contact details or notes.
+    - Costs follow the product's current profile (also for past departures); revenue and commission are stored per booking.
     - Tested on a local production build only; not deployed yet.
     - The stop card copies a claim into a talking point; the editor and guide mode flag points whose claim is not verified.
     - Verified on a local production build, then live on GitHub Pages since commit 236470b (2026-10-22).

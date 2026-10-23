@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { parseDataset, serializeDataset } from '../storage/backup';
 import { mergeRecords } from '../sync/merge';
 import {
-  addMonths, createBooking, createDeparture, createProduct, departureFill, departureMoney, dueForErasure, monthGrid,
+  addMonths, createBooking, createDeparture, createProduct, departureFill, dueForErasure, monthGrid,
 } from './agenda';
 
 const product = { ...createProduct('Oude stad'), maxGuests: 10, minGuests: 2 };
@@ -15,11 +15,6 @@ describe('departureFill', () => {
     expect(departureFill(dep, bs, product.minGuests)).toEqual({ booked: 3, capacity: 10, free: 7, belowMinimum: false, full: false });
     expect(departureFill(dep, [booking({ adults: 1 })], 2).belowMinimum).toBe(true);
     expect(departureFill(dep, [booking({ adults: 10 })], 2).full).toBe(true);
-  });
-
-  it('sums money of active bookings only', () => {
-    const bs = [booking({ priceTotal: 50, commission: 15 }), booking({ priceTotal: 25, status: 'geannuleerd' })];
-    expect(departureMoney(dep.id, bs)).toEqual({ gross: 50, commission: 15, net: 35 });
   });
 });
 

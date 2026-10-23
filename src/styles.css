@@ -494,7 +494,7 @@ fieldset.shared legend { color: var(--balkon); }
 .page--wide { max-width: 1080px; }
 .agenda__head { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
 .agenda__title { font-family: var(--font-story); font-size: 28px; letter-spacing: -0.015em; margin: 0; }
-.agenda__products { margin-left: auto; }
+.agenda__links { margin-left: auto; display: flex; gap: 8px; flex-wrap: wrap; }
 .seg { display: inline-flex; border: 1px solid var(--line-strong); border-radius: var(--r-md); overflow: hidden; }
 .seg a { display: grid; place-items: center; min-width: 36px; min-height: 32px; padding: 0 10px; color: var(--ink-2); text-decoration: none; font-weight: 500; font-size: 13px; }
 .seg a + a { border-left: 1px solid var(--line); }
@@ -579,6 +579,24 @@ fieldset.shared legend { color: var(--balkon); }
 .tile__label { font-size: 11px; color: var(--ink-2); letter-spacing: 0.02em; }
 .tile__value { font-size: 18px; font-weight: 500; font-variant-numeric: tabular-nums; }
 .tile--net .tile__value { color: var(--balkon); }
+.tiles--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.tile--net.is-negative .tile__value, .money-table .is-negative { color: var(--danger); }
+
+/* Step 5: price profile, booking price hint, money overview */
+.price-form { border: 1px solid var(--line); border-radius: var(--r-lg); padding: 12px 16px 14px; margin: 8px 0 16px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.price-form legend { font-weight: 500; padding: 0 6px; }
+.price-form .seg--choice { align-self: flex-start; }
+.price-form p { margin: 0; }
+.price-form__sub { font-size: 13px; font-weight: 500; margin-top: 4px !important; }
+.booking-form__price { margin: 0; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.table-wrap { overflow-x: auto; margin: 0 0 16px; }
+.money-table { border-collapse: collapse; width: 100%; font-size: 13px; font-variant-numeric: tabular-nums; }
+.money-table th, .money-table td { padding: 6px 10px; border-bottom: 1px solid var(--line); text-align: right; white-space: nowrap; }
+.money-table th:first-child { text-align: left; font-weight: 500; }
+.money-table thead th { font-size: 11px; font-weight: 500; color: var(--ink-2); }
+.money-table a { color: inherit; }
+.finance__split { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+.finance__split h2, .finance h2 { font-size: 16px; }
 .departure h2 .meta { font-weight: 400; }
 .booking-list { list-style: none; padding: 0; margin: 0 0 10px; display: flex; flex-direction: column; gap: 6px; }
 .booking { border: 1px solid var(--line); border-radius: var(--r-lg); background: var(--surface); padding: 10px 12px; }
@@ -605,8 +623,9 @@ fieldset.shared legend { color: var(--balkon); }
   .agenda__title, .departure__title h1 { font-size: 24px; }
 }
 @media (max-width: 600px) {
-  .agenda__products { margin-left: 0; }
+  .agenda__links { margin-left: 0; }
   .tiles { gap: 6px; }
+  .tiles--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .tile { padding: 8px; }
   .tile__value { font-size: 15px; }
   .booking__row { flex-wrap: wrap; }

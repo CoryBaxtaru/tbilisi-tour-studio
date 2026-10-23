@@ -143,6 +143,32 @@ export interface TourProduct extends SyncedEntity {
   included: string;
   notes: string;
   active: boolean;
+  /** Prices, costs and channel commission (business hub step 5). Missing on older records: see pricingOf(). */
+  pricing?: PriceProfile;
+}
+
+/**
+ * How a product is priced. Amounts in EUR, entered by the guide; the code never ships real prices
+ * (they are private business data and live only in the guide's synced data).
+ */
+export interface PriceProfile {
+  kind: 'per-persoon' | 'prive';
+  /** Per person (kind 'per-persoon'). */
+  adult: number;
+  child: number;
+  infant: number;
+  /** Private tour (kind 'prive'): flat fee for up to `privateIncluded` guests, then `privateExtra` each. */
+  privateBase: number;
+  privateIncluded: number;
+  privateExtra: number;
+  /** Direct costs per paying guest (tickets, tastings). */
+  costPerGuest: number;
+  /** Costs per departure that runs (transport, a fee). */
+  fixedCost: number;
+  /** Commission percentage per channel, e.g. { getyourguide: 30 }. */
+  commission: Partial<Record<BookingChannel, number>>;
+  /** Raise the price on commission channels so the net equals the direct price: price ÷ (1 − commission). */
+  grossUp: boolean;
 }
 
 export type DepartureStatus = 'gepland' | 'bevestigd' | 'afgerond' | 'geannuleerd';

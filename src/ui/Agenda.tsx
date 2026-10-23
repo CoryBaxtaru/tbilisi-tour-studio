@@ -2,10 +2,11 @@
 // and the tour products (#/aanbod, #/aanbod/<id>). Everything is entered by the guide; guests never use the app.
 import { useState } from 'preact/hooks';
 import {
-  CHANNELS, createBooking, createDeparture, createProduct, DEPARTURE_STATUS, departureFill, departureMoney, isoDate,
+  CHANNELS, createBooking, createDeparture, createProduct, DEPARTURE_STATUS, departureFill, isoDate,
   monthGrid, RETENTION_MONTHS, type Fill,
 } from '../domain/agenda';
-import type { Booking, BookingChannel, BookingStatus, Departure, DepartureStatus, TourProduct } from '../domain/types';
+import { commissionRate, departureFinance, hasPrices, pricingOf, suggestedPrice } from '../domain/pricing';
+import type { Booking, BookingChannel, BookingStatus, Departure, DepartureStatus, PriceProfile, TourProduct } from '../domain/types';
 import { currentRecord, deleteRecord, saveRecord, useAppState } from '../state/store';
 import { navigate } from './router';
 import { DayGlyph, DayWeather, WeatherChip, WeatherPanel } from './Weather';
@@ -16,6 +17,8 @@ const BOOKING_STATUS: Record<BookingStatus, string> = { geboekt: 'Geboekt', gean
 const UPCOMING = 6;
 const eur = new Intl.NumberFormat('nl-NL', { style: 'currency', currency: 'EUR' });
 const num = (v: string) => Math.max(0, Number(v.replace(',', '.')) || 0);
+/** A number for an input field, with a decimal comma. */
+const dec = (n: number) => String(n).replace('.', ',');
 const longDate = (d: string, opts: Intl.DateTimeFormatOptions = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }) => {
   const [y, m, day] = d.split('-').map(Number);
   return new Date(y, m - 1, day).toLocaleDateString('nl-NL', opts);
@@ -72,7 +75,10 @@ export function Agenda({ month }: { month?: string }) {
           <a href={`#/agenda/${today.slice(0, 7)}`} aria-current={today.startsWith(ym) ? 'date' : undefined}>Vandaag</a>
           <a href={`#/agenda/${shiftMonth(ym, 1)}`} aria-label="Volgende maand">›</a>
         </nav>
-        <a class="btn btn--ghost agenda__products" href="#/aanbod">Touraanbod</a>
+        <span class="agenda__links">
+          <a class="btn btn--ghost" href={`#/geld/${y}`}>Financiën</a>
+          <a class="btn btn--ghost" href="#/aanbod">Touraanbod</a>
+        </span>
       </div>
 
       <div class="agenda__body">
@@ -213,7 +219,7 @@ export function DeparturePage({ id }: { id: string }) {
   const mine = bookings.filter((b) => b.departureId === dep.id && !b.deleted).sort((a, b) => a.createdAt.localeCompare(b.createdAt));
   const f = departureFill(dep, bookings, min);
   const s = fillStatus(dep, f, min);
-  const money = departureMoney(dep.id, bookings);
+  const money = departureFinance(dep, product, bookings);
   const set = (patch: Partial<Departure>) => {
     const cur = currentRecord('departures', dep.id);
     if (cur) void saveRecord('departures', { ...cur, ...patch });
@@ -243,11 +249,14 @@ export function DeparturePage({ id }: { id: string }) {
       {dep.notes && <p class="departure__note">{dep.notes}</p>}
       {dep.status !== 'geannuleerd' && <WeatherPanel date={dep.date} startTime={dep.startTime} durationMin={product?.durationMin ?? 120} today={isoDate(new Date())} />}
 
-      <div class="tiles" aria-label="Geld">
+      <div class="tiles tiles--4" aria-label="Geld">
         <div class="tile"><span class="tile__label">Omzet</span><span class="tile__value">{eur.format(money.gross)}</span></div>
         <div class="tile"><span class="tile__label">Commissie</span><span class="tile__value">{eur.format(money.commission)}</span></div>
-        <div class="tile tile--net"><span class="tile__label">Netto</span><span class="tile__value">{eur.format(money.net)}</span></div>
+        <div class="tile"><span class="tile__label">Kosten</span><span class="tile__value">{eur.format(money.costs)}</span></div>
+        <div class={`tile tile--net ${money.net < 0 ? 'is-negative' : ''}`}><span class="tile__label">Netto</span><span class="tile__value">{eur.format(money.net)}</span></div>
       </div>
+      {money.breakEven !== null && <p class="meta">Kostendekkend vanaf {money.breakEven} betalende {money.breakEven === 1 ? 'volwassene' : 'volwassenen'} (direct tarief).</p>}
+      {product && !hasPrices(pricingOf(product)) && <p class="hint">Nog geen prijzen voor dit touraanbod. Stel ze in bij <a href={`#/aanbod/${product.id}`}>{product.name}</a>, dan vult een nieuwe boeking de prijs zelf in.</p>}
 
       <h2>Gasten <span class="meta">({mine.length} {mine.length === 1 ? 'boeking' : 'boekingen'})</span></h2>
       {mine.length ? (
@@ -255,14 +264,14 @@ export function DeparturePage({ id }: { id: string }) {
           {mine.map((b) => (
             <li key={b.id} class={`booking booking--${b.status}`}>
               {editing === b.id
-                ? <BookingForm initial={b} onDone={() => setEditing(null)} />
+                ? <BookingForm initial={b} product={product} onDone={() => setEditing(null)} />
                 : <BookingRow b={b} onEdit={() => setEditing(b.id)} />}
             </li>
           ))}
         </ul>
       ) : <p class="hint">Nog geen boekingen voor dit vertrek.</p>}
       {editing === 'new'
-        ? <div class="booking"><BookingForm initial={createBooking(dep.id)} onDone={() => setEditing(null)} /></div>
+        ? <div class="booking"><BookingForm initial={createBooking(dep.id)} product={product} onDone={() => setEditing(null)} /></div>
         : <button class="btn btn--primary" onClick={() => setEditing('new')}>Boeking toevoegen</button>}
       <p class="hint">Naam, contact en notities van gasten worden {RETENTION_MONTHS} maanden na de tour automatisch gewist; aantallen en bedragen blijven.</p>
 
@@ -304,10 +313,23 @@ function BookingRow({ b, onEdit }: { b: Booking; onEdit: () => void }) {
   );
 }
 
-function BookingForm({ initial, onDone }: { initial: Booking; onDone: () => void }) {
-  const [b, setB] = useState(initial);
-  const patch = (p: Partial<Booking>) => setB((x) => ({ ...x, ...p }));
+function BookingForm({ initial, product, onDone }: { initial: Booking; product?: TourProduct; onDone: () => void }) {
+  const pr = pricingOf(product);
+  const priced = hasPrices(pr);
   const isNew = !currentRecord('bookings', initial.id);
+  const priceOf = (x: Booking) => { const s = suggestedPrice(pr, x.channel, x); return { priceTotal: s.total, commission: s.commission }; };
+  // A new booking follows the price profile until the guide types a price; an existing one keeps its price.
+  const [auto, setAuto] = useState(isNew && priced && initial.priceTotal === 0);
+  const [b, setB] = useState(() => (auto ? { ...initial, ...priceOf(initial) } : initial));
+  const patch = (p: Partial<Booking>) => setB((x) => { const n = { ...x, ...p }; return auto ? { ...n, ...priceOf(n) } : n; });
+  const suggestion = suggestedPrice(pr, b.channel, b);
+  const differs = suggestion.total !== b.priceTotal || suggestion.commission !== b.commission;
+  function typedPrice(v: string) {
+    setAuto(false);
+    const priceTotal = num(v);
+    const rate = commissionRate(pr, b.channel);
+    setB((x) => ({ ...x, priceTotal, ...(rate > 0 ? { commission: Math.round(priceTotal * rate * 100) / 100 } : {}) }));
+  }
   async function save(e: Event) {
     e.preventDefault();
     await saveRecord('bookings', { ...b, leadName: b.leadName.trim(), contact: b.contact.trim() });
@@ -339,8 +361,8 @@ function BookingForm({ initial, onDone }: { initial: Booking; onDone: () => void
         <label class="narrow">Baby's<input type="number" min={0} value={b.infants} onInput={(e) => patch({ infants: num(e.currentTarget.value) })} /></label>
       </div>
       <div class="row">
-        <label class="narrow">Totaalprijs (€)<input inputMode="decimal" value={String(b.priceTotal)} onChange={(e) => patch({ priceTotal: num(e.currentTarget.value) })} /></label>
-        <label class="narrow">Commissie (€)<input inputMode="decimal" value={String(b.commission)} onChange={(e) => patch({ commission: num(e.currentTarget.value) })} /></label>
+        <label class="narrow">Totaalprijs (€)<input inputMode="decimal" value={dec(b.priceTotal)} onChange={(e) => typedPrice(e.currentTarget.value)} /></label>
+        <label class="narrow">Commissie (€)<input inputMode="decimal" value={dec(b.commission)} onChange={(e) => { setAuto(false); setB((x) => ({ ...x, commission: num(e.currentTarget.value) })); }} /></label>
         <label class="check"><input type="checkbox" checked={b.paid} onChange={(e) => patch({ paid: e.currentTarget.checked })} />Betaald</label>
         <label>Status
           <select value={b.status} onChange={(e) => patch({ status: e.currentTarget.value as BookingStatus })}>
@@ -348,6 +370,13 @@ function BookingForm({ initial, onDone }: { initial: Booking; onDone: () => void
           </select>
         </label>
       </div>
+      {priced ? (
+        <p class="meta booking-form__price">
+          {auto || !differs
+            ? <>Volgens prijsprofiel: {suggestion.how}</>
+            : <>Prijsprofiel: {eur.format(suggestion.total)} ({suggestion.how}) <button type="button" class="btn btn--ghost btn--small" onClick={() => { setAuto(true); setB((x) => ({ ...x, ...priceOf(x) })); }}>Overnemen</button></>}
+        </p>
+      ) : product && <p class="meta booking-form__price">Geen prijzen ingesteld voor dit touraanbod.</p>}
       {!b.anonymizedAt && <label>Notities (bijv. dieetwensen)<textarea rows={2} value={b.notes} onInput={(e) => patch({ notes: e.currentTarget.value })} /></label>}
       <div class="claim__actions">
         <button class="btn btn--primary btn--small" type="submit">{isNew ? 'Boeking opslaan' : 'Opslaan'}</button>
@@ -385,7 +414,7 @@ export function Products() {
               <li key={p.id} class="tour-row">
                 <div class="tour-row__main">
                   <a class="tour-row__title" href={`#/aanbod/${p.id}`}>{p.name}</a>
-                  <span class="meta">{p.durationMin} min · {p.minGuests}–{p.maxGuests} gasten · {upcoming} komende vertrek(ken){p.active ? '' : ' · niet actief'}</span>
+                  <span class="meta">{p.durationMin} min · {p.minGuests}–{p.maxGuests} gasten · {priceSummary(pricingOf(p))} · {upcoming} komende vertrek(ken){p.active ? '' : ' · niet actief'}</span>
                 </div>
               </li>
             );
@@ -436,6 +465,7 @@ export function ProductPage({ id }: { id: string }) {
         <label>Verzamelpunt<textarea rows={2} value={p.meetingPoint} placeholder="Bijv. bij de klokkentoren van het Gabriadze-theater" onInput={(e) => patch({ meetingPoint: e.currentTarget.value })} /></label>
         <label>Inbegrepen<textarea rows={2} value={p.included} onInput={(e) => patch({ included: e.currentTarget.value })} /></label>
         <label>Notities<textarea rows={2} value={p.notes} onInput={(e) => patch({ notes: e.currentTarget.value })} /></label>
+        <PriceFields pricing={pricingOf(p)} onChange={(pricing) => patch({ pricing })} />
         <div class="claim__actions">
           <button class="btn btn--primary" type="submit">Opslaan</button>
           {msg && <span class="status status--ok">{msg}</span>}
@@ -447,5 +477,59 @@ export function ProductPage({ id }: { id: string }) {
           onConfirm={() => void remove()} />
       </details>
     </main>
+  );
+}
+
+function priceSummary(pr: PriceProfile): string {
+  if (!hasPrices(pr)) return 'geen prijzen';
+  return pr.kind === 'prive' ? `privé ${eur.format(pr.privateBase)}` : `${eur.format(pr.adult)} p.p.`;
+}
+
+type MoneyKey = 'adult' | 'child' | 'infant' | 'privateBase' | 'privateExtra' | 'costPerGuest' | 'fixedCost';
+
+/** Price profile on the product page. Amounts are the guide's own; the app ships none. */
+function PriceFields({ pricing: pr, onChange }: { pricing: PriceProfile; onChange: (p: PriceProfile) => void }) {
+  const set = (x: Partial<PriceProfile>) => onChange({ ...pr, ...x });
+  const money = (label: string, key: MoneyKey) => (
+    <label class="narrow">{label}<input inputMode="decimal" value={dec(pr[key])} onChange={(e) => set({ [key]: num(e.currentTarget.value) })} /></label>
+  );
+  const channels = (Object.keys(CHANNELS) as BookingChannel[]).filter((c) => c !== 'direct');
+  const example = { adults: 2, children: 0, infants: 0 };
+  const direct = suggestedPrice(pr, 'direct', example);
+  const withCommission = channels.filter((c) => commissionRate(pr, c) > 0);
+  return (
+    <fieldset class="price-form">
+      <legend>Prijzen en kosten</legend>
+      <div class="seg seg--choice" role="radiogroup" aria-label="Soort prijs">
+        {([['per-persoon', 'Per persoon'], ['prive', 'Privétour']] as const).map(([k, l]) => (
+          <button key={k} type="button" role="radio" aria-checked={pr.kind === k} onClick={() => set({ kind: k })}>{l}</button>
+        ))}
+      </div>
+      {pr.kind === 'per-persoon' ? (
+        <div class="row">{money('Volwassene (€)', 'adult')}{money('Kind (€)', 'child')}{money('Baby (€)', 'infant')}</div>
+      ) : (
+        <div class="row">
+          {money('Vaste prijs (€)', 'privateBase')}
+          <label class="narrow">t/m gasten<input type="number" min={1} value={pr.privateIncluded} onInput={(e) => set({ privateIncluded: Math.max(1, num(e.currentTarget.value)) })} /></label>
+          {money('Per extra gast (€)', 'privateExtra')}
+        </div>
+      )}
+      <div class="row">{money('Kosten per gast (€)', 'costPerGuest')}{money('Kosten per vertrek (€)', 'fixedCost')}</div>
+      <p class="meta">Per gast: tickets, proeverijen. Per vertrek: vaste kosten zoals vervoer.</p>
+      <p class="price-form__sub">Commissie per kanaal</p>
+      <div class="row">
+        {channels.map((c) => (
+          <label key={c} class="narrow">{CHANNELS[c]} (%)<input inputMode="decimal" value={dec(pr.commission[c] ?? 0)}
+            onChange={(e) => set({ commission: { ...pr.commission, [c]: Math.min(95, num(e.currentTarget.value)) } })} /></label>
+        ))}
+      </div>
+      <label class="check"><input type="checkbox" checked={pr.grossUp} onChange={(e) => set({ grossUp: e.currentTarget.checked })} />Prijs op commissiekanalen ophogen, zodat je netto gelijk blijft</label>
+      {hasPrices(pr) && (
+        <p class="meta">
+          Voorbeeld 2 volwassenen: direct {eur.format(direct.total)}
+          {withCommission.map((c) => { const s = suggestedPrice(pr, c, example); return ` · ${CHANNELS[c]} ${eur.format(s.total)} (netto ${eur.format(s.total - s.commission)})`; }).join('')}
+        </p>
+      )}
+    </fieldset>
   );
 }

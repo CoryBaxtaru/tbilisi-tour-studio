@@ -52,17 +52,6 @@ export function departureFill(dep: Departure, bookings: Booking[], minGuests: nu
   return { booked, capacity: dep.capacity, free: Math.max(0, dep.capacity - booked), belowMinimum: booked < minGuests, full: booked >= dep.capacity };
 }
 
-/** Revenue of a departure's active bookings: what guests pay, the channels' commission, and what remains. */
-export function departureMoney(depId: string, bookings: Booking[]): { gross: number; commission: number; net: number } {
-  let gross = 0, commission = 0;
-  for (const b of bookings) {
-    if (b.departureId !== depId || b.deleted || b.status === 'geannuleerd') continue;
-    gross += b.priceTotal;
-    commission += b.commission;
-  }
-  return { gross, commission, net: gross - commission };
-}
-
 // ---- Dates ----
 
 export function isoDate(d: Date): string {

@@ -3,6 +3,7 @@ import { registerSW } from 'virtual:pwa-register';
 import { useAppState } from '../state/store';
 import { GuideMode } from './GuideMode';
 import { Agenda, DeparturePage, ProductPage, Products } from './Agenda';
+import { Finance } from './Finance';
 import { ResearchList, ResearchPage } from './Research';
 import { usePath } from './router';
 import { Settings } from './Settings';
@@ -49,7 +50,7 @@ export function App() {
         <a href="#/" class="brand lit">Tourstudio</a>
         <nav>
           <a href="#/" class={!section ? 'active' : ''}>Tours</a>
-          <a href="#/agenda" class={['agenda', 'vertrek', 'aanbod'].includes(section) ? 'active' : ''}>Agenda</a>
+          <a href="#/agenda" class={['agenda', 'vertrek', 'aanbod', 'geld'].includes(section) ? 'active' : ''}>Agenda</a>
           <a href="#/onderzoek" class={section === 'onderzoek' ? 'active' : ''}>Onderzoek</a>
           <a href="#/instellingen" class={section === 'instellingen' ? 'active' : ''} aria-label="Instellingen">
             <span class="nav-full">Instellingen</span><span class="nav-icon" aria-hidden="true">⚙</span>
@@ -70,6 +71,7 @@ export function App() {
         : section === 'agenda' ? <Agenda month={id} />
         : section === 'vertrek' && id ? <DeparturePage key={id} id={id} />
         : section === 'aanbod' ? (id ? <ProductPage key={id} id={id} /> : <Products />)
+        : section === 'geld' ? <Finance year={id} />
         : section === 'instellingen' ? <Settings />
         : <TourList />}
     </div>
