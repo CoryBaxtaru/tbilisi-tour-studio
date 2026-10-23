@@ -46,7 +46,8 @@ Since the app supports a business, every service must be free for commercial use
 | Service | Commercial use | Notes |
 |---|---|---|
 | GitHub Pages + private data repo | OK for an internal tool | Pages is "not meant for commercial transaction sites"; the hub takes no payments and has no shop. Customer and business data live only in the private data repo and on the two devices. |
-| MET Norway weather API (planned) | Free, including commercial use | CC BY 4.0 / NLOD 2.0; credit "MET Norway". Rules: browsers identify via `Origin`; under 20 requests/s per application; cache until `Expires`; at most 4 decimals in coordinates; simple GET only (no custom headers, no preflight). Tested: `Access-Control-Allow-Origin: *`, about 9 days of forecast for Tbilisi. |
+| MET Norway weather API (in use since step 4) | Free, including commercial use | CC BY 4.0 / NLOD 2.0; credit "MET Norway" (shown under each forecast). Rules: browsers identify via `Origin`; under 20 requests/s per application; cache until `Expires`; at most 4 decimals in coordinates; simple GET only (no custom headers, no preflight). Tested: `Access-Control-Allow-Origin: *`, about 9 days of forecast for Tbilisi (90 steps; `Expires` about 30 min). The app makes **one** request for central Tbilisi (41.6934, 44.8015) for all departures, keeps it in IndexedDB (`meta` key `weather:forecast`), fetches again only after `Expires`, waits 10 min after a failure, and never fetches offline. `src/weather/metno.ts`; `api.met.no` is in the CSP `connect-src`. |
+| NOAA NCEI GHCN-Daily (climate averages) | OK (US government data) | The dataset metadata (C00861) has no commercial restriction, only a citation request: Menne et al. 2012, doi:10.7289/V5D21VHZ. Used at **build time only** (`node scripts/build-climate.mjs` → `src/data/climate-tbilisi.json`); the app never calls NOAA. Station GG000037545 Tbilisi. Its record is complete up to 1992; afterwards precipitation and minimum temperature are mostly missing, so temperatures use 2005–2024 and precipitation the 1961–1990 normal period. Both periods are shown in the app. |
 | OSM raster tiles | Not forbidden, no guarantee | The tile policy warns that access for commercial services "may be withdrawn at any point"; offline use is prohibited (hence the Protomaps extract). The Protomaps layer alone is enough if tiles are ever blocked. |
 | Protomaps extract (ODbL) | OK | Attribution shown. |
 | FOSSGIS routing (OSRM foot) | **Unclear** | The about page says at most 1 request/s, no scraping or heavy use, attribution required; nothing on commercial use, and the full terms page is behind bot protection. Low risk because routes are computed only while planning and then stored. To do: ask FOSSGIS, or check alternatives before the first paid tour. |
@@ -62,6 +63,7 @@ Since the app supports a business, every service must be free for commercial use
 | GPS position, distance to the next stop, arrival suggestions | First visit or install; storing the offline map |
 | **Map of Tbilisi**, once stored via "Kaart offline opslaan" | |
 | Export and import | |
+| Last stored weather forecast, climate averages, sunrise/sunset | A new weather forecast (MET Norway) |
 
 GPS itself needs no data connection. It does need HTTPS, which GitHub Pages provides, and location permission.
 

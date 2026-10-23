@@ -22,6 +22,12 @@ Tbilisi Walking Tour Studio: a personal desktop tour editor and mobile live-guid
     - per-departure revenue, commission and net.
     - Guests' name, contact and notes are erased automatically 6 months after the tour, deterministically so two devices agree.
     - Backups leave bookings out unless ticked.
+    - Live since commit b7ea80f.
+  - Weather (business hub step 4, 2026-10-23):
+    - MET Norway forecast per departure within about 9 days: symbol, temperature range, rain, wind and warnings (heat, rain, thunder, wind, frost, snow);
+    - shown on departure cards, as a glyph in calendar cells, as a line for the selected day, and as a panel on the departure page;
+    - beyond the forecast: monthly climate averages from NOAA GHCN-Daily, bundled at build time;
+    - sunrise and sunset are calculated locally, with a warning when a tour runs into the dark.
     - Tested on a local production build only; not deployed yet.
     - The stop card copies a claim into a talking point; the editor and guide mode flag points whose claim is not verified.
     - Verified on a local production build, then live on GitHub Pages since commit 236470b (2026-10-22).

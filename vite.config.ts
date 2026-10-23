@@ -11,7 +11,7 @@ const CSP = [
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: https://tile.openstreetmap.org",
   "font-src 'self'",
-  "connect-src 'self' https://api.github.com https://routing.openstreetmap.de",
+  "connect-src 'self' https://api.github.com https://routing.openstreetmap.de https://api.met.no",
   "manifest-src 'self'",
   "worker-src 'self'",
   "base-uri 'self'",

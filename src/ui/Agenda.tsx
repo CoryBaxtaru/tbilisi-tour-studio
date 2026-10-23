@@ -8,6 +8,8 @@ import {
 import type { Booking, BookingChannel, BookingStatus, Departure, DepartureStatus, TourProduct } from '../domain/types';
 import { currentRecord, deleteRecord, saveRecord, useAppState } from '../state/store';
 import { navigate } from './router';
+import { DayGlyph, DayWeather, WeatherChip, WeatherPanel } from './Weather';
+import { useForecast } from '../weather/metno';
 
 const WEEKDAYS = ['ma', 'di', 'wo', 'do', 'vr', 'za', 'zo'];
 const BOOKING_STATUS: Record<BookingStatus, string> = { geboekt: 'Geboekt', geannuleerd: 'Geannuleerd', 'no-show': 'No-show' };
@@ -50,6 +52,7 @@ export function Agenda({ month }: { month?: string }) {
   const ym = month && /^\d{4}-\d{2}$/.test(month) ? month : today.slice(0, 7);
   const [y, m] = ym.split('-').map(Number);
   const [picked, setPicked] = useState<string | null>(null);
+  const { forecast } = useForecast();
   const day = picked?.startsWith(ym) ? picked : today.startsWith(ym) ? today : `${ym}-01`;
   const productById = new Map(products.map((p) => [p.id, p]));
   const deps = departures.filter((d) => !d.deleted).sort((a, b) => a.date.localeCompare(b.date) || a.startTime.localeCompare(b.startTime));
@@ -84,6 +87,7 @@ export function Agenda({ month }: { month?: string }) {
                   aria-label={`${longDate(d, { weekday: 'long', day: 'numeric', month: 'long' })}${list.length ? `, ${list.length} vertrek${list.length > 1 ? 'ken' : ''}` : ''}`}
                   class={`cal__day ${inMonth ? '' : 'is-other'} ${d === today ? 'is-today' : ''} ${d === day ? 'is-picked' : ''}`}
                   onClick={() => setPicked(d)}>
+                  <DayGlyph date={d} forecast={forecast} />
                   <span class="cal__num">{Number(d.slice(8))}</span>
                   <span class="cal__dots" aria-hidden="true">
                     {list.slice(0, 3).map((x) => <span key={x.id} class={`dot dot--${status(x).state}`} />)}
@@ -120,7 +124,10 @@ function DepCard({ dep, product, showDate }: { dep: Departure; product?: TourPro
       <a class={`dep-card dep-card--${s.state}`} href={`#/vertrek/${dep.id}`}>
         <span class="dep-card__top">
           <span class="dep-card__when">{showDate ? `${shortDate(dep.date)} · ` : ''}{dep.startTime}</span>
-          <span class={`fill-tag fill-tag--${s.state}`}>{s.label}</span>
+          <span class="dep-card__tags">
+            {dep.status !== 'geannuleerd' && <WeatherChip date={dep.date} startTime={dep.startTime} durationMin={product?.durationMin ?? 120} today={isoDate(new Date())} />}
+            <span class={`fill-tag fill-tag--${s.state}`}>{s.label}</span>
+          </span>
         </span>
         <span class="dep-card__name lit">{productName(product)}</span>
         <FillBar booked={f.booked} capacity={f.capacity} state={s.state} />
@@ -146,6 +153,7 @@ function DayPanel({ date, deps, products }: { date: string; deps: Departure[]; p
   return (
     <section class="day-panel">
       <h2 class="day-panel__date lit">{capitalize(longDate(date))}</h2>
+      <DayWeather date={date} today={isoDate(new Date())} />
       {deps.length
         ? <ul class="dep-list">{deps.map((d) => <DepCard key={d.id} dep={d} product={products.find((p) => p.id === d.productId)} />)}</ul>
         : <p class="hint">Geen vertrekken op deze dag.</p>}
@@ -233,6 +241,7 @@ export function DeparturePage({ id }: { id: string }) {
       </div>
       {s.state === 'low' && <p class="hint hint--warn">Nog {min - f.booked} gast(en) nodig voor het minimum van {min}; dit vertrek gaat nog niet door.</p>}
       {dep.notes && <p class="departure__note">{dep.notes}</p>}
+      {dep.status !== 'geannuleerd' && <WeatherPanel date={dep.date} startTime={dep.startTime} durationMin={product?.durationMin ?? 120} today={isoDate(new Date())} />}
 
       <div class="tiles" aria-label="Geld">
         <div class="tile"><span class="tile__label">Omzet</span><span class="tile__value">{eur.format(money.gross)}</span></div>

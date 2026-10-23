@@ -1,0 +1,156 @@
+{
+  "station": {
+    "id": "GG000037545",
+    "name": "Tbilisi",
+    "lat": 41.68,
+    "lon": 44.95,
+    "elevationM": 448
+  },
+  "periods": {
+    "temp": [
+      2005,
+      2024
+    ],
+    "precip": [
+      1961,
+      1990
+    ]
+  },
+  "source": "NOAA NCEI GHCN-Daily (Menne et al. 2012), doi:10.7289/V5D21VHZ",
+  "sourceUrl": "https://www.ncei.noaa.gov/data/global-historical-climatology-network-daily/access/GG000037545.csv",
+  "retrieved": "2026-10-23",
+  "months": [
+    {
+      "month": 1,
+      "tmax": 7.6,
+      "tavg": 2.9,
+      "precipMm": 19,
+      "wetDays": 4.1,
+      "years": {
+        "temp": 16,
+        "precip": 30
+      }
+    },
+    {
+      "month": 2,
+      "tmax": 9.3,
+      "tavg": 4.6,
+      "precipMm": 25,
+      "wetDays": 4.8,
+      "years": {
+        "temp": 16,
+        "precip": 30
+      }
+    },
+    {
+      "month": 3,
+      "tmax": 13.7,
+      "tavg": 8.4,
+      "precipMm": 29,
+      "wetDays": 5.8,
+      "years": {
+        "temp": 16,
+        "precip": 30
+      }
+    },
+    {
+      "month": 4,
+      "tmax": 19,
+      "tavg": 13.4,
+      "precipMm": 52,
+      "wetDays": 7.9,
+      "years": {
+        "temp": 16,
+        "precip": 30
+      }
+    },
+    {
+      "month": 5,
+      "tmax": 23.9,
+      "tavg": 18.1,
+      "precipMm": 80,
+      "wetDays": 9.8,
+      "years": {
+        "temp": 15,
+        "precip": 30
+      }
+    },
+    {
+      "month": 6,
+      "tmax": 29.5,
+      "tavg": 23.4,
+      "precipMm": 71,
+      "wetDays": 8.5,
+      "years": {
+        "temp": 15,
+        "precip": 30
+      }
+    },
+    {
+      "month": 7,
+      "tmax": 31.9,
+      "tavg": 25.7,
+      "precipMm": 44,
+      "wetDays": 6.1,
+      "years": {
+        "temp": 17,
+        "precip": 30
+      }
+    },
+    {
+      "month": 8,
+      "tmax": 32.6,
+      "tavg": 26,
+      "precipMm": 48,
+      "wetDays": 5.6,
+      "years": {
+        "temp": 17,
+        "precip": 30
+      }
+    },
+    {
+      "month": 9,
+      "tmax": 27.1,
+      "tavg": 21.2,
+      "precipMm": 36,
+      "wetDays": 5.2,
+      "years": {
+        "temp": 18,
+        "precip": 30
+      }
+    },
+    {
+      "month": 10,
+      "tmax": 20.4,
+      "tavg": 15,
+      "precipMm": 38,
+      "wetDays": 5.3,
+      "years": {
+        "temp": 18,
+        "precip": 30
+      }
+    },
+    {
+      "month": 11,
+      "tmax": 13.6,
+      "tavg": 8.6,
+      "precipMm": 31,
+      "wetDays": 4.5,
+      "years": {
+        "temp": 17,
+        "precip": 30
+      }
+    },
+    {
+      "month": 12,
+      "tmax": 8.8,
+      "tavg": 4.5,
+      "precipMm": 20,
+      "wetDays": 4.1,
+      "years": {
+        "temp": 17,
+        "precip": 30
+      }
+    }
+  ]
+}

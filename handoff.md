@@ -21,6 +21,11 @@ Tbilisi Walking Tour Studio — desktop tour design and mobile live guiding for 
     - Onderzoek: verification progress;
     - editor: settings folded.
   - Dark mode: follows the system setting, with a "Weergave" toggle (Systeem / Licht / Donker) under Instellingen. Deployed in `b7ea80f`.
+  - Step 4 (built, **not committed or deployed**): weather per departure.
+    - MET Norway forecast within about 9 days: one cached request for central Tbilisi, refetched after `Expires`.
+    - Beyond the forecast: monthly climate averages from NOAA GHCN-Daily, bundled at build time; temperatures 2005–2024, rain 1961–1990, because the station's recent rain record is missing.
+    - Sunrise/sunset calculated locally.
+    - Shown on cards, calendar cells, the day panel and the departure page. Limits are in `docs/HOSTING.md`.
   - Then step 2: 52 new source-checked claims, so all 58 sites have ≥ 3 (203 total). New stops auto-get 3 starter talking points. Deployed as `f138839`, verified live.
   - The business plan moved from the public code repo to the private data repo, and the public history was rewritten and force-pushed without it (main = `fc2a343`; old commits may stay reachable by ID on GitHub until purged). Local backup branch: `backup-before-plan-rewrite`. Breakdown: `docs/session-breakdowns/session-2026-10-23-01.md`.
 - Previous: 2026-10-22 (session 01)
@@ -39,7 +44,8 @@ Tbilisi Walking Tour Studio — desktop tour design and mobile live guiding for 
 - Wikipedia/Wikidata are never a source for talking points (founder's rule). Concept claims live in `src/data/research-drafts.json` and stay virtual until the guide acts on one. Keep their ids stable.
 
 ## Tests and verification
-- `npm test`: 50 passed. `npm run build` succeeds, with Vite's chunk-size warning (578 kB / 172 kB gzip).
+- `npm test`: 77 passed (2026-10-23, incl. 12 weather tests). Step 4 checked on a local production build with the CSP active (live MET fetch, IndexedDB cache, climate view, 375 px); not on a phone, not offline.
+- Earlier: `npm test`: 50 passed. `npm run build` succeeds, with Vite's chunk-size warning (578 kB / 172 kB gzip).
 - Research panel: tested on a local production build (desktop and 375 px). Live since `236470b`: the update prompt works, the counts are 58/53/5, a site page renders with its sources, and there are no console errors. Not yet tested on a real phone or for claim sync between devices.
 - Live deploy: page, manifest, service worker and precache verified over HTTPS; card deck (commit 119faa9) deployed, the update prompt switched the live site to the new version, and the deck showed 58 cards; commit 9898329 deployed, and the live site shows 12 suggested tours.
 - Browser (production build): main workflow, offline reload, update prompt, import, simulated GPS, live GitHub 401 path.
@@ -54,5 +60,5 @@ Tbilisi Walking Tour Studio — desktop tour design and mobile live guiding for 
 
 ## Next recommended task
 1. Step 3, the design fixes and dark mode are live (`b7ea80f`, checked on GitHub Pages). **Both devices must tap "Vernieuwen"**: an old app refuses the new sync file (schema 2) until updated. Then check that a test booking syncs laptop → phone.
-2. Next build: step 4, weather (MET Norway forecast per departure, then climate averages).
-4. Still open on the founder's side: verify claims under Onderzoek; phone test of the offline map.
+2. Step 4 (weather) is built and tested locally: commit, push and check live once the founder gives the go-ahead. Then step 5 (pricing profiles and finances, private plan).
+3. Still open on the founder's side: verify claims under Onderzoek; phone test of the offline map.

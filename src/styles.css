@@ -515,6 +515,22 @@ fieldset.shared legend { color: var(--balkon); }
 .cal__day.is-today .cal__num { font-weight: 500; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px; }
 .cal__num { font-size: 13px; line-height: 1; }
 .cal__dots { display: flex; gap: 3px; height: 6px; }
+.cal__day { position: relative; }
+.cal__wx { position: absolute; top: 1px; right: 3px; font-size: 10px; line-height: 1; color: var(--ink-2); opacity: 0.8; }
+.cal__wx.is-warn { color: var(--zwavel-inkt); opacity: 1; }
+
+/* Weather (MET Norway forecast / NOAA climate) */
+.dep-card__tags { display: flex; align-items: center; gap: 6px; }
+.wx-chip { font-size: 12px; color: var(--ink-2); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.wx-chip--warn { color: var(--zwavel-inkt); font-weight: 500; }
+.wx-chip--climate { opacity: 0.75; }
+.day-panel__wx { margin: -4px 0 12px; }
+.wx-panel { border: 1px solid var(--line); border-radius: var(--r-lg); background: var(--surface); padding: 12px 16px; margin: 16px 0; }
+.wx-panel p { margin: 2px 0; }
+.wx-panel__main { font-size: 16px; font-weight: 500; }
+.wx-panel__glyph { font-size: 18px; margin-right: 2px; }
+.wx-panel__credit { font-size: 11px; color: var(--ink-2); margin-top: 8px !important; }
+.wx-panel__credit a { color: inherit; }
 .dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--balkon); vertical-align: middle; }
 .dot--low { background: transparent; border: 1.5px solid var(--zwavel); }
 .dot--full { background: var(--balkon); box-shadow: 0 0 0 1.5px rgba(47, 111, 106, 0.35); }
