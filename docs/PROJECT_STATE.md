@@ -34,7 +34,7 @@ Tbilisi Walking Tour Studio: a personal desktop tour editor and mobile live-guid
     - guide mode finds the departure from "Start gidsen", or today's departure of a product that uses the tour;
     - three Dutch messages per booking (confirmation, reminder, review request): editable, then copied or opened in WhatsApp or mail; the forecast only appears when it reaches the tour; Vandaag lists what still needs sending;
     - new optional product fields: map link of the meeting point, what to bring, review link.
-    - Tested on a local production build only; not deployed yet.
+    - Live since commit f915da8.
   - Studie (2026-11-06, `#/studie`):
     - click sites on a map; get a storyline (four orders, straight lines, not a walking route) and a story with opening, passages, bridges and closing;
     - written stories for all 58 sites and 23 threads (`src/data/story-passages.json`), written by Claude from the claims, no AI in the app;
