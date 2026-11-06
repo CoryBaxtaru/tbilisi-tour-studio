@@ -29,7 +29,7 @@ Tbilisi Walking Tour Studio: a personal desktop tour editor and mobile live-guid
     - beyond the forecast: monthly climate averages from NOAA GHCN-Daily, bundled at build time;
     - sunrise and sunset are calculated locally, with a warning when a tour runs into the dark.
     - Live since commit 08f1907.
-  - Rest of the business plan (business hub step 7, 2026-11-07, built and checked locally):
+  - Rest of the business plan (business hub step 7, 2026-11-07, live since commit 7180842):
     - blocked days and overlap warnings when planning, with "Toch plannen" to override, and a "Planning klopt niet" list on Vandaag;
     - product text for GetYourGuide or a website, with what is still missing named instead of invented;
     - practical notes per site (text, source and date required, flagged after a year), read-only in guide mode;
