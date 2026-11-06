@@ -654,3 +654,70 @@ fieldset.shared legend { color: var(--balkon); }
   .topbar nav .nav-full { display: none; }
   .topbar nav .nav-icon { display: inline; font-size: 16px; }
 }
+
+/* Studie: pick sites, see the storyline on the map, read the story */
+.study__body { display: grid; grid-template-columns: minmax(300px, 420px) minmax(0, 1fr); gap: 32px; align-items: start; }
+.study__map { position: relative; height: 340px; border-radius: var(--r-lg); overflow: hidden; border: 1px solid var(--line); margin-bottom: 8px; }
+.study__chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+.chip { font: inherit; font-size: 13px; padding: 5px 10px; min-height: 32px; border: 1px solid var(--line-strong); border-radius: 999px; background: transparent; color: var(--ink); cursor: pointer; }
+.chip:hover { background: var(--hover); }
+.chip[aria-pressed="true"] { background: var(--balkon); border-color: var(--balkon); color: var(--on-balkon); }
+.study__more summary { cursor: pointer; font-size: 13px; color: var(--ink-2); padding: 6px 0; }
+.study__orders { margin: 0 0 8px; }
+.story { max-width: 62ch; }
+.story__thread { font-size: 13px; color: var(--ink-2); margin: 0 0 4px; }
+.story__thread strong { color: var(--ink); font-weight: 500; }
+.story__link { font-family: var(--font-story); font-style: italic; color: var(--ink-2); font-size: 16px; line-height: 1.6; margin: 16px 0; padding-left: 12px; border-left: 2px solid var(--line-strong); }
+.story__stop { margin: 20px 0; }
+.story__stop h2 { font-size: 20px; margin: 0 0 6px; display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.story__num { font-size: 13px; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.story__sources { font-family: var(--font-ui); font-size: 12px; font-weight: 400; color: var(--ink-2); margin-left: auto; }
+.story__text { font-family: var(--font-story); font-size: 17px; line-height: 1.65; margin: 0; }
+.story--marks .say--concept, .story__legend .say--concept { text-decoration: underline dotted var(--zwavel); text-decoration-thickness: 1px; text-underline-offset: 4px; }
+.say--aangepast { text-decoration: underline wavy var(--danger); text-decoration-thickness: 1px; text-underline-offset: 4px; }
+.story__legend { font-size: 12px; color: var(--ink-2); margin: 4px 0 16px; }
+@media (max-width: 860px) {
+  .study__body { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  .study__map { height: 280px; }
+  .study__chips { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 4px; }
+  .chip { flex: none; }
+}
+.story__marks { flex-direction: row; align-items: center; gap: 8px; font-size: 13px; margin: 0 0 8px; }
+
+/* Business hub: today, open payments, general costs, overbooking */
+.overbook { border: 1px solid var(--danger); border-radius: var(--r-md); padding: 8px 12px; font-size: 13px; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; }
+.overbook strong { color: var(--danger); font-weight: 500; }
+.notice { border: 1px solid var(--zwavel); border-radius: var(--r-md); padding: 8px 12px; margin: 10px 0; font-size: 13px; }
+.notice p { margin: 2px 0; }
+.notice--quiet { border-color: var(--line); }
+.notice .check { flex-direction: row; align-items: center; gap: 8px; margin: 4px 0 0; }
+.today__dep { border: 1px solid var(--line); border-radius: var(--r-lg); background: var(--surface); padding: 14px 16px; margin: 0 0 16px; }
+.today__dep h2 { margin: 0 0 2px; font-size: 20px; }
+.today__guests { list-style: none; padding: 0; margin: 8px 0 0; }
+.today__guests li { display: flex; justify-content: space-between; gap: 12px; padding: 8px 0; border-top: 1px solid var(--line); font-size: 14px; }
+.todo-list { list-style: none; padding: 0; margin: 0 0 16px; }
+.todo-list li { padding: 8px 0; border-bottom: 1px solid var(--line); font-size: 14px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.tiles--5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.gel-fields { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: flex-end; }
+.gel-fields .check { flex-direction: row; align-items: center; gap: 8px; }
+.expense-form { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: flex-end; margin: 8px 0 12px; }
+.expense-form label { margin: 0; }
+.expense-form .grow { flex: 1 1 180px; }
+@media (max-width: 620px) { .tiles--5 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) {
+  .topbar nav { flex: 1; min-width: 0; overflow-x: auto; scrollbar-width: none; }
+  .topbar nav a { flex: none; }
+  .sync-pill { flex: none; max-width: 56px; padding: 4px 6px; }
+}
+/* Studie tools */
+.study__tools { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+.study__paste { border: 1px solid var(--line); border-radius: var(--r-lg); padding: 12px 14px; margin: 0 0 16px; }
+.study__paste textarea { width: 100%; font-family: var(--font-ui); font-size: 13px; }
+.study__paste ul { margin: 6px 0; padding-left: 18px; font-size: 13px; }
+.story__questions { margin-top: 8px; font-size: 14px; }
+.story__questions summary { cursor: pointer; color: var(--ink-2); font-size: 13px; padding: 4px 0; }
+.story__questions dt { font-weight: 500; margin-top: 8px; }
+.story__questions dd { margin: 2px 0 0; color: var(--ink-2); }
+.practice__words { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0; }
+.practice__word { font-size: 14px; padding: 3px 9px; border-radius: var(--r-sm); background: var(--hover-strong); }
+.story__saved { font-family: var(--font-ui); font-size: 11px; font-weight: 400; color: var(--balkon); }

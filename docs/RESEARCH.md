@@ -107,6 +107,45 @@ Rules applied:
 ### Starter points (auto-add)
 When a site joins a tour (drag, +, or a suggested tour), the new stop gets its 3 best research claims as talking points: verified claims first, then by kind (feit, anekdote, interpretatie, onzeker), rejected ones never. They are copies with a link to the claim, so the editor and guide mode show "niet geverifieerd" until you confirm the claim. Existing stops are not changed; use "Uit onderzoek" in the stop card for those.
 
+## Story passages (Studie, 2026-11-06)
+`src/data/story-passages.json` holds spoken text for the Studie section, written by Claude. Rules:
+- Only what the claims of that site say. Every sentence lists its claims in `c`; an empty list means connecting text with no facts of its own.
+- Overlevering, interpretation and disagreement between sources stay marked as such in the sentence.
+- `threads` link sites through something the claims really share. Each `ref` lists its claims too, so a rejected claim also removes the link.
+- `year` and `era` are one anchor per site, taken from its claims, for the timeline order and the jump-in-time bridges. They do not sum up the site's whole history.
+- Keep claim ids stable. `story.test.ts` fails when a reference no longer exists; it does not check the wording, so check that by hand.
+
+## Research round trip (Studie, 2026-11-07)
+The Studie section copies a prompt (`buildResearchPrompt`) for any Claude chat and takes the answer back (`parseReply`, `applyReply` in `src/domain/storyExchange.ts`).
+- New facts need a real link. Wikipedia and Wikidata links are refused, as are the facts and sentences resting only on them.
+- Everything new is saved as a concept claim with origin Claude, so it goes through the same check under Onderzoek as the drafts. The app does not open the links; verifying stays with the guide.
+- Language: simple Dutch. The prompt asks for it; `HARD_WORDS` warns about words that slip through, and a test keeps the bundled text free of them.
+
+## Research round for the stories (2026-11-07)
+The founder asked for a real story per site, with facts, anecdotes and myths, from respectable sources in any language, translated into simple Dutch. Wikipedia may be used if its citations are checked. So it served as a map to the sources it cites; a Wikipedia URL is still never stored as a source (a test enforces that).
+
+Result: all 58 sites have a written story with guest questions; 11 of the first 20 were rewritten and extended, 9 were left as they were because nothing better turned up. 52 new claims and 50 new sources: 255 claims and 205 sources in total. Myths and legends are claims of kind "anekdote" and are told as such. 23 threads link the sites (new: Gribojedov, the monk David, Poesjkin, Scudieri, Gudiashvili, Stalin, Saakashvili, 1918).
+
+Best new sources: Poesjkin's own text (1829), Lerner in *Folklore* 16, Kekelia in *Identity Studies*, Daryaee in *e-Sasanika*, the Georgian Encyclopedia of the Georgian Academy of Sciences, *The New York Review of Books*, *The Guardian*, RFE/RL, BBC.
+
+**Weaker or not read in full:** every claim says so in its note where it matters.
+- Read through a search result only, because the page refused the fetch: Encyclopaedia Iranica, Eurasianet. The same holds for short passages from OrthodoxWiki, OrthoChristian (Shushanik), Advantour, Eurasia Travel and georgia.travel (Dry Bridge). Check these before relying on the exact wording.
+- Villari (1906) and Lang (1957) on the oath at Sioni were not opened: Villari's site failed its security certificate and the check was not bypassed. The claim rests on OrthodoxWiki, which cites Villari.
+- Heiligenlevens (Orthodox Church in America, Mystagogy, OrthoChristian) are tradition, not history. They are used only for claims of kind "anekdote".
+
+**Where sources disagree:**
+- **Bank robbery 1907:** 6 dead and 40 wounded (Aspects of History) or 40 dead (English Wikipedia, attributed to archive documents, not seen). Stalin's own role that day is unclear. → "onzeker"
+- **Narikala explosion:** 1827 (claim c3, Kvirkvelia) or 1848 (botanical garden, claim c2). The Georgian Encyclopedia only says "first half of the 19th century". Left as they are; the garden story names no year.
+- **Chakhava:** the older claim calls him minister; several sources say deputy minister. The story says "de baas bij de wegenbouw" and it stays an anecdote.
+- **Dry Bridge market:** after the Soviet collapse (a seller in VICE) or since the 1950s (georgia.travel). → stated in the claim.
+- **Takaishvili's treasure:** TV claims that Stalin saved it were checked by Myth Detector and rejected; left out.
+- **Kashveti:** two versions of the legend (a stone; the unborn child speaks), both told.
+- **Stalin and Gorki in the Metekhi prison:** only in travel guides. → "onzeker", told as "men zegt".
+
+**Dropped:** Poesjkin's bath number (no source for which bath); the origin of "Sachino"; Shushanik's burial as fact; the Vera Cross (source not reachable); "built by German prisoners of war" (no source).
+
+The wording of the sentences was checked by hand against the claims. All of it is still concept until the founder verifies it under Onderzoek.
+
 ## Adding or fixing drafts
 - Edit `src/data/research-drafts.json`. Per site:
   - `sources`: `{ id, title, url, type, language }`. Types are listed in `SOURCE_TYPES` in `src/domain/research.ts`.

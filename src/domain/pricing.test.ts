@@ -1,6 +1,9 @@
 import { describe, expect, it } from 'vitest';
 import { createBooking, createDeparture, createProduct } from './agenda';
-import { bookingsCsv, defaultPricing, departureFinance, directPrice, moneyOverview, pricingOf, suggestedPrice } from './pricing';
+import {
+  bookingAmounts, bookingsCsv, createExpense, defaultPricing, departureFinance, directPrice, expensesCsv, gelToEur, moneyOverview, needsGygClosing, openPayments,
+  overbookedBy, pricingOf, suggestedPrice,
+} from './pricing';
 import type { Booking, PriceProfile } from './types';
 
 // Test amounts only; real prices are private and never in the code.
@@ -87,8 +90,89 @@ describe('moneyOverview and CSV', () => {
     const csv = bookingsCsv(2027, [product], [may, june, other], bookings);
     const lines = csv.replace('﻿', '').trim().split('\r\n');
     expect(lines).toHaveLength(3);
-    expect(lines[1]).toBe('2027-05-01;10:00;Oude stad;gepland;Direct;"A;1";2;0;0;geboekt;nee;20,00;0,00;20,00');
+    expect(lines[1]).toBe('2027-05-01;10:00;Oude stad;gepland;Direct;"A;1";2;0;0;geboekt;nee;20,00;0,00;20,00;0,00;0,00;;');
     expect(csv).not.toContain('Geheim');
     expect(csv).not.toContain('x@y.z');
+  });
+});
+
+describe('refunds and cancellations', () => {
+  const product = { ...createProduct(), pricing: group };
+  const dep = createDeparture(product, '2027-05-01');
+  const book = (p: Partial<Booking>): Booking => ({ ...createBooking(dep.id), ...p });
+
+  it('counts a cancelled booking only for its fee, with commission in proportion', () => {
+    expect(bookingAmounts(book({ priceTotal: 20, commission: 4, status: 'geannuleerd' }))).toEqual({ gross: 0, commission: 0 });
+    expect(bookingAmounts(book({ priceTotal: 20, commission: 4, status: 'geannuleerd', cancelFee: 5 }))).toEqual({ gross: 5, commission: 1 });
+  });
+  it('subtracts a refund from a booking that still counts', () => {
+    expect(bookingAmounts(book({ priceTotal: 20, commission: 4, refund: 8 }))).toEqual({ gross: 12, commission: 4 });
+    expect(departureFinance(dep, { ...product, pricing: { ...group, fixedCost: 0, costPerGuest: 0 } }, [book({ priceTotal: 20, refund: 8 })]).gross).toBe(12);
+  });
+  it('keeps the fee of a cancelled booking in the overview, without its guests', () => {
+    const o = moneyOverview(2027, [product], [dep], [book({ adults: 3, priceTotal: 30, status: 'geannuleerd', cancelFee: 10 })]);
+    expect(o.total).toMatchObject({ gross: 10, guests: 0 });
+    expect(o.byChannel[0]).toMatchObject({ bookings: 1, guests: 0, gross: 10 });
+  });
+});
+
+describe('overbooking and GetYourGuide', () => {
+  const product = { ...createProduct(), maxGuests: 4, pricing: { ...group } };
+  const dep = createDeparture(product, '2027-05-01');
+  const taken = { ...createBooking(dep.id), adults: 3 };
+
+  it('says how many guests too many a booking makes', () => {
+    expect(overbookedBy(dep, [taken], { ...createBooking(dep.id), adults: 1 })).toBe(0);
+    expect(overbookedBy(dep, [taken], { ...createBooking(dep.id), adults: 3 })).toBe(2);
+    expect(overbookedBy(dep, [taken], { ...createBooking(dep.id), adults: 3, status: 'geannuleerd' })).toBe(0);
+    expect(overbookedBy(dep, [taken], { ...taken, adults: 4 })).toBe(0);
+  });
+  it('reminds to close a full departure on GetYourGuide once', () => {
+    const full = [{ ...createBooking(dep.id), adults: 4 }];
+    expect(needsGygClosing(dep, product, [taken], '2027-01-01')).toBe(false);
+    expect(needsGygClosing(dep, product, full, '2027-01-01')).toBe(true);
+    expect(needsGygClosing({ ...dep, closedOnGyg: true }, product, full, '2027-01-01')).toBe(false);
+    expect(needsGygClosing(dep, product, full, '2027-06-01')).toBe(false);
+    expect(needsGygClosing(dep, { ...product, pricing: defaultPricing() }, full, '2027-01-01')).toBe(false);
+  });
+});
+
+describe('open payments', () => {
+  it('lists unpaid bookings that bring in money, oldest first', () => {
+    const product = createProduct('Oude stad');
+    const late = createDeparture(product, '2027-06-01');
+    const early = createDeparture(product, '2027-05-01');
+    const list = openPayments([product], [late, early], [
+      { ...createBooking(late.id), priceTotal: 10 },
+      { ...createBooking(early.id), priceTotal: 20 },
+      { ...createBooking(early.id), priceTotal: 30, paid: true },
+      { ...createBooking(early.id), priceTotal: 40, status: 'geannuleerd' },
+      { ...createBooking(early.id), priceTotal: 50, status: 'geannuleerd', cancelFee: 15 },
+    ]);
+    expect(list.map((p) => p.amount)).toEqual([20, 15, 10]);
+    expect(list[0].productName).toBe('Oude stad');
+  });
+});
+
+describe('general costs and lari', () => {
+  const product = createProduct();
+  const dep = createDeparture(product, '2027-05-01');
+  it('take general costs off the profit, not the net', () => {
+    const cost = { ...createExpense('2027-05-10'), amount: 12, gel: { amount: 36, gelPerEur: 3 } };
+    const next = { ...createExpense('2028-01-01'), amount: 99 };
+    const gone = { ...createExpense('2027-05-11'), amount: 99, deleted: true };
+    const o = moneyOverview(2027, [product], [dep], [{ ...createBooking(dep.id), priceTotal: 50, gel: { amount: 150, gelPerEur: 3 } }], [cost, next, gone]);
+    expect(o.total).toMatchObject({ net: 50, expenses: 12, profit: 38 });
+    expect(o.months[4]).toMatchObject({ expenses: 12, profit: 38 });
+    expect(o.gelIn).toBe(150);
+    expect(o.gelOut).toBe(36);
+  });
+  it('converts lari and refuses a missing rate', () => {
+    expect(gelToEur({ amount: 90, gelPerEur: 3 })).toBe(30);
+    expect(gelToEur({ amount: 90, gelPerEur: 0 })).toBe(0);
+  });
+  it('exports costs as CSV', () => {
+    const csv = expensesCsv(2027, [{ ...createExpense('2027-05-10'), amount: 12.5, description: 'Sim; kaart', category: 'telefoon' }]);
+    expect(csv).toContain('2027-05-10;Telefoon;"Sim; kaart";12,50;;');
   });
 });

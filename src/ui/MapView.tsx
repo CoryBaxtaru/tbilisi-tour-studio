@@ -26,6 +26,8 @@ interface Props {
   stops: MapStop[];
   dots?: MapDot[];
   onDotAdd?: (key: string) => void;
+  /** Clicking a dot acts at once, without the "add to route" popup. */
+  onDotClick?: (key: string) => void;
   /** Pan to this point (e.g. a card the user clicked); key changes re-trigger. */
   focus?: { key: string; position: LatLng; n?: number } | null;
   routes: [number, number][][];
@@ -42,7 +44,7 @@ interface Props {
 // Viewport only (not a place record): the map opens on central Tbilisi when a tour has no stops yet.
 const DEFAULT_VIEW: L.LatLngExpression = [41.6938, 44.8015];
 
-export function MapView({ stops, dots = [], onDotAdd, focus, routes, gaps = [], user, onMapClick, fitKey, dark, attribution }: Props) {
+export function MapView({ stops, dots = [], onDotAdd, onDotClick, focus, routes, gaps = [], user, onMapClick, fitKey, dark, attribution }: Props) {
   const el = useRef<HTMLDivElement>(null);
   const map = useRef<L.Map | null>(null);
   const layer = useRef<L.LayerGroup | null>(null);
@@ -52,6 +54,8 @@ export function MapView({ stops, dots = [], onDotAdd, focus, routes, gaps = [], 
   clickRef.current = onMapClick;
   const dotAddRef = useRef(onDotAdd);
   dotAddRef.current = onDotAdd;
+  const dotClickRef = useRef(onDotClick);
+  dotClickRef.current = onDotClick;
 
   useEffect(() => {
     const m = L.map(el.current!, { zoomControl: true }).setView(DEFAULT_VIEW, 15);
@@ -106,7 +110,8 @@ export function MapView({ stops, dots = [], onDotAdd, focus, routes, gaps = [], 
         radius: 6, color: '#9A4A2E', weight: 1.5, fillColor: '#F7F3EA', fillOpacity: 0.95, bubblingMouseEvents: false,
       }).addTo(g);
       mk.bindTooltip(d.label, { direction: 'top', offset: [0, -6] });
-      if (dotAddRef.current) mk.bindPopup(() => dotPopup(d, () => { dotAddRef.current?.(d.key); mk.closePopup(); }));
+      if (dotClickRef.current) mk.on('click', () => dotClickRef.current?.(d.key));
+      else if (dotAddRef.current) mk.bindPopup(() => dotPopup(d, () => { dotAddRef.current?.(d.key); mk.closePopup(); }));
       dotMarkers.current.set(d.key, mk);
     }
   }, [dots]);

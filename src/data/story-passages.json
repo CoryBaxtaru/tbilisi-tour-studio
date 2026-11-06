@@ -1,0 +1,3882 @@
+{
+  "method": "Gesproken passages per plek, geschreven door Claude uitsluitend op basis van de bronbeweringen in research-drafts.json, in eenvoudig Nederlands. Elke zin noemt de beweringen waarop hij steunt (c); een lege lijst betekent verbindende tekst zonder nieuwe feiten.",
+  "sites": {
+    "vrijheidsplein": {
+      "short": "het Vrijheidsplein",
+      "year": 1829,
+      "era": "de 19e eeuw",
+      "sentences": [
+        {
+          "t": "Hoe heet dit plein eigenlijk? Dat hangt ervan af wanneer je het vraagt.",
+          "c": []
+        },
+        {
+          "t": "In 1829 kreeg het de naam van de Russische veldheer Paskevitsj, graaf van Jerevan, en dat werd later ingekort tot Jerevanplein.",
+          "c": [
+            "c2"
+          ]
+        },
+        {
+          "t": "In 1940 werd het vernoemd naar Lavrenti Beria, na zijn executie in 1953 werd het Leninplein, en sinds 1990 heet het weer Vrijheidsplein.",
+          "c": [
+            "c3"
+          ]
+        },
+        {
+          "t": "Ook wat er midden op stond, ging mee met de tijd: op 21 april 1956 werd hier een standbeeld van Lenin onthuld, en in 1990 werd het weggehaald.",
+          "c": [
+            "c4"
+          ]
+        },
+        {
+          "t": "Maar het beroemdste moment van dit plein duurde maar een paar minuten.",
+          "c": []
+        },
+        {
+          "t": "In juni 1907 reed hier een rijtuig met geld van de staatsbank het plein op. Een groep bolsjewieken gooide bommen en ging ervandoor met het geld. De kranten in Londen, Parijs en New York stonden er vol van.",
+          "c": [
+            "c6"
+          ]
+        },
+        {
+          "t": "Stalin hielp de overval plannen. Wat hij die dag zelf deed, weet niemand zeker: de een zegt dat hij de eerste bom gooide, de ander dat hij op het station wachtte. Ook over het aantal doden zijn de bronnen het niet eens.",
+          "c": [
+            "c7"
+          ]
+        },
+        {
+          "t": "Bijna honderd jaar later was het weer raak: in mei 2005 gooide een man een handgranaat naar de Amerikaanse president George Bush, die op dit plein sprak. Hij stond achter kogelvrij glas, en de granaat kwam op 30 meter afstand terecht.",
+          "c": [
+            "c8"
+          ]
+        },
+        {
+          "t": "En één gebouw zie je niet meer: het theater met karavanserai van koopman Gabriel Tamamsjev, in 1851 geopend als eerste operahuis van de stad en in 1874 afgebrand.",
+          "c": [
+            "c5"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Waarom heet dit het Vrijheidsplein?",
+          "a": "Die naam heeft het sinds 1990. Daarvoor heette het onder meer Leninplein en was het vernoemd naar Beria.",
+          "c": [
+            "c3"
+          ]
+        },
+        {
+          "q": "Waar is het beeld van Lenin gebleven?",
+          "a": "Het stond hier sinds 1956 en werd in 1990 weggehaald. Waar het nu is, staat niet in mijn bronnen.",
+          "c": [
+            "c4"
+          ]
+        }
+      ]
+    },
+    "rustaveli-avenue": {
+      "short": "de Rustavelilaan",
+      "year": 1848,
+      "era": "de 19e eeuw",
+      "sentences": [
+        {
+          "t": "Deze laan begon als iets heel eenvoudigs: \"de weg naar Rusland\".",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "Later heette ze het Golovinprospekt, naar de Russische onderkoning Golovin.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "In 1848 kreeg ze stoepen en een bomenrij, in 1862 waterleiding, en vanaf de jaren 1880 reed hier een paardentram, die in 1905 plaatsmaakte voor een tram.",
+          "c": [
+            "c2"
+          ]
+        },
+        {
+          "t": "Maar de datum die je hier moet onthouden, is 9 april.",
+          "c": []
+        },
+        {
+          "t": "In de vroege ochtend van 9 april 1989 sloeg het Sovjetleger hier zonder waarschuwing een vreedzaam protest uiteen. Zestien mensen, vooral vrouwen, kwamen ter plekke om; in de dagen daarna stierven nog vier gewonden en één persoon kwam om tijdens de avondklok.",
+          "c": [
+            "c3"
+          ]
+        },
+        {
+          "t": "Precies twee jaar later, op 9 april 1991, werd op dezelfde plek het herstel van de Georgische onafhankelijkheid uitgeroepen.",
+          "c": [
+            "c4"
+          ]
+        },
+        {
+          "t": "Een jaar na die eerste 9 april trof de stad nog een ramp. Op 1 juni 1990, Kinderdag, brak de kabel van de kabelbaan die van deze laan de berg op liep. Er stierven 19 mensen, vooral schoolkinderen.",
+          "c": [
+            "c5"
+          ]
+        },
+        {
+          "t": "Pas in oktober 2024 ging die kabelbaan weer open.",
+          "c": [
+            "c6"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Wat gebeurde er op 9 april 1989?",
+          "a": "Het Sovjetleger sloeg hier een vreedzaam protest uiteen. Zestien mensen kwamen ter plekke om, en daarna stierven er nog meer.",
+          "c": [
+            "c3"
+          ]
+        },
+        {
+          "q": "Hoe heette deze laan vroeger?",
+          "a": "Het Golovinprospekt, naar een Russische onderkoning. Daarvoor was het gewoon \"de weg naar Rusland\".",
+          "c": [
+            "c1"
+          ]
+        }
+      ]
+    },
+    "sololaki": {
+      "short": "Sololaki",
+      "year": 1870,
+      "era": "de late 19e eeuw",
+      "sentences": [
+        {
+          "t": "Stel je deze wijk even voor zonder huizen.",
+          "c": []
+        },
+        {
+          "t": "Sololaki was eeuwenlang bedekt met tuinen; op de plattegrond van 1735 staan er tuinen van de koning en de koningin.",
+          "c": [
+            "c2"
+          ]
+        },
+        {
+          "t": "Zelfs de naam zou daarmee te maken hebben: volgens de overlevering komt hij van \"sulu-lah\", de Arabische naam van een waterkanaal voor de tuin van de vesting.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "Pas vanaf de jaren 1840–1850 werd de wijk volgebouwd, en wat je nu ziet, ontstond grotendeels tussen 1870 en 1900: opvallende huizen in een mix van stijlen en in art nouveau.",
+          "c": [
+            "c2",
+            "c3"
+          ]
+        },
+        {
+          "t": "De tuinen zijn niet helemaal weg: in de binnenplaatsen vind je er nog resten van.",
+          "c": [
+            "c3"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Wat betekent Sololaki?",
+          "a": "Volgens de overlevering komt het van \"sulu-lah\", de Arabische naam van een waterkanaal. Het is een overgeleverd verhaal, geen vast feit.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "q": "Hoe oud zijn deze huizen?",
+          "a": "De meeste zijn gebouwd tussen 1870 en 1900.",
+          "c": [
+            "c3"
+          ]
+        }
+      ]
+    },
+    "synagoge": {
+      "short": "de Grote Synagoge",
+      "year": 1904,
+      "era": "het begin van de 20e eeuw",
+      "sentences": [
+        {
+          "t": "Dit gebouw vertelt een verhaal over verhuizen.",
+          "c": []
+        },
+        {
+          "t": "De Grote Synagoge werd gebouwd door Georgische joden uit Akhaltsikhe, die in de 19e eeuw naar Tbilisi waren gekomen. Daarom heet ze ook \"het gebedshuis van de mensen uit Akhaltsikhe\".",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "Het is een groot bakstenen gebouw van 24,5 bij 15 meter en 14 meter hoog.",
+          "c": [
+            "c2"
+          ]
+        },
+        {
+          "t": "Wanneer het precies gebouwd is, daarover verschillen de bronnen: het erfgoedregister noemt 1904, het Center for Jewish Art 1904–1913 en JewishGen 1895–1903.",
+          "c": [
+            "c3"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Wie heeft deze synagoge gebouwd?",
+          "a": "Georgische joden uit Akhaltsikhe, die in de 19e eeuw naar Tbilisi waren gekomen.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "q": "Wanneer is ze gebouwd?",
+          "a": "Dat is niet zeker. De bronnen noemen 1904, 1904–1913 en 1895–1903.",
+          "c": [
+            "c3"
+          ]
+        }
+      ]
+    },
+    "norashen": {
+      "short": "de Norashen-kerk",
+      "year": 1793,
+      "era": "de late 18e eeuw",
+      "sentences": [
+        {
+          "t": "Bij deze kerk is zelfs de leeftijd een discussie.",
+          "c": []
+        },
+        {
+          "t": "Norashen is van oorsprong een Armeense kerk, gewijd aan de Heilige Moeder Gods. De naam betekent \"nieuwe nederzetting\".",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "De Georgische erfgoedlijst zegt dat het gebouw uit 1790–1796 komt, Kvirkvelia zegt 1793, en het Armeense bisdom spreekt van een kerk uit de 15e eeuw. Een oudere kerk met deze naam werd al genoemd door Jean Chardin, die Tbilisi in 1672 bezocht.",
+          "c": [
+            "c2"
+          ]
+        },
+        {
+          "t": "Volgens het Armeense bisdom sloten de bolsjewieken de kerk in de jaren 1930 en gebruikten zij haar als boekenopslag.",
+          "c": [
+            "c3"
+          ]
+        },
+        {
+          "t": "Op 15 februari 1995 wijdden Georgische geestelijken haar in op de Georgische manier, en sindsdien hebben beide kerken er ruzie over.",
+          "c": [
+            "c3"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Is dit een Armeense of een Georgische kerk?",
+          "a": "Van oorsprong Armeens. Sinds 1995 is ze ingewijd op de Georgische manier, en daar hebben beide kerken ruzie over.",
+          "c": [
+            "c1",
+            "c3"
+          ]
+        },
+        {
+          "q": "Wat betekent Norashen?",
+          "a": "\"Nieuwe nederzetting\".",
+          "c": [
+            "c1"
+          ]
+        }
+      ]
+    },
+    "betlemi": {
+      "short": "de Betlemi-kerk",
+      "year": 1740,
+      "era": "de 18e eeuw",
+      "sentences": [
+        {
+          "t": "Kijk omhoog: hoog in Kldisubani, boven de huizen van de oude stad, staat de kerk die al eeuwen Betlemi heet, Bethlehem.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "De overlevering schrijft een eerste kerk op deze plek toe aan Vakhtang Gorgasali.",
+          "c": [
+            "c2"
+          ]
+        },
+        {
+          "t": "In de 15e eeuw stichtten Armeniërs uit Tbilisi hier een klooster. De huidige kerk is uit de 18e eeuw; volgens Kvirkvelia liet vorst Givi Amilakhvari haar in 1740 bouwen.",
+          "c": [
+            "c3"
+          ]
+        },
+        {
+          "t": "In de Sovjettijd zat er een werkplaats in, en in 1994 kwam ze bij de Georgisch-Orthodoxe Kerk.",
+          "c": [
+            "c4"
+          ]
+        },
+        {
+          "t": "Let op de koepel: daar is een beeld van een geketende leeuw te zien.",
+          "c": [
+            "c4"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Waarom heet deze kerk Bethlehem?",
+          "a": "Betlemi betekent Bethlehem. Zo staat de kerk al eeuwen bekend.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "q": "Hoe oud is de kerk?",
+          "a": "De huidige kerk is uit de 18e eeuw. Volgens Kvirkvelia is ze in 1740 gebouwd.",
+          "c": [
+            "c3"
+          ]
+        }
+      ]
+    },
+    "sioni": {
+      "short": "de Sioni-kathedraal",
+      "year": 575,
+      "era": "de 6e eeuw",
+      "sentences": [
+        {
+          "t": "Je staat hier voor een kerk die vernoemd is naar de berg Sion in Jeruzalem.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "De overlevering zegt dat koning Vakhtang Gorgasali hier eind 5e eeuw een kerk bouwde, maar de bouw waarvan we de jaren kennen, begon in de jaren 570–580 en was in de jaren 620 klaar.",
+          "c": [
+            "c2",
+            "c3"
+          ]
+        },
+        {
+          "t": "Daarna is de kathedraal vaak verwoest en herbouwd, onder meer na aanvallen van de Chazaren in 764, van de Arabieren in 853 en van de Perzen in 1522.",
+          "c": [
+            "c4"
+          ]
+        },
+        {
+          "t": "Binnen wordt een van de belangrijkste relikwieën van het land bewaard: het kruis van de heilige Nino, die het christendom naar Georgië bracht. Volgens de traditie kreeg ze dit kruis van wijnranken van de Moeder Gods zelf.",
+          "c": [
+            "c6"
+          ]
+        },
+        {
+          "t": "De lage klokkentoren liet koning Alexander I in 1425 bouwen.",
+          "c": [
+            "c5"
+          ]
+        },
+        {
+          "t": "In april 1802 werden de Georgische edelen hier binnengeroepen, terwijl Russische soldaten de kerk omsingelden. Ze moesten trouw zweren aan de tsaar, en wie weigerde, werd opgepakt. Zo werd het koninkrijk een deel van Rusland.",
+          "c": [
+            "c7"
+          ]
+        },
+        {
+          "t": "Aan de overkant zie je de hoge toren uit 1812, een van de eerste gebouwen in Tbilisi in de klassieke Russische stijl.",
+          "c": [
+            "c5"
+          ]
+        },
+        {
+          "t": "En in 1828 was hier een bruiloft: de Russische schrijver Gribojedov trouwde met Nino Chavchavadze. Hun verhaal eindigt op de berg boven de stad, in het pantheon.",
+          "c": [
+            "c8"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Hoe oud is deze kerk?",
+          "a": "De bouw begon in de jaren 570–580 en was in de jaren 620 klaar. Daarna is ze vaak verwoest en herbouwd.",
+          "c": [
+            "c2",
+            "c4"
+          ]
+        },
+        {
+          "q": "Waarom staan er twee torens?",
+          "a": "De lage is uit 1425, de hoge aan de overkant uit 1812.",
+          "c": [
+            "c5"
+          ]
+        }
+      ]
+    },
+    "anchiskhati": {
+      "short": "de Anchiskhati-basiliek",
+      "year": 550,
+      "era": "de 6e eeuw",
+      "sentences": [
+        {
+          "t": "Dit gebouw is het oudste bewaarde monument van Tbilisi: een kerk met drie lange delen uit de 6e eeuw, gebouwd onder koning Dachi, de opvolger van Vakhtang Gorgasali.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "De naam komt van een icoon van de Verlosser uit het klooster van Anchi in Klarjeti.",
+          "c": [
+            "c2"
+          ]
+        },
+        {
+          "t": "Domenti III, de hoogste kerkleider, kocht die in de 17e eeuw van een koopman in Tbilisi en bracht hem hierheen. De icoon zelf is nu in het Kunstmuseum.",
+          "c": [
+            "c2"
+          ]
+        },
+        {
+          "t": "Dezelfde Domenti liet ook de bakstenen klokkentoren aan de straat bouwen, volgens de tekst erop in 1675.",
+          "c": [
+            "c3"
+          ]
+        },
+        {
+          "t": "En de muren hielden nog een verrassing vast: bij een restauratie in 1958 kwamen onder 19e-eeuwse schilderingen resten van muurschilderingen uit de 17e eeuw tevoorschijn.",
+          "c": [
+            "c4"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Wat is de oudste kerk van de stad?",
+          "a": "Deze: Anchiskhati is het oudste bewaarde monument van Tbilisi, uit de 6e eeuw.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "q": "Waar is de icoon nu?",
+          "a": "In het Kunstmuseum.",
+          "c": [
+            "c2"
+          ]
+        }
+      ]
+    },
+    "gabriadze": {
+      "short": "de toren van Gabriadze",
+      "year": 2010,
+      "era": "2010",
+      "sentences": [
+        {
+          "t": "Deze toren ziet eruit alsof hij elk moment kan omvallen.",
+          "c": [
+            "c3"
+          ]
+        },
+        {
+          "t": "Hij lijkt uit scheef op elkaar gestapelde blokken te bestaan; daarom staan er aan één kant ijzeren steunpalen.",
+          "c": [
+            "c3"
+          ]
+        },
+        {
+          "t": "Oud is hij niet: de toren hoort bij het theater van Rezo Gabriadze en werd in 2010 gebouwd, van oude Georgische bakstenen en natuursteen die van verschillende plekken kwamen.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "Gabriadze begon zijn poppentheater in 1981, met maar 80 plaatsen, en de toren volgt zijn eigen schetsen.",
+          "c": [
+            "c4"
+          ]
+        },
+        {
+          "t": "Blijf even staan als het hele uur nadert: dan komt er een engel naar buiten die de bel luidt.",
+          "c": [
+            "c4"
+          ]
+        },
+        {
+          "t": "En twee keer per dag speelt in de toren zelf een kleine poppenvoorstelling, \"De cirkel van het leven\".",
+          "c": [
+            "c4"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Is deze toren oud?",
+          "a": "Nee, hij is in 2010 gebouwd, wel van oude bakstenen en natuursteen.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "q": "Valt hij echt niet om?",
+          "a": "Hij lijkt alleen maar scheef gestapeld. Aan één kant staan ijzeren steunpalen.",
+          "c": [
+            "c3"
+          ]
+        }
+      ]
+    },
+    "erekle-plein": {
+      "short": "het Erekle II-plein",
+      "year": 1795,
+      "era": "de late 18e eeuw",
+      "sentences": [
+        {
+          "t": "Deze plek draagt de naam van Erekle II, en zijn grootste nederlaag is hier nog altijd te voelen.",
+          "c": []
+        },
+        {
+          "t": "In 1795 eiste de Perzische heerser Agha Mohammad Khan dat Erekle zijn verbond met Rusland opgaf. Erekle rekende op Russische hulp, maar die kwam niet. Hij had zo'n 5.000 man tegen ongeveer 35.000 Perzen.",
+          "c": [
+            "c5"
+          ]
+        },
+        {
+          "t": "Volgens de overlevering wilde de sjah na de eerste gevechten al omkeren, tot een spion hem vertelde hoe zwak de Georgiërs waren.",
+          "c": [
+            "c6"
+          ]
+        },
+        {
+          "t": "Op 11 september viel de stad, en duizenden inwoners werden als slaven weggevoerd naar Perzië.",
+          "c": [
+            "c7"
+          ]
+        },
+        {
+          "t": "De bebouwing rond dit plein ging toen verloren. In de 19e eeuw werd de buurt opnieuw bebouwd, zonder iets van het middeleeuwse stratenplan te bewaren.",
+          "c": [
+            "c2"
+          ]
+        },
+        {
+          "t": "In de grond zit nog meer. Bij opgravingen rond de hofkerk van Sint-Joris, vlakbij aan de Shavtelistraat, kwam een laag met resten van meer dan 7 meter dik tevoorschijn, met vondsten uit de 4e–5e eeuw.",
+          "c": [
+            "c3",
+            "c4"
+          ]
+        },
+        {
+          "t": "Het middeleeuwse Koningsplein lag trouwens net ten zuiden van hier; volgens Kvirkvelia worden de twee vaak door elkaar gehaald.",
+          "c": [
+            "c1"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Is dit het oude Koningsplein?",
+          "a": "Nee, al denken veel mensen van wel. Dat lag tussen Sioni en Anchiskhati, net ten zuiden van hier.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "q": "Waarom zie je hier niets uit de middeleeuwen?",
+          "a": "De bebouwing ging verloren bij de inval van Agha Mohammad Khan, en bij de nieuwbouw in de 19e eeuw bleef het oude stratenplan niet bewaard.",
+          "c": [
+            "c2"
+          ]
+        }
+      ]
+    },
+    "shardeni": {
+      "short": "de Shardenistraat",
+      "year": 1980,
+      "era": "de jaren 1980",
+      "sentences": [
+        {
+          "t": "Deze straat lijkt misschien eeuwenoud, maar haar huidige gezicht kreeg ze bij de stadsvernieuwing van 1980–1990, onder leiding van architect G. Batiashvili.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "De meeste beschermde gebouwen zijn wel ouder: volgens de erfgoedlijst komen ze uit het midden van de 19e eeuw.",
+          "c": [
+            "c3"
+          ]
+        },
+        {
+          "t": "In de 19e en 20e eeuw stonden hier en in de straten eromheen vooral winkelrijen, werkplaatsen, winkeltjes en karavanserais.",
+          "c": [
+            "c2"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Is deze straat echt zo oud als ze lijkt?",
+          "a": "Haar huidige gezicht kreeg ze bij de stadsvernieuwing van 1980–1990. De meeste beschermde gebouwen komen wel uit het midden van de 19e eeuw.",
+          "c": [
+            "c1",
+            "c3"
+          ]
+        },
+        {
+          "q": "Wat was hier vroeger te vinden?",
+          "a": "Vooral winkelrijen, werkplaatsen, winkeltjes en karavanserais.",
+          "c": [
+            "c2"
+          ]
+        }
+      ]
+    },
+    "meidan": {
+      "short": "Meidan",
+      "year": 1672,
+      "era": "de 17e eeuw",
+      "sentences": [
+        {
+          "t": "Dit was een van de oudste pleinen van Tbilisi en het handelshart van de stad.",
+          "c": [
+            "c2"
+          ]
+        },
+        {
+          "t": "Het had dan ook veel namen, onder meer Tsikhis Meidani, \"vestingplein\", en Tatris Meidani, \"Tatarenplein\". De Franse reiziger Jean Chardin noemde het het \"militaire plein\".",
+          "c": [
+            "c1",
+            "c2"
+          ]
+        },
+        {
+          "t": "Midden op het plein stond een grote weegschaal, de kapani.",
+          "c": [
+            "c3"
+          ]
+        },
+        {
+          "t": "Volgens Ioseb Grishashvili mochten alleen stadsbewoners kopen zolang er een vlag op hing; om twaalf uur ging de vlag neer en begon de handel tussen kooplieden en boeren.",
+          "c": [
+            "c3"
+          ]
+        },
+        {
+          "t": "In deze stad zong ook Sayat-Nova, de hofzanger van koning Erekle II. Hij dichtte in drie talen: Armeens, Georgisch en Perzisch. Zijn graf ligt hier vlakbij, bij de Armeense kerk Surb Gevorg.",
+          "c": [
+            "c4"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Wat betekent Meidan?",
+          "a": "Het plein had veel namen, zoals Tsikhis Meidani, \"vestingplein\". Het was het handelshart van de stad.",
+          "c": [
+            "c1",
+            "c2"
+          ]
+        },
+        {
+          "q": "Wat is er met de grote weegschaal gebeurd?",
+          "a": "Dat weet ik niet. De bronnen vertellen alleen dat ze midden op het plein stond.",
+          "c": [
+            "c3"
+          ]
+        }
+      ]
+    },
+    "jumah-moskee": {
+      "short": "de Jumah-moskee",
+      "year": 1723,
+      "era": "de 18e eeuw",
+      "sentences": [
+        {
+          "t": "Het verhaal van deze moskee volgt de mensen die de stad in handen hadden.",
+          "c": []
+        },
+        {
+          "t": "De Ottomanen, die Tbilisi toen bezet hielden, bouwden hier in 1723–1735 een soennitische moskee, en in de jaren 1740 verwoestten de Perzen haar.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "In 1846–1851 werd ze herbouwd naar ontwerp van Giovanni Scudieri. Eind 19e eeuw werd ook dat gebouw afgebroken en kwam de huidige bakstenen moskee, waarin je gotische en islamitische vormen samen ziet.",
+          "c": [
+            "c2"
+          ]
+        },
+        {
+          "t": "Vandaag komen hier zowel soennitische als sjiitische moslims. Volgens reisgidsen hing er tot 1996 een gordijn tussen beide groepen.",
+          "c": [
+            "c3"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Bidden soennieten en sjiieten hier samen?",
+          "a": "De moskee wordt door beide groepen gebruikt. Volgens reisgidsen hing er tot 1996 een gordijn tussen hen.",
+          "c": [
+            "c3"
+          ]
+        },
+        {
+          "q": "Hoe oud is dit gebouw?",
+          "a": "De eerste moskee hier is uit 1723–1735, maar het huidige gebouw kwam er pas eind 19e eeuw.",
+          "c": [
+            "c1",
+            "c2"
+          ]
+        }
+      ]
+    },
+    "abanotubani": {
+      "short": "Abanotubani",
+      "year": 950,
+      "era": "de 10e eeuw",
+      "sentences": [
+        {
+          "t": "Het begint hier met een legende. Koning Vakhtang Gorgasali was aan het jagen toen zijn valk een fazant ving. De vogel viel in een hete bron, genas en vloog weg, en de koning besloot hier een stad te bouwen.",
+          "c": [
+            "c5"
+          ]
+        },
+        {
+          "t": "Het is een mooi verhaal, en het bestaat ook met een hert in plaats van een fazant. Maar de kern klopt: tbili betekent \"warm\".",
+          "c": [
+            "c5"
+          ]
+        },
+        {
+          "t": "Al in de 10e eeuw schreef een Arabische geograaf over deze bronnen: \"hier kookt het water zonder vuur\".",
+          "c": [
+            "c2"
+          ]
+        },
+        {
+          "t": "De badwijk geldt als het oudste deel van Tbilisi; Kvirkvelia noemt haar de \"wieg van Tbilisi\".",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "Je kwam hier niet alleen om je te wassen. Dichter Ioseb Grishashvili beschreef hoe boeren er voor een paar munten overnachtten en vrouwen er hele dagen doorbrachten: het was hun \"club en theater\", en veel huwelijken werden er geregeld.",
+          "c": [
+            "c4"
+          ]
+        },
+        {
+          "t": "Nu mijn favoriete bezoeker: de Russische dichter Poesjkin, in 1829. Hij liep op een dinsdag binnen en stond ineens in een zaal met meer dan vijftig vrouwen, want dinsdag was vrouwendag. De eigenaar vond het geen probleem, en de vrouwen lachten en praatten gewoon door.",
+          "c": [
+            "c6"
+          ]
+        },
+        {
+          "t": "Daarna kreeg hij de behandeling van Gassan, een baddienaar zonder neus, die hem op de warme vloer legde en al zijn ledematen verdraaide. Poesjkin voelde geen pijn, alleen opluchting, en schreef dat hij in Rusland en Turkije nooit iets luxers had gezien.",
+          "c": [
+            "c7"
+          ]
+        },
+        {
+          "t": "Dertig jaar later kwam ook Alexandre Dumas hier langs, de schrijver van De drie musketiers.",
+          "c": [
+            "c8"
+          ]
+        },
+        {
+          "t": "De wijk kreeg ook klappen: op de plattegrond van 1800 staan nog maar vier badhuizen van de zes, waarschijnlijk door de inval van Agha Mohammad Khan. Halverwege de 19e eeuw waren het er weer zes.",
+          "c": [
+            "c3"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Waarom komt hier warm water?",
+          "a": "De bronnen hier zijn al heel lang bekend. In de 10e eeuw schreef een Arabische geograaf: \"hier kookt het water zonder vuur\". Meer over hoe dat werkt, staat niet in mijn bronnen.",
+          "c": [
+            "c2"
+          ]
+        },
+        {
+          "q": "Wat deden mensen hier vroeger?",
+          "a": "Ze kwamen niet alleen om zich te wassen. Boeren overnachtten er en vrouwen brachten er hele dagen door.",
+          "c": [
+            "c4"
+          ]
+        }
+      ]
+    },
+    "chreli-abano": {
+      "short": "het Chreli-badhuis",
+      "year": 1600,
+      "era": "de 17e eeuw",
+      "sentences": [
+        {
+          "t": "Dit badhuis herken je meteen, en daar dankt het zijn naam aan.",
+          "c": []
+        },
+        {
+          "t": "De veelkleurige tegels van het portaal, met minaretachtige torentjes, gaven het de naam Chreli Abano, \"bont bad\".",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "De gevel zit helemaal vol glanzende tegels in blauw, lichtblauw, turkoois en groen, met wat geel en wit, met patronen van planten.",
+          "c": [
+            "c2"
+          ]
+        },
+        {
+          "t": "Die oosterse voorgevel is uit de tweede helft van de 19e eeuw, maar het badhuis zelf komt volgens de erfgoedlijst uit het begin van de 17e eeuw.",
+          "c": [
+            "c1"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Wat betekent Chreli Abano?",
+          "a": "\"Bont bad\", naar de veelkleurige tegels.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "q": "Hoe oud is het badhuis?",
+          "a": "Het komt uit het begin van de 17e eeuw. De voorgevel is uit de tweede helft van de 19e eeuw.",
+          "c": [
+            "c1"
+          ]
+        }
+      ]
+    },
+    "narikala": {
+      "short": "Narikala",
+      "year": 350,
+      "era": "de 4e eeuw",
+      "sentences": [
+        {
+          "t": "Boven de oude stad ligt de vesting die alles heeft gezien wat deze stad overkwam.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "Een oude kroniek schrijft de bouw toe aan een Perzische landvoogd die in 368 naar Kartli kwam.",
+          "c": [
+            "c5"
+          ]
+        },
+        {
+          "t": "In 627 stonden hier de Byzantijnse keizer Heraclius en de Chazaren voor de muren. De verdedigers hielden stand, maar een jaar later viel de vesting alsnog.",
+          "c": [
+            "c5"
+          ]
+        },
+        {
+          "t": "En zo ging het door: David de Bouwer nam haar in 1122 in, Jalal ad-Din in 1226, Timoer Lenk in 1386, de Ottomanen in 1578, en in 1747–48 heroverde Erekle II haar op de Perzen.",
+          "c": [
+            "c6"
+          ]
+        },
+        {
+          "t": "Daarom komt wat je ziet uit verschillende perioden.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "De naam komt waarschijnlijk van \"narin-kala\": narin is een Mongools woord voor \"klein\" of \"jonger\", om de kleine vesting te onderscheiden van de hoofdvesting.",
+          "c": [
+            "c2"
+          ]
+        },
+        {
+          "t": "Geen vijand maakte er zo'n einde aan als de eigen voorraad. Begin 19e eeuw werd de kerk hier als kruitmagazijn gebruikt, en in 1827 ontplofte ze.",
+          "c": [
+            "c3"
+          ]
+        },
+        {
+          "t": "Bij opgravingen in 1966 kwamen resten van een 13e-eeuwse kerk tevoorschijn, en in 1996–1997 is de Sint-Nicolaaskerk op het oude grondplan herbouwd.",
+          "c": [
+            "c3"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Hoe oud is de vesting?",
+          "a": "Het verhaal begint volgens de bronnen in de 4e eeuw, maar wat je ziet, komt uit verschillende perioden.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "q": "Waarom is de kerk zo nieuw?",
+          "a": "De oude kerk ontplofte in 1827 toen ze als kruitmagazijn werd gebruikt. De Sint-Nicolaaskerk is in 1996–1997 herbouwd.",
+          "c": [
+            "c3"
+          ]
+        }
+      ]
+    },
+    "moeder-georgie": {
+      "short": "Kartlis Deda",
+      "year": 1958,
+      "era": "1958",
+      "sentences": [
+        {
+          "t": "Daar staat ze, zo'n 20 meter hoog en van aluminium: Kartlis Deda, de \"Moeder van Kartli\".",
+          "c": [
+            "c1",
+            "c2"
+          ]
+        },
+        {
+          "t": "Het beeld kwam er in 1958, het jaar waarin Tbilisi 1500 jaar bestond, en is gemaakt door beeldhouwer Elguja Amashukeli.",
+          "c": [
+            "c1",
+            "c2"
+          ]
+        },
+        {
+          "t": "Kijk naar haar handen: de ene houdt een schaal wijn voor gasten, de andere een zwaard voor vijanden. Zo wordt het beeld meestal uitgelegd: gastvrijheid en verdediging van de vrijheid.",
+          "c": [
+            "c3"
+          ]
+        },
+        {
+          "t": "Amashukeli noemde zijn beeld zelf \"Hoofdstad\"; de naam \"Moeder van Kartli\" gaven de mensen het later.",
+          "c": [
+            "c4"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Waarom heeft ze een zwaard en een schaal?",
+          "a": "De schaal wijn is voor gasten, het zwaard voor vijanden. Zo wordt het beeld meestal uitgelegd.",
+          "c": [
+            "c3"
+          ]
+        },
+        {
+          "q": "Hoe groot is het beeld?",
+          "a": "Ongeveer 20 meter hoog, en van aluminium.",
+          "c": [
+            "c2"
+          ]
+        }
+      ]
+    },
+    "metekhi": {
+      "short": "de Metekhi-kerk",
+      "year": 1278,
+      "era": "de 13e eeuw",
+      "sentences": [
+        {
+          "t": "Op deze rots, recht tegenover Meidan en Abanotubani, staat de Metekhi-kerk van de Heilige Moeder Gods.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "Volgens de overlevering liet Vakhtang Gorgasali hier al in de 5e eeuw een kerk en vesting bouwen, maar betrouwbaar bewijs daarvoor is er niet.",
+          "c": [
+            "c3"
+          ]
+        },
+        {
+          "t": "Het droevigste verhaal hier is dat van koningin Shushanik. Haar man mishandelde haar en hield haar zes jaar gevangen, omdat ze christen bleef. Volgens de traditie liggen haar relieken in deze kerk.",
+          "c": [
+            "c7"
+          ]
+        },
+        {
+          "t": "Beneden aan de rots gebeurde het ergste. Toen Jalal ad-Din de stad innam, liet hij volgens de kerk de iconen uit Sioni midden op de brug leggen. Wie eroverheen liep, bleef leven. Wie weigerde, verloor zijn hoofd.",
+          "c": [
+            "c6"
+          ]
+        },
+        {
+          "t": "De kerk spreekt van 100.000 martelaren. Dat getal is traditie, geen telling, maar in 2016 kwamen hier nog duizenden gelovigen samen om hen te herdenken.",
+          "c": [
+            "c6"
+          ]
+        },
+        {
+          "t": "De kerk werd verwoest in 1226 en 1235, en koning Demetre II bouwde haar eind 13e eeuw opnieuw op.",
+          "c": [
+            "c2"
+          ]
+        },
+        {
+          "t": "Daarna kreeg ze een opmerkelijk bestaan: in de 17e eeuw diende ze als buskruitopslag, ook voor de Perzen, en koning Erekle II herstelde haar tussen 1748 en 1753.",
+          "c": [
+            "c4"
+          ]
+        },
+        {
+          "t": "In 1819 werd de vesting rond de kerk afgebroken, en met de stenen bouwden de Russen een gevangenis, die in 1938 werd opgeheven.",
+          "c": [
+            "c5"
+          ]
+        },
+        {
+          "t": "Men zegt dat Stalin en de schrijver Gorki hier hebben vastgezeten. Dat lees je in reisgidsen, maar in goede bronnen hebben we het niet teruggevonden.",
+          "c": [
+            "c8"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Hoe oud is deze kerk?",
+          "a": "Koning Demetre II bouwde haar eind 13e eeuw opnieuw op. De verhalen over een kerk uit de 5e eeuw zijn niet bewezen.",
+          "c": [
+            "c2",
+            "c3"
+          ]
+        },
+        {
+          "q": "Wat stond hier nog meer?",
+          "a": "Een vesting, afgebroken in 1819. Met de stenen bouwden de Russen een gevangenis.",
+          "c": [
+            "c5"
+          ]
+        }
+      ]
+    },
+    "vakhtang-gorgasali": {
+      "short": "het beeld van Vakhtang Gorgasali",
+      "year": 1226,
+      "era": "de 13e eeuw",
+      "sentences": [
+        {
+          "t": "Op de rand van de rots rijdt de man uit de legende over de stad uit.",
+          "c": [
+            "c3"
+          ]
+        },
+        {
+          "t": "Koning Vakhtang Gorgasali zou hier een stad hebben gesticht nadat zijn valk een fazant ving die in een hete bron viel. Dat is een legende, maar hij is wel de man die de stad als haar stichter ziet.",
+          "c": [
+            "c6"
+          ]
+        },
+        {
+          "t": "Het ruiterstandbeeld is van beeldhouwer E. Amashukeli, dezelfde die Kartlis Deda maakte.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "Hier, in de engte bij de rots, lag de oudste brug van Tbilisi.",
+          "c": [
+            "c4"
+          ]
+        },
+        {
+          "t": "Volgens Kvirkvelia probeerden vijanden er inwoners tot de islam te dwingen en wierpen ze weigeraars in de rivier: de Khwarazmiërs in 1226 en de Perzen in 1522.",
+          "c": [
+            "c4"
+          ]
+        },
+        {
+          "t": "De huidige betonnen brug opende in 1951. Daarvoor werd een kleurrijke oude buurt gesloopt, met karavanserais, herbergen voor kooplieden, en de Shah Abbas-moskee met haar gekleurde aardewerk.",
+          "c": [
+            "c5"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Wie was Vakhtang Gorgasali?",
+          "a": "Een koning om wie veel overleveringen draaien, zoals die over de kerk en vesting op deze rots. Bewijs daarvoor ontbreekt.",
+          "c": [
+            "c2"
+          ]
+        },
+        {
+          "q": "Wie heeft dit beeld gemaakt?",
+          "a": "Beeldhouwer Amashukeli, dezelfde die Kartlis Deda maakte.",
+          "c": [
+            "c1"
+          ]
+        }
+      ]
+    },
+    "vredesbrug": {
+      "short": "de Vredesbrug",
+      "year": 2010,
+      "era": "2010",
+      "sentences": [
+        {
+          "t": "Dit is een heel ander soort bouwwerk: een brug voor voetgangers over de Mtkvari, met een dak van staal en glas.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "Ze is ontworpen door de Italiaanse architect Michele De Lucchi, de verlichting is van de Franse lichtontwerper Philippe Martinaud.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "De brug werd op 6 mei 2010 officieel geopend; het stadsbestuur liet haar bouwen om Tbilisi op de architectuurkaart te zetten.",
+          "c": [
+            "c2"
+          ]
+        },
+        {
+          "t": "Niet iedereen was blij. Oppositiepolitici en architecten vonden dat de brug de oude stad overheerste, en critici zagen haar als prestigeproject van president Saakashvili.",
+          "c": [
+            "c5"
+          ]
+        },
+        {
+          "t": "De inwoners hadden er snel een eigen naam voor: de \"Always Ultra\", naar het merk maandverband. Kijk maar naar de vorm van het dak.",
+          "c": [
+            "c4"
+          ]
+        },
+        {
+          "t": "Over de precieze maten verschillen de bronnen: Archibase noemt een dak van 150 meter, bouwer Cimolai een brug van 160 meter met een dak van 115 meter.",
+          "c": [
+            "c3"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Wie heeft deze brug ontworpen?",
+          "a": "De Italiaanse architect Michele De Lucchi. De verlichting is van de Fransman Philippe Martinaud.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "q": "Waarom is hij gebouwd?",
+          "a": "Het stadsbestuur wilde Tbilisi op de architectuurkaart zetten. Hij opende op 6 mei 2010.",
+          "c": [
+            "c2"
+          ]
+        }
+      ]
+    },
+    "ateshgah": {
+      "short": "de vuurtempel Ateshgah",
+      "year": 550,
+      "era": "de 6e eeuw",
+      "sentences": [
+        {
+          "t": "Tussen de huizen van de oude stad staat iets wat je hier niet zou verwachten.",
+          "c": []
+        },
+        {
+          "t": "Dit is Ateshgah: het Perzische woord voor vuurtempel. Hier bad men niet tot Christus, maar voor het heilige vuur.",
+          "c": [
+            "c1",
+            "c2"
+          ]
+        },
+        {
+          "t": "Het is een van de oudste gebouwen van Tbilisi. De erfgoedlijst houdt het op de 6e–7e eeuw, de tijd dat de Perzen hier veel macht hadden.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "Een historicus noemt dit zelfs de noordelijkste vuurtempel van dit geloof ter wereld.",
+          "c": [
+            "c5"
+          ]
+        },
+        {
+          "t": "De plek bleef bij de tijd meegaan: volgens historicus Platon Ioseliani bouwden de Ottomanen hier in de jaren 1720 een moskee.",
+          "c": [
+            "c3"
+          ]
+        },
+        {
+          "t": "In 2007 is de tempel gerestaureerd, onder meer met Noorse steun, en sinds 2017 is het een monument van nationaal belang.",
+          "c": [
+            "c4"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Wat is een vuurtempel?",
+          "a": "Een gebouw voor de aanhangers van het oude Perzische geloof, het zoroastrisme, met het heilige vuur in het midden.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "q": "Hoe oud is hij?",
+          "a": "De erfgoedlijst zegt 6e–7e eeuw.",
+          "c": [
+            "c1"
+          ]
+        }
+      ]
+    },
+    "oud-parlement": {
+      "short": "het oude parlement",
+      "year": 1938,
+      "era": "de jaren 1930",
+      "sentences": [
+        {
+          "t": "Dit gebouw ligt op iets wat niemand meer ziet.",
+          "c": []
+        },
+        {
+          "t": "Hier stond de grote Russische militaire kathedraal uit 1865–1866, gebouwd om de verovering van de Kaukasus te vieren. Na de komst van de Sovjets werd hij afgebroken.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "Vanaf 1938 verrees op die plek het Regeringsgebouw, dat pas in 1965 af was.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "En onder de fundamenten liggen de graven van de cadetten die sneuvelden toen de Sovjets Georgië innamen.",
+          "c": [
+            "c2"
+          ]
+        },
+        {
+          "t": "Kijk naar de gevel: goudkleurige steen uit Bolnisi, met motieven uit de Georgische middeleeuwen.",
+          "c": [
+            "c3"
+          ]
+        },
+        {
+          "t": "Op deze plek vergaderde de Opperste Sovjet van Georgië, en voor dit gebouw sloeg het Sovjetleger op 9 april 1989 de vreedzame betoging uiteen.",
+          "c": [
+            "c4"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Wie heeft dit gebouwd?",
+          "a": "De architecten V. Kokorin en G. Lezhava; aan het latere deel werkte ook V. Nasaridze mee.",
+          "c": [
+            "c3"
+          ]
+        },
+        {
+          "q": "Wat stond hier eerst?",
+          "a": "Een Russische militaire kathedraal uit 1865–1866.",
+          "c": [
+            "c1"
+          ]
+        }
+      ]
+    },
+    "paleis-onderkoning": {
+      "short": "het paleis van de onderkoning",
+      "year": 1802,
+      "era": "de 19e eeuw",
+      "sentences": [
+        {
+          "t": "Vanaf 1802 woonde hier de man die de Kaukasus namens de tsaar bestuurde.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "Het gebouw werd een paar keer vervangen. Zijn huidige vorm kreeg het in 1865–1869 van architect Otto Jacob Simonson.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "Maar het mooiste moment kwam toen de tsaar weg was. Op 26 mei 1918 kwam hier de Georgische Nationale Raad bijeen, en werd de onafhankelijkheid van Georgië uitgeroepen.",
+          "c": [
+            "c2"
+          ]
+        },
+        {
+          "t": "Twee dagen later deden Azerbeidzjan en Armenië hetzelfde, in hetzelfde gebouw. Drie landen geboren in één paleis.",
+          "c": [
+            "c2"
+          ]
+        },
+        {
+          "t": "Toen kwamen de Sovjets. In 1937 nam Lavrenti Beria het initiatief om het paleis aan de kinderen te geven, en op 2 mei 1941 ging het open als Pionierspaleis.",
+          "c": [
+            "c3"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Wat is dit gebouw nu?",
+          "a": "Sinds 1941 een paleis voor kinderen en jongeren.",
+          "c": [
+            "c3"
+          ]
+        },
+        {
+          "q": "Waarom is 26 mei belangrijk?",
+          "a": "Op 26 mei 1918 werd hier de onafhankelijkheid van Georgië uitgeroepen.",
+          "c": [
+            "c2"
+          ]
+        }
+      ]
+    },
+    "rustaveli-theater": {
+      "short": "het Rustaveli-theater",
+      "year": 1901,
+      "era": "het begin van de 20e eeuw",
+      "sentences": [
+        {
+          "t": "Van buiten is dit een chic theater uit 1901, gebouwd voor de Artistieke Vereniging, met een gevel die nog helemaal klopt.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "Maar het echte verhaal zit onder de grond.",
+          "c": [
+            "c2"
+          ]
+        },
+        {
+          "t": "Rond 1919 zat Tbilisi vol kunstenaars. In dat jaar opende in deze kelder café Kimerioni, versierd door Sergei Sudeikin samen met de Georgiërs Lado Gudiashvili en David Kakabadze.",
+          "c": [
+            "c5"
+          ]
+        },
+        {
+          "t": "In 1922 was het voorbij: het café ging dicht en de muren werden overgeschilderd. Pas bij een latere restauratie bleek dat de meeste schilderingen er nog onder zaten.",
+          "c": [
+            "c5"
+          ]
+        },
+        {
+          "t": "Eén daarvan is \"Stepko's taverne\" van Gudiashvili.",
+          "c": [
+            "c2"
+          ]
+        },
+        {
+          "t": "Ook de zaal zelf is de moeite waard, met ovale loges in rococostijl. Bij een brand in 1949 ging het houten plafond van de concertzaal verloren.",
+          "c": [
+            "c3",
+            "c4"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Kun je de schilderingen zien?",
+          "a": "Ze zitten in de kelder van het theater. Of je er nu binnen mag, kan ik niet uit de bronnen zeggen.",
+          "c": [
+            "c2"
+          ]
+        },
+        {
+          "q": "Hoe oud is het gebouw?",
+          "a": "Uit 1901.",
+          "c": [
+            "c1"
+          ]
+        }
+      ]
+    },
+    "opera": {
+      "short": "de opera",
+      "year": 1851,
+      "era": "de 19e eeuw",
+      "sentences": [
+        {
+          "t": "Dit gebouw lijkt op een paleis uit duizend-en-één-nacht, met donkere en lichte banden en hoefijzerbogen.",
+          "c": [
+            "c3"
+          ]
+        },
+        {
+          "t": "Waarom bouwt een Russisch bestuurder een opera in Tbilisi? Volgens The Guardian als een soort omkoping: het moest de onrustige Georgiërs voor Rusland winnen.",
+          "c": [
+            "c5"
+          ]
+        },
+        {
+          "t": "De opera begon in 1851 in het theater op het huidige Vrijheidsplein. De kroonluchter van 1.218 kilo kwam uit Parijs en werd op buffelkarren vervoerd.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "Dat theater brandde in 1874 af. Dit gebouw kwam er in 1880–1896, en voor het grondplan stond het theater van Richard Wagner in Bayreuth model.",
+          "c": [
+            "c2"
+          ]
+        },
+        {
+          "t": "Twee keer is de opera afgebrand, maar het meest spreekt 1991 tot de verbeelding. In de burgeroorlog schoten mannen met wapens de voordeur kapot om binnen te schuilen. De directeur bleef binnen om het gebouw te beschermen.",
+          "c": [
+            "c6"
+          ]
+        },
+        {
+          "t": "Daarna waren de kaartjes zo goedkoop dat er geen geld was voor salarissen, en binnen was het ijskoud. Toch wilde iedereen komen. Opera was in die jaren eerder een noodzaak dan een luxe, zei hij later.",
+          "c": [
+            "c7"
+          ]
+        },
+        {
+          "t": "In januari 2016 ging het weer open, na een verbouwing van zes jaar, betaald door oud-premier Bidzina Ivanishvili.",
+          "c": [
+            "c4"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Waarom ziet het er zo oosters uit?",
+          "a": "Het is gebouwd in Moorse stijl, met hoefijzerbogen en torentjes.",
+          "c": [
+            "c3"
+          ]
+        },
+        {
+          "q": "Wie betaalde de laatste verbouwing?",
+          "a": "Oud-premier Bidzina Ivanishvili.",
+          "c": [
+            "c4"
+          ]
+        }
+      ]
+    },
+    "kashveti": {
+      "short": "de Kashveti-kerk",
+      "year": 1904,
+      "era": "het begin van de 20e eeuw",
+      "sentences": [
+        {
+          "t": "De naam van deze kerk is het begin van een sterk verhaal.",
+          "c": []
+        },
+        {
+          "t": "In de 6e eeuw leefde de monnik David op de berg hierboven. Volgens de legende werd een vrouw omgekocht om te zeggen dat ze zijn kind droeg.",
+          "c": [
+            "c4"
+          ]
+        },
+        {
+          "t": "David zei: als ik schuldig ben, krijg je een kind, en als ik onschuldig ben, een steen. Ze baarde een steen. Kashveti betekent dan ook \"een steen baren\".",
+          "c": [
+            "c4"
+          ]
+        },
+        {
+          "t": "Er is ook een somberder versie: het kind noemde vanuit de buik de echte vader, en de omstanders stenigden de vrouw, ook al smeekte David hen te stoppen. Daarna vertrok hij voorgoed naar de woestijn van Gareja.",
+          "c": [
+            "c5"
+          ]
+        },
+        {
+          "t": "De kerk die je nu ziet, is veel jonger: gebouwd in 1904–1910 door architect Leopold Bilfeldt, als kopie van de middeleeuwse kerk van Samtavisi.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "Binnen zie je iets bijzonders uit de Sovjettijd: in 1946–1948 beschilderde Lado Gudiashvili het altaar, in opdracht van de patriarch.",
+          "c": [
+            "c3"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Is die legende waar?",
+          "a": "Het is een legende, en er bestaan meerdere versies. Dat David met deze plek wordt verbonden, is wel oud.",
+          "c": [
+            "c4",
+            "c2"
+          ]
+        },
+        {
+          "q": "Hoe oud is de kerk?",
+          "a": "Het huidige gebouw is van 1904–1910.",
+          "c": [
+            "c1"
+          ]
+        }
+      ]
+    },
+    "nationaal-museum": {
+      "short": "het Nationaal Museum",
+      "year": 1852,
+      "era": "de 19e eeuw",
+      "sentences": [
+        {
+          "t": "Dit museum vertelt in één gebouw hoe oud dit land is, en hoe recent de pijn.",
+          "c": []
+        },
+        {
+          "t": "De wortels gaan terug tot het museum uit 1852 van de Kaukasische afdeling van de Russische Geografische Vereniging.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "Beneden staan de vondsten uit Dmanisi: schedels van mensen die zo'n 1,8 miljoen jaar geleden leefden, in Georgië dus, buiten Afrika.",
+          "c": [
+            "c4"
+          ]
+        },
+        {
+          "t": "In de schatkamer ligt goud uit Colchis, de streek uit het Griekse verhaal van het Gulden Vlies.",
+          "c": [
+            "c4"
+          ]
+        },
+        {
+          "t": "En helemaal bovenin zit het Museum van de Sovjetbezetting. Van de oudste mensen naar de Sovjettijd, in een paar trappen.",
+          "c": [
+            "c4"
+          ]
+        },
+        {
+          "t": "Let op de gevel: drie grote bogen, met versieringen uit de middeleeuwse Georgische bouwkunst.",
+          "c": [
+            "c3"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Wat moet ik zeker zien?",
+          "a": "De schedels uit Dmanisi, het goud uit Colchis en het Museum van de Sovjetbezetting.",
+          "c": [
+            "c4"
+          ]
+        },
+        {
+          "q": "Hoe oud is het museum?",
+          "a": "De wortels gaan terug tot 1852. De huidige organisatie is van eind 2004.",
+          "c": [
+            "c1"
+          ]
+        }
+      ]
+    },
+    "museum-schone-kunsten": {
+      "short": "het Kunstmuseum",
+      "year": 1840,
+      "era": "de 19e eeuw",
+      "sentences": [
+        {
+          "t": "Dit gebouw begon als hotel. Koopman Iakob Zubalashvili liet het neerzetten, en in 1840 kocht de kerk het voor een priesterseminarie.",
+          "c": [
+            "c2"
+          ]
+        },
+        {
+          "t": "Wie zat daar in de banken? Een arme jongen uit Gori, die in 1894 kwam studeren voor priester: Joseb Djugashvili, later bekend als Stalin. In 1899 was hij weg, en koos hij voor de revolutie.",
+          "c": [
+            "c4"
+          ]
+        },
+        {
+          "t": "Sinds 1950 hangt hier kunst.",
+          "c": [
+            "c3"
+          ]
+        },
+        {
+          "t": "En daar hoort een avontuur bij. Toen de Sovjets in 1921 kwamen, nam de regering op de vlucht de nationale schatten mee naar Frankrijk.",
+          "c": [
+            "c5"
+          ]
+        },
+        {
+          "t": "Geleerde Ekvtime Takaishvili ging met de kisten mee en waakte erover. In 1945 kwamen alle 39 kisten met schatten terug naar Georgië.",
+          "c": [
+            "c5"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Heeft Stalin hier echt gezeten?",
+          "a": "Hij studeerde vanaf 1894 aan het seminarie. Dat het in dit gebouw was, staat in reisgidsen.",
+          "c": [
+            "c4"
+          ]
+        },
+        {
+          "q": "Hoe kwamen de schatten terug?",
+          "a": "In 1945 keerden alle 39 kisten terug uit Frankrijk.",
+          "c": [
+            "c5"
+          ]
+        }
+      ]
+    },
+    "staatsuniversiteit": {
+      "short": "de Staatsuniversiteit",
+      "year": 1918,
+      "era": "1918",
+      "sentences": [
+        {
+          "t": "Dit gebouw werd neergezet met een list.",
+          "c": []
+        },
+        {
+          "t": "Het was bedoeld als universiteit, maar de Georgiërs kregen van de Russen geen toestemming voor een hogeschool. Dus heette het een particulier gymnasium van de adel.",
+          "c": [
+            "c2"
+          ]
+        },
+        {
+          "t": "Het werd gebouwd in 1900–1906, met zuilen en een brede trap die wel erg groot lijken voor een middelbare school.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "In 1906 was het het enige gebouw aan die kant, en het wachtte twaalf jaar.",
+          "c": [
+            "c2"
+          ]
+        },
+        {
+          "t": "Op 26 januari 1918 was het zover: hier opende de eerste nationale universiteit van de Kaukasus, met Ivane Javakhishvili als grondlegger. Sinds 1989 draagt ze zijn naam.",
+          "c": [
+            "c3"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Wanneer is de universiteit opgericht?",
+          "a": "Op 26 januari 1918, of 8 februari volgens de huidige kalender.",
+          "c": [
+            "c3"
+          ]
+        },
+        {
+          "q": "Naar wie heet ze?",
+          "a": "Naar Ivane Javakhishvili, de grondlegger.",
+          "c": [
+            "c3"
+          ]
+        }
+      ]
+    },
+    "sameba": {
+      "short": "de Sameba-kathedraal",
+      "year": 1995,
+      "era": "de jaren 1990",
+      "sentences": [
+        {
+          "t": "Je ziet haar overal in de stad: de Sameba, de belangrijkste orthodoxe kerk van Georgië.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "Ze werd gebouwd in 1995–2004, in de jaren dat het land net uit de chaos kwam, naar ontwerp van Archil Mindiashvili.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "De aanleiding: 1500 jaar zelfstandige Georgische kerk en 2000 jaar christendom. De eerste dienst was in 2002, toen er nog gebouwd werd.",
+          "c": [
+            "c2"
+          ]
+        },
+        {
+          "t": "Maar er is ook een pijnlijke kant. De heuvel was oorspronkelijk een Armeense begraafplaats, Khojivank, met graven van Armeense schrijvers.",
+          "c": [
+            "c3"
+          ]
+        },
+        {
+          "t": "Volgens de Armeense organisatie AGBU is de woning van de patriarch over graven heen gebouwd. Dat is hun verhaal, en het laat zien hoe gevoelig het hier ligt.",
+          "c": [
+            "c3"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Hoe oud is de Sameba?",
+          "a": "Gebouwd in 1995–2004.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "q": "Stond hier iets anders?",
+          "a": "De heuvel was een Armeense begraafplaats, Khojivank.",
+          "c": [
+            "c3"
+          ]
+        }
+      ]
+    },
+    "darejan-paleis": {
+      "short": "het paleis van koningin Darejan",
+      "year": 1776,
+      "era": "de 18e eeuw",
+      "sentences": [
+        {
+          "t": "Kijk omhoog naar dat ronde houten balkon dat over de stad hangt. Dat is Sachino, en je ziet het uit grote delen van Tbilisi.",
+          "c": [
+            "c2"
+          ]
+        },
+        {
+          "t": "In 1776 liet koningin Darejan, de vrouw van koning Erekle II, hier een paleis bouwen, op de resten van een oude vesting.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "Het balkon rust op een bastion van de oude stadsmuur, met een eigen hofkerk erbij.",
+          "c": [
+            "c1",
+            "c2"
+          ]
+        },
+        {
+          "t": "Haar verhaal eindigt niet goed. Na de komst van de Russen werd ze verbannen naar Sint-Petersburg, en haar paleis ging naar de kerk.",
+          "c": [
+            "c3"
+          ]
+        },
+        {
+          "t": "Er kwamen een seminarie en scholen, en vanaf 1824 draagt de kerk de naam van de Gedaanteverandering.",
+          "c": [
+            "c3"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Wie was Darejan?",
+          "a": "De vrouw van koning Erekle II.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "q": "Wat gebeurde er met de koningin?",
+          "a": "Ze werd verbannen naar Sint-Petersburg.",
+          "c": [
+            "c3"
+          ]
+        }
+      ]
+    },
+    "stalin-drukkerij": {
+      "short": "de geheime drukkerij",
+      "year": 1903,
+      "era": "het begin van de 20e eeuw",
+      "sentences": [
+        {
+          "t": "Dit lijkt een gewoon houten huisje. Precies dat was de bedoeling.",
+          "c": []
+        },
+        {
+          "t": "Onder dit huis zat van 1903 tot 1906 een illegale drukkerij. Je kwam er via een put: 17 meter naar beneden, door een tunnel, naar een tweede put en dan door een kleine gang.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "De drukpers, een Duitse machine uit 1893, ging in stukken door die put. Boven woonden twee vrouwen en liepen kippen op het erf, en een verborgen bel waarschuwde de drukkers.",
+          "c": [
+            "c4"
+          ]
+        },
+        {
+          "t": "Hier kwamen duizenden pamfletten en kranten vandaan, in vier talen.",
+          "c": [
+            "c5"
+          ]
+        },
+        {
+          "t": "Op 15 april 1906 kreeg de politie een tip en was het voorbij. De gendarmes staken alles in brand.",
+          "c": [
+            "c5",
+            "c2"
+          ]
+        },
+        {
+          "t": "Is dit nu de drukkerij van Stalin? Biograaf Montefiore en de gidsen zeggen van wel, de erfgoedlijst noemt zijn naam niet. De gidsen hier zijn vaak trouwe aanhangers van hem, dat hoor je ook.",
+          "c": [
+            "c6",
+            "c3"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Waarom heet dit de drukkerij van Stalin?",
+          "a": "Hij wordt er vaak mee verbonden, maar de erfgoedlijst noemt zijn naam niet.",
+          "c": [
+            "c6",
+            "c3"
+          ]
+        },
+        {
+          "q": "Hoe diep is het?",
+          "a": "De put gaat 17 meter naar beneden.",
+          "c": [
+            "c1"
+          ]
+        }
+      ]
+    },
+    "schrijvershuis": {
+      "short": "het Schrijvershuis",
+      "year": 1905,
+      "era": "het begin van de 20e eeuw",
+      "sentences": [
+        {
+          "t": "Dit huis begon als een feest. Cognacmaker David Sarajishvili liet het in 1903–1905 bouwen, in art nouveau, met een terras vol mozaïek van Villeroy & Boch.",
+          "c": [
+            "c1",
+            "c2"
+          ]
+        },
+        {
+          "t": "Na 1921 kwam het in handen van de Schrijversbond. Een van de bekendste dichters daar was Paolo Iashvili, van de groep de Blauwe Hoorns.",
+          "c": [
+            "c3",
+            "c4"
+          ]
+        },
+        {
+          "t": "Toen kwam 22 juli 1937, midden in de Grote Terreur.",
+          "c": [
+            "c4"
+          ]
+        },
+        {
+          "t": "Beneden vergaderde de Schrijversbond over het royement van dichter Paolo Iashvili. Boven schoot hij zich dood met een jachtgeweer. Daarna werd zijn gezicht uit een groepsfoto gekrast.",
+          "c": [
+            "c6"
+          ]
+        },
+        {
+          "t": "Zijn vriend Titsian Tabidze werd gemarteld en doodgeschoten omdat hij hem niet wilde aanwijzen als buitenlands agent. De familie hoorde pas bijna twintig jaar later dat hij dood was.",
+          "c": [
+            "c7"
+          ]
+        },
+        {
+          "t": "De Russische dichter Boris Pasternak, hun vriend en vertaler, schreef dat het nieuws hem bij de keel greep.",
+          "c": [
+            "c7"
+          ]
+        },
+        {
+          "t": "In totaal werden 140 Georgische schrijvers doodgeschoten of weggevoerd. In twee kamers van dit huis zit nu een museum voor hen.",
+          "c": [
+            "c8"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Wie waren de Blauwe Hoorns?",
+          "a": "Een groep dichters uit het begin van de 20e eeuw. Iashvili was een van de leiders.",
+          "c": [
+            "c4"
+          ]
+        },
+        {
+          "q": "Kan ik het museum bezoeken?",
+          "a": "Het zit in twee kamers van dit huis. Openingstijden staan niet in mijn bronnen.",
+          "c": [
+            "c8"
+          ]
+        }
+      ]
+    },
+    "pantheon-mtatsminda": {
+      "short": "het pantheon op Mtatsminda",
+      "year": 1829,
+      "era": "de 19e eeuw",
+      "sentences": [
+        {
+          "t": "Halverwege de heilige berg begint het met een liefdesverhaal.",
+          "c": []
+        },
+        {
+          "t": "In 1828 trouwde de Russische schrijver en diplomaat Aleksandr Gribojedov met de Georgische Nino Chavchavadze. Hij werd gezant in Perzië, en kort daarop doodde een woedende menigte hem in Teheran.",
+          "c": [
+            "c4"
+          ]
+        },
+        {
+          "t": "Ze liet op zijn graf een beeld zetten van een rouwende vrouw, en deze woorden: \"Je talent en je daden blijven voor altijd in de Russische herinnering, maar waarom overleefde mijn liefde jou?\"",
+          "c": [
+            "c4",
+            "c5"
+          ]
+        },
+        {
+          "t": "Ze ligt nu naast hem, in de grot achter de stenen boog.",
+          "c": [
+            "c3"
+          ]
+        },
+        {
+          "t": "Later werd dit de plek voor de grote namen van Georgië. Voor het graf van Ilia Chavchavadze wilde beeldhouwer Nikoladze zelfs zijn werk bij Rodin in Parijs opgeven.",
+          "c": [
+            "c6"
+          ]
+        },
+        {
+          "t": "Toen de Sovjets het pantheon in 1929 openden, wijdden ze het niet aan Chavchavadze, maar aan Gribojedov: de Rus, als gebaar van vriendschap. En in 1934 werden \"onbelangrijke\" graven weggehaald.",
+          "c": [
+            "c2",
+            "c6"
+          ]
+        },
+        {
+          "t": "Wie hier ligt, zegt dus ook iets over wie op dat moment de macht had.",
+          "c": [
+            "c3"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Waarom ligt hier een Rus?",
+          "a": "Gribojedov trouwde met een Georgische en werd hier begraven. Het pantheon werd in 1929 aan hem gewijd.",
+          "c": [
+            "c4",
+            "c2"
+          ]
+        },
+        {
+          "q": "Wat staat er op zijn graf?",
+          "a": "\"Je talent en je daden blijven voor altijd in de Russische herinnering, maar waarom overleefde mijn liefde jou?\"",
+          "c": [
+            "c4"
+          ]
+        }
+      ]
+    },
+    "kabelspoor": {
+      "short": "de kabelspoorweg",
+      "year": 1905,
+      "era": "het begin van de 20e eeuw",
+      "sentences": [
+        {
+          "t": "Stel je voor: het is 1905 en je mag voor het eerst met een trein tegen de berg op.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "De kabelspoorweg naar Mtatsminda ging op 27 maart 1905 open. Volgens de erfgoedlijst was het de eerste in het Russische Rijk: 501 meter lang, met een helling van 28 tot 33 graden.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "De krant Iveria deed verslag: een rit duurt zes minuten, er kunnen 50 mensen in een wagon, en heen en terug kost 20 kopeken.",
+          "c": [
+            "c2"
+          ]
+        },
+        {
+          "t": "Het witte station bovenaan, op 727 meter hoogte, is uit 1936–1938, met een bar en een restaurant.",
+          "c": [
+            "c3"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Hoe steil is het?",
+          "a": "Tussen de 28 en 33 graden.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "q": "Hoe oud is de lijn?",
+          "a": "Hij ging open op 27 maart 1905.",
+          "c": [
+            "c1"
+          ]
+        }
+      ]
+    },
+    "mtatsminda-park": {
+      "short": "het park op Mtatsminda",
+      "year": 1905,
+      "era": "het begin van de 20e eeuw",
+      "sentences": [
+        {
+          "t": "Mtatsminda betekent \"heilige berg\".",
+          "c": [
+            "c3"
+          ]
+        },
+        {
+          "t": "Volgens het verhaal woonde de monnik David hier in een grot, bij een bron waar gelovigen nu nog komen om te genezen.",
+          "c": [
+            "c5"
+          ]
+        },
+        {
+          "t": "Eeuwen later kwam er iets heel anders: al in 1905 stonden hier een eerste draaimolen en een paar kraampjes. Van heilig naar pretpark, in één berg.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "Het echte park kwam er in 1930. In 1935 tekende architect Ginzburg hier een groot complex met een monument voor Rustaveli, maar dat is er nooit gekomen.",
+          "c": [
+            "c1",
+            "c4"
+          ]
+        },
+        {
+          "t": "Die grote mast die je overal ziet, is de tv-mast: 210 meter hoog, sinds 1956.",
+          "c": [
+            "c2"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Waarom heet de berg heilig?",
+          "a": "Volgens Vakhushti Bagrationi verwijst de naam naar de heilige berg Athos.",
+          "c": [
+            "c3"
+          ]
+        },
+        {
+          "q": "Hoe hoog zijn we hier?",
+          "a": "Het park ligt op 727 meter.",
+          "c": [
+            "c1"
+          ]
+        }
+      ]
+    },
+    "droge-brug": {
+      "short": "de Droge Brug",
+      "year": 1851,
+      "era": "de 19e eeuw",
+      "sentences": [
+        {
+          "t": "Waarom heet een brug droog? Omdat het water weg is.",
+          "c": [
+            "c2"
+          ]
+        },
+        {
+          "t": "Midden 19e eeuw bouwde Giovanni Scudieri deze boog over een zijarm van de Mtkvari. In 1938 werd die zijarm drooggelegd, en verdween het eiland erachter.",
+          "c": [
+            "c1",
+            "c2"
+          ]
+        },
+        {
+          "t": "Scudieri zelf maakte dat niet mee: hij kwam in 1851 om het leven bij de bouw van een kerk.",
+          "c": [
+            "c3"
+          ]
+        },
+        {
+          "t": "Tegenwoordig komen mensen hier voor de vlooienmarkt, met oude medailles, bontmutsen en gasmaskers.",
+          "c": [
+            "c4"
+          ]
+        },
+        {
+          "t": "Een verkoper vertelt hoe dat begon: na het einde van de Sovjet-Unie verkochten professoren en artsen hier hun spullen, omdat ze geld nodig hadden om het land te verlaten. Wat je hier koopt, was dus vaak ooit van zo iemand.",
+          "c": [
+            "c4"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Sinds wanneer is hier de markt?",
+          "a": "Daar zijn de bronnen het niet over eens: de jaren 1990 of al de jaren 1950.",
+          "c": [
+            "c4"
+          ]
+        },
+        {
+          "q": "Waar is de rivier gebleven?",
+          "a": "De zijarm is in 1938 drooggelegd.",
+          "c": [
+            "c2"
+          ]
+        }
+      ]
+    },
+    "marjanishvili-theater": {
+      "short": "het Marjanishvili-theater",
+      "year": 1907,
+      "era": "het begin van de 20e eeuw",
+      "sentences": [
+        {
+          "t": "Dit gebouw was eerst voor gewone mensen bedoeld.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "In 1907 kwam het er als \"Volkshuis\", met het geld van Konstantine Zubalashvili en zijn erfgenamen.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "Het theater draagt de naam van Kote Marjanishvili, een jongen uit Kvareli die in 1897 naar Rusland trok en daar acteur en regisseur werd.",
+          "c": [
+            "c4"
+          ]
+        },
+        {
+          "t": "Hij richtte in Kutaisi een eigen gezelschap op, dat in 1930 naar dit gebouw verhuisde. Sinds zijn dood in 1933 draagt het theater zijn naam.",
+          "c": [
+            "c2"
+          ]
+        },
+        {
+          "t": "Ga als het kan even binnen: in de jaren 1930 beschilderde Lado Gudiashvili hier de muren van de foyer.",
+          "c": [
+            "c3"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Wie was Marjanishvili?",
+          "a": "Een Georgische regisseur (1872–1933) die jaren in Rusland werkte.",
+          "c": [
+            "c4"
+          ]
+        },
+        {
+          "q": "Wat was dit gebouw eerst?",
+          "a": "Een Volkshuis, uit 1907.",
+          "c": [
+            "c1"
+          ]
+        }
+      ]
+    },
+    "circus": {
+      "short": "het circus",
+      "year": 1940,
+      "era": "de Sovjettijd",
+      "sentences": [
+        {
+          "t": "Dit lijkt wel een tempel, maar het is een circus.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "Het ronde gebouw is uit 1940, met acht witte zuilen met vergulde kapitelen. De trap ernaartoe is zo groot dat de erfgoedlijst hem bijna een eigen bouwwerk noemt.",
+          "c": [
+            "c1",
+            "c2"
+          ]
+        },
+        {
+          "t": "Met 2.000 plaatsen hoorde het bij de grootste circussen van de Sovjet-Unie.",
+          "c": [
+            "c3"
+          ]
+        },
+        {
+          "t": "In de jaren 1990 raakte het in verval. In 2003 kocht zakenman Badri Patarkatsishvili het, en in 2007 ging het dicht nadat hij protesten tegen president Saakashvili had gesteund. Zelfs een circus ontkomt hier niet aan de politiek.",
+          "c": [
+            "c3"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Hoeveel mensen passen erin?",
+          "a": "2.000.",
+          "c": [
+            "c3"
+          ]
+        },
+        {
+          "q": "Hoe oud is het?",
+          "a": "Het gebouw is uit 1940.",
+          "c": [
+            "c1"
+          ]
+        }
+      ]
+    },
+    "vake-park": {
+      "short": "het Vakepark",
+      "year": 1946,
+      "era": "de Sovjettijd",
+      "sentences": [
+        {
+          "t": "Vake betekent gewoon \"vlakte\", zoals een oud woordenboek het uitlegt.",
+          "c": [
+            "c2"
+          ]
+        },
+        {
+          "t": "Lange tijd was dit dan ook buiten de stad: pas in 1907 hoorde het bij Tbilisi, en pas in de Sovjettijd werd het volgebouwd.",
+          "c": [
+            "c3"
+          ]
+        },
+        {
+          "t": "Het park werd in 1946 aangelegd als Overwinningspark, vlak na de oorlog. Het gold als een van de belangrijkste groenprojecten van de stad.",
+          "c": [
+            "c1"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Waarom Overwinningspark?",
+          "a": "Het werd in 1946 onder die naam aangelegd.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "q": "Wat betekent Vake?",
+          "a": "\"Vlakte\".",
+          "c": [
+            "c2"
+          ]
+        }
+      ]
+    },
+    "lurji-monastiri": {
+      "short": "het Blauwe Klooster",
+      "year": 1180,
+      "era": "de 12e eeuw",
+      "sentences": [
+        {
+          "t": "Dit kerkje is al van alles geweest.",
+          "c": [
+            "c3"
+          ]
+        },
+        {
+          "t": "Het is gebouwd in de jaren 1180 door Basili, een oud-aartsbisschop, als grafkerk voor zichzelf en zijn broer. Dat staat in de tekst boven de zuidpoort.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "De naam Blauw Klooster komt van de koepel, die met blauwe tegels was bedekt.",
+          "c": [
+            "c2"
+          ]
+        },
+        {
+          "t": "In de 16e eeuw verwoestten de Perzen het klooster. Begin 19e eeuw was het een kruitmagazijn, in de jaren 1950 een zagerij, en daarna een museum voor de geschiedenis van de geneeskunde.",
+          "c": [
+            "c3"
+          ]
+        },
+        {
+          "t": "Sinds de jaren 1990 is het weer een kerk. De koepel die je nu ziet, is veel jonger dan de rest.",
+          "c": [
+            "c3",
+            "c4"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Waarom heet het blauw?",
+          "a": "Om de blauwe tegels op de koepel.",
+          "c": [
+            "c2"
+          ]
+        },
+        {
+          "q": "Hoe oud is het?",
+          "a": "Uit de jaren 1180.",
+          "c": [
+            "c1"
+          ]
+        }
+      ]
+    },
+    "dezerter-bazaar": {
+      "short": "de Dezerter-bazaar",
+      "year": 1921,
+      "era": "de jaren 1920",
+      "sentences": [
+        {
+          "t": "Wie koopt er nou op een markt die \"Deserteur\" heet?",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "Het verhaal gaat dat de naam komt van soldaten die begin jaren 1920 het Rode Leger verlieten en hier hun uniformen en wapens verkochten.",
+          "c": [
+            "c2"
+          ]
+        },
+        {
+          "t": "Of het zo gegaan is, weten we niet zeker. De naam bleef in elk geval hangen.",
+          "c": [
+            "c2"
+          ]
+        },
+        {
+          "t": "De markt groeide uit een kleine rommelmarkt bij het centraal station, en dat zie je nog steeds: het is hier druk, luid en echt.",
+          "c": [
+            "c3"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Is het verhaal over de deserteurs waar?",
+          "a": "Het is het gangbare verhaal, maar de bewijzen zijn zwak.",
+          "c": [
+            "c2"
+          ]
+        },
+        {
+          "q": "Hoe is de markt ontstaan?",
+          "a": "Uit een kleine rommelmarkt bij het station.",
+          "c": [
+            "c3"
+          ]
+        }
+      ]
+    },
+    "presidentieel-paleis": {
+      "short": "het presidentieel paleis",
+      "year": 2004,
+      "era": "deze eeuw",
+      "sentences": [
+        {
+          "t": "Die glazen bol op de heuvel is geen planetarium, maar een presidentieel paleis.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "President Mikheil Saakashvili liet het bouwen van 2004 tot 2009, naar ontwerp van Michele De Lucchi, dezelfde architect als de Vredesbrug.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "De koepel is in Duitsland gemaakt van gebogen glas. Niet iedereen vond het mooi: hij wordt vaak een ei genoemd, en critici vonden dat hij de skyline bedierf.",
+          "c": [
+            "c2",
+            "c5"
+          ]
+        },
+        {
+          "t": "Sinds 2019 wordt het vooral gebruikt voor plechtigheden en recepties.",
+          "c": [
+            "c4"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Woont de president hier?",
+          "a": "Sinds 2019 wordt het vooral gebruikt voor plechtigheden.",
+          "c": [
+            "c4"
+          ]
+        },
+        {
+          "q": "Wie bouwde het?",
+          "a": "Saakashvili liet het bouwen; De Lucchi ontwierp het.",
+          "c": [
+            "c1"
+          ]
+        }
+      ]
+    },
+    "bank-of-georgia": {
+      "short": "de Bank of Georgia",
+      "year": 1975,
+      "era": "de jaren 1970",
+      "sentences": [
+        {
+          "t": "Dit is misschien het vreemdste kantoor van de Kaukasus: blokken beton die door de lucht lijken te zweven, op een steile helling.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "Het werd in 1975 afgebouwd als ministerie van Wegenbouw.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "En nu komt het mooie. Architect George Chakhava was volgens het verhaal zelf ook de baas bij de wegenbouw. Hij was dus zijn eigen opdrachtgever, en kon de plek zelf kiezen.",
+          "c": [
+            "c2"
+          ]
+        },
+        {
+          "t": "In 2007, het jaar waarin hij overleed, werd zijn gebouw een nationaal monument.",
+          "c": [
+            "c3"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Was dit altijd een bank?",
+          "a": "Nee, het is gebouwd als ministerie van Wegenbouw.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "q": "Waarom ziet het er zo uit?",
+          "a": "Het is een raster van in elkaar grijpende betonblokken op een steile helling.",
+          "c": [
+            "c1"
+          ]
+        }
+      ]
+    },
+    "botanische-tuin": {
+      "short": "de Botanische Tuin",
+      "year": 1735,
+      "era": "de 18e eeuw",
+      "sentences": [
+        {
+          "t": "Achter de vesting ligt een dal waar de stad ineens stil wordt.",
+          "c": [
+            "c4"
+          ]
+        },
+        {
+          "t": "Al op de plattegrond van 1735 staat hier een ommuurde \"vestingtuin\". In 1845 kreeg hij pas de naam botanisch.",
+          "c": [
+            "c1",
+            "c2"
+          ]
+        },
+        {
+          "t": "Ook hier was de explosie op Narikala te voelen: de tuin raakte beschadigd door de ontploffing van het kruitmagazijn.",
+          "c": [
+            "c2"
+          ]
+        },
+        {
+          "t": "Het ging er niet altijd netjes aan toe. Rond 1856 werden hier volgens een tijdgenoot zulke wilde feesten gehouden dat kostbare planten sneuvelden.",
+          "c": [
+            "c3"
+          ]
+        },
+        {
+          "t": "Let op de slanke brug boven de waterval: uit 1914, een van de eerste betonnen bouwwerken van Georgië. De oude boogbrug staat al op de plattegrond van 1735.",
+          "c": [
+            "c5",
+            "c6"
+          ]
+        },
+        {
+          "t": "Al in de jaren 1860 bedacht een ingenieur een tunnel door de berg, als kortste weg vanuit de stad. Er werd gegraven, maar de tunnel kwam pas in de Sovjettijd klaar.",
+          "c": [
+            "c8"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Hoe groot is de tuin?",
+          "a": "Volgens de erfgoedlijst 97 hectare.",
+          "c": [
+            "c4"
+          ]
+        },
+        {
+          "q": "Hoe oud is de tuin?",
+          "a": "Hij staat al op de plattegrond van 1735.",
+          "c": [
+            "c1"
+          ]
+        }
+      ]
+    },
+    "rike-park": {
+      "short": "het Rikepark",
+      "year": 1973,
+      "era": "de jaren 1970",
+      "sentences": [
+        {
+          "t": "Dit lijkt een nieuwe plek, maar hier stond een hele wijk.",
+          "c": [
+            "c2"
+          ]
+        },
+        {
+          "t": "Rike was de oever van de leerbewerkers, smeden en vertinners, met winkeltjes en werkplaatsen. Bij hoogwater liep de wijk onder, soms met doden.",
+          "c": [
+            "c2"
+          ]
+        },
+        {
+          "t": "In 1973 werd de wijk gesloopt. Alleen de naam bleef.",
+          "c": [
+            "c3"
+          ]
+        },
+        {
+          "t": "Kijk ook naar die twee enorme buizen: een concertzaal en een tentoonstellingsruimte uit de tijd van president Saakashvili. Ze bleven lange tijd onafgemaakt.",
+          "c": [
+            "c4"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Wat zijn die grote buizen?",
+          "a": "Een concertzaal en tentoonstellingsruimte die volgens Arquitectura Viva niet zijn afgemaakt.",
+          "c": [
+            "c4"
+          ]
+        },
+        {
+          "q": "Wat stond hier vroeger?",
+          "a": "De volkswijk Rike, tot 1973.",
+          "c": [
+            "c3"
+          ]
+        }
+      ]
+    },
+    "aghmashenebeli": {
+      "short": "de Aghmashenebeli-laan",
+      "year": 1818,
+      "era": "de 19e eeuw",
+      "sentences": [
+        {
+          "t": "Deze laan is begonnen als een Duits dorp.",
+          "c": [
+            "c4"
+          ]
+        },
+        {
+          "t": "Protestanten uit Württemberg, op zoek naar godsdienstvrijheid, kwamen rond 1818 naar Georgië en stichtten hier Neu-Tiflis, een dorp van ambachtslieden. In 1824 ging het op in de stad.",
+          "c": [
+            "c4"
+          ]
+        },
+        {
+          "t": "Poesjkin ging er in 1829 eten. Zijn oordeel: onaangenaam bier, en veel te veel betaald voor een slecht diner. De eerste slechte recensie van deze straat.",
+          "c": [
+            "c5"
+          ]
+        },
+        {
+          "t": "De laan heette eerst naar de Russische onderkoning Michail, later naar de communist Plechanov.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "Rond 2011 begon de stad een grote opknapbeurt, met 70 huizen in de eerste fase. Daarom zie je nu zoveel mooie gevels.",
+          "c": [
+            "c3"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Waarom waren hier Duitsers?",
+          "a": "Protestanten uit Württemberg zochten godsdienstvrijheid en mochten zich in het Russische Rijk vestigen.",
+          "c": [
+            "c4"
+          ]
+        },
+        {
+          "q": "Hoe heette de laan eerst?",
+          "a": "Het Michailprospekt, later de Plechanovstraat.",
+          "c": [
+            "c1"
+          ]
+        }
+      ]
+    },
+    "etnografisch-museum": {
+      "short": "het Openluchtmuseum",
+      "year": 1966,
+      "era": "de jaren 1960",
+      "sentences": [
+        {
+          "t": "Hier loop je in een uur door heel Georgië.",
+          "c": [
+            "c3"
+          ]
+        },
+        {
+          "t": "Etnograaf Giorgi Chitaia richtte dit museum op 27 april 1966 op.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "Op 52 hectare staan huizen uit het hele land, van Kartli en Samegrelo tot Svaneti en Khevsureti, met meer dan 8.000 voorwerpen.",
+          "c": [
+            "c2",
+            "c3"
+          ]
+        },
+        {
+          "t": "Er staat zelfs een basiliek uit de 5e–6e eeuw, en een verzameling grafstenen met reliëfs.",
+          "c": [
+            "c3"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Hoe groot is het?",
+          "a": "52 hectare.",
+          "c": [
+            "c2"
+          ]
+        },
+        {
+          "q": "Wie begon het?",
+          "a": "Etnograaf Giorgi Chitaia, in 1966.",
+          "c": [
+            "c1"
+          ]
+        }
+      ]
+    },
+    "schildpaddenmeer": {
+      "short": "het Schildpaddenmeer",
+      "year": 1960,
+      "era": "de 20e eeuw",
+      "sentences": [
+        {
+          "t": "Vlak boven de stad ligt dit kleine meer: 180 meter lang en 50 meter breed, op bijna 700 meter hoogte.",
+          "c": [
+            "c2"
+          ]
+        },
+        {
+          "t": "Volgens de toeristische dienst is het door ondergrondse stromen ontstaan.",
+          "c": [
+            "c2"
+          ]
+        },
+        {
+          "t": "Het is de plek om even uit de hitte te komen: rondom loopt een pad van ongeveer een kilometer, je kunt er waterfietsen, en in het seizoen zijn er concerten.",
+          "c": [
+            "c3"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Hoe kom je hier?",
+          "a": "Er gaan een weg en een kabelbaan naartoe.",
+          "c": [
+            "c3"
+          ]
+        },
+        {
+          "q": "Hoe groot is het meer?",
+          "a": "180 meter lang en 50 meter breed.",
+          "c": [
+            "c2"
+          ]
+        }
+      ]
+    },
+    "kroniek-georgie": {
+      "short": "de Kroniek van Georgië",
+      "year": 1980,
+      "era": "de jaren 1980",
+      "sentences": [
+        {
+          "t": "Dit lijkt wel een Georgisch Stonehenge, maar het is pas een paar tientallen jaren oud.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "Beeldhouwer Zurab Tsereteli begon er in 1980 aan: zestien zuilen van 30 tot 35 meter hoog.",
+          "c": [
+            "c1",
+            "c3"
+          ]
+        },
+        {
+          "t": "Bovenaan staan koningen, koninginnen en helden, onderaan taferelen uit het leven van Christus.",
+          "c": [
+            "c2"
+          ]
+        },
+        {
+          "t": "Het is nooit helemaal af: sommige panelen zijn onvoltooid. Misschien past dat wel bij een land waarvan de geschiedenis ook nog niet klaar is.",
+          "c": [
+            "c3"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Is het af?",
+          "a": "Nee, sommige panelen zijn onvoltooid.",
+          "c": [
+            "c3"
+          ]
+        },
+        {
+          "q": "Wie maakte het?",
+          "a": "Beeldhouwer Zurab Tsereteli.",
+          "c": [
+            "c1"
+          ]
+        }
+      ]
+    },
+    "gudiashvili-plein": {
+      "short": "het Gudiashviliplein",
+      "year": 1800,
+      "era": "de 19e eeuw",
+      "sentences": [
+        {
+          "t": "Dit plein is een van de plekken waar Tbilisi ruzie maakt over zijn eigen verleden.",
+          "c": [
+            "c2"
+          ]
+        },
+        {
+          "t": "Het draagt de naam van schilder Lado Gudiashvili, en de gebouwen zijn uit het begin van de 19e eeuw.",
+          "c": [
+            "c1",
+            "c2"
+          ]
+        },
+        {
+          "t": "Er gaat een verhaal dat de dichter Lermontov hier een nacht heeft doorgebracht in de Russische hoofdwacht. Dat dit precies dit plein is, is niet bevestigd.",
+          "c": [
+            "c3"
+          ]
+        },
+        {
+          "t": "In 2012 kwamen er protesten tegen de plannen voor herbouw, nadat het \"Blauwe Huis\" op nummer 2 was afgebroken, terwijl dat officieel erfgoed was.",
+          "c": [
+            "c2"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Waarom was er protest?",
+          "a": "Bij de herontwikkeling werd in 2012 het Blauwe Huis op nummer 2 afgebroken, terwijl dat erfgoed was.",
+          "c": [
+            "c2"
+          ]
+        },
+        {
+          "q": "Was Lermontov hier echt?",
+          "a": "Dat is niet bevestigd.",
+          "c": [
+            "c3"
+          ]
+        }
+      ]
+    },
+    "kote-afkhazi": {
+      "short": "de Kote Afkhazistraat",
+      "year": 1900,
+      "era": "de 19e eeuw",
+      "sentences": [
+        {
+          "t": "Loop je door deze straat, dan loop je langs de buren van Tbilisi.",
+          "c": [
+            "c2"
+          ]
+        },
+        {
+          "t": "Op nummer 45–47 staat de Grote Synagoge, op nummer 41 de Armeense Norashen-kerk, met daar nog een kerk op dezelfde binnenplaats: Jvaris Mama.",
+          "c": [
+            "c2",
+            "c3"
+          ]
+        },
+        {
+          "t": "De straat heette vroeger de Leselidzestraat.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "Aan het eind kom je uit op het Vrijheidsplein.",
+          "c": [
+            "c2"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Hoe heette deze straat vroeger?",
+          "a": "De Leselidzestraat.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "q": "Wat staat hier allemaal?",
+          "a": "Onder meer de Grote Synagoge en de Norashen-kerk.",
+          "c": [
+            "c2"
+          ]
+        }
+      ]
+    },
+    "tbilisi-history-museum": {
+      "short": "het Stadsmuseum",
+      "year": 1650,
+      "era": "de 17e eeuw",
+      "sentences": [
+        {
+          "t": "Dit museum zit in een oude herberg voor kooplieden.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "Koning Rostom liet hier in 1650 naast Sioni een karavanserai bouwen. Die ging verloren bij de inval van Agha Mohammad Khan, en in de 19e eeuw kwam op de resten de Artsruni-karavanserai.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "De overwelfde kelders zijn nog oud.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "Kijk naar de gevel aan de Sionistraat, naast de ingang: twee slangen rond een staf, met daarboven een gevleugelde hoed. Dat teken wordt vaak met de handel verbonden, en dat past bij een karavanserai.",
+          "c": [
+            "c3"
+          ]
+        },
+        {
+          "t": "Die gevel is uit 1912. De kant aan de rivier is uit 1820 en geldt als een van de mooiste voorbeelden van Russisch klassieke stijl in de stad.",
+          "c": [
+            "c2"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Wat was dit gebouw eerst?",
+          "a": "Een karavanserai, een herberg voor kooplieden.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "q": "Wat betekent die staf met slangen?",
+          "a": "De bronnen beschrijven alleen het teken zelf; het wordt vaak met de handel verbonden.",
+          "c": [
+            "c3"
+          ]
+        }
+      ]
+    },
+    "waterval": {
+      "short": "de waterval",
+      "year": 2012,
+      "era": "deze eeuw",
+      "sentences": [
+        {
+          "t": "Midden in de stad, vlak bij de baden, valt een waterval.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "Hij is 22 meter hoog. Het water komt uit de bergen en stroomt door de Botanische Tuin, voordat het hier naar beneden stort en in de Mtkvari verdwijnt.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "De kloof heet Leghvtakhevi, \"vijgenkloof\", want hier groeiden vroeger vijgenbomen.",
+          "c": [
+            "c2"
+          ]
+        },
+        {
+          "t": "Lange tijd was het hier niet zo mooi: het gebied deed dienst als reservoir. Pas in 2012 werd het opgeknapt, met bruggen, trappen in oude stijl en cafés.",
+          "c": [
+            "c3"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Wat betekent Leghvtakhevi?",
+          "a": "\"Vijgenkloof\".",
+          "c": [
+            "c2"
+          ]
+        },
+        {
+          "q": "Hoe hoog is de waterval?",
+          "a": "22 meter.",
+          "c": [
+            "c1"
+          ]
+        }
+      ]
+    },
+    "kabelbaan-narikala": {
+      "short": "de kabelbaan naar Narikala",
+      "year": 2010,
+      "era": "deze eeuw",
+      "sentences": [
+        {
+          "t": "De snelste weg naar de vesting gaat door de lucht.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "Deze kabelbaan loopt van het Rikepark naar Narikala, met zeven gondels voor maximaal acht personen.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "Ze is gebouwd door Leitner Ropeways en vooral bedoeld voor bezoekers zoals jullie.",
+          "c": [
+            "c2"
+          ]
+        },
+        {
+          "t": "Wanneer ze precies openging en hoe lang ze is, daarover verschillen de bronnen: Civil.ge meldt 2010, een reisgids 2012 en 600 meter in plaats van 500.",
+          "c": [
+            "c3"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Hoeveel mensen kunnen er in een gondel?",
+          "a": "Maximaal acht.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "q": "Wanneer ging ze open?",
+          "a": "De bronnen noemen 2010 of 2012.",
+          "c": [
+            "c3"
+          ]
+        }
+      ]
+    },
+    "europaplein": {
+      "short": "het Europaplein",
+      "year": 2017,
+      "era": "deze eeuw",
+      "sentences": [
+        {
+          "t": "Waarom heet een plein in de Kaukasus het Europaplein? Dat zegt iets over waar Georgië naartoe wil.",
+          "c": [
+            "c2"
+          ]
+        },
+        {
+          "t": "Sinds 9 november 2017 staat hier een stuk van de Berlijnse Muur. De premier had het dat jaar in Duitsland gekregen, en zei bij de onthulling dat \"alle muren van het kwaad\" ooit zullen vallen.",
+          "c": [
+            "c2"
+          ]
+        },
+        {
+          "t": "Onder je voeten lag ooit een rivier-eiland en de volkswijk Rike, tot 1973.",
+          "c": [
+            "c1",
+            "c3"
+          ]
+        },
+        {
+          "t": "Hier begint ook de kabelbaan naar Narikala.",
+          "c": [
+            "c1"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Is die muur echt?",
+          "a": "Ja, het is een stuk van de Berlijnse Muur dat Georgië in 2017 kreeg.",
+          "c": [
+            "c2"
+          ]
+        },
+        {
+          "q": "Wat stond hier vroeger?",
+          "a": "De volkswijk Rike, tot 1973.",
+          "c": [
+            "c3"
+          ]
+        }
+      ]
+    },
+    "public-service-hall": {
+      "short": "het Public Service Hall",
+      "year": 2012,
+      "era": "deze eeuw",
+      "sentences": [
+        {
+          "t": "Wat is dat nou weer? Bloemen, paddenstoelen, of iets anders?",
+          "c": [
+            "c4"
+          ]
+        },
+        {
+          "t": "De Italiaanse architecten Massimiliano en Doriana Fuksas noemen het bloembladen: elf stuks, bijna 35 meter hoog, op stalen pijlers in de vorm van bomen.",
+          "c": [
+            "c2"
+          ]
+        },
+        {
+          "t": "Een criticus had een andere gedachte: alsof iemand een schaal kroepoek over een stapel glazen dozen had uitgestrooid.",
+          "c": [
+            "c4"
+          ]
+        },
+        {
+          "t": "Het ging open op 21 september 2012, en het is eigenlijk een loket: je regelt hier zaken bij de overheid, zoals het burgerlijk register.",
+          "c": [
+            "c1",
+            "c3"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Wat gebeurt hier?",
+          "a": "Bij de opening zaten hier onder meer de Nationale Bank, het ministerie van Energie en het burgerlijk register.",
+          "c": [
+            "c3"
+          ]
+        },
+        {
+          "q": "Wie ontwierp het?",
+          "a": "Massimiliano en Doriana Fuksas.",
+          "c": [
+            "c1"
+          ]
+        }
+      ]
+    },
+    "fabrika": {
+      "short": "Fabrika",
+      "year": 2016,
+      "era": "deze eeuw",
+      "sentences": [
+        {
+          "t": "Hier zie je hoe het nieuwe Tbilisi omgaat met de Sovjettijd: het gooit niets weg.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "In de jaren 1970 en 1980 werden hier duizenden kledingstukken genaaid.",
+          "c": [
+            "c2"
+          ]
+        },
+        {
+          "t": "Daarna stond de fabriek leeg, tot architectenbureau MUA er in 2016 een creatief centrum van maakte.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "Nu zitten er een groot hostel, cafés, bars, ateliers en werkplaatsen.",
+          "c": [
+            "c2",
+            "c3"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Wat was dit eerst?",
+          "a": "Een Sovjet-naaifabriek.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "q": "Wat is hier nu?",
+          "a": "Een hostel, cafés, ateliers en werkplaatsen.",
+          "c": [
+            "c3"
+          ]
+        }
+      ]
+    }
+  },
+  "threads": [
+    {
+      "id": "kruit",
+      "label": "Buskruit in de kerk",
+      "intro": "Onderweg komen we iets vreemds tegen: kerken waar buskruit werd bewaard.",
+      "close": "Kerken vol buskruit: ook dat hoort bij deze stad.",
+      "bridges": [
+        "Denk nog even aan {a}. Buskruit in een kerk komt hier vaker voor, kijk maar naar {b}.",
+        "Nog een kerk met buskruit: na {a} nu {b}."
+      ],
+      "refs": {
+        "narikala": {
+          "t": "de kerk op Narikala, die als kruitmagazijn werd gebruikt en in 1827 ontplofte",
+          "c": [
+            "c3"
+          ]
+        },
+        "metekhi": {
+          "t": "de Metekhi-kerk, die in de 17e eeuw als buskruitopslag diende",
+          "c": [
+            "c4"
+          ]
+        },
+        "lurji-monastiri": {
+          "t": "het Blauwe Klooster, begin 19e eeuw een kruitmagazijn",
+          "c": [
+            "c3"
+          ]
+        }
+      }
+    },
+    {
+      "id": "amashukeli",
+      "label": "Eén beeldhouwer, twee symbolen",
+      "intro": "Twee beelden die het silhouet van deze stad bepalen, komen van dezelfde beeldhouwer: Amashukeli.",
+      "close": "Eén beeldhouwer, Amashukeli, gaf de stad haar moeder én haar ruiter.",
+      "bridges": [
+        "Onthoud {a}. Dezelfde beeldhouwer maakte namelijk ook {b}."
+      ],
+      "refs": {
+        "moeder-georgie": {
+          "t": "Kartlis Deda, het beeld van Elguja Amashukeli",
+          "c": [
+            "c1"
+          ]
+        },
+        "vakhtang-gorgasali": {
+          "t": "het ruiterstandbeeld van Vakhtang Gorgasali",
+          "c": [
+            "c1"
+          ]
+        }
+      }
+    },
+    {
+      "id": "grishashvili",
+      "label": "De stad van dichter Grishashvili",
+      "intro": "Onze gids uit het verleden vandaag is de dichter Ioseb Grishashvili, die het dagelijks leven van de oude stad beschreef.",
+      "close": "Dankzij Grishashvili kennen we niet alleen de gebouwen, maar ook het leven eromheen.",
+      "bridges": [
+        "Dat dagelijks leven kennen we vooral dankzij Ioseb Grishashvili. Hij schreef over {a}, en ook over {b}."
+      ],
+      "refs": {
+        "meidan": {
+          "t": "de vlag op de weegschaal van Meidan",
+          "c": [
+            "c3"
+          ]
+        },
+        "abanotubani": {
+          "t": "de baden als \"club en theater\"",
+          "c": [
+            "c4"
+          ]
+        }
+      }
+    },
+    {
+      "id": "gribojedov",
+      "label": "Gribojedov en Nino",
+      "intro": "Vandaag volgen we ook een liefdesverhaal: de Russische schrijver Gribojedov en de Georgische Nino Chavchavadze.",
+      "close": "Van de bruiloft tot het graf: het verhaal van Gribojedov en Nino hoort bij deze stad.",
+      "bridges": [
+        "Weet je nog, {a}? Dan komen we nu bij {b}."
+      ],
+      "refs": {
+        "sioni": {
+          "t": "hun bruiloft in Sioni",
+          "c": [
+            "c8"
+          ]
+        },
+        "pantheon-mtatsminda": {
+          "t": "hun graf op de berg",
+          "c": [
+            "c4"
+          ]
+        }
+      }
+    },
+    {
+      "id": "david",
+      "label": "De monnik David",
+      "intro": "Vandaag duikt steeds dezelfde monnik op: David van Gareja, die in de 6e eeuw op de berg boven de stad woonde.",
+      "close": "De monnik David is al lang weg, maar de stad vertelt nog steeds over hem.",
+      "bridges": [
+        "Daar is de monnik David weer. Na {a} gaat het nu over {b}."
+      ],
+      "refs": {
+        "kashveti": {
+          "t": "de legende van de vrouw die een steen baarde",
+          "c": [
+            "c4"
+          ]
+        },
+        "mtatsminda-park": {
+          "t": "zijn grot op de berg",
+          "c": [
+            "c5"
+          ]
+        },
+        "pantheon-mtatsminda": {
+          "t": "zijn kapel op deze helling",
+          "c": [
+            "c1"
+          ]
+        }
+      }
+    },
+    {
+      "id": "poesjkin",
+      "label": "Op pad met Poesjkin",
+      "intro": "Vandaag hebben we een beroemde reisgenoot: de dichter Poesjkin, die in 1829 in Tbilisi was en er alles over opschreef.",
+      "close": "Poesjkin bleef maar twee weken, maar we lezen hem nog steeds.",
+      "bridges": [
+        "Poesjkin had overal een mening over. We hadden al {a}, en nu {b}."
+      ],
+      "refs": {
+        "abanotubani": {
+          "t": "zijn bezoek aan de baden",
+          "c": [
+            "c7"
+          ]
+        },
+        "aghmashenebeli": {
+          "t": "zijn slechte diner in de Duitse kolonie",
+          "c": [
+            "c5"
+          ]
+        },
+        "erekle-plein": {
+          "t": "de 20.000 weggevoerden die hij noemt",
+          "c": [
+            "c7"
+          ]
+        }
+      }
+    },
+    {
+      "id": "scudieri",
+      "label": "De architect Scudieri",
+      "intro": "Eén Italiaanse architect bouwde mee aan het Tbilisi van de 19e eeuw: Giovanni Scudieri.",
+      "close": "Zo zit er een Italiaan in de muren van deze stad.",
+      "bridges": [
+        "Giovanni Scudieri weer. Na {a} kijken we nu naar {b}."
+      ],
+      "refs": {
+        "jumah-moskee": {
+          "t": "de moskee die hij in 1846–1851 ontwierp",
+          "c": [
+            "c2"
+          ]
+        },
+        "opera": {
+          "t": "het eerste theater op het plein",
+          "c": [
+            "c1"
+          ]
+        },
+        "droge-brug": {
+          "t": "de boog van de Droge Brug",
+          "c": [
+            "c1"
+          ]
+        }
+      }
+    },
+    {
+      "id": "gudiashvili",
+      "label": "De schilder Gudiashvili",
+      "intro": "Let vandaag op één naam: de schilder Lado Gudiashvili, die de stad op de meest onverwachte plekken heeft beschilderd.",
+      "close": "Van kelder tot altaar: Gudiashvili is overal in deze stad.",
+      "bridges": [
+        "Lado Gudiashvili, opnieuw. Na {a} zien we nu {b}.",
+        "En weer die schilder: eerst {a}, nu {b}."
+      ],
+      "refs": {
+        "rustaveli-theater": {
+          "t": "zijn schilderingen in de kelder van het theater",
+          "c": [
+            "c2"
+          ]
+        },
+        "kashveti": {
+          "t": "het altaar dat hij in de Sovjettijd beschilderde",
+          "c": [
+            "c3"
+          ]
+        },
+        "marjanishvili-theater": {
+          "t": "zijn muren in de foyer",
+          "c": [
+            "c3"
+          ]
+        },
+        "gudiashvili-plein": {
+          "t": "het plein dat zijn naam draagt",
+          "c": [
+            "c1"
+          ]
+        }
+      }
+    },
+    {
+      "id": "stalin",
+      "label": "In het spoor van Stalin",
+      "intro": "Tbilisi is de stad waar een jongen uit Gori Stalin werd. Daar komen we vandaag een paar keer langs.",
+      "close": "Hier in Tbilisi begon het, lang voordat de wereld zijn naam kende.",
+      "bridges": [
+        "Stalin komt weer om de hoek kijken. Na {a} gaat het nu over {b}.",
+        "Ook hier hoor je zijn naam. Eerst {a}, nu {b}."
+      ],
+      "refs": {
+        "museum-schone-kunsten": {
+          "t": "het seminarie waar hij studeerde",
+          "c": [
+            "c4"
+          ]
+        },
+        "stalin-drukkerij": {
+          "t": "de geheime drukkerij",
+          "c": [
+            "c6"
+          ]
+        },
+        "vrijheidsplein": {
+          "t": "de bankoverval van 1907",
+          "c": [
+            "c7"
+          ]
+        },
+        "metekhi": {
+          "t": "de verhalen over de gevangenis",
+          "c": [
+            "c8"
+          ]
+        }
+      }
+    },
+    {
+      "id": "saakashvili",
+      "label": "De bouwdrift van Saakashvili",
+      "intro": "Rond 2010 kreeg de stad een nieuw gezicht, en niet iedereen was daar blij mee.",
+      "close": "Mooi of lelijk: over deze gebouwen praat de stad nog steeds.",
+      "bridges": [
+        "Dezelfde tijd, dezelfde discussie: na {a} kijken we naar {b}."
+      ],
+      "refs": {
+        "vredesbrug": {
+          "t": "de Vredesbrug",
+          "c": [
+            "c5"
+          ]
+        },
+        "presidentieel-paleis": {
+          "t": "de glazen koepel van het paleis",
+          "c": [
+            "c5"
+          ]
+        },
+        "rike-park": {
+          "t": "de twee grote buizen",
+          "c": [
+            "c4"
+          ]
+        },
+        "public-service-hall": {
+          "t": "de witte bloembladen",
+          "c": [
+            "c4"
+          ]
+        }
+      }
+    },
+    {
+      "id": "onafhankelijk1918",
+      "label": "1918: het eerste vrije Georgië",
+      "intro": "Eén jaar komt vandaag steeds terug: 1918, toen Georgië zelfstandig werd.",
+      "close": "Het duurde maar kort, maar 1918 is hier niet vergeten.",
+      "bridges": [
+        "We blijven in 1918. Na {a} komen we bij {b}."
+      ],
+      "refs": {
+        "paleis-onderkoning": {
+          "t": "de uitroeping van de onafhankelijkheid",
+          "c": [
+            "c2"
+          ]
+        },
+        "staatsuniversiteit": {
+          "t": "de eerste nationale universiteit",
+          "c": [
+            "c3"
+          ]
+        }
+      }
+    },
+    {
+      "id": "chardin",
+      "label": "Door de ogen van Jean Chardin",
+      "intro": "Eén bezoeker uit de 17e eeuw komt vandaag steeds terug: de Franse reiziger Jean Chardin.",
+      "close": "Zo hielp een Franse reiziger ons de stad van toen te zien.",
+      "bridges": [
+        "Ken je Jean Chardin nog, de Franse reiziger? We kennen hem van {a}, en hij duikt weer op bij {b}."
+      ],
+      "refs": {
+        "meidan": {
+          "t": "zijn beschrijving van Meidan als \"militaire plein\"",
+          "c": [
+            "c2"
+          ]
+        },
+        "norashen": {
+          "t": "de oudere kerk met de naam Norashen, die hij al noemde",
+          "c": [
+            "c2"
+          ]
+        }
+      }
+    },
+    {
+      "id": "agha",
+      "label": "De inval van Agha Mohammad Khan",
+      "intro": "Een naam die je vandaag vaker hoort, is Agha Mohammad Khan: zijn inval liet diepe sporen na in de stad.",
+      "close": "De inval van Agha Mohammad Khan bleef nog lang zichtbaar in de stad.",
+      "bridges": [
+        "Denk even terug aan {a}. Dezelfde Agha Mohammad Khan zien we terug bij {b}."
+      ],
+      "refs": {
+        "erekle-plein": {
+          "t": "de bebouwing rond het Erekle II-plein, verloren bij de inval van Agha Mohammad Khan",
+          "c": [
+            "c2"
+          ]
+        },
+        "abanotubani": {
+          "t": "het aantal badhuizen van Abanotubani, dat waarschijnlijk door zijn inval daalde van zes naar vier",
+          "c": [
+            "c3"
+          ]
+        }
+      }
+    },
+    {
+      "id": "armeens",
+      "label": "Armeens Tbilisi",
+      "intro": "Vandaag volgen we ook een Armeens spoor door de stad.",
+      "close": "Het Armeense spoor loopt dwars door de geschiedenis van deze stad.",
+      "bridges": [
+        "Het Armeense spoor loopt door: na {a} komen we bij {b}."
+      ],
+      "refs": {
+        "norashen": {
+          "t": "Norashen, van oorsprong een Armeense kerk",
+          "c": [
+            "c1"
+          ]
+        },
+        "betlemi": {
+          "t": "Betlemi, waar Armeniërs uit Tbilisi in de 15e eeuw een klooster stichtten",
+          "c": [
+            "c3"
+          ]
+        }
+      }
+    },
+    {
+      "id": "torens",
+      "label": "Klokkentorens",
+      "intro": "Let vandaag eens op de klokkentorens: ze vertellen elk een ander stuk van de geschiedenis.",
+      "close": "Klokkentorens uit heel verschillende eeuwen, in één wandeling.",
+      "bridges": [
+        "Je hebt nu {a} gezien. Houd die in gedachten, want nu komt {b}.",
+        "Nog een toren voor de verzameling: na {a} nu {b}."
+      ],
+      "refs": {
+        "sioni": {
+          "t": "de twee klokkentorens van Sioni, uit 1425 en 1812",
+          "c": [
+            "c5"
+          ]
+        },
+        "anchiskhati": {
+          "t": "de bakstenen klokkentoren van Anchiskhati uit 1675",
+          "c": [
+            "c3"
+          ]
+        },
+        "gabriadze": {
+          "t": "de scheve toren van Gabriadze uit 2010",
+          "c": [
+            "c1"
+          ]
+        }
+      }
+    },
+    {
+      "id": "bruggen",
+      "label": "Bruggen over de Mtkvari",
+      "intro": "De rivier speelt vandaag een hoofdrol, en vooral de manieren om haar over te steken.",
+      "close": "Van de oudste brug van de stad tot een dak van staal en glas: de rivier verbindt het verhaal.",
+      "bridges": [
+        "De rivier blijft ons volgen. Na {a} is {b} aan de beurt."
+      ],
+      "refs": {
+        "vakhtang-gorgasali": {
+          "t": "de plek van de oudste brug van Tbilisi",
+          "c": [
+            "c4"
+          ]
+        },
+        "vredesbrug": {
+          "t": "de Vredesbrug van 2010",
+          "c": [
+            "c2"
+          ]
+        }
+      }
+    },
+    {
+      "id": "vakhtang",
+      "label": "In het spoor van Vakhtang Gorgasali",
+      "intro": "Eén koning loopt vandaag met ons mee: Vakhtang Gorgasali. Let op hoe vaak zijn naam valt, en hoe vaak het om overlevering gaat.",
+      "close": "Overal in de stad duikt Vakhtang Gorgasali op, vaak meer als overlevering dan als bewijs.",
+      "bridges": [
+        "Vakhtang Gorgasali, daar is hij weer. We hadden {a}, en nu {b}.",
+        "Je voelt het al aankomen: ook hier valt zijn naam. Na {a} gaat het nu over {b}."
+      ],
+      "refs": {
+        "sioni": {
+          "t": "de overlevering dat hij eind 5e eeuw Sioni bouwde",
+          "c": [
+            "c3"
+          ]
+        },
+        "anchiskhati": {
+          "t": "koning Dachi, zijn opvolger, onder wie Anchiskhati werd gebouwd",
+          "c": [
+            "c1"
+          ]
+        },
+        "metekhi": {
+          "t": "de overlevering over zijn kerk en vesting op de Metekhi-rots",
+          "c": [
+            "c3"
+          ]
+        },
+        "betlemi": {
+          "t": "de overlevering over zijn kerk op de plek van Betlemi",
+          "c": [
+            "c2"
+          ]
+        },
+        "vakhtang-gorgasali": {
+          "t": "zijn ruiterstandbeeld boven de rivier",
+          "c": [
+            "c1"
+          ]
+        }
+      }
+    },
+    {
+      "id": "handel",
+      "label": "Handel en karavanserais",
+      "intro": "Vandaag kijken we ook met de ogen van een koopman: Tbilisi was een stad van handel.",
+      "close": "Achter de gevels van deze stad zit altijd de handel.",
+      "bridges": [
+        "We blijven even bij de handel. Na {a} kijken we naar {b}."
+      ],
+      "refs": {
+        "meidan": {
+          "t": "Meidan, het handelshart van de stad",
+          "c": [
+            "c2"
+          ]
+        },
+        "shardeni": {
+          "t": "de winkelrijen en karavanserais rond de Shardenistraat",
+          "c": [
+            "c2"
+          ]
+        },
+        "vrijheidsplein": {
+          "t": "het theater met karavanserai van koopman Tamamsjev",
+          "c": [
+            "c5"
+          ]
+        }
+      }
+    },
+    {
+      "id": "geloven",
+      "label": "Geloven naast elkaar",
+      "intro": "Vandaag lopen we langs gebedshuizen van verschillende gemeenschappen, dicht bij elkaar in dezelfde stad.",
+      "close": "Kerk, moskee en synagoge: ze horen allemaal bij het verhaal van deze stad.",
+      "bridges": [
+        "Van gebedshuis naar gebedshuis: na {a} komen we bij {b}.",
+        "En weer een andere gemeenschap: na {a} nu {b}."
+      ],
+      "refs": {
+        "sioni": {
+          "t": "de Sioni-kathedraal",
+          "c": [
+            "c1"
+          ]
+        },
+        "norashen": {
+          "t": "het Armeense Norashen",
+          "c": [
+            "c1"
+          ]
+        },
+        "synagoge": {
+          "t": "de synagoge van de joden uit Akhaltsikhe",
+          "c": [
+            "c1"
+          ]
+        },
+        "jumah-moskee": {
+          "t": "de moskee van soennieten en sjiieten",
+          "c": [
+            "c3"
+          ]
+        }
+      }
+    },
+    {
+      "id": "perzen",
+      "label": "Overheersers en verwoesting",
+      "intro": "De rode draad vandaag: deze stad is steeds weer aangevallen, en steeds weer opgebouwd.",
+      "close": "Telkens opnieuw verwoest, telkens opnieuw opgebouwd: zo kun je deze stad lezen.",
+      "bridges": [
+        "Na {a} blijven we bij dat thema van aanval en verwoesting, want dan komen we bij {b}.",
+        "Hetzelfde patroon: eerst {a}, nu {b}."
+      ],
+      "refs": {
+        "sioni": {
+          "t": "Sioni, verwoest door Chazaren, Arabieren en Perzen",
+          "c": [
+            "c4"
+          ]
+        },
+        "jumah-moskee": {
+          "t": "de moskee die de Perzen in de jaren 1740 verwoestten",
+          "c": [
+            "c1"
+          ]
+        },
+        "metekhi": {
+          "t": "de Metekhi-kerk, verwoest in 1226 en 1235",
+          "c": [
+            "c2"
+          ]
+        },
+        "vakhtang-gorgasali": {
+          "t": "de oude brug waar in 1226 en 1522 inwoners in de rivier werden geworpen",
+          "c": [
+            "c4"
+          ]
+        },
+        "narikala": {
+          "t": "Narikala, vaak verwoest en hersteld",
+          "c": [
+            "c1"
+          ]
+        }
+      }
+    },
+    {
+      "id": "sovjet",
+      "label": "De Sovjettijd",
+      "intro": "Onder de oude stenen ligt ook een recenter verhaal: dat van de Sovjettijd.",
+      "close": "Ook de Sovjettijd heeft haar sporen achtergelaten, tot in de gebedshuizen toe.",
+      "bridges": [
+        "De Sovjettijd is nog niet klaar met ons. Na {a} komen we bij {b}."
+      ],
+      "refs": {
+        "vrijheidsplein": {
+          "t": "het standbeeld van Lenin op het plein",
+          "c": [
+            "c4"
+          ]
+        },
+        "rustaveli-avenue": {
+          "t": "9 april 1989 op de Rustavelilaan",
+          "c": [
+            "c3"
+          ]
+        },
+        "norashen": {
+          "t": "Norashen, door de bolsjewieken gesloten en gebruikt als boekenopslag",
+          "c": [
+            "c3"
+          ]
+        },
+        "betlemi": {
+          "t": "Betlemi, waarin in de Sovjettijd een werkplaats zat",
+          "c": [
+            "c4"
+          ]
+        }
+      }
+    },
+    {
+      "id": "rusland",
+      "label": "De Russische stempel",
+      "intro": "Vanaf de 19e eeuw drukt Rusland zijn stempel op de stad, en dat gaan we vandaag op verschillende plekken zien.",
+      "close": "Van straatnamen tot gevangenisstenen: de Russische stempel zit overal in de stad.",
+      "bridges": [
+        "De Russische stempel, opnieuw. Na {a} zien we {b}."
+      ],
+      "refs": {
+        "vrijheidsplein": {
+          "t": "de naam van de Russische veldheer Paskevitsj op het plein",
+          "c": [
+            "c2"
+          ]
+        },
+        "rustaveli-avenue": {
+          "t": "de laan die naar onderkoning Golovin werd genoemd",
+          "c": [
+            "c1"
+          ]
+        },
+        "metekhi": {
+          "t": "de gevangenis die de Russen bouwden met de stenen van de Metekhi-vesting",
+          "c": [
+            "c5"
+          ]
+        },
+        "sioni": {
+          "t": "de hoge toren van Sioni uit 1812, in de klassieke Russische stijl",
+          "c": [
+            "c5"
+          ]
+        }
+      }
+    },
+    {
+      "id": "namen",
+      "label": "Wat zit er in een naam?",
+      "intro": "Let vandaag vooral op de namen: in Tbilisi vertelt een naam vaak al de hele geschiedenis.",
+      "close": "Wie de namen van deze stad kent, kent haar geschiedenis al een eind.",
+      "bridges": [
+        "Namen, daar gaat het vaker over in deze stad. Na {a} krijg je nu {b}.",
+        "Nog een naam met een verhaal: na {a} nu {b}."
+      ],
+      "refs": {
+        "vrijheidsplein": {
+          "t": "de wisselende namen van het Vrijheidsplein",
+          "c": [
+            "c3"
+          ]
+        },
+        "rustaveli-avenue": {
+          "t": "\"de weg naar Rusland\", de oude naam van de Rustavelilaan",
+          "c": [
+            "c1"
+          ]
+        },
+        "meidan": {
+          "t": "de vele oude namen van Meidan",
+          "c": [
+            "c1"
+          ]
+        },
+        "moeder-georgie": {
+          "t": "Kartlis Deda, dat Amashukeli zelf \"Hoofdstad\" noemde",
+          "c": [
+            "c4"
+          ]
+        },
+        "sololaki": {
+          "t": "\"sulu-lah\", de overgeleverde oorsprong van de naam Sololaki",
+          "c": [
+            "c1"
+          ]
+        },
+        "narikala": {
+          "t": "\"narin-kala\", de waarschijnlijke oorsprong van de naam Narikala",
+          "c": [
+            "c2"
+          ]
+        },
+        "chreli-abano": {
+          "t": "Chreli Abano, het \"bonte bad\"",
+          "c": [
+            "c1"
+          ]
+        }
+      }
+    }
+  ]
+}

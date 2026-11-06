@@ -54,6 +54,8 @@ Since the app supports a business, every service must be free for commercial use
 | Wikipedia (CC BY-SA), Wikidata (CC0), heritage register and NPLG links | OK | Attribution shown. |
 | Fonts (OFL), npm libraries (MIT/BSD/ISC) | OK | |
 
+The Studie section's research prompt goes through the founder's own Claude chat by copy and paste. The app itself makes no call to any AI service, needs no key and adds no cost. The prompt holds site names and research claims only, no bookings or prices.
+
 ## Online vs. offline
 | Works offline (after the app has been opened once) | Needs internet |
 |---|---|

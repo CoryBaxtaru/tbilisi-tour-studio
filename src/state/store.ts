@@ -31,6 +31,7 @@ let state: AppState = {
   products: [],
   departures: [],
   bookings: [],
+  expenses: [],
   online: typeof navigator === 'undefined' ? true : navigator.onLine,
   persisted: null,
   syncConfig: null,

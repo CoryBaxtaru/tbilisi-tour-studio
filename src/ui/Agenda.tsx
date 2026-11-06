@@ -5,10 +5,11 @@ import {
   CHANNELS, createBooking, createDeparture, createProduct, DEPARTURE_STATUS, departureFill, isoDate,
   monthGrid, RETENTION_MONTHS, type Fill,
 } from '../domain/agenda';
-import { commissionRate, departureFinance, hasPrices, pricingOf, suggestedPrice } from '../domain/pricing';
+import { commissionRate, departureFinance, gelToEur, hasPrices, overbookedBy, pricingOf, suggestedPrice } from '../domain/pricing';
 import type { Booking, BookingChannel, BookingStatus, Departure, DepartureStatus, PriceProfile, TourProduct } from '../domain/types';
 import { currentRecord, deleteRecord, saveRecord, useAppState } from '../state/store';
 import { navigate } from './router';
+import { BadWeatherBox, GelFields, GygReminder, StartGuiding } from './DepartureBits';
 import { DayGlyph, DayWeather, WeatherChip, WeatherPanel } from './Weather';
 import { useForecast } from '../weather/metno';
 
@@ -76,6 +77,7 @@ export function Agenda({ month }: { month?: string }) {
           <a href={`#/agenda/${shiftMonth(ym, 1)}`} aria-label="Volgende maand">›</a>
         </nav>
         <span class="agenda__links">
+          <a class="btn btn--ghost" href="#/vandaag">Vandaag</a>
           <a class="btn btn--ghost" href={`#/geld/${y}`}>Financiën</a>
           <a class="btn btn--ghost" href="#/aanbod">Touraanbod</a>
         </span>
@@ -184,7 +186,7 @@ function DayPanel({ date, deps, products }: { date: string; deps: Departure[]; p
  * Two-step delete inside the page. Native confirm() dialogs are blocked in some browsers (e.g. embedded
  * browsers), where they silently answer "no", so a delete would do nothing.
  */
-function ConfirmDelete({ label, question, onConfirm, small }: { label: string; question: string; onConfirm: () => void; small?: boolean }) {
+export function ConfirmDelete({ label, question, onConfirm, small }: { label: string; question: string; onConfirm: () => void; small?: boolean }) {
   const [asking, setAsking] = useState(false);
   const size = small ? ' btn--small' : '';
   if (!asking) return <button type="button" class={`btn btn--ghost btn--danger${size}`} onClick={() => setAsking(true)}>{label}</button>;
@@ -245,9 +247,12 @@ export function DeparturePage({ id }: { id: string }) {
         <FillBar booked={f.booked} capacity={f.capacity} state={s.state} />
         <span class="meta">{f.booked} van {f.capacity} plaatsen bezet{product ? ` · minimum ${min}` : ''}</span>
       </div>
+      {dep.status !== 'geannuleerd' && product && <StartGuiding product={product} />}
+      <GygReminder dep={dep} product={product} />
       {s.state === 'low' && <p class="hint hint--warn">Nog {min - f.booked} gast(en) nodig voor het minimum van {min}; dit vertrek gaat nog niet door.</p>}
       {dep.notes && <p class="departure__note">{dep.notes}</p>}
       {dep.status !== 'geannuleerd' && <WeatherPanel date={dep.date} startTime={dep.startTime} durationMin={product?.durationMin ?? 120} today={isoDate(new Date())} />}
+      {dep.status !== 'geannuleerd' && product && <BadWeatherBox dep={dep} product={product} />}
 
       <div class="tiles tiles--4" aria-label="Geld">
         <div class="tile"><span class="tile__label">Omzet</span><span class="tile__value">{eur.format(money.gross)}</span></div>
@@ -264,14 +269,14 @@ export function DeparturePage({ id }: { id: string }) {
           {mine.map((b) => (
             <li key={b.id} class={`booking booking--${b.status}`}>
               {editing === b.id
-                ? <BookingForm initial={b} product={product} onDone={() => setEditing(null)} />
+                ? <BookingForm initial={b} dep={dep} product={product} onDone={() => setEditing(null)} />
                 : <BookingRow b={b} onEdit={() => setEditing(b.id)} />}
             </li>
           ))}
         </ul>
       ) : <p class="hint">Nog geen boekingen voor dit vertrek.</p>}
       {editing === 'new'
-        ? <div class="booking"><BookingForm initial={createBooking(dep.id)} product={product} onDone={() => setEditing(null)} /></div>
+        ? <div class="booking"><BookingForm initial={createBooking(dep.id)} dep={dep} product={product} onDone={() => setEditing(null)} /></div>
         : <button class="btn btn--primary" onClick={() => setEditing('new')}>Boeking toevoegen</button>}
       <p class="hint">Naam, contact en notities van gasten worden {RETENTION_MONTHS} maanden na de tour automatisch gewist; aantallen en bedragen blijven.</p>
 
@@ -305,7 +310,7 @@ function BookingRow({ b, onEdit }: { b: Booking; onEdit: () => void }) {
     <div class="booking__row">
       <div class="booking__main">
         <span class="booking__name">{b.anonymizedAt ? <em class="meta">gegevens gewist</em> : b.leadName || <em class="meta">geen naam</em>}</span>
-        <span class="meta">{CHANNELS[b.channel]}{b.reference ? ` ${b.reference}` : ''} · {people || '0 gasten'}{b.status !== 'geboekt' ? ` · ${BOOKING_STATUS[b.status]}` : ''}</span>
+        <span class="meta">{CHANNELS[b.channel]}{b.reference ? ` ${b.reference}` : ''} · {people || '0 gasten'}{b.status !== 'geboekt' ? ` · ${BOOKING_STATUS[b.status]}` : ''}{b.refund ? ` · ${eur.format(b.refund)} teruggegeven` : ''}{b.status === 'geannuleerd' && b.cancelFee ? ` · ${eur.format(b.cancelFee)} gehouden` : ''}{b.gel ? ` · ₾ ${b.gel.amount}` : ''}</span>
       </div>
       <span class="booking__price">{eur.format(b.priceTotal)}<span class={`meta ${b.paid ? 'is-paid' : 'is-unpaid'}`}>{b.paid ? 'betaald' : 'open'}</span></span>
       <button class="btn btn--small btn--ghost" onClick={onEdit}>Bewerken</button>
@@ -313,7 +318,9 @@ function BookingRow({ b, onEdit }: { b: Booking; onEdit: () => void }) {
   );
 }
 
-function BookingForm({ initial, product, onDone }: { initial: Booking; product?: TourProduct; onDone: () => void }) {
+function BookingForm({ initial, dep, product, onDone }: { initial: Booking; dep: Departure; product?: TourProduct; onDone: () => void }) {
+  const { bookings } = useAppState();
+  const [overbookOk, setOverbookOk] = useState(false);
   const pr = pricingOf(product);
   const priced = hasPrices(pr);
   const isNew = !currentRecord('bookings', initial.id);
@@ -330,8 +337,12 @@ function BookingForm({ initial, product, onDone }: { initial: Booking; product?:
     const rate = commissionRate(pr, b.channel);
     setB((x) => ({ ...x, priceTotal, ...(rate > 0 ? { commission: Math.round(priceTotal * rate * 100) / 100 } : {}) }));
   }
+  // Only when this edit adds guests: recording a payment on a departure that is already too full must stay possible.
+  const seats = (x: Booking) => (x.status === 'geannuleerd' ? 0 : x.adults + x.children + x.infants);
+  const tooMany = isNew || seats(b) > seats(initial) ? overbookedBy(dep, bookings, b) : 0;
   async function save(e: Event) {
     e.preventDefault();
+    if (tooMany > 0 && !overbookOk) return;
     await saveRecord('bookings', { ...b, leadName: b.leadName.trim(), contact: b.contact.trim() });
     onDone();
   }
@@ -370,6 +381,15 @@ function BookingForm({ initial, product, onDone }: { initial: Booking; product?:
           </select>
         </label>
       </div>
+      <GelFields gel={b.gel} label="Betaald in lari" onChange={(gel) => {
+        setAuto(false);
+        const priceTotal = gel ? gelToEur(gel) : b.priceTotal;
+        const rate = commissionRate(pr, b.channel);
+        setB((x) => ({ ...x, gel, priceTotal, ...(gel && rate > 0 ? { commission: Math.round(priceTotal * rate * 100) / 100 } : {}) }));
+      }} />
+      {b.status === 'geannuleerd'
+        ? <label class="narrow">Dit houd je van de annulering (€)<input inputMode="decimal" value={dec(b.cancelFee ?? 0)} onChange={(e) => setB((x) => ({ ...x, cancelFee: num(e.currentTarget.value) }))} /></label>
+        : <label class="narrow">Teruggegeven aan de gast (€)<input inputMode="decimal" value={dec(b.refund ?? 0)} onChange={(e) => setB((x) => ({ ...x, refund: num(e.currentTarget.value) }))} /></label>}
       {priced ? (
         <p class="meta booking-form__price">
           {auto || !differs
@@ -378,8 +398,14 @@ function BookingForm({ initial, product, onDone }: { initial: Booking; product?:
         </p>
       ) : product && <p class="meta booking-form__price">Geen prijzen ingesteld voor dit touraanbod.</p>}
       {!b.anonymizedAt && <label>Notities (bijv. dieetwensen)<textarea rows={2} value={b.notes} onInput={(e) => patch({ notes: e.currentTarget.value })} /></label>}
+      {tooMany > 0 && (
+        <div class="overbook" role="alert">
+          <strong>{tooMany === 1 ? 'Dit is 1 gast' : `Dit zijn ${tooMany} gasten`} te veel.</strong> Er zijn {dep.capacity} plaatsen.
+          <label class="check"><input type="checkbox" checked={overbookOk} onChange={(e) => setOverbookOk(e.currentTarget.checked)} />Toch boeken</label>
+        </div>
+      )}
       <div class="claim__actions">
-        <button class="btn btn--primary btn--small" type="submit">{isNew ? 'Boeking opslaan' : 'Opslaan'}</button>
+        <button class="btn btn--primary btn--small" type="submit" disabled={tooMany > 0 && !overbookOk}>{isNew ? 'Boeking opslaan' : 'Opslaan'}</button>
         <button class="btn btn--ghost btn--small" type="button" onClick={onDone}>Annuleren</button>
         {!isNew && <ConfirmDelete small label="Verwijderen" question="Deze boeking verwijderen?" onConfirm={() => void remove()} />}
       </div>
@@ -466,6 +492,16 @@ export function ProductPage({ id }: { id: string }) {
         <label>Inbegrepen<textarea rows={2} value={p.included} onInput={(e) => patch({ included: e.currentTarget.value })} /></label>
         <label>Notities<textarea rows={2} value={p.notes} onInput={(e) => patch({ notes: e.currentTarget.value })} /></label>
         <PriceFields pricing={pricingOf(p)} onChange={(pricing) => patch({ pricing })} />
+        <fieldset class="price-form">
+          <legend>Plan bij slecht weer</legend>
+          <label>Wat doe je dan?<textarea rows={2} value={p.badWeatherPlan ?? ''} placeholder="Bijv. korter lopen, schuilen op een plek die je kent, de tour verzetten" onInput={(e) => patch({ badWeatherPlan: e.currentTarget.value })} /></label>
+          <label>Andere tour bij slecht weer
+            <select value={p.badWeatherTourId ?? ''} onChange={(e) => patch({ badWeatherTourId: e.currentTarget.value || null })}>
+              <option value="">—</option>
+              {tours.filter((t) => !t.deleted).map((t) => <option key={t.id} value={t.id}>{t.title || 'Naamloze tour'}</option>)}
+            </select>
+          </label>
+        </fieldset>
         <div class="claim__actions">
           <button class="btn btn--primary" type="submit">Opslaan</button>
           {msg && <span class="status status--ok">{msg}</span>}

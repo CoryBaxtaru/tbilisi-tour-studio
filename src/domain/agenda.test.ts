@@ -54,7 +54,7 @@ describe('retention', () => {
 
 describe('backup with business records', () => {
   it('leaves bookings out of a backup unless asked', () => {
-    const c = { tours: [], landmarks: [], products: [product], departures: [dep], bookings: [booking({ leadName: 'Jan' })] };
+    const c = { tours: [], landmarks: [], products: [product], departures: [dep], bookings: [booking({ leadName: 'Jan' })], expenses: [] };
     expect(parseDataset(serializeDataset(c, { includeDeleted: false })).bookings).toHaveLength(1);
     const without = parseDataset(serializeDataset(c, { includeDeleted: false, includeBookings: false }));
     expect(without.bookings).toEqual([]);

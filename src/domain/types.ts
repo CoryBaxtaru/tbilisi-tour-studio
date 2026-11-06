@@ -1,8 +1,8 @@
 // Core domain model (see docs/PRODUCT_SPEC.md §4).
 // Shared landmark knowledge is kept separate from tour-specific presentation (TourStop).
 
-/** 2 = adds tour products, departures and bookings (2026-10-23). Version 1 files are still read. */
-export const SCHEMA_VERSION = 2;
+/** 2 = tour products, departures and bookings (2026-10-23). 3 = general costs (2026-11-06). Older files are still read. */
+export const SCHEMA_VERSION = 3;
 
 export type Id = string;
 export type IsoDate = string;
@@ -82,6 +82,27 @@ export interface Landmark extends SyncedEntity {
   sources?: SourceRef[];
   /** The guide's own claims and draft claims the guide verified, rejected or edited. */
   claims?: Claim[];
+  /** Spoken story saved from a pasted Claude answer (src/domain/storyExchange.ts). */
+  story?: SavedStory;
+}
+
+export interface SavedSentence { text: string; claimIds: Id[] }
+export interface SavedQuestion { question: string; answer: string; claimIds: Id[] }
+
+/** Story text for one site. Facts stay in claims, so a rejected claim also removes the sentences resting on it. */
+export interface SavedStory {
+  sentences: SavedSentence[];
+  /** How to say the name in a sentence, e.g. "de Metekhi-kerk". */
+  short?: string;
+  /** One anchor in time, for the timeline order. */
+  year?: number;
+  era?: string;
+  /** Spoken link to the next site, by that site's catalogue id. */
+  bridges: Record<string, string>;
+  questions: SavedQuestion[];
+  /** Opening and closing of a whole storyline, stored on its first site; the key is the sorted site ids. */
+  storylines: Record<string, { title: string; opening: string; closing: string }>;
+  savedAt: IsoDate;
 }
 
 export interface TourStop {
@@ -143,6 +164,10 @@ export interface TourProduct extends SyncedEntity {
   included: string;
   notes: string;
   active: boolean;
+  /** What to do when the weather is bad: shelter, a shorter route, where to wait. */
+  badWeatherPlan?: string;
+  /** A tour to guide instead when the weather is bad. */
+  badWeatherTourId?: Id | null;
   /** Prices, costs and channel commission (business hub step 5). Missing on older records: see pricingOf(). */
   pricing?: PriceProfile;
 }
@@ -183,7 +208,12 @@ export interface Departure extends SyncedEntity {
   capacity: number;
   status: DepartureStatus;
   notes: string;
+  /** The guide closed this departure on GetYourGuide, so nobody can book it there any more. */
+  closedOnGyg?: boolean;
 }
+
+/** An amount paid in Georgian lari, with the rate the guide used. Totals stay in EUR. */
+export interface GelAmount { amount: number; gelPerEur: number }
 
 export type BookingChannel = 'getyourguide' | 'direct' | 'whatsapp' | 'walk-in' | 'anders';
 export type BookingStatus = 'geboekt' | 'geannuleerd' | 'no-show';
@@ -207,11 +237,30 @@ export interface Booking extends SyncedEntity {
   priceTotal: number;
   /** Channel commission in EUR. */
   commission: number;
+  /** Given back to the guest on a booking that still counts, in EUR. */
+  refund?: number;
+  /** What the guide keeps from a cancelled booking, in EUR. Without it a cancelled booking counts as nothing. */
+  cancelFee?: number;
+  /** Set when the guest paid in lari; priceTotal is then this amount converted to EUR. */
+  gel?: GelAmount;
   paid: boolean;
   status: BookingStatus;
   notes: string;
   /** Set when the personal data was erased. */
   anonymizedAt?: IsoDate;
+}
+
+export type ExpenseCategory = 'vervoer' | 'telefoon' | 'reclame' | 'verzekering' | 'belasting' | 'materiaal' | 'anders';
+
+/** A cost that does not belong to one departure, such as insurance or a phone bill. */
+export interface Expense extends SyncedEntity {
+  /** YYYY-MM-DD. */
+  date: string;
+  category: ExpenseCategory;
+  description: string;
+  /** In EUR. */
+  amount: number;
+  gel?: GelAmount;
 }
 
 export interface Collections {
@@ -220,10 +269,11 @@ export interface Collections {
   products: TourProduct[];
   departures: Departure[];
   bookings: Booking[];
+  expenses: Expense[];
 }
 
 export type Kind = keyof Collections;
-export const KINDS: Kind[] = ['tours', 'landmarks', 'products', 'departures', 'bookings'];
+export const KINDS: Kind[] = ['tours', 'landmarks', 'products', 'departures', 'bookings', 'expenses'];
 
 export interface Dataset extends Collections {
   schemaVersion: number;

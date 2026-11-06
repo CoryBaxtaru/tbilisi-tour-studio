@@ -7,6 +7,8 @@ import { Finance } from './Finance';
 import { ResearchList, ResearchPage } from './Research';
 import { usePath } from './router';
 import { Settings } from './Settings';
+import { Study } from './Study';
+import { Today } from './Today';
 import { TourEditor } from './TourEditor';
 import { TourList } from './TourList';
 
@@ -49,9 +51,11 @@ export function App() {
       {!guiding && <header class="topbar">
         <a href="#/" class="brand lit">Tourstudio</a>
         <nav>
+          <a href="#/vandaag" class={section === 'vandaag' ? 'active' : ''}>Vandaag</a>
           <a href="#/" class={!section ? 'active' : ''}>Tours</a>
           <a href="#/agenda" class={['agenda', 'vertrek', 'aanbod', 'geld'].includes(section) ? 'active' : ''}>Agenda</a>
           <a href="#/onderzoek" class={section === 'onderzoek' ? 'active' : ''}>Onderzoek</a>
+          <a href="#/studie" class={section === 'studie' ? 'active' : ''}>Studie</a>
           <a href="#/instellingen" class={section === 'instellingen' ? 'active' : ''} aria-label="Instellingen">
             <span class="nav-full">Instellingen</span><span class="nav-icon" aria-hidden="true">⚙</span>
           </a>
@@ -71,7 +75,9 @@ export function App() {
         : section === 'agenda' ? <Agenda month={id} />
         : section === 'vertrek' && id ? <DeparturePage key={id} id={id} />
         : section === 'aanbod' ? (id ? <ProductPage key={id} id={id} /> : <Products />)
+        : section === 'vandaag' ? <Today />
         : section === 'geld' ? <Finance year={id} />
+        : section === 'studie' ? <Study selection={id} />
         : section === 'instellingen' ? <Settings />
         : <TourList />}
     </div>
