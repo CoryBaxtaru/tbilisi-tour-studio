@@ -13,7 +13,7 @@ Tbilisi Walking Tour Studio: a personal desktop tour editor and mobile live-guid
   - Card deck builder: 58 catalogue sites (OSM positions, unverified tags) + own landmarks; filter by era, tour type, district and text; drag cards into the route, drag the handle to reorder, + button, map-dot popup; automatic route recalculation; proximity sort to the last stop; card click flies the map to the site; "Toon meer" with sourced Wikipedia/Wikidata background (also in guide mode); pre-generated tours (11 themes + Tbilisi compleet + custom tags); catalogue refresh for unedited landmarks (docs/CATALOG.md)
   - Talking points with provenance stamps
   - Onderzoek (research): per-site claims with sources and a verdict (Concept, Geverifieerd, Afgewezen), plus own claims and sources (`docs/RESEARCH.md`).
-    - 203 concept claims for all 58 sites (≥ 3 each, since 2026-10-23), checked by Claude in the original sources. Wikipedia is not used as a source.
+    - 255 concept claims and 205 sources for all 58 sites, checked by Claude in the original sources. Wikipedia is used only as a map to its citations, never as a source.
     - New stops start with the site's 3 best claims as talking points (`starterPoints`).
   - Agenda (business hub step 3, 2026-10-23):
     - tour products (Touraanbod: duration, min/max guests, meeting point, inclusions; Dutch only);
@@ -31,12 +31,12 @@ Tbilisi Walking Tour Studio: a personal desktop tour editor and mobile live-guid
     - Live since commit 08f1907.
   - Studie (2026-11-06, `#/studie`):
     - click sites on a map; get a storyline (four orders, straight lines, not a walking route) and a story with opening, passages, bridges and closing;
-    - 20 written passages and 15 threads (`src/data/story-passages.json`), written by Claude from the claims, no AI in the app; the other 38 sites show their claims in a row;
+    - written stories for all 58 sites and 23 threads (`src/data/story-passages.json`), written by Claude from the claims, no AI in the app;
     - rejected claims drop out of the story; works offline.
     - Research round trip (2026-11-07): copy a prompt for any Claude chat, paste the answer back, and it is checked and saved per site (`Landmark.story`, concept claims, sources).
     - Also: make a tour from a storyline, practice mode with keywords, guest questions per site.
-    - Tested on a local production build only; not deployed yet.
-  - Running the business (2026-11-07, not deployed): Vandaag screen, Start gidsen on a departure, overbooking block, GetYourGuide reminder, refunds and cancellation fees, lari with a typed rate, general costs and profit (schema 3), open payments, bad-weather plan per product.
+    - Live since commit 408bada.
+  - Running the business (2026-11-07, live since 408bada): Vandaag screen, Start gidsen on a departure, overbooking block, GetYourGuide reminder, refunds and cancellation fees, lari with a typed rate, general costs and profit (schema 3), open payments, bad-weather plan per product.
   - Prices and finances (business hub step 5, 2026-10-23):
     - A price profile per tour product: per person (adult/child/infant) or private (flat fee up to N guests plus a price per extra guest); costs per guest and per departure; commission % per channel; optional gross-up so commission channels give the same net.
     - All amounts default to 0. Real prices are entered by the founder and live only in synced data, never in code.
