@@ -110,6 +110,12 @@ function ResearchExchange({ order, onSaved }: { order: string[]; onSaved: (order
           {reply.hardWords.length > 0 && (
             <p class="hint hint--warn">Dure woorden: {reply.hardWords.map((w) => `${w} (beter: ${HARD_WORDS[w]})`).join(', ')}. Je kunt Claude vragen dit te herschrijven.</p>
           )}
+          {reply.mythWarnings.length > 0 && (
+            <>
+              <p class="hint hint--warn">Deze zinnen vertellen een mythe, maar beginnen niet met "Legendes zeggen dat" of "Een bekende volksmythe is":</p>
+              <ul>{reply.mythWarnings.map((m, i) => <li key={i}>{m}</li>)}</ul>
+            </>
+          )}
           {reply.problems.length > 0 && (
             <>
               <p class="hint hint--warn">Dit is niet overgenomen:</p>

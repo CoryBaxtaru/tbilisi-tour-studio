@@ -192,6 +192,13 @@
           "url": "https://eurasia.travel/georgia/tbilisi/metekhi-church/",
           "type": "reisgids",
           "language": "en"
+        },
+        {
+          "id": "s7",
+          "title": "Metekhi Church, an ancient monument of Tbilisi, Live the World",
+          "url": "https://www.livetheworld.com/post/metekhi-church-an-ancient-monument-of-tbilisi-ix2i",
+          "type": "reisblog",
+          "language": "en"
         }
       ],
       "claims": [
@@ -270,6 +277,16 @@
             "s6"
           ],
           "evidence": "Alleen reisgidsen noemen Stalin en Gorki als gevangenen."
+        },
+        {
+          "id": "c9",
+          "kind": "anekdote",
+          "text": "Een legende verklaart de naam zo: de leider van de Osseten, Bakatari, ontvoerde de zus van Vakhtang Gorgasali. Zij liet weten dat hij alleen in zijn oksel kwetsbaar was. Hij vroeg de koning niet te schieten tot hij de rivier over was, maar de koning brak die belofte en doodde hem. Uit schuld bouwde hij een kerk: Metekhi, \"ik brak mijn woord\".",
+          "sourceIds": [
+            "s7"
+          ],
+          "evidence": "Live the World: de legende van Bakatari en de naam \"I broke my promise\".",
+          "note": "Reisblog. Andere bronnen, zoals de Engelse Wikipedia, leggen de naam uit als \"het gebied rond het paleis\"."
         }
       ]
     },
@@ -301,6 +318,13 @@
           "title": "Georgische Encyclopedie: Tbilisi Fortress (Narikala)",
           "url": "https://georgianencyclopedia.ge/en/form_eng/835",
           "type": "naslagwerk",
+          "language": "en"
+        },
+        {
+          "id": "s5",
+          "title": "Narikala Fortress, Georgian Holidays",
+          "url": "https://www.georgianholidays.com/attraction/fortresses/narikala-fortress",
+          "type": "reisgids",
           "language": "en"
         }
       ],
@@ -361,6 +385,16 @@
             "s4"
           ],
           "evidence": "Encyclopedie: 1122, 1226, 1386, 1578, 1747–48."
+        },
+        {
+          "id": "c7",
+          "kind": "anekdote",
+          "text": "Een versie van het verhaal zegt dat in 1827 de bliksem insloeg in de Russische kruitopslag en zo de ontploffing veroorzaakte.",
+          "sourceIds": [
+            "s5"
+          ],
+          "evidence": "Georgian Holidays: bliksem trof het kruitmagazijn in 1827.",
+          "note": "Reisgids. De Engelse Wikipedia spreekt van een aardbeving; de Georgische Encyclopedie alleen van een ontploffing."
         }
       ]
     },
@@ -413,6 +447,13 @@
           "title": "Sioni Cathedral, Eurasia Travel",
           "url": "https://eurasia.travel/georgia/tbilisi/sioni-cathedral/",
           "type": "reisgids",
+          "language": "en"
+        },
+        {
+          "id": "s8",
+          "title": "Saint Nino, Equal-to-the-Apostles and Enlightener of Georgia, OrthoChristian",
+          "url": "https://orthochristian.com/7215.html",
+          "type": "instelling",
           "language": "en"
         }
       ],
@@ -494,6 +535,15 @@
           ],
           "evidence": "Encyclopedie: huwelijk in 1828; reisgids: bruiloft in Sioni.",
           "note": "De plaats van de bruiloft komt uit een reisgids."
+        },
+        {
+          "id": "c9",
+          "kind": "anekdote",
+          "text": "Nino zou het kruis van wijnranken hebben samengebonden met haar eigen haar. Een andere bron zegt dat de Moeder Gods dat zelf deed.",
+          "sourceIds": [
+            "s8"
+          ],
+          "evidence": "OrthoChristian: Nino bond het kruis met haar eigen haar; voetnoot: volgens een andere bron deed de Moeder Gods dat."
         }
       ]
     },
@@ -526,6 +576,13 @@
           "url": "https://georgianencyclopedia.ge/en/form_eng/23",
           "type": "naslagwerk",
           "language": "en"
+        },
+        {
+          "id": "s5",
+          "title": "J. Simonjan, Zdes Poesjkin mylsja! (\"Hier waste Poesjkin zich!\"), Nezavisimaya Gazeta (30 juni 2008)",
+          "url": "https://www.ng.ru/style/2008-06-30/24_banya.html",
+          "type": "nieuws",
+          "language": "ru"
         }
       ],
       "claims": [
@@ -600,6 +657,24 @@
             "s4"
           ],
           "evidence": "Georgische Encyclopedie: in Georgië 23 november 1858 tot 11 januari 1859; bezocht de zwavelbaden."
+        },
+        {
+          "id": "c9",
+          "kind": "anekdote",
+          "text": "In een andere versie van de legende kookte de geschoten fazant gaar in de hete bron, en was de koning daar verbaasd over.",
+          "sourceIds": [
+            "s5"
+          ],
+          "evidence": "Nezavisimaya Gazeta: de fazant \"gekookt\" in de bron, tot verbazing van de jagende koning."
+        },
+        {
+          "id": "c10",
+          "kind": "anekdote",
+          "text": "In de baden werden in het geheim bruiden bekeken: vrouwelijke familieleden van de bruidegom keken, met hulp van de huwelijksmakelaarster, of het nietsvermoedende meisje lichamelijke gebreken had.",
+          "sourceIds": [
+            "s5"
+          ],
+          "evidence": "Nezavisimaya Gazeta: geheime \"smotriny\" in de baden."
         }
       ]
     },
@@ -618,6 +693,20 @@
           "url": "http://www.nplg.gov.ge/gwdict/index.php?a=term&d=36&t=5",
           "type": "naslagwerk",
           "language": "ka"
+        },
+        {
+          "id": "s3",
+          "title": "J. Simonjan, Zdes Poesjkin mylsja! (\"Hier waste Poesjkin zich!\"), Nezavisimaya Gazeta (30 juni 2008)",
+          "url": "https://www.ng.ru/style/2008-06-30/24_banya.html",
+          "type": "nieuws",
+          "language": "ru"
+        },
+        {
+          "id": "s4",
+          "title": "A.S. Poesjkin, Reis naar Arzrum, hoofdstuk 2 (1829, uitgegeven 1836), Russische tekst op Wikisource",
+          "url": "https://ru.wikisource.org/wiki/Путешествие_в_Арзрум_во_время_похода_1829_года_(Пушкин)/Глава_2",
+          "type": "boek",
+          "language": "ru"
         }
       ],
       "claims": [
@@ -648,6 +737,34 @@
             "s1"
           ],
           "evidence": "Register: linker zijgevel volgt de Leghvtakhevi-kloof; terrasvormige opbouw; kleine geglazuurde koepels."
+        },
+        {
+          "id": "c4",
+          "kind": "anekdote",
+          "text": "Een veelverteld verhaal zegt dat Agha Mohammad Khan na de verwoesting van 1795 de hete bronnen zag en opdracht gaf voor het eerste echte badhuis: Chreli Abano. Dat klopt niet met de erfgoedlijst, die het badhuis in het begin van de 17e eeuw plaatst.",
+          "sourceIds": [
+            "s3"
+          ],
+          "evidence": "Nezavisimaya Gazeta vertelt dit als herkomst van de eerste bank; de erfgoedlijst (claim c1) dateert het veel eerder."
+        },
+        {
+          "id": "c5",
+          "kind": "anekdote",
+          "text": "Volgens Nezavisimaya Gazeta baadde Poesjkin in 1829 juist in dit bad. In zijn eigen reisverslag noemt hij de naam van het bad niet.",
+          "sourceIds": [
+            "s3",
+            "s4"
+          ],
+          "evidence": "Krant: \"juist hier baadde Poesjkin\"; Poesjkin zelf beschrijft een bad zonder naam."
+        },
+        {
+          "id": "c6",
+          "kind": "anekdote",
+          "text": "Jongens uit de buurt zouden door de gaten in de koepels bij de vrouwen naar binnen hebben gekeken, wat vroeger gegil en flauwvallen gaf.",
+          "sourceIds": [
+            "s3"
+          ],
+          "evidence": "Nezavisimaya Gazeta: gaten in de koepels, waar de \"plaatselijke jeugd\" doorheen keek."
         }
       ]
     },
@@ -1064,6 +1181,13 @@
           "url": "https://www.armenianchurch.ge/en/churches/dejstvuyushchie-tserkvi-i-chasovni-2/existing-churches-and-chapels/surb-gevorg-leader-church",
           "type": "instelling",
           "language": "en"
+        },
+        {
+          "id": "s5",
+          "title": "Sayat Nova: The Armenian Poet and Musician Who Shaped Caucasian Culture, Armenian History",
+          "url": "https://armenian-history.com/sayat-nova-armenian-poet-musician",
+          "type": "website",
+          "language": "en"
         }
       ],
       "claims": [
@@ -1104,6 +1228,15 @@
             "s4"
           ],
           "evidence": "Armeens bisdom: hofzanger, drie talen, begraven bij Surb Gevorg."
+        },
+        {
+          "id": "c5",
+          "kind": "anekdote",
+          "text": "Volgens de legende was Sayat-Nova verliefd op prinses Ana, de zus van koning Erekle II, en moest hij daarom het hof verlaten. Of dat zo was, staat niet vast.",
+          "sourceIds": [
+            "s5"
+          ],
+          "evidence": "Armenian History: \"according to legend\"; de juistheid is omstreden."
         }
       ]
     },
@@ -3044,6 +3177,13 @@
           "url": "https://eurasianet.org/tbilisis-bridge-of-peace-undulates-in-glass-and-steel",
           "type": "nieuws",
           "language": "en"
+        },
+        {
+          "id": "s6",
+          "title": "The Bridge of Peace, Tbilisi, Georgia: 10 fascinating facts, Georgian Web",
+          "url": "https://www.georgianweb.com/the-bridge-of-peace-tbilisi-georgia-10-fascinating-facts/",
+          "type": "website",
+          "language": "en"
         }
       ],
       "claims": [
@@ -3095,6 +3235,16 @@
           ],
           "evidence": "Eurasianet: kritiek dat de brug de oude stad domineert; Arquitectura Viva: trofee-gebouwen van Saakashvili.",
           "note": "Eurasianet is gelezen via een zoekresultaat; de pagina zelf was niet bereikbaar."
+        },
+        {
+          "id": "c6",
+          "kind": "anekdote",
+          "text": "Elk uur knipperen de lampjes van de brug in morse de namen van elementen die in het menselijk lichaam zitten. Ontwerper Philippe Martinaud bedoelde dat als boodschap van vrede.",
+          "sourceIds": [
+            "s6"
+          ],
+          "evidence": "Georgian Web: morse elk uur, elementen uit het menselijk lichaam, citaat van Martinaud.",
+          "note": "Website over Georgië; niet bevestigd door de ontwerper zelf."
         }
       ]
     },
@@ -3856,6 +4006,13 @@
           "url": "https://ru.wikisource.org/wiki/Путешествие_в_Арзрум_во_время_похода_1829_года_(Пушкин)/Глава_2",
           "type": "boek",
           "language": "ru"
+        },
+        {
+          "id": "s6",
+          "title": "Monument of 300 Aragveli in Tbilisi, Kathmandu & Beyond",
+          "url": "https://www.kathmanduandbeyond.com/monument-300-aragveli-tbilisi-georgia/",
+          "type": "reisblog",
+          "language": "en"
         }
       ],
       "claims": [
@@ -3923,6 +4080,16 @@
           ],
           "evidence": "Iranica: ingenomen 11 september 1795, ca. 15.000 weggevoerd; Poesjkin: 20.000.",
           "note": "Iranica is gelezen via een zoekresultaat; de pagina zelf was niet bereikbaar."
+        },
+        {
+          "id": "c8",
+          "kind": "anekdote",
+          "text": "De Driehonderd Aragvi-mannen, bergbewoners uit het Aragvi-dal, sneuvelden bij de laatste verdediging van Tbilisi in 1795. De Georgische kerk verklaarde hen in 2008 heilig, en er staat een monument voor hen.",
+          "sourceIds": [
+            "s6"
+          ],
+          "evidence": "Kathmandu & Beyond: laatste verdediging, heilig verklaard in 2008, monument.",
+          "note": "Reisblog. Dat zij precies met 300 waren en tot de laatste man vochten, is de manier waarop het wordt verteld."
         }
       ]
     },

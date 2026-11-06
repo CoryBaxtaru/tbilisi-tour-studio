@@ -9,6 +9,8 @@ import { PASSAGES, siteName, storylineKey } from './story';
 import type { Claim, ClaimKind, Landmark, SavedQuestion, SavedSentence, SourceRef } from './types';
 
 export const REPLY_FORMAT = 'tourstudio-verhaal-1';
+/** Founder's rule: folklore may be told as long as the sentence opens with one of these. */
+export const MYTH_OPENERS = ['Legendes zeggen dat', 'Een bekende volksmythe is'];
 const MAX_TEXT = 1500;
 const MAX_ITEMS = 60;
 const MAX_REPLY = 400_000;
@@ -24,6 +26,11 @@ export const HARD_WORDS: Record<string, string> = {
   fungeerde: 'was', fungeert: 'is', gesitueerd: 'gelegen', evident: 'duidelijk', prominent: 'belangrijk', hegemonie: 'macht',
   geopolitiek: 'machtsstrijd tussen landen', paradigma: 'manier van denken', symbiose: 'samenleven', vernacular: 'plaatselijke stijl',
 };
+
+/** Parts of a text that mention a legend or myth without opening with one of MYTH_OPENERS. */
+export function mythsWithoutOpener(text: string): string[] {
+  return text.split(/(?<=[.!?])\s+/).filter((part) => /\b(legendes?|volksmythes?|mythes?|overlevering)\b/i.test(part) && !MYTH_OPENERS.some((o) => part.includes(o)));
+}
 
 /** The hard words in a text. */
 export function hardWords(text: string): string[] {
@@ -64,6 +71,7 @@ Regels voor feiten:
 - Zijn bronnen het oneens? Zeg dat, en verzin geen middenweg.
 - Vind je iets niet? Laat het weg en zet het kort in "nietGevonden". Dat is beter dan gokken.
 - Noem geen looproutes, openingstijden of prijzen.
+- Legendes, folklore en bekende volksmythes zijn welkom, ook als alleen een reisgids ze noemt. Ze moeten wel echt rondgaan: verzin er geen. Zet ze bij "nieuweFeiten" met soort "anekdote" en met een link.
 - Gebruik niets uit "foutGebleken".
 
 ## Stap 2: de verhaallijn
@@ -76,6 +84,7 @@ Kies de beste volgorde voor een wandeling (de plekken liggen allemaal in de stad
 - Niet te veel jaartallen: alleen de jaartallen die het verhaal nodig heeft.
 - Schrijf "we" en "jullie". Begin met iets dat de gasten nieuwsgierig maakt. Overdrijf niet.
 - Overgang en slot voegen geen nieuwe feiten toe; ze verbinden alleen wat al verteld is.
+- Elke zin met een legende of mythe begint met "Legendes zeggen dat" of "Een bekende volksmythe is", zodat gasten horen dat het geen vaststaand feit is.
 
 ## Zo moet je antwoorden
 Eindig met één JSON-blok in precies deze vorm. Ik plak dit in mijn website, dus zet er geen uitleg in.
@@ -132,6 +141,8 @@ export interface ParsedReply {
   /** Things that were refused or look wrong, in plain Dutch. */
   problems: string[];
   hardWords: string[];
+  /** Sentences that tell a myth without the required opening. */
+  mythWarnings: string[];
 }
 
 const str = (v: unknown, max = MAX_TEXT): string => (typeof v === 'string' ? v.trim().slice(0, max) : '');
@@ -240,7 +251,8 @@ export function parseReply(text: string, landmarks: Landmark[]): ParsedReply {
   for (const s of sites) if (!order.includes(s.siteId)) order.push(s.siteId);
   const title = str(raw.titel, 120), opening = str(raw.opening), closing = str(raw.slot);
   const allText = [opening, closing, ...sites.flatMap((s) => [s.bridge ?? '', ...s.sentences.map((x) => x.text), ...s.questions.map((q) => q.answer)])].join(' ');
-  return { title, opening, closing, order, sites, problems, hardWords: hardWords(allText) };
+  const mythWarnings = sites.flatMap((s) => s.sentences.flatMap((x) => mythsWithoutOpener(x.text)));
+  return { title, opening, closing, order, sites, problems, hardWords: hardWords(allText), mythWarnings };
 }
 
 /** The landmarks to save: new claims and sources added, the story replaced. Sources and facts seen before are reused. */

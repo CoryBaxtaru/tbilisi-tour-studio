@@ -146,6 +146,14 @@ Best new sources: Poesjkin's own text (1829), Lerner in *Folklore* 16, Kekelia i
 
 The wording of the sentences was checked by hand against the claims. All of it is still concept until the founder verifies it under Onderzoek.
 
+## Folklore and myths (founder's rule, 2026-11-07)
+Folklore and common myths may go into a story, even when only a travel guide or a blog tells them, as long as the sentence opens with **"Legendes zeggen dat"** or **"Een bekende volksmythe is"**. Guests must hear that it is not an established fact.
+- They must be tales that really circulate. Claude does not make them up, and each has a claim of kind "anekdote" with a link, so it can be checked or rejected like any other claim.
+- A test fails when a story sentence mentions a legend or myth without the opening. The Claude prompt asks for it, and a pasted answer that skips it gets a warning.
+- Accounts with a named witness keep that name instead (Grishashvili, a seller at the Dry Bridge, the newspaper Iveria), and so does what the church itself tells about the martyrs of 1226 ("volgens de kerk"). Those are not folklore.
+- Added: Metekhi's name ("ik brak mijn woord"), the lightning at Narikala, the 300 men from Aragvi, Nino's hair on the cross, Sayat-Nova and princess Ana, the bride inspection in the baths, the boiled pheasant, and three at Chreli Abano (Agha Mohammad Khan, Poesjkin's bath, the holes in the domes). The Morse message of the Bridge of Peace is added too, attributed to its designer.
+- Not used, no source found: wish pebbles at Mamadaviti, why Turtle Lake has its name.
+
 ## Adding or fixing drafts
 - Edit `src/data/research-drafts.json`. Per site:
   - `sources`: `{ id, title, url, type, language }`. Types are listed in `SOURCE_TYPES` in `src/domain/research.ts`.

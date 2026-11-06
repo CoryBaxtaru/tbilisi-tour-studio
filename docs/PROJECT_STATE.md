@@ -13,7 +13,7 @@ Tbilisi Walking Tour Studio: a personal desktop tour editor and mobile live-guid
   - Card deck builder: 58 catalogue sites (OSM positions, unverified tags) + own landmarks; filter by era, tour type, district and text; drag cards into the route, drag the handle to reorder, + button, map-dot popup; automatic route recalculation; proximity sort to the last stop; card click flies the map to the site; "Toon meer" with sourced Wikipedia/Wikidata background (also in guide mode); pre-generated tours (11 themes + Tbilisi compleet + custom tags); catalogue refresh for unedited landmarks (docs/CATALOG.md)
   - Talking points with provenance stamps
   - Onderzoek (research): per-site claims with sources and a verdict (Concept, Geverifieerd, Afgewezen), plus own claims and sources (`docs/RESEARCH.md`).
-    - 255 concept claims and 205 sources for all 58 sites, checked by Claude in the original sources. Wikipedia is used only as a map to its citations, never as a source.
+    - 266 concept claims and 214 sources for all 58 sites, checked by Claude in the original sources. Wikipedia is used only as a map to its citations, never as a source.
     - New stops start with the site's 3 best claims as talking points (`starterPoints`).
   - Agenda (business hub step 3, 2026-10-23):
     - tour products (Touraanbod: duration, min/max guests, meeting point, inclusions; Dutch only);

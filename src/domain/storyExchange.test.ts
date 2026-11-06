@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { catalogLandmarkId } from './catalog';
 import { mergedResearch } from './research';
 import { buildStoryline, keywords, PASSAGES, THREADS, tourFromStoryline } from './story';
-import { applyReply, buildResearchPrompt, hardWords, parseReply, REPLY_FORMAT } from './storyExchange';
+import { applyReply, buildResearchPrompt, hardWords, mythsWithoutOpener, parseReply, REPLY_FORMAT } from './storyExchange';
 import type { Landmark } from './types';
 
 const reply = (over: Record<string, unknown> = {}) => ({
@@ -137,6 +137,24 @@ describe('plain Dutch', () => {
       ...THREADS.flatMap((t) => [t.label, t.intro, t.close, ...t.bridges, ...Object.values(t.refs).map((r) => r.t)]),
     ].join(' ');
     expect(hardWords(text)).toEqual([]);
+  });
+});
+
+describe('myths', () => {
+  it('finds a myth without the required opening', () => {
+    expect(mythsWithoutOpener('Volgens de legende bouwde hij dit. Dat is mooi.')).toEqual(['Volgens de legende bouwde hij dit.']);
+    expect(mythsWithoutOpener('Legendes zeggen dat hij dit bouwde.')).toEqual([]);
+    expect(mythsWithoutOpener('Een bekende volksmythe is dat hij hier zat.')).toEqual([]);
+  });
+  it('every story uses the opening', () => {
+    for (const [site, p] of Object.entries(PASSAGES)) {
+      for (const s of p.sentences) expect(mythsWithoutOpener(s.t), site).toEqual([]);
+    }
+  });
+  it('the prompt asks for it and a pasted answer is checked', () => {
+    expect(buildResearchPrompt(['sioni'], [])).toContain('Legendes zeggen dat');
+    const r = parseReply(JSON.stringify(reply({ plekken: [{ id: 'sioni', verhaal: [{ tekst: 'Volgens de overlevering was dit zo.', feiten: ['c1'] }] }] })), []);
+    expect(r.mythWarnings).toEqual(['Volgens de overlevering was dit zo.']);
   });
 });
 

@@ -16,7 +16,8 @@ Tbilisi Walking Tour Studio — desktop tour design and mobile live guiding for 
 - Date: 2026-11-07 (session 01), live in `408bada`, checked on GitHub Pages:
   - Studie: copy a research prompt for Claude and paste the answer back, saved per site (clipboard chosen over a Haiku subagent, because a subagent cannot run from the website); make a tour from a storyline; practice mode; guest questions; simpler Dutch in all bundled story text.
   - Business: Vandaag screen, Start gidsen, overbooking block, GetYourGuide reminder, refunds and cancellation fees, lari, general costs and profit (**schema 3: both devices must tap "Vernieuwen"**), open payments, bad-weather plan.
-  - Research: all 58 sites now have a written story with facts, anecdotes and myths (255 claims, 205 sources, 23 threads). See `docs/RESEARCH.md`.
+  - Research: all 58 sites now have a written story with facts, anecdotes and myths (266 claims, 214 sources, 23 threads). See `docs/RESEARCH.md`.
+  - Folklore rule: myths may go into a story if they open with "Legendes zeggen dat" or "Een bekende volksmythe is". Applied, with new myths added. **Not deployed yet** (live is still `408bada`).
   - Breakdown: `docs/session-breakdowns/session-2026-11-07-01.md`.
 - Date: 2026-11-06 (session 01): new **Studie** section (`#/studie`), built, **not committed or deployed**. Click sites, get a storyline on the map and a story to tell. 20 passages and 15 threads are written by Claude from the claims; the other 38 sites show their claims in a row. No AI in the app (zero-cost rule). Breakdown: `docs/session-breakdowns/session-2026-11-06-01.md`.
 - Previous: 2026-10-23 (session 01):

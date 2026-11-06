@@ -39,7 +39,13 @@
           ]
         },
         {
-          "t": "Stalin hielp de overval plannen. Wat hij die dag zelf deed, weet niemand zeker: de een zegt dat hij de eerste bom gooide, de ander dat hij op het station wachtte. Ook over het aantal doden zijn de bronnen het niet eens.",
+          "t": "Stalin hielp de overval plannen.",
+          "c": [
+            "c7"
+          ]
+        },
+        {
+          "t": "Een bekende volksmythe is dat hij zelf de eerste bom gooide. Getuigen spreken elkaar tegen: een ander zegt dat hij op het station wachtte, en ook over het aantal doden zijn de bronnen het niet eens.",
           "c": [
             "c7"
           ]
@@ -159,7 +165,7 @@
           ]
         },
         {
-          "t": "Zelfs de naam zou daarmee te maken hebben: volgens de overlevering komt hij van \"sulu-lah\", de Arabische naam van een waterkanaal voor de tuin van de vesting.",
+          "t": "Legendes zeggen dat zelfs de naam daarmee te maken heeft: hij zou komen van \"sulu-lah\", de Arabische naam van een waterkanaal voor de tuin van de vesting.",
           "c": [
             "c1"
           ]
@@ -304,7 +310,7 @@
           ]
         },
         {
-          "t": "De overlevering schrijft een eerste kerk op deze plek toe aan Vakhtang Gorgasali.",
+          "t": "Legendes zeggen dat Vakhtang Gorgasali op deze plek de eerste kerk bouwde.",
           "c": [
             "c2"
           ]
@@ -357,10 +363,15 @@
           ]
         },
         {
-          "t": "De overlevering zegt dat koning Vakhtang Gorgasali hier eind 5e eeuw een kerk bouwde, maar de bouw waarvan we de jaren kennen, begon in de jaren 570–580 en was in de jaren 620 klaar.",
+          "t": "Legendes zeggen dat koning Vakhtang Gorgasali hier eind 5e eeuw een kerk bouwde.",
           "c": [
-            "c2",
             "c3"
+          ]
+        },
+        {
+          "t": "De bouw waarvan we de jaren kennen, begon in de jaren 570–580 en was in de jaren 620 klaar.",
+          "c": [
+            "c2"
           ]
         },
         {
@@ -370,9 +381,16 @@
           ]
         },
         {
-          "t": "Binnen wordt een van de belangrijkste relikwieën van het land bewaard: het kruis van de heilige Nino, die het christendom naar Georgië bracht. Volgens de traditie kreeg ze dit kruis van wijnranken van de Moeder Gods zelf.",
+          "t": "Binnen wordt een van de belangrijkste relikwieën van het land bewaard: het kruis van de heilige Nino, die het christendom naar Georgië bracht.",
           "c": [
             "c6"
+          ]
+        },
+        {
+          "t": "Legendes zeggen dat de Moeder Gods haar dit kruis van wijnranken gaf, en dat Nino het samenbond met haar eigen haar.",
+          "c": [
+            "c6",
+            "c9"
           ]
         },
         {
@@ -546,9 +564,15 @@
           ]
         },
         {
-          "t": "Volgens de overlevering wilde de sjah na de eerste gevechten al omkeren, tot een spion hem vertelde hoe zwak de Georgiërs waren.",
+          "t": "Legendes zeggen dat de sjah na de eerste gevechten al wilde omkeren, tot een spion hem vertelde hoe zwak de Georgiërs waren.",
           "c": [
             "c6"
+          ]
+        },
+        {
+          "t": "Legendes zeggen dat 300 mannen uit het Aragvi-dal hier tot het einde bleven vechten. De Georgische kerk verklaarde hen in 2008 heilig.",
+          "c": [
+            "c8"
           ]
         },
         {
@@ -671,6 +695,12 @@
           "c": [
             "c4"
           ]
+        },
+        {
+          "t": "Legendes zeggen dat hij verliefd was op prinses Ana, de zus van de koning, en daarom het hof moest verlaten.",
+          "c": [
+            "c5"
+          ]
         }
       ],
       "questions": [
@@ -743,15 +773,16 @@
       "era": "de 10e eeuw",
       "sentences": [
         {
-          "t": "Het begint hier met een legende. Koning Vakhtang Gorgasali was aan het jagen toen zijn valk een fazant ving. De vogel viel in een hete bron, genas en vloog weg, en de koning besloot hier een stad te bouwen.",
+          "t": "Legendes zeggen dat koning Vakhtang Gorgasali hier aan het jagen was toen zijn valk een fazant ving. De vogel viel in een hete bron, genas en vloog weg, en de koning besloot hier een stad te bouwen.",
           "c": [
             "c5"
           ]
         },
         {
-          "t": "Het is een mooi verhaal, en het bestaat ook met een hert in plaats van een fazant. Maar de kern klopt: tbili betekent \"warm\".",
+          "t": "Het is een mooi verhaal, en het bestaat in meer versies: met een hert, of met een fazant die in het hete water gaar kookte. Maar de kern klopt: tbili betekent \"warm\".",
           "c": [
-            "c5"
+            "c5",
+            "c9"
           ]
         },
         {
@@ -770,6 +801,12 @@
           "t": "Je kwam hier niet alleen om je te wassen. Dichter Ioseb Grishashvili beschreef hoe boeren er voor een paar munten overnachtten en vrouwen er hele dagen doorbrachten: het was hun \"club en theater\", en veel huwelijken werden er geregeld.",
           "c": [
             "c4"
+          ]
+        },
+        {
+          "t": "Een bekende volksmythe is dat vrouwen uit de familie van een bruidegom hier in het geheim de aanstaande bruid kwamen bekijken, om te zien of ze geen gebreken had.",
+          "c": [
+            "c10"
           ]
         },
         {
@@ -836,9 +873,31 @@
           ]
         },
         {
-          "t": "Die oosterse voorgevel is uit de tweede helft van de 19e eeuw, maar het badhuis zelf komt volgens de erfgoedlijst uit het begin van de 17e eeuw.",
+          "t": "Legendes zeggen dat Agha Mohammad Khan dit het eerste echte badhuis van de stad liet bouwen, nadat hij Tbilisi in 1795 had verwoest.",
+          "c": [
+            "c4"
+          ]
+        },
+        {
+          "t": "Maar dat kan niet kloppen: de oosterse voorgevel is uit de tweede helft van de 19e eeuw, en het badhuis zelf komt volgens de erfgoedlijst uit het begin van de 17e eeuw.",
           "c": [
             "c1"
+          ]
+        },
+        {
+          "t": "Een bekende volksmythe is dat Poesjkin juist hier baadde. Zelf noemt hij in zijn reisverslag geen naam.",
+          "c": [
+            "c5"
+          ]
+        },
+        {
+          "t": "Kijk ook even omhoog naar de koepels.",
+          "c": []
+        },
+        {
+          "t": "Een bekende volksmythe is dat jongens uit de buurt door de gaten bij de vrouwen naar binnen keken.",
+          "c": [
+            "c6"
           ]
         }
       ],
@@ -904,6 +963,12 @@
           "t": "Geen vijand maakte er zo'n einde aan als de eigen voorraad. Begin 19e eeuw werd de kerk hier als kruitmagazijn gebruikt, en in 1827 ontplofte ze.",
           "c": [
             "c3"
+          ]
+        },
+        {
+          "t": "Legendes zeggen dat de bliksem insloeg in het buskruit.",
+          "c": [
+            "c7"
           ]
         },
         {
@@ -991,13 +1056,31 @@
           ]
         },
         {
-          "t": "Volgens de overlevering liet Vakhtang Gorgasali hier al in de 5e eeuw een kerk en vesting bouwen, maar betrouwbaar bewijs daarvoor is er niet.",
+          "t": "Legendes zeggen dat Vakhtang Gorgasali hier al in de 5e eeuw een kerk en vesting liet bouwen. Betrouwbaar bewijs daarvoor is er niet.",
           "c": [
             "c3"
           ]
         },
         {
-          "t": "Het droevigste verhaal hier is dat van koningin Shushanik. Haar man mishandelde haar en hield haar zes jaar gevangen, omdat ze christen bleef. Volgens de traditie liggen haar relieken in deze kerk.",
+          "t": "Legendes zeggen dat ook de naam van hem komt. De leider van de Osseten ontvoerde zijn zus, en via een brief hoorde de koning dat de man alleen in zijn oksel kwetsbaar was.",
+          "c": [
+            "c9"
+          ]
+        },
+        {
+          "t": "De man vroeg hem niet te schieten tot hij de rivier over was. De koning brak die belofte en doodde hem. Uit schuld bouwde hij een kerk: Metekhi, \"ik brak mijn woord\". Andere bronnen leggen de naam anders uit.",
+          "c": [
+            "c9"
+          ]
+        },
+        {
+          "t": "Het droevigste verhaal hier is dat van koningin Shushanik. Haar man mishandelde haar en hield haar zes jaar gevangen, omdat ze christen bleef.",
+          "c": [
+            "c7"
+          ]
+        },
+        {
+          "t": "Legendes zeggen dat haar relieken in deze kerk liggen.",
           "c": [
             "c7"
           ]
@@ -1033,7 +1116,7 @@
           ]
         },
         {
-          "t": "Men zegt dat Stalin en de schrijver Gorki hier hebben vastgezeten. Dat lees je in reisgidsen, maar in goede bronnen hebben we het niet teruggevonden.",
+          "t": "Een bekende volksmythe is dat Stalin en de schrijver Gorki hier hebben vastgezeten. Dat lees je in reisgidsen, maar in goede bronnen hebben we het niet teruggevonden.",
           "c": [
             "c8"
           ]
@@ -1063,13 +1146,13 @@
       "era": "de 13e eeuw",
       "sentences": [
         {
-          "t": "Op de rand van de rots rijdt de man uit de legende over de stad uit.",
+          "t": "Op de rand van de rots rijdt Vakhtang Gorgasali over de stad uit.",
           "c": [
             "c3"
           ]
         },
         {
-          "t": "Koning Vakhtang Gorgasali zou hier een stad hebben gesticht nadat zijn valk een fazant ving die in een hete bron viel. Dat is een legende, maar hij is wel de man die de stad als haar stichter ziet.",
+          "t": "Legendes zeggen dat hij hier een stad stichtte nadat zijn valk een fazant ving die in een hete bron viel. Zeker is dat de stad hem als haar stichter ziet.",
           "c": [
             "c6"
           ]
@@ -1131,6 +1214,12 @@
           "t": "Ze is ontworpen door de Italiaanse architect Michele De Lucchi, de verlichting is van de Franse lichtontwerper Philippe Martinaud.",
           "c": [
             "c1"
+          ]
+        },
+        {
+          "t": "Er zit ook een boodschap in het licht: elk uur knipperen de lampjes in morse de namen van elementen die in het menselijk lichaam zitten. Zo bedoelde de ontwerper het als boodschap van vrede.",
+          "c": [
+            "c6"
           ]
         },
         {
@@ -1478,7 +1567,7 @@
           "c": []
         },
         {
-          "t": "In de 6e eeuw leefde de monnik David op de berg hierboven. Volgens de legende werd een vrouw omgekocht om te zeggen dat ze zijn kind droeg.",
+          "t": "Legendes zeggen dat een vrouw werd omgekocht om de monnik David, die in de 6e eeuw op de berg hierboven woonde, te beschuldigen. Ze moest zeggen dat ze zijn kind droeg.",
           "c": [
             "c4"
           ]
@@ -2046,7 +2135,7 @@
           ]
         },
         {
-          "t": "Volgens het verhaal woonde de monnik David hier in een grot, bij een bron waar gelovigen nu nog komen om te genezen.",
+          "t": "Legendes zeggen dat de monnik David hier in een grot woonde, bij een bron waar gelovigen nu nog komen om te genezen.",
           "c": [
             "c5"
           ]
@@ -2350,7 +2439,7 @@
           ]
         },
         {
-          "t": "Het verhaal gaat dat de naam komt van soldaten die begin jaren 1920 het Rode Leger verlieten en hier hun uniformen en wapens verkochten.",
+          "t": "Een bekende volksmythe is dat de naam komt van soldaten die begin jaren 1920 het Rode Leger verlieten en hier hun uniformen en wapens verkochten.",
           "c": [
             "c2"
           ]
