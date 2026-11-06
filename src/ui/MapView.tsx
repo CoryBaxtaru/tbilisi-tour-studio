@@ -28,6 +28,7 @@ interface Props {
   onDotAdd?: (key: string) => void;
   /** Clicking a dot acts at once, without the "add to route" popup. */
   onDotClick?: (key: string) => void;
+  onStopClick?: (id: string) => void;
   /** Pan to this point (e.g. a card the user clicked); key changes re-trigger. */
   focus?: { key: string; position: LatLng; n?: number } | null;
   routes: [number, number][][];
@@ -37,6 +38,8 @@ interface Props {
   onMapClick?: (p: LatLng) => void;
   /** Changing this re-fits the map to the stops. */
   fitKey?: string;
+  /** Fit again when the map changes size, until the user has moved the map. */
+  refitOnResize?: boolean;
   dark?: boolean;
   attribution?: string;
 }
@@ -44,7 +47,7 @@ interface Props {
 // Viewport only (not a place record): the map opens on central Tbilisi when a tour has no stops yet.
 const DEFAULT_VIEW: L.LatLngExpression = [41.6938, 44.8015];
 
-export function MapView({ stops, dots = [], onDotAdd, onDotClick, focus, routes, gaps = [], user, onMapClick, fitKey, dark, attribution }: Props) {
+export function MapView({ stops, dots = [], onDotAdd, onDotClick, onStopClick, refitOnResize, focus, routes, gaps = [], user, onMapClick, fitKey, dark, attribution }: Props) {
   const el = useRef<HTMLDivElement>(null);
   const map = useRef<L.Map | null>(null);
   const layer = useRef<L.LayerGroup | null>(null);
@@ -56,6 +59,20 @@ export function MapView({ stops, dots = [], onDotAdd, onDotClick, focus, routes,
   dotAddRef.current = onDotAdd;
   const dotClickRef = useRef(onDotClick);
   dotClickRef.current = onDotClick;
+  const stopClickRef = useRef(onStopClick);
+  stopClickRef.current = onStopClick;
+  const stopsRef = useRef(stops);
+  stopsRef.current = stops;
+  const refitRef = useRef(refitOnResize);
+  refitRef.current = refitOnResize;
+  const touched = useRef(false);
+
+  function fit(animate = true) {
+    const m = map.current!;
+    const pts = stopsRef.current.map((s) => [s.position.lat, s.position.lng] as [number, number]);
+    if (pts.length === 1) m.setView(pts[0], 17, { animate });
+    else if (pts.length > 1) m.fitBounds(L.latLngBounds(pts), { padding: [32, 32], maxZoom: 17, animate });
+  }
 
   useEffect(() => {
     const m = L.map(el.current!, { zoomControl: true }).setView(DEFAULT_VIEW, 15);
@@ -79,7 +96,13 @@ export function MapView({ stops, dots = [], onDotAdd, onDotClick, focus, routes,
     dotLayer.current = L.layerGroup().addTo(m);
     layer.current = L.layerGroup().addTo(m);
     map.current = m;
-    const ro = new ResizeObserver(() => m.invalidateSize());
+    const moved = () => { touched.current = true; };
+    el.current!.addEventListener('pointerdown', moved);
+    el.current!.addEventListener('wheel', moved, { passive: true });
+    const ro = new ResizeObserver(() => {
+      m.invalidateSize();
+      if (refitRef.current && !touched.current) fit(false);
+    });
     ro.observe(el.current!);
     return () => { ro.disconnect(); m.remove(); };
   }, []);
@@ -90,10 +113,12 @@ export function MapView({ stops, dots = [], onDotAdd, onDotClick, focus, routes,
     for (const line of routes) if (line.length > 1) L.polyline(line, { color: dark ? '#4FA39A' : '#2F6F6A', weight: 4 }).addTo(g);
     for (const [a, b] of gaps) L.polyline([[a.lat, a.lng], [b.lat, b.lng]], { color: '#C4962C', weight: 2, dashArray: '4 6' }).addTo(g);
     stops.forEach((s) => {
-      L.marker([s.position.lat, s.position.lng], {
+      const pin = L.marker([s.position.lat, s.position.lng], {
         icon: L.divIcon({ className: `stop-pin stop-pin--${s.state ?? 'normaal'}`, html: `<span>${escapeHtml(s.label)}</span>`, iconSize: [28, 28] }),
         keyboard: false,
+        interactive: !!stopClickRef.current,
       }).addTo(g);
+      if (stopClickRef.current) pin.on('click', () => stopClickRef.current?.(s.id));
     });
     if (user) {
       L.circle([user.position.lat, user.position.lng], { radius: user.accuracyM, color: '#7FC2B8', weight: 1, fillOpacity: 0.15 }).addTo(g);
@@ -130,10 +155,8 @@ export function MapView({ stops, dots = [], onDotAdd, onDotClick, focus, routes,
   }, [focus?.key, focus?.n]);
 
   useEffect(() => {
-    const m = map.current!;
-    const pts = stops.map((s) => [s.position.lat, s.position.lng] as [number, number]);
-    if (pts.length === 1) m.setView(pts[0], 17);
-    else if (pts.length > 1) m.fitBounds(L.latLngBounds(pts), { padding: [32, 32], maxZoom: 17 });
+    touched.current = false;
+    fit();
   }, [fitKey]);
 
   return <div ref={el} class={`map ${dark ? 'map--dark' : ''}`} />;

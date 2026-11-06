@@ -262,10 +262,10 @@ export function buildStoryline(ids: string[], mode: StoryOrder, landmarks: Landm
 }
 
 /** Sites for the picker: those with a written passage first. */
-export function studySites(landmarks: Landmark[] = []): { id: string; name: string; written: boolean; position: LatLng | null }[] {
+export function studySites(landmarks: Landmark[] = []): { id: string; name: string; district: string; written: boolean; position: LatLng | null }[] {
   const saved = new Set(landmarks.filter((l) => l.story?.sentences.length && l.catalogId).map((l) => l.catalogId));
   return CATALOG
-    .map((s) => ({ id: s.id, name: siteName(s.id), written: !!PASSAGES[s.id] || saved.has(s.id), position: positionOf(s.id) }))
+    .map((s) => ({ id: s.id, name: siteName(s.id), district: s.district, written: !!PASSAGES[s.id] || saved.has(s.id), position: positionOf(s.id) }))
     .sort((a, b) => Number(b.written) - Number(a.written) || a.name.localeCompare(b.name, 'nl'));
 }
 

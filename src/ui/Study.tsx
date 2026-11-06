@@ -1,10 +1,11 @@
 // Studie (#/studie/<site,site,...>): click sites, see the storyline on the map and read the story to tell.
 // The selection lives in the address, so it survives a reload. Works offline, except for the Claude chat itself:
 // the guide copies a research prompt from here and pastes the answer back, and it is saved on each site.
-import { useMemo, useState } from 'preact/hooks';
+import { useEffect, useMemo, useState } from 'preact/hooks';
 import { formatDistance, formatMinutes } from '../domain/geo';
 import { buildStoryline, keywords, siteName, STORY_ORDERS, studySites, tourFromStoryline, type StoryBlock, type StoryOrder, type StorySentence } from '../domain/story';
 import { applyReply, buildResearchPrompt, HARD_WORDS, parseReply, type ParsedReply } from '../domain/storyExchange';
+import { DISTRICTS } from '../domain/tags';
 import type { LatLng } from '../domain/types';
 import { ensureLandmark, getState, saveLandmark, saveTour, useAppState } from '../state/store';
 import { copyText } from './clipboard';
@@ -123,14 +124,66 @@ function PracticeBlock({ block, shown, onShow }: { block: StoryBlock; shown: boo
   );
 }
 
+/** Choosing sites is a side job once a story exists, so the list folds away: search, then the sites per district. */
+function SitePicker({ picked, onToggle }: { picked: string[]; onToggle: (id: string) => void }) {
+  const { landmarks } = useAppState();
+  const [open, setOpen] = useState(false);
+  const [query, setQuery] = useState('');
+  const sites = useMemo(() => studySites(landmarks), [landmarks]);
+  const showing = open || !picked.length;
+  const q = query.trim().toLocaleLowerCase('nl');
+  const matches = sites.filter((s) => !q || s.name.toLocaleLowerCase('nl').includes(q));
+  const chip = (s: (typeof sites)[number]) => (
+    <button key={s.id} type="button" class={`study-chip ${s.written ? '' : 'study-chip--bare'}`} aria-pressed={picked.includes(s.id)}
+      title={s.written ? undefined : 'Nog geen geschreven verhaal'} onClick={() => { onToggle(s.id); setQuery(''); }}>{s.name}</button>
+  );
+  const chosen = picked.flatMap((id) => sites.find((s) => s.id === id) ?? []);
+  return (
+    <div class={`picker ${showing ? 'is-open' : ''}`}>
+      {picked.length > 0 && (
+        <button type="button" class="btn picker__toggle" aria-expanded={showing} onClick={() => setOpen(!open)}>
+          {showing ? 'Plekken verbergen' : `Plekken wijzigen (${picked.length})`}
+        </button>
+      )}
+      {showing && (
+        <div class="picker__panel">
+          <input type="search" value={query} aria-label="Zoek een plek" placeholder="Zoek een plek" onInput={(e) => setQuery(e.currentTarget.value)} />
+          {!q && chosen.length > 0 && (
+            <div class="picker__group">
+              <h2>Gekozen</h2>
+              <div class="picker__chips">{chosen.map(chip)}</div>
+              <button type="button" class="btn btn--ghost btn--small" onClick={() => navigate('/studie')}>Opnieuw beginnen</button>
+            </div>
+          )}
+          {DISTRICTS.map((d) => {
+            const list = matches.filter((s) => s.district === d.id && (q || !picked.includes(s.id)));
+            return list.length > 0 && (
+              <div class="picker__group" key={d.id}>
+                <h2>{d.label}</h2>
+                <div class="picker__chips">{list.map(chip)}</div>
+              </div>
+            );
+          })}
+          {!matches.length && <p class="hint">Geen plek gevonden met "{query.trim()}".</p>}
+        </div>
+      )}
+    </div>
+  );
+}
+
+const scrollToStop = (id: string) => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.getElementById(`stop-${id}`)?.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+};
+
 export function Study({ selection }: { selection?: string }) {
   const { landmarks } = useAppState();
   const { dark } = useTheme();
   const [mode, setMode] = useState<StoryOrder>('verhaal');
-  const [fitN, setFitN] = useState(0);
   const [marks, setMarks] = useState(false);
   const [practice, setPractice] = useState(false);
   const [shown, setShown] = useState<Set<number>>(new Set());
+  const [reading, setReading] = useState<string | null>(null);
   const sites = useMemo(() => studySites(landmarks), [landmarks]);
   const picked = useMemo(() => (selection ? selection.split(',').filter((id) => positionById.has(id)) : []), [selection]);
   const story = useMemo(() => buildStoryline(picked, mode, landmarks), [picked, mode, landmarks]);
@@ -150,74 +203,84 @@ export function Study({ selection }: { selection?: string }) {
     setShown(new Set());
   }
 
-  const stops: MapStop[] = story.order.flatMap((id, i) => {
+  // Which stop is being read: the one crossing a line a third down the screen. It lights up on the map.
+  const orderKey = story.order.join(',');
+  useEffect(() => {
+    setReading(story.order[0] ?? null);
+    const stopsOnPage = document.querySelectorAll<HTMLElement>('.story__stop');
+    if (!stopsOnPage.length) return;
+    const watcher = new IntersectionObserver((entries) => {
+      for (const e of entries) if (e.isIntersecting) setReading((e.target as HTMLElement).dataset.site ?? null);
+    }, { rootMargin: '-33% 0px -66% 0px' });
+    stopsOnPage.forEach((el) => watcher.observe(el));
+    return () => watcher.disconnect();
+  }, [orderKey]);
+
+  const stops = useMemo<MapStop[]>(() => story.order.flatMap((id, i) => {
     const position = positionById.get(id);
-    return position ? [{ id, label: String(i + 1), position }] : [];
-  });
-  const gaps = stops.slice(1).map((s, i): [LatLng, LatLng] => [stops[i].position, s.position]);
+    return position ? [{ id, label: String(i + 1), position, state: id === reading && story.order.length > 1 ? 'actief' as const : 'normaal' as const }] : [];
+  }), [orderKey, reading]);
+  const gaps = useMemo(() => stops.slice(1).map((s, i): [LatLng, LatLng] => [stops[i].position, s.position]), [orderKey]);
   const dots = useMemo<MapDot[]>(() => sites.flatMap((s) => (
     s.position && !picked.includes(s.id) ? [{ key: s.id, label: s.name, position: s.position }] : []
   )), [picked, sites]);
-  const chip = (s: (typeof sites)[number]) => (
-    <button key={s.id} type="button" class="chip" aria-pressed={picked.includes(s.id)} onClick={() => { toggle(s.id); setFitN((n) => n + 1); }}>{s.name}</button>
-  );
-  const written = sites.filter((s) => s.written);
-  const unwritten = sites.filter((s) => !s.written);
   const factual = story.counts.concept + story.counts.geverifieerd + story.counts.aangepast;
+  const first = story.order[0];
+  const last = story.order[story.order.length - 1];
+  const title = !picked.length
+    ? 'Studie'
+    : story.thread?.label ?? (story.order.length > 1 ? `Van ${siteName(first)} naar ${siteName(last)}` : siteName(first));
   let stopNumber = 0;
 
   return (
     <main class="page page--wide study">
-      <div class="page__head">
-        <h1>Studie</h1>
-        {picked.length > 0 && <button class="btn btn--ghost" onClick={() => navigate('/studie')}>Opnieuw beginnen</button>}
-      </div>
-      <p class="hint">Klik op plekken op de kaart of hieronder. Je krijgt een verhaallijn en het verhaal om te vertellen.</p>
-
       <div class="study__body">
-        <section aria-label="Plekken kiezen">
+      <header class="study__head">
+        <h1 class="lit">{title}</h1>
+        {picked.length > 0 ? (
+          <>
+            <p class="meta study__facts">
+              {story.order.length} {story.order.length === 1 ? 'plek' : 'plekken'} · ongeveer {formatMinutes(Math.max(1, story.minutes))} vertellen
+              {story.order.length > 1 ? ` · ${formatDistance(story.straightM)} in rechte lijn` : ''}
+            </p>
+            <div class="study__tools">
+              <button type="button" class="btn btn--primary" onClick={() => void makeTour()}>Maak een tour</button>
+              <button type="button" class="btn" aria-pressed={practice} onClick={() => setPracticeMode(!practice)}>{practice ? 'Stop met oefenen' : 'Oefenen'}</button>
+              <select class="study__order" aria-label="Volgorde" value={mode} onChange={(e) => setMode(e.currentTarget.value as StoryOrder)}>
+                {(Object.entries(STORY_ORDERS) as [StoryOrder, string][]).map(([k, l]) => <option key={k} value={k}>{l}</option>)}
+              </select>
+            </div>
+          </>
+        ) : <p class="meta study__facts">Kies plekken op de kaart of in de lijst. Je krijgt een verhaallijn en het verhaal om te vertellen.</p>}
+      </header>
+
+        <section class="study__aside" aria-label="Plekken kiezen">
           <div class="study__map">
-            <MapView stops={stops} dots={dots} onDotClick={toggle} routes={[]} gaps={gaps} fitKey={`studie-${fitN}`} dark={dark} key={dark ? 'donker' : 'licht'} />
+            <MapView stops={stops} dots={dots} onDotClick={toggle} onStopClick={scrollToStop} routes={[]} gaps={gaps} refitOnResize
+              fitKey={`studie-${[...picked].sort().join(',')}`} dark={dark} key={dark ? 'donker' : 'licht'} />
           </div>
-          <p class="meta">De lijnen zijn rechte verbindingen, geen looproute. Een looproute reken je uit in een tour.</p>
-          <div class="study__chips">{written.map(chip)}</div>
-          {unwritten.length > 0 && (
-            <details class="study__more" open={unwritten.some((s) => picked.includes(s.id))}>
-              <summary>Nog {unwritten.length} plekken zonder geschreven verhaal</summary>
-              <div class="study__chips">{unwritten.map(chip)}</div>
-            </details>
-          )}
+          {stops.length > 1 && <p class="meta study__note">Rechte lijnen, geen looproute. Die reken je uit in een tour.</p>}
+          <SitePicker picked={story.order} onToggle={toggle} />
         </section>
 
         <section class={`story ${marks ? 'story--marks' : ''}`} aria-label="Verhaal">
           {!picked.length ? (
             <div class="empty">
               <h2>Kies een paar plekken</h2>
-              <p>Probeer eens Narikala en de Metekhi-kerk: die delen een verhaal over buskruit.</p>
+              <p>Narikala en de Metekhi-kerk delen een verhaal over buskruit.</p>
+              <button type="button" class="btn" onClick={() => navigate('/studie/narikala,metekhi')}>Begin met deze twee</button>
             </div>
           ) : (
             <>
-              <div class="seg seg--choice study__orders" role="radiogroup" aria-label="Volgorde">
-                {(Object.entries(STORY_ORDERS) as [StoryOrder, string][]).map(([k, l]) => (
-                  <button key={k} type="button" role="radio" aria-checked={mode === k} onClick={() => setMode(k)}>{l}</button>
-                ))}
+              <div class="story__status">
+                <span>{story.counts.geverifieerd} van {factual} feitenzinnen geverifieerd</span>
+                <label class="check story__marks"><input type="checkbox" checked={marks} onChange={(e) => setMarks(e.currentTarget.checked)} />Toon wat nog concept is</label>
               </div>
-              {story.thread && <p class="story__thread">Rode draad: <strong>{story.thread.label}</strong></p>}
-              <p class="meta">
-                Ongeveer {formatMinutes(Math.max(1, story.minutes))} vertellen
-                {story.order.length > 1 ? ` · ${formatDistance(story.straightM)} in rechte lijn` : ''}
-              </p>
-              <div class="study__tools">
-                <button type="button" class="btn btn--primary" onClick={() => void makeTour()}>Maak hier een tour van</button>
-                <button type="button" class="btn" aria-pressed={practice} onClick={() => setPracticeMode(!practice)}>{practice ? 'Stop met oefenen' : 'Oefenen'}</button>
-              </div>
-              <ResearchExchange order={story.order} onSaved={(order) => { setMode('eigen'); navigate(`/studie/${order.join(',')}`); }} />
-              <p class="story__legend">
-                {story.counts.geverifieerd} van {factual} feitenzinnen door jou geverifieerd; de rest steunt op beweringen die nog concept zijn.
-                {story.counts.aangepast > 0 && <> <span class="say--aangepast">Golvend</span>: je hebt de bewering aangepast, controleer de zin.</>}
-                {' '}Schuin gedrukte overgangen voegen geen nieuwe feiten toe.
-              </p>
-              <label class="check story__marks"><input type="checkbox" checked={marks} onChange={(e) => setMarks(e.currentTarget.checked)} />Toon wat nog concept is</label>
+              {story.counts.aangepast > 0 && <p class="hint"><span class="say--aangepast">Golvend</span>: je hebt de bewering aangepast, controleer de zin.</p>}
+              <details class="study__research">
+                <summary>Meer onderzoek met Claude</summary>
+                <ResearchExchange order={story.order} onSaved={(order) => { setMode('eigen'); navigate(`/studie/${order.join(',')}`); }} />
+              </details>
               {practice && <p class="hint">Vertel elk stuk hardop met alleen de woorden als hulp, en kijk daarna of je iets vergat.</p>}
               {story.blocks.map((b, i) => {
                 const reveal = () => setShown((s) => new Set(s).add(i));
@@ -228,13 +291,14 @@ export function Study({ selection }: { selection?: string }) {
                 }
                 stopNumber++;
                 return (
-                  <article key={b.siteId} class="story__stop">
+                  <article key={b.siteId} id={`stop-${b.siteId}`} data-site={b.siteId} class={`story__stop ${b.siteId === reading && story.order.length > 1 ? 'is-reading' : ''}`}>
                     <h2 class="lit">
-                      <span class="story__num">{stopNumber}</span> {b.name}
+                      <span class="story__num">{stopNumber}</span>
+                      <span class="story__name">{b.name}</span>
                       {b.saved && <span class="story__saved">uit jouw onderzoek</span>}
                       <a class="story__sources" href={`#/onderzoek/cat:${b.siteId}`}>Bronnen</a>
                     </h2>
-                    {!b.written && <p class="hint hint--warn">Nog geen geschreven verhaal: dit zijn de losse beweringen. Gebruik "Kopieer opdracht voor Claude" om er een verhaal van te maken.</p>}
+                    {!b.written && <p class="hint hint--warn">Nog geen geschreven verhaal: dit zijn de losse beweringen. Gebruik "Meer onderzoek met Claude" om er een verhaal van te maken.</p>}
                     {!b.sentences.length
                       ? <p class="hint">Alle beweringen van deze plek zijn afgewezen.</p>
                       : practice
@@ -253,6 +317,7 @@ export function Study({ selection }: { selection?: string }) {
                   </article>
                 );
               })}
+              <p class="meta">Schuin gedrukte overgangen voegen geen nieuwe feiten toe.</p>
             </>
           )}
         </section>

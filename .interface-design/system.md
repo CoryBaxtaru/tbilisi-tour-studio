@@ -42,6 +42,8 @@ Rules: one accent (brick). Color carries meaning: brick = talking/action, turquo
 - **Provenance stamps:** 11px, 4px radius, 0.5px border in the role color, no fill. `feit · N bronnen` (balkon) · `interpretatie` (baksteen) · `anekdote` (neutral) · `onzeker` (zwavel border + zwavel-inkt text). Shown on every talking point.
 - **Next-stop card (guiding):** "Volgende stop" label + GPS accuracy (only when tracking is really active) → stop name (Literata 26/500) → "N min lopen · N m" → route progress line → arrival note → primary "Aangekomen" (2fr, brick fill) + secondary "Overslaan" (1fr, outlined). The map comes second, not first.
 
+- **Studie, the story leads:** the storyline's name is the page title (Literata 28). On desktop the map fills the left column and stays in view while reading. The site list folds away as soon as sites are chosen. Numbers in the story use the same brick circle as the map pins; the stop being read turns turquoise in both places. Rarely used work, such as the Claude research exchange, sits behind a quiet disclosure.
+
 ## Open decisions
 - Guiding mode dark vs. light: test both on the founder's phone in direct sunlight before committing.
 - Verify Noto Sans Georgian pairing once Georgian names appear.
