@@ -1,6 +1,6 @@
 # Site catalogue (card deck)
 
-The editor's card deck holds the built-in Tbilisi sites (`src/data/tbilisi-sites.json`, currently 58) plus every landmark the guide creates. Drag a card into the route, tap **+**, or click a dot on the map and choose "Aan route toevoegen". Reorder by dragging the ⋮⋮ handle, like the stop list in Google Maps, or with the ↑/↓ buttons. When online, the walking route recalculates automatically about 1.5 s after a change (FOSSGIS walking routes).
+The editor's card deck holds the built-in Tbilisi sites (`src/data/tbilisi-sites.json`, currently 66) plus every landmark the guide creates. Drag a card into the route, tap **+**, or click a dot on the map and choose "Aan route toevoegen". Reorder by dragging the ⋮⋮ handle, like the stop list in Google Maps, or with the ↑/↓ buttons. When online, the walking route recalculates automatically about 1.5 s after a change (FOSSGIS walking routes).
 
 ## Building a route
 - **Proximity sort:** the deck is sorted by straight-line distance to the **last stop** of the route by default (or the first stop, A–Z, catalogue order). Each card shows e.g. "130 m van Grote Synagoge"; cards already in the route move to the bottom.
@@ -23,7 +23,7 @@ Catalogue landmarks carry the catalogue build time as createdAt and updatedAt. I
 ## Status of the data: read before guiding
 - **Positions and Georgian names** come from OpenStreetMap via Nominatim, with the exact OSM object recorded per site (© OpenStreetMap contributors, **ODbL**). The catalogue file is a derived database and is also under ODbL; attribution is shown in the app.
 - **Dutch names, short notes, era tags, tour-type tags and districts are suggestions by Claude, not verified research.** Every catalogue landmark starts as `onbevestigd`. Verify them before presenting anything as fact. Edit them in the stop card (Gedeelde kennis); edits sync and override the catalogue text.
-- The concept claims under Onderzoek (203 for all 58 sites, at least 3 each) were checked by Claude in the original sources, but they still need your verification before you tell them (`docs/RESEARCH.md`).
+- The concept claims under Onderzoek (299 for all 66 sites, at least 3 each) were checked by Claude in the original sources, but they still need your verification before you tell them (`docs/RESEARCH.md`).
 - Era boundaries (`src/domain/tags.ts`) are conventional periodisations meant for planning, not precise claims.
 - No opening hours, prices or accessibility information is included.
 
@@ -116,3 +116,11 @@ Matches corrected by hand on 2026-10-21:
 | Openluchtmuseum voor Etnografie | Buiten het centrum | Sovjettijd | Cultureel, Historisch, Natuur | [relation/14141290](https://www.openstreetmap.org/relation/14141290) |
 | Kroniek van Georgië | Buiten het centrum | Sovjettijd | Kunst en theater, Uitzicht en foto, Historisch | [way/707446533](https://www.openstreetmap.org/way/707446533) |
 | Blauw Klooster (Lurji Monastiri) | Chughureti | Gouden Eeuw | Religieus, Historisch | [way/188447537](https://www.openstreetmap.org/way/188447537) |
+| Armeense kathedraal Surb Gevorg | Oude stad | Vreemde overheersing, Erekle II | Religieus, Multicultureel, Historisch | [way/373390884](https://www.openstreetmap.org/way/373390884) |
+| Jvaris Mama-kerk | Oude stad | Stichting van Tbilisi, Vreemde overheersing, Sovjettijd | Religieus, Historisch | [way/591365819](https://www.openstreetmap.org/way/591365819) |
+| Mushtaidi-tuin | Buiten het centrum | Russisch Rijk, Sovjettijd | Natuur, Historisch, Cultureel | [node/13236388203](https://www.openstreetmap.org/node/13236388203) |
+| Baratashvili-brug | Oude stad | Russisch Rijk, Sovjettijd | Architectuur, Literatuur, Historisch | [way/558478573](https://www.openstreetmap.org/way/558478573) |
+| Pantheon van Didube | Buiten het centrum | Russisch Rijk, Sovjettijd | Historisch, Literatuur | [relation/19692056](https://www.openstreetmap.org/relation/19692056) |
+| Tbilisi-zee | Buiten het centrum | Sovjettijd | Natuur, Uitzicht en foto, Modern | [relation/19423317](https://www.openstreetmap.org/relation/19423317) |
+| Huismuseum Ilia Chavchavadze | Chughureti | Russisch Rijk | Literatuur, Politiek en protest, Historisch | [node/10068633117](https://www.openstreetmap.org/node/10068633117) |
+| Huismuseum Galaktion Tabidze | Chughureti | Sovjettijd | Literatuur, Cultureel | [relation/19043553](https://www.openstreetmap.org/relation/19043553) |

@@ -1,8 +1,8 @@
 // Core domain model (see docs/PRODUCT_SPEC.md §4).
 // Shared landmark knowledge is kept separate from tour-specific presentation (TourStop).
 
-/** 2 = tour products, departures and bookings (2026-10-23). 3 = general costs (2026-11-06). Older files are still read. */
-export const SCHEMA_VERSION = 3;
+/** 2 = tour products, departures and bookings (2026-10-23). 3 = general costs (2026-11-06). 4 = blocked days (2026-11-07). Older files are still read. */
+export const SCHEMA_VERSION = 4;
 
 export type Id = string;
 export type IsoDate = string;
@@ -82,8 +82,23 @@ export interface Landmark extends SyncedEntity {
   sources?: SourceRef[];
   /** The guide's own claims and draft claims the guide verified, rejected or edited. */
   claims?: Claim[];
+  /** Opening hours, dress code and the like, each with a source and a date. */
+  practical?: PracticalNote[];
   /** Spoken story saved from a pasted Claude answer (src/domain/storyExchange.ts). */
   story?: SavedStory;
+}
+
+export type PracticalKind = 'openingstijden' | 'gesloten' | 'kleding' | 'toilet' | 'schaduw' | 'water' | 'anders';
+
+/** A practical detail about a site. Never without a source and the date it was checked. */
+export interface PracticalNote {
+  id: Id;
+  kind: PracticalKind;
+  text: string;
+  /** A link, or for example "zelf gezien". */
+  source: string;
+  /** YYYY-MM-DD. */
+  checkedOn: string;
 }
 
 export interface SavedSentence { text: string; claimIds: Id[] }
@@ -164,6 +179,11 @@ export interface TourProduct extends SyncedEntity {
   included: string;
   notes: string;
   active: boolean;
+  /** Text for the product sheet. */
+  description?: string;
+  /** One highlight per line. */
+  highlights?: string;
+  cancellationTerms?: string;
   /** Link to the meeting point on a map, for messages to guests. */
   meetingMapUrl?: string;
   /** What guests should bring, for the reminder. */
@@ -214,8 +234,26 @@ export interface Departure extends SyncedEntity {
   capacity: number;
   status: DepartureStatus;
   notes: string;
+  /** What guests said and what to improve; no names. */
+  feedback?: Feedback[];
   /** The guide closed this departure on GetYourGuide, so nobody can book it there any more. */
   closedOnGyg?: boolean;
+}
+
+export interface Feedback {
+  id: Id;
+  at: IsoDate;
+  kind: 'gast' | 'verbeterpunt';
+  /** 1 to 5, only for what a guest said. */
+  stars?: number;
+  text: string;
+}
+
+/** A day without tours: a holiday or a personal day. */
+export interface BlockedDay extends SyncedEntity {
+  /** YYYY-MM-DD. */
+  date: string;
+  reason: string;
 }
 
 export type MessageKind = 'bevestiging' | 'herinnering' | 'review';
@@ -282,10 +320,11 @@ export interface Collections {
   departures: Departure[];
   bookings: Booking[];
   expenses: Expense[];
+  blocked: BlockedDay[];
 }
 
 export type Kind = keyof Collections;
-export const KINDS: Kind[] = ['tours', 'landmarks', 'products', 'departures', 'bookings', 'expenses'];
+export const KINDS: Kind[] = ['tours', 'landmarks', 'products', 'departures', 'bookings', 'expenses', 'blocked'];
 
 export interface Dataset extends Collections {
   schemaVersion: number;

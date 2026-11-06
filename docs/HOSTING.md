@@ -75,6 +75,8 @@ GPS itself needs no data connection. It does need HTTPS, which GitHub Pages prov
 - Erased data remains in the private repo's Git history (each sync is a commit). That history is only visible to the founder. Cleaning it would need a history rewrite of the data repo; if that ever matters, do it then.
 - Backup files leave bookings out unless "Ook boekingen meenemen" is ticked.
 - Messages to guests: the app sends nothing itself. "Openen in WhatsApp" hands the guest's number and the text to WhatsApp, and "Openen in mail" to the mail app, only when the guide taps it. "Kopiëren" stays on the device. Check-in counts and "sent" dates are not personal data and stay after the 6-month erasure.
+- The feedback log ("Terugblik") is kept for good and sits on the departure, not on a booking, so it is not erased. It must stay free of names; the field says so, but the app cannot enforce it.
+- Blocked days, practical notes and statistics use no outside service. Statistics are calculated on the device from existing records, so they keep working after guests' details are erased.
 
 ## Security
 - No API keys exist in the app. The only credential is the user's fine-grained token, entered per device and stored in that device's IndexedDB. It is never committed, never included in exports, and is removed by "Synchronisatie uitzetten".

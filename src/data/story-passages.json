@@ -3253,6 +3253,427 @@
           ]
         }
       ]
+    },
+    "surb-gevorg": {
+      "short": "de kathedraal Surb Gevorg",
+      "year": 1251,
+      "era": "de 13e eeuw",
+      "sentences": [
+        {
+          "t": "Vlak boven Meidan staat een grote Armeense kathedraal, en hoe oud die precies is, weet niemand zeker.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "Het Armeense bisdom noemt het jaar 631, maar houdt het bij 1251, toen vorst Umek de kerk zou hebben gebouwd. Wat je nu ziet, is vooral uit de 18e eeuw.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "In 1284 hield de bekende dichter Hovhannes Yerznkatsi hier een beroemde toespraak.",
+          "c": [
+            "c2"
+          ]
+        },
+        {
+          "t": "Binnen zie je verhalen uit het Oude Testament, geschilderd door de familie Hovnatanyan.",
+          "c": [
+            "c5"
+          ]
+        },
+        {
+          "t": "De beroemdste naam hier is Sayat-Nova, de hofzanger van koning Erekle II, die dichtte in drie talen.",
+          "c": [
+            "c3"
+          ]
+        },
+        {
+          "t": "Legendes zeggen dat hij hier in 1795 werd gedood, toen de Perzen de stad binnenvielen. Een andere bron zegt dat hij werd onthoofd in het klooster van Haghpat en daar ligt. Twee plekken, één dichter.",
+          "c": [
+            "c4"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Ligt Sayat-Nova echt hier?",
+          "a": "Het Armeense bisdom zegt van wel. Een andere bron noemt het klooster van Haghpat.",
+          "c": [
+            "c3",
+            "c4"
+          ]
+        },
+        {
+          "q": "Hoe oud is deze kerk?",
+          "a": "Waarschijnlijk uit 1251, maar het huidige gebouw is vooral uit de 18e eeuw.",
+          "c": [
+            "c1"
+          ]
+        }
+      ]
+    },
+    "jvaris-mama": {
+      "short": "de Jvaris Mama-kerk",
+      "year": 1550,
+      "era": "de 16e eeuw",
+      "sentences": [
+        {
+          "t": "Op dezelfde binnenplaats als Norashen, zo'n 20 meter verderop, staat nog een kerk, en je loopt er zo voorbij.",
+          "c": [
+            "c4"
+          ]
+        },
+        {
+          "t": "Legendes zeggen dat koning Vakhtang Gorgasali hier in de 5e eeuw een kerk bouwde met de naam \"Golgotha\", voor nonnen uit Jeruzalem.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "Die kerk overleefde het leger van Timoer niet. Wat je nu ziet, is uit de 16e eeuw, met kruisen in de baksteen van de gevel.",
+          "c": [
+            "c2"
+          ]
+        },
+        {
+          "t": "In de Sovjettijd werden de schilderingen binnen wit overgeschilderd, en pas in 1989 ging de kerk weer open.",
+          "c": [
+            "c3"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Wat betekent Jvaris Mama?",
+          "a": "Jvari betekent kruis. De kerk wordt verbonden met het klooster van het Heilig Kruis in Jeruzalem.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "q": "Hoe oud is de kerk?",
+          "a": "Het huidige gebouw is uit de 16e eeuw.",
+          "c": [
+            "c2"
+          ]
+        }
+      ]
+    },
+    "mushtaidi": {
+      "short": "de Mushtaidi-tuin",
+      "year": 1830,
+      "era": "de 19e eeuw",
+      "sentences": [
+        {
+          "t": "Deze tuin begint met een Perzische geestelijke en een Georgische vrouw.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "Na de Russisch-Perzische oorlog kreeg de geestelijke Mir-Fatah-Aga uit Tabriz van de tsaar een groot stuk land in Tbilisi. Hij trouwde er met de Georgische Nino.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "Legendes zeggen dat hij deze tuin aanlegde ter nagedachtenis aan haar. Een andere bron zegt dat ze hem samen stichtten.",
+          "c": [
+            "c2"
+          ]
+        },
+        {
+          "t": "Het is de oudste tuin van de stad, uit de jaren 1830. Hij groef er zelfs een waterkanaal voor vanaf de rivier. In 1845 kreeg hij gratie van de sjah, ging terug naar Tabriz en verkocht de tuin.",
+          "c": [
+            "c3"
+          ]
+        },
+        {
+          "t": "Legendes zeggen dat de schilder Niko Pirosmani hier voor het eerst de Franse zangeres Margarita ontmoette.",
+          "c": [
+            "c5"
+          ]
+        },
+        {
+          "t": "In 1935 kwam hier een kinderspoorweg, waar kinderen leerden een trein te besturen. De toeristische dienst noemt het de eerste ter wereld.",
+          "c": [
+            "c4"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Wat betekent Mushtaidi?",
+          "a": "Het komt van mujtahid, de titel van de stichter, een sjiitische geestelijke.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "q": "Rijdt de trein nog?",
+          "a": "Volgens de toeristische dienst rijden er kinderen mee in drie open wagons. Check de tijden ter plekke.",
+          "c": [
+            "c4"
+          ]
+        }
+      ]
+    },
+    "baratashvili-brug": {
+      "short": "de Baratashvili-brug",
+      "year": 1965,
+      "era": "de jaren 1960",
+      "sentences": [
+        {
+          "t": "Lang voordat hier een brug lag, voer hier een veerboot, met tot wel tweeduizend mensen per dag.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "Van 1911 tot 1965 lag hier een stalen brug, de eerste in de Kaukasus met gelaste verbindingen.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "Die was te smal geworden, en door de nieuwe kades stond het water nog maar anderhalve meter eronder. Dus kwam deze brug, met onderin een café en een tentoonstellingszaal, die halverwege de jaren 1980 sloot.",
+          "c": [
+            "c2"
+          ]
+        },
+        {
+          "t": "De naam is van een dichter met een droevig verhaal. Nikoloz Baratashvili stierf op zijn 26e aan malaria, en toen was er nog niets van hem uitgegeven. Pas later in de 19e eeuw kreeg zijn werk de erkenning.",
+          "c": [
+            "c3"
+          ]
+        },
+        {
+          "t": "Kijk naar de bronzen figuren van Gia Japaridze. Veel mensen noemen dit de Brug van de Liefde.",
+          "c": [
+            "c4"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Wie was Baratashvili?",
+          "a": "Een dichter uit Tbilisi, geboren in 1817. Hij stierf op zijn 26e.",
+          "c": [
+            "c3"
+          ]
+        },
+        {
+          "q": "Stond hier eerder een brug?",
+          "a": "Ja, de stalen Mukhrani-brug, van 1911 tot 1965.",
+          "c": [
+            "c1"
+          ]
+        }
+      ]
+    },
+    "didube-pantheon": {
+      "short": "het pantheon van Didube",
+      "year": 1915,
+      "era": "1915",
+      "sentences": [
+        {
+          "t": "Iedereen kent het pantheon op Mtatsminda, maar eerst was dit het belangrijkste pantheon van Georgië.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "In 1915 stichtte een genootschap voor geletterdheid deze plek. De grond kregen ze voor 5.000 roebel in plaats van 50.000.",
+          "c": [
+            "c1",
+            "c2"
+          ]
+        },
+        {
+          "t": "Toen kwamen de Sovjets. In de jaren 1930 werd Didube bijna opgeheven, en grote namen als Vazha-Pshavela en Baratashvili gingen naar Mtatsminda. Zelfs de doden moesten verhuizen.",
+          "c": [
+            "c3"
+          ]
+        },
+        {
+          "t": "Nog in 2002 volgde de geleerde Ekvtime Takaishvili, die de kerk datzelfde jaar heilig verklaarde.",
+          "c": [
+            "c3"
+          ]
+        },
+        {
+          "t": "Toch liggen hier nog altijd zo'n 650 schrijvers, kunstenaars en publieke figuren, en er is bijna geen plek meer.",
+          "c": [
+            "c4"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Wat is het verschil met Mtatsminda?",
+          "a": "Didube was eerst het belangrijkste pantheon. Vanaf 1934 werd dat Mtatsminda.",
+          "c": [
+            "c1",
+            "c3"
+          ]
+        },
+        {
+          "q": "Wie ligt hier?",
+          "a": "Zo'n 650 schrijvers, kunstenaars en publieke figuren.",
+          "c": [
+            "c4"
+          ]
+        }
+      ]
+    },
+    "tbilisi-zee": {
+      "short": "de Tbilisi-zee",
+      "year": 1953,
+      "era": "de jaren 1950",
+      "sentences": [
+        {
+          "t": "Georgië heeft een echte zee, maar die ligt niet hier. Dit is de zee die Tbilisi zelf heeft gemaakt.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "Het stuwmeer kwam in 1953 in gebruik, en het water van de Iori zette drie zoutmeren onder water.",
+          "c": [
+            "c1",
+            "c2"
+          ]
+        },
+        {
+          "t": "Het is zo'n 9 kilometer lang. Het bevriest bijna nooit, maar TASS meldde een februari waarin je op het ijs kon lopen, voor het eerst in 50 jaar.",
+          "c": [
+            "c2",
+            "c3"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Is dit een echte zee?",
+          "a": "Nee, een stuwmeer uit 1953.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "q": "Hoe groot is het?",
+          "a": "Zo'n 9 kilometer lang.",
+          "c": [
+            "c2"
+          ]
+        }
+      ]
+    },
+    "ilia-huis": {
+      "short": "het huis van Ilia Chavchavadze",
+      "year": 1902,
+      "era": "het begin van de 20e eeuw",
+      "sentences": [
+        {
+          "t": "In dit kleine huis woonde de man die vaak de stichter van de Georgische natie wordt genoemd.",
+          "c": [
+            "c3",
+            "c1"
+          ]
+        },
+        {
+          "t": "Ilia Chavchavadze kocht hier in de jaren 1900 een klein huis met erf, dat als opslag was gebruikt. Hij woonde er van 1902 tot 1907 met zijn vrouw Olga, en er kwamen vaak gasten.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "In 1907 kwam daar een einde aan: hij werd vermoord op de weg naar Saguramo, bij het dorp Tsitsamuri.",
+          "c": [
+            "c2"
+          ]
+        },
+        {
+          "t": "Later verklaarde de kerk hem heilig, als Ilia de Rechtvaardige.",
+          "c": [
+            "c2"
+          ]
+        },
+        {
+          "t": "Voor zijn graf wilde beeldhouwer Nikoladze zelfs zijn werk bij Rodin in Parijs opgeven. In 1957 ging dit huis open als museum.",
+          "c": [
+            "c3",
+            "c4"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Waarom is hij zo belangrijk?",
+          "a": "Hij wordt vaak gezien als de stichter van de Georgische natie.",
+          "c": [
+            "c3"
+          ]
+        },
+        {
+          "q": "Hoe is hij gestorven?",
+          "a": "Hij werd vermoord op de weg naar Saguramo, bij Tsitsamuri.",
+          "c": [
+            "c2"
+          ]
+        }
+      ]
+    },
+    "galaktion-museum": {
+      "short": "het huis van Galaktion Tabidze",
+      "year": 1935,
+      "era": "de jaren 1930",
+      "sentences": [
+        {
+          "t": "In deze woning, op nummer 4, leefde de man die ze \"de koning van de dichters\" noemden.",
+          "c": [
+            "c1",
+            "c2"
+          ]
+        },
+        {
+          "t": "Galaktion Tabidze woonde hier van 1935 tot 1959. Zijn werkkamer is bijna helemaal bewaard gebleven.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "t": "Hij overleefde de zuiveringen van Stalin, maar veel mensen om hem heen niet. Dichter Titsian Tabidze werd in 1937 doodgeschoten.",
+          "c": [
+            "c3",
+            "c4"
+          ]
+        },
+        {
+          "t": "De dood van Galaktions vrouw en vrienden brak hem. Hij kwam in een psychiatrisch ziekenhuis terecht en sprong daar in 1959 uit het raam.",
+          "c": [
+            "c3"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "Waarom \"koning van de dichters\"?",
+          "a": "Die titel kreeg hij al vroeg, samen met \"de geniale Galaktion\". Zijn werk geldt nog steeds als een hoogtepunt van de moderne Georgische poëzie.",
+          "c": [
+            "c1"
+          ]
+        },
+        {
+          "q": "Hoe lang woonde hij hier?",
+          "a": "Van 1935 tot 1959.",
+          "c": [
+            "c1"
+          ]
+        }
+      ]
     }
   },
   "threads": [
@@ -3573,6 +3994,77 @@
       }
     },
     {
+      "id": "dichters",
+      "label": "De stad van de dichters",
+      "intro": "Tbilisi is een stad van dichters, en hun verhalen lopen niet altijd goed af.",
+      "close": "Zo lees je deze stad ook: als een lang gedicht, met veel droevige regels.",
+      "bridges": [
+        "Nog een dichter. Na {a} gaat het nu over {b}.",
+        "Dichters blijven deze stad volgen: eerst {a}, nu {b}."
+      ],
+      "refs": {
+        "schrijvershuis": {
+          "t": "Paolo Iashvili in het Schrijvershuis",
+          "c": [
+            "c6"
+          ]
+        },
+        "galaktion-museum": {
+          "t": "Galaktion Tabidze in zijn woning",
+          "c": [
+            "c1"
+          ]
+        },
+        "baratashvili-brug": {
+          "t": "de jonge dichter Nikoloz Baratashvili",
+          "c": [
+            "c3"
+          ]
+        },
+        "ilia-huis": {
+          "t": "Ilia Chavchavadze in zijn laatste huis",
+          "c": [
+            "c1"
+          ]
+        },
+        "surb-gevorg": {
+          "t": "de hofzanger Sayat-Nova",
+          "c": [
+            "c3"
+          ]
+        }
+      }
+    },
+    {
+      "id": "verhuisde-doden",
+      "label": "Waar de doden liggen",
+      "intro": "Vandaag kijken we ook naar graven, en naar wie mocht blijven liggen.",
+      "close": "In deze stad zegt een graf ook iets over wie de macht had.",
+      "bridges": [
+        "Van graf naar graf: na {a} komen we bij {b}."
+      ],
+      "refs": {
+        "didube-pantheon": {
+          "t": "het pantheon van Didube, waar grote namen weg moesten",
+          "c": [
+            "c3"
+          ]
+        },
+        "pantheon-mtatsminda": {
+          "t": "het pantheon op Mtatsminda",
+          "c": [
+            "c2"
+          ]
+        },
+        "surb-gevorg": {
+          "t": "de herbegraven legerleiders bij Surb Gevorg",
+          "c": [
+            "c3"
+          ]
+        }
+      }
+    },
+    {
       "id": "chardin",
       "label": "Door de ogen van Jean Chardin",
       "intro": "Eén bezoeker uit de 17e eeuw komt vandaag steeds terug: de Franse reiziger Jean Chardin.",
@@ -3638,6 +4130,12 @@
           "c": [
             "c3"
           ]
+        },
+        "surb-gevorg": {
+          "t": "de Armeense kathedraal Surb Gevorg",
+          "c": [
+            "c1"
+          ]
         }
       }
     },
@@ -3690,6 +4188,12 @@
           "t": "de Vredesbrug van 2010",
           "c": [
             "c2"
+          ]
+        },
+        "baratashvili-brug": {
+          "t": "de Baratashvili-brug",
+          "c": [
+            "c1"
           ]
         }
       }
@@ -3798,6 +4302,12 @@
           "c": [
             "c3"
           ]
+        },
+        "surb-gevorg": {
+          "t": "de Armeense kathedraal Surb Gevorg",
+          "c": [
+            "c1"
+          ]
         }
       }
     },
@@ -3874,6 +4384,12 @@
           "t": "Betlemi, waarin in de Sovjettijd een werkplaats zat",
           "c": [
             "c4"
+          ]
+        },
+        "jvaris-mama": {
+          "t": "de witgeschilderde muren van Jvaris Mama",
+          "c": [
+            "c3"
           ]
         }
       }

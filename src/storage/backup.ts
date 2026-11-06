@@ -18,6 +18,7 @@ export function serializeDataset(c: Collections, opts: { includeDeleted: boolean
     departures: keep(c.departures),
     bookings: opts.includeBookings === false ? [] : keep(c.bookings),
     expenses: keep(c.expenses ?? []),
+    blocked: keep(c.blocked ?? []),
   };
   return JSON.stringify(data, null, 2);
 }
@@ -31,11 +32,11 @@ export function parseDataset(text: string): Dataset {
     throw new DatasetError('Dit is geen geldig JSON-bestand.');
   }
   if (!isObject(raw)) throw new DatasetError('Onbekend bestandsformaat.');
-  if (raw.schemaVersion !== 1 && raw.schemaVersion !== 2 && raw.schemaVersion !== SCHEMA_VERSION) {
+  if (raw.schemaVersion !== 1 && raw.schemaVersion !== 2 && raw.schemaVersion !== 3 && raw.schemaVersion !== SCHEMA_VERSION) {
     throw new DatasetError(`Niet-ondersteunde schemaversie: ${String(raw.schemaVersion)}. Werk de app bij (Vernieuwen).`);
   }
   if (!Array.isArray(raw.tours) || !Array.isArray(raw.landmarks)) throw new DatasetError('Tours of bezienswaardigheden ontbreken.');
-  // Version 1 files have no business records, version 2 files no general costs.
+  // Version 1 files have no business records, version 2 files no general costs, version 3 files no blocked days.
   for (const k of KINDS) {
     raw[k] ??= [];
     if (!Array.isArray(raw[k])) throw new DatasetError(`Onderdeel "${k}" is ongeldig.`);
@@ -55,6 +56,9 @@ export function parseDataset(text: string): Dataset {
   });
   raw.expenses.forEach((e: unknown, i: number) => {
     if (!isEntity(e) || typeof e.date !== 'string' || !isFiniteNum(e.amount)) throw new DatasetError(`Kostenpost ${i + 1} is ongeldig.`);
+  });
+  raw.blocked.forEach((b: unknown, i: number) => {
+    if (!isEntity(b) || typeof b.date !== 'string') throw new DatasetError(`Geblokkeerde dag ${i + 1} is ongeldig.`);
   });
   raw.tours.forEach((t, i) => {
     if (!isEntity(t) || typeof t.title !== 'string' || !Array.isArray(t.stops) || !Array.isArray(t.legs)) {

@@ -154,6 +154,34 @@ Folklore and common myths may go into a story, even when only a travel guide or 
 - Added: Metekhi's name ("ik brak mijn woord"), the lightning at Narikala, the 300 men from Aragvi, Nino's hair on the cross, Sayat-Nova and princess Ana, the bride inspection in the baths, the boiled pheasant, and three at Chreli Abano (Agha Mohammad Khan, Poesjkin's bath, the holes in the domes). The Morse message of the Bridge of Peace is added too, attributed to its designer.
 - Not used, no source found: wish pebbles at Mamadaviti, why Turtle Lake has its name.
 
+## Scouting new sites (step 7, 2026-11-07)
+Thirteen candidates were checked. A site went in only with a real OSM position and at least three claims from sources that Claude opened. All wording is still concept until the founder verifies it.
+
+**Added (8):** Armeense kathedraal Surb Gevorg, Jvaris Mama-kerk, Mushtaidi-tuin, Baratashvili-brug, Pantheon van Didube, Tbilisi-zee, Huismuseum Ilia Chavchavadze, Huismuseum Galaktion Tabidze. Two threads are new: "De stad van de dichters" and "Waar de doden liggen". The catalogue now has 66 sites, with 299 claims, 235 sources and 25 threads.
+
+**Not added:**
+- Archaeology Museum: only architect credits found, no story.
+- Tbilisi Concert Hall and St George Kldisubani: no usable source.
+- Pushkin garden: too thin.
+- Queen Tamar bridge: already covered in the botanical garden story.
+
+**Where sources disagree (the story says so):**
+- **Surb Gevorg, founding:** the Armenian diocese mentions 631 and, as a hypothesis, 1251 by prince Umek. Lonely Planet gives 1251, with the building mainly from the 18th century.
+- **Sayat-Nova's death and grave:** Lonely Planet says killed here in 1795, with his tomb outside the main door. The diocese also places his grave here. Armenian History says beheaded and buried at Haghpat. The killing is told with "Legendes zeggen dat".
+- **Mushtaidi, founding:** the Georgian Encyclopedia says Mir-Fatah-Aga laid it out in memory of Nino after her death. Scan Tbilisi says he founded it together with his wife.
+- **Baratashvili bridge:** built in 1965 (Tbilisi Architecture Archive), opened in 1966 (Georgia About).
+
+**Weak sources, marked in a note on the claim:**
+- Madloba (Tbilisi Sea: Iori, salt lakes, depth, altitude). Only the length is also in TASS.
+- AllGeo (Galaktion's last years). It also gives a birth year of 1892 where the museum says 1891; the story uses neither. His death by suicide is told plainly in the story, so the note asks the guide to judge whether it suits the group.
+- "World's first children's railway" comes only from the Georgian tourism board, and the story says so.
+
+**Corrected while rereading every sentence against its source:**
+- The exhibition hall under the bridge closed in the mid-1980s, so it is no longer told as if it were still there.
+- "Paid for with gifts" at Didube had no source and was removed. Kekelia does say Didube was the top pantheon until 1934, so the story now opens with that.
+- Galaktion's "best-known poems" and Titsian Tabidze being his cousin had no source in hand and were removed.
+- A sentence about the Chronicle of Georgia had the wrong source and was removed.
+
 ## Adding or fixing drafts
 - Edit `src/data/research-drafts.json`. Per site:
   - `sources`: `{ id, title, url, type, language }`. Types are listed in `SOURCE_TYPES` in `src/domain/research.ts`.

@@ -1,6 +1,6 @@
 {
  "source": "Positions and Georgian names: © OpenStreetMap contributors (ODbL), via Nominatim. Names, tags and notes: suggestions, not verified.",
- "generatedAt": "2026-10-21T20:05:12.000Z",
+ "generatedAt": "2026-11-06T21:52:11.000Z",
  "sites": [
   {
    "id": "vrijheidsplein",
@@ -2230,7 +2230,169 @@
     },
     "retrievedAt": "2026-10-21"
    }
+  },
+  {
+   "id": "surb-gevorg",
+   "name": "Armeense kathedraal Surb Gevorg",
+   "district": "oude-stad",
+   "eras": [
+    "overheersing",
+    "erekle"
+   ],
+   "themes": [
+    "religieus",
+    "multicultureel",
+    "historisch"
+   ],
+   "note": "Armeense kathedraal bij Meidan, met het graf van dichter Sayat-Nova.",
+   "nameKa": "სურფგევორქი",
+   "lat": 41.689177,
+   "lng": 44.808887,
+   "osm": "way/373390884",
+   "osmName": "Armenian Cathedral of Saint George, Jemal Ajiashvili Street, Betlemi, Kala, Ortachala, Krtsanisi District, Tbilisi, 0108, Georgia",
+   "osmCategory": "amenity/place_of_worship"
+  },
+  {
+   "id": "jvaris-mama",
+   "name": "Jvaris Mama-kerk",
+   "district": "oude-stad",
+   "eras": [
+    "stichting",
+    "overheersing",
+    "sovjet"
+   ],
+   "themes": [
+    "religieus",
+    "historisch"
+   ],
+   "note": "Kerk uit de 16e eeuw naast Norashen, op een plek met een lange legende.",
+   "nameKa": "ჯვარის მამის ეკლესია",
+   "lat": 41.690664,
+   "lng": 44.806491,
+   "osm": "way/591365819",
+   "osmName": "Jvaris Mama, 8, Ierusalimi Street, Kala, Ortachala, Krtsanisi District, Tbilisi, 0108, Georgia",
+   "osmCategory": "amenity/place_of_worship"
+  },
+  {
+   "id": "mushtaidi",
+   "name": "Mushtaidi-tuin",
+   "district": "buiten",
+   "eras": [
+    "russisch-rijk",
+    "sovjet"
+   ],
+   "themes": [
+    "natuur",
+    "historisch",
+    "cultureel"
+   ],
+   "note": "Oudste tuin van de stad, met een kinderspoorweg.",
+   "nameKa": "მუშტაიდი",
+   "lat": 41.722517,
+   "lng": 44.787104,
+   "osm": "node/13236388203",
+   "osmName": "Mushtaidi, Vladimir Mayakovski Street, Didube, Didube District, Tbilisi, 0119, Georgia",
+   "osmCategory": "railway/station"
+  },
+  {
+   "id": "baratashvili-brug",
+   "name": "Baratashvili-brug",
+   "district": "oude-stad",
+   "eras": [
+    "russisch-rijk",
+    "sovjet"
+   ],
+   "themes": [
+    "architectuur",
+    "literatuur",
+    "historisch"
+   ],
+   "note": "Brug uit de jaren 1960 met bronzen figuren, genoemd naar een dichter.",
+   "nameKa": "ნიკოლოზ ბარათაშვილის ხიდი",
+   "lat": 41.696859,
+   "lng": 44.808269,
+   "osm": "way/558478573",
+   "osmName": "Nikoloz Baratashvili Bridge, Nikoloz Baratashvili Rise, Avlabari, Kveda Chugureti, Chugureti District, Tbilisi, 0144, Georgia",
+   "osmCategory": "man_made/bridge"
+  },
+  {
+   "id": "didube-pantheon",
+   "name": "Pantheon van Didube",
+   "district": "buiten",
+   "eras": [
+    "russisch-rijk",
+    "sovjet"
+   ],
+   "themes": [
+    "historisch",
+    "literatuur"
+   ],
+   "note": "Begraafplaats van schrijvers en kunstenaars, ouder dan het pantheon van Mtatsminda als pantheon.",
+   "nameKa": "დიდუბის მწერალთა და საზოგადო მოღვაწეთა პანთეონი",
+   "lat": 41.728965,
+   "lng": 44.785618,
+   "osm": "relation/19692056",
+   "osmName": "Didube Pantheon, Didube, Didube District, Tbilisi, Georgia",
+   "osmCategory": "landuse/cemetery"
+  },
+  {
+   "id": "tbilisi-zee",
+   "name": "Tbilisi-zee",
+   "district": "buiten",
+   "eras": [
+    "sovjet"
+   ],
+   "themes": [
+    "natuur",
+    "uitzicht",
+    "modern"
+   ],
+   "note": "Stuwmeer uit de Sovjettijd aan de rand van de stad.",
+   "nameKa": "თბილისის წყალსაცავი",
+   "lat": 41.742056,
+   "lng": 44.854654,
+   "osm": "relation/19423317",
+   "osmName": "Tbilisi reservoir, Tbilisi, Georgia",
+   "osmCategory": "water/reservoir"
+  },
+  {
+   "id": "ilia-huis",
+   "name": "Huismuseum Ilia Chavchavadze",
+   "district": "chughureti",
+   "eras": [
+    "russisch-rijk"
+   ],
+   "themes": [
+    "literatuur",
+    "politiek",
+    "historisch"
+   ],
+   "note": "Het laatste huis van de schrijver die vaak de vader van de natie wordt genoemd.",
+   "nameKa": "",
+   "lat": 41.712359,
+   "lng": 44.801997,
+   "osm": "node/10068633117",
+   "osmName": "22, Giorgi Chubinashvili Street, Chughureti, Kveda Chugureti, Chugureti District, Tbilisi, 0102, Georgia",
+   "osmCategory": "place/house"
+  },
+  {
+   "id": "galaktion-museum",
+   "name": "Huismuseum Galaktion Tabidze",
+   "district": "chughureti",
+   "eras": [
+    "sovjet"
+   ],
+   "themes": [
+    "literatuur",
+    "cultureel"
+   ],
+   "note": "De woning van de grootste Georgische dichter van de 20e eeuw.",
+   "nameKa": "",
+   "lat": 41.708602,
+   "lng": 44.793926,
+   "osm": "relation/19043553",
+   "osmName": "4, Kote Marjanishvili Street, Chughureti, Kveda Chugureti, Chugureti District, Tbilisi, 0102, Georgia",
+   "osmCategory": "building/residential"
   }
- ],
- "infoSource": "Achtergrond: Wikipedia (tekst CC BY-SA 4.0, per kaart titel en link) en Wikidata (CC0). Koppeling via de wikidata-tag in OpenStreetMap."
+ ]
 }

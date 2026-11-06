@@ -26,6 +26,7 @@ const LABEL: { [K in Kind]: (r: Collections[K][number]) => Partial<Collections[K
   departures: (d) => ({ notes: (d.notes + MARK).trim() }),
   bookings: (b) => ({ leadName: b.leadName + MARK }),
   expenses: (e) => ({ description: e.description + MARK }),
+  blocked: (b) => ({ reason: (b.reason + MARK).trim() }),
 };
 
 export async function syncOnce(remote: Remote, input: SyncInput, deviceLabel: string): Promise<SyncOutput> {

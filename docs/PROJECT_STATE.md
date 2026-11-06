@@ -29,6 +29,13 @@ Tbilisi Walking Tour Studio: a personal desktop tour editor and mobile live-guid
     - beyond the forecast: monthly climate averages from NOAA GHCN-Daily, bundled at build time;
     - sunrise and sunset are calculated locally, with a warning when a tour runs into the dark.
     - Live since commit 08f1907.
+  - Rest of the business plan (business hub step 7, 2026-11-07, built and checked locally):
+    - blocked days and overlap warnings when planning, with "Toch plannen" to override, and a "Planning klopt niet" list on Vandaag;
+    - product text for GetYourGuide or a website, with what is still missing named instead of invented;
+    - practical notes per site (text, source and date required, flagged after a year), read-only in guide mode;
+    - feedback log per departure, without names;
+    - Cijfers page (`#/cijfers/<year>`): occupancy, start times, months, booking lead time, no-shows, feedback;
+    - 8 new sites with stories (66 sites, 299 claims, 235 sources, 25 threads; see `docs/RESEARCH.md`).
   - Check-in and messages (business hub step 6, 2026-11-07):
     - guest list with headcount, present and no-show per booking, marking as paid, in guide mode, on Vandaag and on the departure page; works offline;
     - guide mode finds the departure from "Start gidsen", or today's departure of a product that uses the tour;
@@ -74,7 +81,7 @@ Tbilisi Walking Tour Studio: a personal desktop tour editor and mobile live-guid
 - Frontend: Vite 8 + Preact 11 + TypeScript 7, hash routing, CSS tokens from `.interface-design/system.md`.
 - Hosting: GitHub Pages via `.github/workflows/deploy.yml` (public code repo).
 - Storage: IndexedDB (`idb`), local-first; `navigator.storage.persist()` requested.
-- Sync: private GitHub repo via REST contents API, three-way per-record merge with conflict copies (`src/sync/`). Five record types (tours, landmarks, products, departures, bookings) in one file, schema version 2 since 2026-10-23. Version 1 files are still read. An app still on version 1 refuses a version 2 file with "Werk de app bij" instead of dropping business records. IndexedDB version 2 adds the three stores.
+- Sync: private GitHub repo via REST contents API, three-way per-record merge with conflict copies (`src/sync/`). Seven record types (tours, landmarks, products, departures, bookings, expenses, blocked days) in one file, schema version 4 and IndexedDB version 4 since step 7. Older files are still read. An older app refuses a newer file with "Werk de app bij" instead of dropping business records.
 - Map: Leaflet; base = self-hosted Protomaps vector extract (`src/map/offlineMap.ts`, protomaps-leaflet, pmtiles 3.2.1), plus OSM raster tiles underneath online (never cached, by OSM policy).
 - Routing: `RoutingProvider` interface; FOSSGIS OSRM foot (`src/routing/osrm.ts`).
 - Geocoding: none yet (stops are placed by clicking the map; coordinates are never invented).

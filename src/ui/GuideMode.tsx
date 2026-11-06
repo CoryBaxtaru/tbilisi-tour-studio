@@ -10,6 +10,7 @@ import { useAppState } from '../state/store';
 import { isoDate } from '../domain/agenda';
 import { departureForGuide } from '../domain/checkin';
 import { CheckIn, useHeadcount } from './CheckIn';
+import { PracticalLine } from './Practical';
 import { MapView, type MapStop } from './MapView';
 import { SiteInfo } from './SiteInfo';
 import { OfflineMapControl } from './OfflineMapControl';
@@ -211,6 +212,13 @@ export function GuideMode({ id, departureId }: { id: string; departureId?: strin
         {stop.transition && <p class="guide__transition"><span class="label">Overgang</span> {stop.transition}</p>}
         {stop.guideNotes && <p class="guide__transition"><span class="label">Notities</span> {stop.guideNotes}</p>}
       </section>
+
+      {!!landmark?.practical?.length && (
+        <details class="guide__section">
+          <summary>Praktisch ({landmark.practical.length})</summary>
+          <ul class="practical__list">{landmark.practical.map((n) => <li key={n.id}><div class="practical__text"><PracticalLine note={n} /></div></li>)}</ul>
+        </details>
+      )}
 
       {landmark?.catalogId && (
         <details class="guide__section guide__info">

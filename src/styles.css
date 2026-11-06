@@ -742,3 +742,21 @@ fieldset.shared legend { color: var(--balkon); }
 .message-panel textarea { width: 100%; font-family: var(--font-ui); font-size: 14px; line-height: 1.5; }
 .message-panel p { margin: 0; }
 .message-panel a.btn { display: inline-flex; align-items: center; text-decoration: none; }
+
+/* Blocked days, product sheet, feedback, practical notes */
+.cal__day.is-blocked { background-image: repeating-linear-gradient(135deg, transparent 0 5px, var(--line-strong) 5px 6px); }
+.cal__legend-blocked { display: inline-block; width: 12px; height: 12px; margin-left: 6px; border: 1px solid var(--line-strong); border-radius: 2px; vertical-align: middle; background-image: repeating-linear-gradient(135deg, transparent 0 3px, var(--line-strong) 3px 4px); }
+.day-panel .overbook { flex: 1 1 100%; }
+.feedback-form { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: flex-end; margin: 8px 0; }
+.feedback-form label { margin: 0; }
+.feedback-form .grow { flex: 1 1 200px; }
+.sheet-text { width: 100%; margin-top: 8px; font-family: var(--font-ui); font-size: 14px; line-height: 1.5; }
+.practical { margin-top: 24px; }
+.practical__list { list-style: none; padding: 0; margin: 8px 0 12px; }
+.practical__list li { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding: 8px 0; border-bottom: 1px solid var(--line); }
+.practical__text { display: flex; flex-direction: column; gap: 2px; font-size: 14px; }
+.practical__text strong { font-weight: 500; }
+.practical__form { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: flex-end; }
+.practical__form label { margin: 0; flex: 1 1 220px; }
+.practical__form .narrow { flex: 0 1 170px; }
+.practical__form .claim__actions { flex: 1 1 100%; }

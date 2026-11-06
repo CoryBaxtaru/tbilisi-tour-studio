@@ -3,8 +3,8 @@ import { openDB, type IDBPDatabase } from 'idb';
 import { KINDS, type Collections, type Kind } from '../domain/types';
 
 const DB_NAME = 'tbilisi-tourstudio';
-// 2 adds the business stores (products, departures, bookings); 3 adds general costs.
-const DB_VERSION = 3;
+// 2 adds the business stores (products, departures, bookings); 3 adds general costs; 4 adds blocked days.
+const DB_VERSION = 4;
 
 let dbPromise: Promise<IDBPDatabase> | null = null;
 

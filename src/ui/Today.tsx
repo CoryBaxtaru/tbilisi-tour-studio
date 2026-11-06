@@ -2,6 +2,7 @@
 // and what still needs doing.
 import { departureFill, isoDate } from '../domain/agenda';
 import { MESSAGE_LABELS, pendingMessages } from '../domain/messages';
+import { planningProblems } from '../domain/planning';
 import { bookingAmounts, needsGygClosing, openPayments } from '../domain/pricing';
 import type { Departure } from '../domain/types';
 import { useAppState } from '../state/store';
@@ -52,7 +53,7 @@ function DepartureCard({ dep, today }: { dep: Departure; today: string }) {
 }
 
 export function Today() {
-  const { products, departures, bookings } = useAppState();
+  const { products, departures, bookings, blocked } = useAppState();
   const today = isoDate(new Date());
   const soonEnd = isoDate(new Date(Date.now() + SOON_DAYS * 86400_000));
   const active = departures.filter((d) => !d.deleted && d.status !== 'geannuleerd')
@@ -64,6 +65,7 @@ export function Today() {
   const openTotal = open.reduce((n, p) => n + p.amount, 0);
   const toClose = active.filter((d) => needsGygClosing(d, productOf(d), bookings, today));
   const messages = pendingMessages(products, departures, bookings, today);
+  const problems = planningProblems(departures, products, blocked, today);
   const short = active.filter((d) => d.date >= today && d.date <= soonEnd && departureFill(d, bookings, productOf(d)?.minGuests ?? 0).belowMinimum);
 
   return (
@@ -74,6 +76,19 @@ export function Today() {
         ? <><p class="hint">Vandaag geen vertrekken. Dit is het volgende:</p><DepartureCard dep={next} today={today} /></>
         : <div class="empty"><h2>Geen vertrekken gepland</h2><p>Plan een vertrek in de <a href="#/agenda">agenda</a>.</p></div>)}
 
+      {problems.length > 0 && (
+        <>
+          <h2>Planning klopt niet</h2>
+          <ul class="todo-list">
+            {problems.map((p) => (
+              <li key={p.departure.id + p.kind}>
+                <a href={`#/vertrek/${p.departure.id}`}>{dayName(p.departure.date, { weekday: 'short', day: 'numeric', month: 'short' })} {p.departure.startTime} · {productOf(p.departure)?.name}</a>
+                <span class="meta">{p.kind === 'dubbel' ? 'dubbel gepland' : `geblokkeerde dag${p.detail ? `: ${p.detail}` : ''}`}</span>
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
       {messages.length > 0 && (
         <>
           <h2>Berichten versturen</h2>

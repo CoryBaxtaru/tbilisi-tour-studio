@@ -5,12 +5,16 @@ import {
   CHANNELS, createBooking, createDeparture, createProduct, DEPARTURE_STATUS, departureFill, isoDate,
   monthGrid, RETENTION_MONTHS, type Fill,
 } from '../domain/agenda';
+import { blockedOn, clashes, createBlockedDay } from '../domain/planning';
+import { buildProductSheet } from '../domain/productSheet';
 import { commissionRate, departureFinance, gelToEur, hasPrices, overbookedBy, pricingOf, suggestedPrice } from '../domain/pricing';
 import type { Booking, BookingChannel, BookingStatus, Departure, DepartureStatus, PriceProfile, TourProduct } from '../domain/types';
 import { currentRecord, deleteRecord, saveRecord, useAppState } from '../state/store';
 import { navigate } from './router';
 import { CheckIn, useHeadcount } from './CheckIn';
 import { BadWeatherBox, GelFields, GygReminder, StartGuiding } from './DepartureBits';
+import { copyText } from './clipboard';
+import { FeedbackLog } from './FeedbackLog';
 import { MessagePanel } from './Messages';
 import { DayGlyph, DayWeather, WeatherChip, WeatherPanel } from './Weather';
 import { useForecast } from '../weather/metno';
@@ -53,7 +57,7 @@ function fillStatus(dep: Departure, f: Fill, minGuests: number): { state: FillSt
 // ---- Month calendar ----
 
 export function Agenda({ month }: { month?: string }) {
-  const { products, departures, bookings } = useAppState();
+  const { products, departures, bookings, blocked } = useAppState();
   const today = isoDate(new Date());
   const ym = month && /^\d{4}-\d{2}$/.test(month) ? month : today.slice(0, 7);
   const [y, m] = ym.split('-').map(Number);
@@ -81,6 +85,7 @@ export function Agenda({ month }: { month?: string }) {
         <span class="agenda__links">
           <a class="btn btn--ghost" href="#/vandaag">Vandaag</a>
           <a class="btn btn--ghost" href={`#/geld/${y}`}>Financiën</a>
+          <a class="btn btn--ghost" href={`#/cijfers/${y}`}>Cijfers</a>
           <a class="btn btn--ghost" href="#/aanbod">Touraanbod</a>
         </span>
       </div>
@@ -94,8 +99,8 @@ export function Agenda({ month }: { month?: string }) {
               const inMonth = d.startsWith(ym);
               return (
                 <button key={d} role="gridcell" aria-selected={d === day}
-                  aria-label={`${longDate(d, { weekday: 'long', day: 'numeric', month: 'long' })}${list.length ? `, ${list.length} vertrek${list.length > 1 ? 'ken' : ''}` : ''}`}
-                  class={`cal__day ${inMonth ? '' : 'is-other'} ${d === today ? 'is-today' : ''} ${d === day ? 'is-picked' : ''}`}
+                  aria-label={`${longDate(d, { weekday: 'long', day: 'numeric', month: 'long' })}${blockedOn(d, blocked) ? ', geblokkeerd' : ''}${list.length ? `, ${list.length} vertrek${list.length > 1 ? 'ken' : ''}` : ''}`}
+                  class={`cal__day ${inMonth ? '' : 'is-other'} ${d === today ? 'is-today' : ''} ${d === day ? 'is-picked' : ''} ${blockedOn(d, blocked) ? 'is-blocked' : ''}`}
                   onClick={() => setPicked(d)}>
                   <DayGlyph date={d} forecast={forecast} />
                   <span class="cal__num">{Number(d.slice(8))}</span>
@@ -107,7 +112,7 @@ export function Agenda({ month }: { month?: string }) {
             })}
           </div>
           <p class="cal__legend meta">
-            <span class="dot dot--ok" /> loopt <span class="dot dot--low" /> onder minimum <span class="dot dot--full" /> vol
+            <span class="dot dot--ok" /> loopt <span class="dot dot--low" /> onder minimum <span class="dot dot--full" /> vol <span class="cal__legend-blocked" /> geblokkeerd
           </p>
         </section>
 
@@ -146,15 +151,46 @@ function DepCard({ dep, product, showDate }: { dep: Departure; product?: TourPro
   );
 }
 
+/** Blocks a day for tours, with an optional reason, or frees it again. */
+function BlockDay({ date }: { date: string }) {
+  const { blocked } = useAppState();
+  const [asking, setAsking] = useState(false);
+  const [reason, setReason] = useState('');
+  const current = blockedOn(date, blocked);
+  if (current) {
+    return (
+      <div class="notice">
+        <p><strong>Geblokkeerd</strong>{current.reason ? `: ${current.reason}` : ''}</p>
+        <button type="button" class="btn btn--small" onClick={() => void deleteRecord('blocked', current)}>Weer vrijgeven</button>
+      </div>
+    );
+  }
+  if (!asking) return <button type="button" class="btn btn--ghost btn--small" onClick={() => setAsking(true)}>Dag blokkeren</button>;
+  return (
+    <form class="feedback-form" onSubmit={(e) => { e.preventDefault(); void saveRecord('blocked', createBlockedDay(date, reason.trim())); setAsking(false); setReason(''); }}>
+      <label class="grow">Reden (mag leeg)<input value={reason} placeholder="Bijv. vakantie" onInput={(e) => setReason(e.currentTarget.value)} /></label>
+      <button type="submit" class="btn btn--primary btn--small">Blokkeren</button>
+      <button type="button" class="btn btn--ghost btn--small" onClick={() => setAsking(false)}>Annuleren</button>
+    </form>
+  );
+}
+
 function DayPanel({ date, deps, products }: { date: string; deps: Departure[]; products: TourProduct[] }) {
+  const { departures, blocked } = useAppState();
+  const [override, setOverride] = useState(false);
   const live = products.filter((p) => !p.deleted);
   const active = live.filter((p) => p.active);
   const [productId, setProductId] = useState('');
   const [time, setTime] = useState('10:00');
   const chosen = active.find((p) => p.id === productId) ?? active[0];
 
+  const planned = chosen ? createDeparture(chosen, date, time) : null;
+  const overlapping = planned ? clashes(planned, departures, products) : [];
+  const dayBlocked = !!blockedOn(date, blocked);
+  const needsOverride = overlapping.length > 0 || dayBlocked;
+
   async function add() {
-    if (!chosen) return;
+    if (!chosen || (needsOverride && !override)) return;
     const d = createDeparture(chosen, date, time);
     await saveRecord('departures', d);
     navigate(`/vertrek/${d.id}`);
@@ -164,6 +200,7 @@ function DayPanel({ date, deps, products }: { date: string; deps: Departure[]; p
     <section class="day-panel">
       <h2 class="day-panel__date lit">{capitalize(longDate(date))}</h2>
       <DayWeather date={date} today={isoDate(new Date())} />
+      <BlockDay date={date} />
       {deps.length
         ? <ul class="dep-list">{deps.map((d) => <DepCard key={d.id} dep={d} product={products.find((p) => p.id === d.productId)} />)}</ul>
         : <p class="hint">Geen vertrekken op deze dag.</p>}
@@ -175,7 +212,14 @@ function DayPanel({ date, deps, products }: { date: string; deps: Departure[]; p
             </select>
           </label>
           <label class="narrow">Starttijd<input type="time" value={time} onInput={(e) => setTime(e.currentTarget.value)} /></label>
-          <button class="btn btn--primary" onClick={add}>Vertrek plannen</button>
+          <button class="btn btn--primary" onClick={add} disabled={needsOverride && !override}>Vertrek plannen</button>
+          {needsOverride && (
+            <div class="overbook" role="alert">
+              {dayBlocked && <strong>Deze dag is geblokkeerd.</strong>}
+              {overlapping.length > 0 && <strong>Dit overlapt met het vertrek van {overlapping[0].startTime}.</strong>}
+              <label class="check"><input type="checkbox" checked={override} onChange={(e) => setOverride(e.currentTarget.checked)} />Toch plannen</label>
+            </div>
+          )}
         </div>
       ) : live.length
         ? <p class="hint">Geen actief touraanbod. Zet er een op actief onder <a href="#/aanbod">Touraanbod</a> om vertrekken te plannen.</p>
@@ -214,7 +258,7 @@ function FillBar({ booked, capacity, state }: { booked: number; capacity: number
 // ---- One departure with its bookings ----
 
 export function DeparturePage({ id }: { id: string }) {
-  const { departures, products, bookings } = useAppState();
+  const { departures, products, bookings, blocked } = useAppState();
   const dep = departures.find((d) => d.id === id && !d.deleted);
   const [editing, setEditing] = useState<string | null>(null);
   const [messaging, setMessaging] = useState<string | null>(null);
@@ -252,6 +296,10 @@ export function DeparturePage({ id }: { id: string }) {
       </div>
       {dep.status !== 'geannuleerd' && product && <StartGuiding product={product} departure={dep} />}
       <GygReminder dep={dep} product={product} />
+      {dep.status !== 'geannuleerd' && clashes(dep, departures, products).map((o) => (
+        <p key={o.id} class="hint hint--warn">Dit overlapt met <a href={`#/vertrek/${o.id}`}>het vertrek van {o.startTime}</a>.</p>
+      ))}
+      {dep.status !== 'geannuleerd' && blockedOn(dep.date, blocked) && <p class="hint hint--warn">Deze dag is geblokkeerd{blockedOn(dep.date, blocked)!.reason ? `: ${blockedOn(dep.date, blocked)!.reason}` : ''}.</p>}
       {s.state === 'low' && <p class="hint hint--warn">Nog {min - f.booked} gast(en) nodig voor het minimum van {min}; dit vertrek gaat nog niet door.</p>}
       {dep.notes && <p class="departure__note">{dep.notes}</p>}
       {dep.status !== 'geannuleerd' && <WeatherPanel date={dep.date} startTime={dep.startTime} durationMin={product?.durationMin ?? 120} today={isoDate(new Date())} />}
@@ -285,6 +333,8 @@ export function DeparturePage({ id }: { id: string }) {
       <p class="hint">Naam, contact en notities van gasten worden {RETENTION_MONTHS} maanden na de tour automatisch gewist; aantallen en bedragen blijven.</p>
 
       {dep.status !== 'geannuleerd' && dep.date <= isoDate(new Date()) && mine.length > 0 && <CheckInSection departure={dep} />}
+
+      {dep.date <= isoDate(new Date()) && <FeedbackLog departure={dep} />}
 
       <details class="departure__edit">
         <summary>Vertrek wijzigen</summary>
@@ -511,6 +561,13 @@ export function ProductPage({ id }: { id: string }) {
         <label>Wat moeten gasten meenemen?<input value={p.bring ?? ''} placeholder="Bijv. goede schoenen en water" onInput={(e) => patch({ bring: e.currentTarget.value })} /></label>
         <label>Link om een review te schrijven<input inputMode="url" value={p.reviewUrl ?? ''} placeholder="https://..." onInput={(e) => patch({ reviewUrl: e.currentTarget.value })} /></label>
         <label>Notities<textarea rows={2} value={p.notes} onInput={(e) => patch({ notes: e.currentTarget.value })} /></label>
+        <fieldset class="price-form">
+          <legend>Tekst voor GetYourGuide of een website</legend>
+          <label>Omschrijving<textarea rows={4} value={p.description ?? ''} onInput={(e) => patch({ description: e.currentTarget.value })} /></label>
+          <label>Hoogtepunten (één per regel)<textarea rows={4} value={p.highlights ?? ''} onInput={(e) => patch({ highlights: e.currentTarget.value })} /></label>
+          <label>Annuleringsvoorwaarden<textarea rows={2} value={p.cancellationTerms ?? ''} onInput={(e) => patch({ cancellationTerms: e.currentTarget.value })} /></label>
+          <SheetPreview product={p} />
+        </fieldset>
         <PriceFields pricing={pricingOf(p)} onChange={(pricing) => patch({ pricing })} />
         <fieldset class="price-form">
           <legend>Plan bij slecht weer</legend>
@@ -533,6 +590,27 @@ export function ProductPage({ id }: { id: string }) {
           onConfirm={() => void remove()} />
       </details>
     </main>
+  );
+}
+
+/** The product sheet as ready text. Without written highlights the stops of the linked tour are used. */
+function SheetPreview({ product }: { product: TourProduct }) {
+  const { tours, landmarks } = useAppState();
+  const [state, setState] = useState<'' | 'ok' | 'mislukt'>('');
+  const tour = tours.find((t) => t.id === product.tourId && !t.deleted);
+  const stops = (tour?.stops ?? []).flatMap((s) => landmarks.find((l) => l.id === s.landmarkId)?.name ?? []);
+  const sheet = buildProductSheet(product, stops);
+  return (
+    <details>
+      <summary>Bekijk de tekst</summary>
+      <textarea class="sheet-text" rows={14} readOnly value={sheet.text} />
+      {sheet.missing.length > 0 && <p class="hint hint--warn">Nog niet ingevuld: {sheet.missing.join(', ')}.</p>}
+      <div class="claim__actions">
+        <button type="button" class="btn" onClick={() => void copyText(sheet.text).then((ok) => setState(ok ? 'ok' : 'mislukt'))}>Kopiëren</button>
+        {state === 'ok' && <span class="status status--ok">Gekopieerd.</span>}
+        {state === 'mislukt' && <span class="hint hint--warn">Kopiëren lukte niet; selecteer de tekst zelf.</span>}
+      </div>
+    </details>
   );
 }
 

@@ -9,6 +9,7 @@ import {
 import { tagLabel } from '../domain/tags';
 import type { Claim, ClaimKind, Landmark, SourceRef } from '../domain/types';
 import { ensureLandmark, getState, saveLandmark, useAppState } from '../state/store';
+import { PracticalEditor } from './Practical';
 import { SiteInfo } from './SiteInfo';
 import { WikiText } from './WikiText';
 
@@ -182,6 +183,7 @@ export function ResearchPage({ id }: { id: string }) {
           <SiteInfo info={site.info ?? null} osm={site.osm} />
         </details>
       )}
+      <PracticalEditor landmark={lm} apply={apply} />
     </main>
   );
 }

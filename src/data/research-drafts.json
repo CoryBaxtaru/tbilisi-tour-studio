@@ -4372,6 +4372,511 @@
           "evidence": "MUA: naast het hostel cafés, bars, tentoonstellingsruimtes, ateliers, werkplaatsen en een co-workingruimte."
         }
       ]
+    },
+    "surb-gevorg": {
+      "sources": [
+        {
+          "id": "s1",
+          "title": "Surb Gevorg-kerk, website van het Armeense bisdom in Georgië",
+          "url": "https://www.armenianchurch.ge/en/churches/dejstvuyushchie-tserkvi-i-chasovni-2/existing-churches-and-chapels/surb-gevorg-leader-church",
+          "type": "instelling",
+          "language": "en"
+        },
+        {
+          "id": "s2",
+          "title": "Armenian Cathedral of St George, Lonely Planet",
+          "url": "https://www.lonelyplanet.com/points-of-interest/armenian-cathedral-of-st-george/446049",
+          "type": "reisgids",
+          "language": "en"
+        },
+        {
+          "id": "s3",
+          "title": "Sayat Nova: The Armenian Poet and Musician Who Shaped Caucasian Culture, Armenian History",
+          "url": "https://armenian-history.com/sayat-nova-armenian-poet-musician",
+          "type": "website",
+          "language": "en"
+        }
+      ],
+      "claims": [
+        {
+          "id": "c1",
+          "kind": "onzeker",
+          "text": "De stichting is niet zeker. Het Armeense bisdom noemt het jaar 631, maar houdt het bij 1251, toen vorst Umek de kerk zou hebben gebouwd. Het huidige gebouw is volgens Lonely Planet vooral uit de 18e eeuw.",
+          "sourceIds": [
+            "s1",
+            "s2"
+          ],
+          "evidence": "Bisdom: 631 of 1251, vorst Umek; Lonely Planet: gesticht 1251, huidig gebouw vooral 18e eeuw."
+        },
+        {
+          "id": "c2",
+          "kind": "feit",
+          "text": "In 1284 hield de bekende dichter en geestelijke Hovhannes Yerznkatsi hier een beroemde toespraak, die veel waardering kreeg van Vakhtang, de oudste zoon van vorst Umek.",
+          "sourceIds": [
+            "s1"
+          ],
+          "evidence": "Bisdom, met verwijzing naar L. Melikset-Bek."
+        },
+        {
+          "id": "c3",
+          "kind": "feit",
+          "text": "Hier ligt Sayat-Nova (1722–1795), hofzanger van koning Erekle II, die dichtte in het Armeens, Georgisch en Perzisch. Ook schilder Gevorg Bashinjaghyan ligt hier, en Russische legerleiders als Mikayel Loris-Melikov, die werden herbegraven toen eind jaren 1930 een Armeens klooster werd verwoest.",
+          "sourceIds": [
+            "s1"
+          ],
+          "evidence": "Bisdom: graven van Sayat-Nova, Bashinjaghyan, en herbegraven legerleiders."
+        },
+        {
+          "id": "c4",
+          "kind": "anekdote",
+          "text": "Lonely Planet schrijft dat Sayat-Nova hier in 1795 werd gedood tijdens de Perzische inval, met zijn graf bij de hoofdingang. Armenian History zegt dat hij werd onthoofd in het klooster van Haghpat en daar ligt begraven.",
+          "sourceIds": [
+            "s2",
+            "s3"
+          ],
+          "evidence": "De twee bronnen spreken elkaar tegen over plaats van dood en graf.",
+          "note": "Het Armeense bisdom noemt het graf in deze kerk."
+        },
+        {
+          "id": "c5",
+          "kind": "feit",
+          "text": "De muren zijn beschilderd met verhalen uit het Oude Testament, door de schildersfamilie Hovnatanyan. Armeniërs in het buitenland betaalden de restauratie van 2012–15.",
+          "sourceIds": [
+            "s1",
+            "s2"
+          ],
+          "evidence": "Bisdom: Hovnatanyan; Lonely Planet: restauratie 2012–15."
+        }
+      ]
+    },
+    "jvaris-mama": {
+      "sources": [
+        {
+          "id": "s1",
+          "title": "Jvaris Mama, Nationale Toeristische Dienst van Georgië (georgia.travel)",
+          "url": "https://georgia.travel/jvaris-mama",
+          "type": "overheid",
+          "language": "en"
+        },
+        {
+          "id": "s2",
+          "title": "Nationaal Agentschap voor het Behoud van Cultureel Erfgoed van Georgië — erfgoedregister: Kerk Norashen",
+          "url": "https://memkvidreoba.gov.ge/objects/immovable/immovableObject?id=3742",
+          "type": "overheid",
+          "language": "ka"
+        }
+      ],
+      "claims": [
+        {
+          "id": "c1",
+          "kind": "anekdote",
+          "text": "Volgens de legende bouwde koning Vakhtang Gorgasali hier in de 5e eeuw een kerk met de naam \"Golgotha\", voor nonnen uit Jeruzalem, onder wie die van het klooster van het Heilig Kruis.",
+          "sourceIds": [
+            "s1"
+          ],
+          "evidence": "Toeristische dienst: \"according to legend\", kerk Golgotha, nonnen uit Jeruzalem."
+        },
+        {
+          "id": "c2",
+          "kind": "feit",
+          "text": "De oude kerk werd in de 14e eeuw verwoest door het leger van Timoer. Het huidige gebouw is uit de 16e eeuw, met een bescheiden gevel met kruisen in de baksteen.",
+          "sourceIds": [
+            "s1"
+          ],
+          "evidence": "Toeristische dienst."
+        },
+        {
+          "id": "c3",
+          "kind": "feit",
+          "text": "In de Sovjettijd werden de muurschilderingen wit overgeschilderd. In 1983 werd de omgeving vernieuwd, en in 1989 ging de kerk weer open.",
+          "sourceIds": [
+            "s1"
+          ],
+          "evidence": "Toeristische dienst."
+        },
+        {
+          "id": "c4",
+          "kind": "feit",
+          "text": "De kerk staat op dezelfde binnenplaats als Norashen, zo'n 20 meter verderop.",
+          "sourceIds": [
+            "s2"
+          ],
+          "evidence": "Register: op ±20 m, in dezelfde binnenplaats, staat de zogeheten Jvaris Mama-kerk."
+        }
+      ]
+    },
+    "mushtaidi": {
+      "sources": [
+        {
+          "id": "s1",
+          "title": "Georgische Encyclopedie: Mir-Fatah-Aga Seid of Tabriz",
+          "url": "https://georgianencyclopedia.ge/en/form_eng/53",
+          "type": "naslagwerk",
+          "language": "en"
+        },
+        {
+          "id": "s2",
+          "title": "Mushtaidi Garden, Scan Tbilisi",
+          "url": "https://scantbilisi.ge/en/objects/350/satesto",
+          "type": "architectuur",
+          "language": "en"
+        },
+        {
+          "id": "s3",
+          "title": "Mushtaidi Garden, Nationale Toeristische Dienst van Georgië (georgia.travel)",
+          "url": "https://georgia.travel/family-attractions/mushtaidi-garden",
+          "type": "overheid",
+          "language": "en"
+        }
+      ],
+      "claims": [
+        {
+          "id": "c1",
+          "kind": "feit",
+          "text": "Na de Russisch-Perzische oorlog kreeg de sjiitische geestelijke Mir-Fatah-Aga uit Tabriz van de tsaar een groot stuk land in Tbilisi. Hij trouwde er met de Georgische Nino. De tuin kreeg de naam van zijn titel, mujtahid: \"Mushtaid\".",
+          "sourceIds": [
+            "s1",
+            "s2"
+          ],
+          "evidence": "Encyclopedie en Scan Tbilisi: land van de tsaar, huwelijk, naam van de titel."
+        },
+        {
+          "id": "c2",
+          "kind": "anekdote",
+          "text": "Volgens de Georgische Encyclopedie legde hij de tuin aan ter nagedachtenis aan Nino, na haar dood. Scan Tbilisi zegt dat hij de tuin samen met zijn vrouw stichtte.",
+          "sourceIds": [
+            "s1",
+            "s2"
+          ],
+          "evidence": "De twee bronnen verschillen."
+        },
+        {
+          "id": "c3",
+          "kind": "feit",
+          "text": "Het is de oudste tuin van Tbilisi, uit de jaren 1830. Hij groef ook een tunnel van 12 kilometer en een waterkanaal vanaf de Mtkvari. In 1845 kreeg hij gratie van de sjah, ging terug naar Tabriz en verkocht de tuin.",
+          "sourceIds": [
+            "s2"
+          ],
+          "evidence": "Scan Tbilisi."
+        },
+        {
+          "id": "c4",
+          "kind": "anekdote",
+          "text": "De toeristische dienst noemt de kinderspoorweg uit 1935 de eerste ter wereld. Kinderen leerden er een trein besturen. Ook zou hier de eerste luchtballon van de zuidelijke Kaukasus zijn opgestegen.",
+          "sourceIds": [
+            "s3"
+          ],
+          "evidence": "Toeristische dienst: eerste kinderspoorweg ter wereld, geopend 1935; eerste ballon.",
+          "note": "De claim \"eerste ter wereld\" komt alleen van de toeristische dienst."
+        },
+        {
+          "id": "c5",
+          "kind": "anekdote",
+          "text": "De schilder Niko Pirosmani zou hier voor het eerst de Franse zangeres Margarita hebben ontmoet.",
+          "sourceIds": [
+            "s3"
+          ],
+          "evidence": "Toeristische dienst."
+        }
+      ]
+    },
+    "baratashvili-brug": {
+      "sources": [
+        {
+          "id": "s1",
+          "title": "Baratashvili bridge, Tbilisi Architecture Archive",
+          "url": "https://taa.net.ge/en/archive-geo/nikoloz-baratashvili-bridge/",
+          "type": "architectuur",
+          "language": "en"
+        },
+        {
+          "id": "s2",
+          "title": "Nikoloz Baratashvili, Georgia About",
+          "url": "https://georgiaabout.com/tag/nikoloz-baratashvili/",
+          "type": "website",
+          "language": "en"
+        }
+      ],
+      "claims": [
+        {
+          "id": "c1",
+          "kind": "feit",
+          "text": "In de 19e eeuw voer hier de Mukhrani-veerboot, met tot wel tweeduizend passagiers per dag. Van 1911 tot 1965 lag hier de stalen Mukhrani-brug van ingenieur Jevgeni Paton, de eerste brug met gelaste verbindingen in de Kaukasus.",
+          "sourceIds": [
+            "s1"
+          ],
+          "evidence": "Tbilisi Architecture Archive, met Kvirkvelia."
+        },
+        {
+          "id": "c2",
+          "kind": "feit",
+          "text": "De oude brug was met 11 meter te smal, en door de nieuwe kades in de rivier stond het water nog maar anderhalve meter onder de brug. De nieuwe brug is van 1965, met onderin een café en een tentoonstellingszaal. Die zaal sloot halverwege de jaren 1980. Georgia About noemt 1966 als jaar van de opening.",
+          "sourceIds": [
+            "s1",
+            "s2"
+          ],
+          "evidence": "TAA: 11 meter, minder dan anderhalve meter, gebouwd 1965; Georgia About: geopend 1966."
+        },
+        {
+          "id": "c3",
+          "kind": "feit",
+          "text": "De brug heet naar de dichter Nikoloz Baratashvili, in 1817 geboren in Tbilisi en op zijn 26e aan malaria gestorven in Ganja. Toen hij stierf, was er nog niets van hem uitgegeven. Pas later in de 19e eeuw kreeg hij de erkenning.",
+          "sourceIds": [
+            "s2"
+          ],
+          "evidence": "Georgia About."
+        },
+        {
+          "id": "c4",
+          "kind": "anekdote",
+          "text": "De brug heeft bronzen figuren van beeldhouwer Gia Japaridze en wordt vaak de Brug van de Liefde genoemd.",
+          "sourceIds": [
+            "s2"
+          ],
+          "evidence": "Georgia About."
+        }
+      ]
+    },
+    "didube-pantheon": {
+      "sources": [
+        {
+          "id": "s1",
+          "title": "E. Kekelia, The Formation and the Legacy of the Mtatsminda Pantheon as a Site of Memory, Identity Studies (Ilia State University, 2014)",
+          "url": "https://ojs.iliauni.edu.ge/index.php/identitystudies/article/view/193/127",
+          "type": "academisch",
+          "language": "en"
+        },
+        {
+          "id": "s2",
+          "title": "The Tbilisi Pantheon of Public Figures, Georgia Today",
+          "url": "https://georgiatoday.ge/the-tbilisi-pantheon-of-public-figures/",
+          "type": "nieuws",
+          "language": "en"
+        }
+      ],
+      "claims": [
+        {
+          "id": "c1",
+          "kind": "feit",
+          "text": "Het pantheon van Didube werd in 1915 gesticht door het Genootschap voor de Verspreiding van Geletterdheid onder Georgiërs. Tot de Sovjets ingrepen was het het belangrijkste pantheon van Georgië.",
+          "sourceIds": [
+            "s1"
+          ],
+          "evidence": "Kekelia: SSLAG, 1915; de ingreep van 1934 betekende \"the end of the Didube's status as the top Georgian Pantheon\"."
+        },
+        {
+          "id": "c2",
+          "kind": "feit",
+          "text": "De grond op het kerkhof van Didube kostte het genootschap 5.000 roebel in plaats van 50.000, te betalen in 5 jaar, met steun van de exarch.",
+          "sourceIds": [
+            "s1"
+          ],
+          "evidence": "Kekelia, noot over de aankoop."
+        },
+        {
+          "id": "c3",
+          "kind": "feit",
+          "text": "In de jaren 1930 werd Didube bijna opgeheven. Vanaf 1934 werden belangrijke namen, zoals Vazha-Pshavela en Nikoloz Baratashvili, overgebracht naar Mtatsminda, dat zo het hoogste pantheon werd. In 2002 volgde ook de geleerde Ekvtime Takaishvili, die de kerk datzelfde jaar heilig verklaarde.",
+          "sourceIds": [
+            "s1"
+          ],
+          "evidence": "Kekelia: bevel van 1934, overbrengingen, Takaishvili 2002."
+        },
+        {
+          "id": "c4",
+          "kind": "feit",
+          "text": "De directeur van Didube, Badri Kutateladze, schreef een boek met de levens van 650 Georgische schrijvers, kunstenaars en publieke figuren die hier liggen. Er is bijna geen plek meer voor nieuwe graven.",
+          "sourceIds": [
+            "s2"
+          ],
+          "evidence": "Georgia Today: boek met 650 biografieën; \"can hardly continue interments due to a lack of space\"."
+        }
+      ]
+    },
+    "tbilisi-zee": {
+      "sources": [
+        {
+          "id": "s1",
+          "title": "Tbilisi Sea freezes for the first time in 50 years, TASS",
+          "url": "https://tass.com/archive/669330",
+          "type": "nieuws",
+          "language": "en"
+        },
+        {
+          "id": "s2",
+          "title": "Tbilisi Reservoir, Madloba",
+          "url": "https://madloba.info/en/tbilisi/gardens-and-parks/tbilisi-reservoir/",
+          "type": "reisgids",
+          "language": "en"
+        }
+      ],
+      "claims": [
+        {
+          "id": "c1",
+          "kind": "feit",
+          "text": "De Tbilisi-zee is een stuwmeer dat in 1953 in gebruik kwam.",
+          "sourceIds": [
+            "s1"
+          ],
+          "evidence": "TASS: \"commissioned in 1953\"."
+        },
+        {
+          "id": "c2",
+          "kind": "feit",
+          "text": "Het water van de Iori werd hierheen geleid en zette drie zoutmeren onder water. Het meer is zo'n 9 kilometer lang en gemiddeld 26 meter diep, op 535 meter hoogte.",
+          "sourceIds": [
+            "s2",
+            "s1"
+          ],
+          "evidence": "Madloba: Iori, drie zoutmeren, diepte, hoogte. TASS: ongeveer negen kilometer lang.",
+          "note": "Madloba is een reisgids; alleen de lengte staat ook bij TASS."
+        },
+        {
+          "id": "c3",
+          "kind": "feit",
+          "text": "Begin jaren 1960 vroor het meer een keer dicht. Op 7 februari van een later jaar meldde TASS dat het voor het eerst in 50 jaar weer bevroor, en dat het ijs in het oosten zo dik was dat je erop kon lopen.",
+          "sourceIds": [
+            "s1"
+          ],
+          "evidence": "TASS, bericht van 7 februari."
+        }
+      ]
+    },
+    "ilia-huis": {
+      "sources": [
+        {
+          "id": "s1",
+          "title": "Ilia Chavchavadze House-Museum, Union of Tbilisi Municipal Museums",
+          "url": "https://tbilisimuseumsunion.ge/en/museums/ilia-chavchavadzis-sakhl-muzeumi/",
+          "type": "instelling",
+          "language": "en"
+        },
+        {
+          "id": "s2",
+          "title": "Saguramo, Nationale Toeristische Dienst van Georgië (georgia.travel)",
+          "url": "https://georgia.travel/villages/saguramo",
+          "type": "overheid",
+          "language": "en"
+        },
+        {
+          "id": "s3",
+          "title": "E. Kekelia, The Formation and the Legacy of the Mtatsminda Pantheon as a Site of Memory, Identity Studies (Ilia State University, 2014)",
+          "url": "https://ojs.iliauni.edu.ge/index.php/identitystudies/article/view/193/127",
+          "type": "academisch",
+          "language": "en"
+        }
+      ],
+      "claims": [
+        {
+          "id": "c1",
+          "kind": "feit",
+          "text": "Ilia Chavchavadze woonde hier van 1902 tot 1907 met zijn vrouw Olga Guramishvili. Hij kocht een klein huis met erf, dat de vorige eigenaar als opslag gebruikte. Er kwamen vaak gasten en er waren regelmatig avonden.",
+          "sourceIds": [
+            "s1"
+          ],
+          "evidence": "Museumunie: 1902–1907, aankoop, gasten."
+        },
+        {
+          "id": "c2",
+          "kind": "feit",
+          "text": "Hij werd vermoord op de weg naar Saguramo, bij het dorp Tsitsamuri. De Georgische kerk verklaarde hem heilig als Ilia de Rechtvaardige, volgens Kekelia in 1987.",
+          "sourceIds": [
+            "s2",
+            "s3"
+          ],
+          "evidence": "Toeristische dienst: moord, heilig; Kekelia: 1987."
+        },
+        {
+          "id": "c3",
+          "kind": "feit",
+          "text": "Ilia wordt vaak de stichter van de Georgische natie genoemd. Op zijn graf op Mtatsminda staat een monument van Iakob Nikoladze, die bereid was daarvoor Parijs en zijn werk bij Rodin te verlaten.",
+          "sourceIds": [
+            "s3"
+          ],
+          "evidence": "Kekelia."
+        },
+        {
+          "id": "c4",
+          "kind": "feit",
+          "text": "Het museum ging open op 22 oktober 1957, op initiatief van volksdichter Giorgi Leonidze.",
+          "sourceIds": [
+            "s1"
+          ],
+          "evidence": "Museumunie."
+        }
+      ]
+    },
+    "galaktion-museum": {
+      "sources": [
+        {
+          "id": "s1",
+          "title": "Galaktion Tabidze Memorial House-Museum, Union of Tbilisi Municipal Museums",
+          "url": "https://tbilisimuseumsunion.ge/en/museums/galaktion-tabidzis-memorialuri-bina-muzeumi/",
+          "type": "instelling",
+          "language": "en"
+        },
+        {
+          "id": "s2",
+          "title": "Renewed Museum of Galaktioni in Tbilisi, CBW",
+          "url": "https://www.cbw.ge/culture/renewed-museum-of-galaktioni-in-tbilisi",
+          "type": "tijdschrift",
+          "language": "en"
+        },
+        {
+          "id": "s3",
+          "title": "Galagtion Tabidze: Biography, AllGeo",
+          "url": "https://www.allgeo.org/index.php/en/3239-galagtion-tabidze-biography",
+          "type": "website",
+          "language": "en"
+        },
+        {
+          "id": "s4",
+          "title": "M. Jaggi, Resurrecting the Poets of Tbilisi, The New York Review of Books (24 november 2022)",
+          "url": "https://www.nybooks.com/articles/2022/11/24/resurrecting-the-poets-of-tbilisi-maya-jaggi/",
+          "type": "tijdschrift",
+          "language": "en"
+        }
+      ],
+      "claims": [
+        {
+          "id": "c1",
+          "kind": "feit",
+          "text": "Galaktion Tabidze was een van de grootste Georgische dichters, bekend als \"de koning van de dichters\". Het museum zit in de woning waar hij van 1935 tot 1959 leefde. Zijn werkkamer is bijna helemaal bewaard gebleven.",
+          "sourceIds": [
+            "s1"
+          ],
+          "evidence": "Museumunie."
+        },
+        {
+          "id": "c2",
+          "kind": "feit",
+          "text": "Het museum aan de Marjanishvilistraat 4 ging op 22 juli 2020 opnieuw open, met geluidsinstallaties die zijn leven vertellen.",
+          "sourceIds": [
+            "s1",
+            "s2"
+          ],
+          "evidence": "Museumunie: heropend 22 juli 2020. CBW: installaties om naar te luisteren."
+        },
+        {
+          "id": "c3",
+          "kind": "feit",
+          "text": "Hij overleefde de zuiveringen van Stalin, maar de dood van zijn vrouw en vrienden dreef hem tot depressie en drank. Hij werd opgenomen in een psychiatrisch ziekenhuis en sprong in 1959 uit het raam.",
+          "sourceIds": [
+            "s3"
+          ],
+          "evidence": "AllGeo.",
+          "note": "Website over Georgië. Gevoelig onderwerp: kijk of het bij je groep past."
+        },
+        {
+          "id": "c4",
+          "kind": "feit",
+          "text": "Ook de dichter Titsian Tabidze overleefde die jaren niet: hij werd in 1937 gemarteld en doodgeschoten.",
+          "sourceIds": [
+            "s4"
+          ],
+          "evidence": "NYRB over Titsian Tabidze."
+        }
+      ]
     }
   }
 }
