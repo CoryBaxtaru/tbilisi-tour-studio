@@ -3,10 +3,13 @@ import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
 import { INITIAL_ARRIVAL, updateArrival, type ArrivalState } from '../domain/arrival';
 import { findLeg, stopPairs } from '../domain/duration';
 import { formatDistance, formatMinutes, haversineM } from '../domain/geo';
-import type { LatLng } from '../domain/types';
+import type { Departure, LatLng } from '../domain/types';
 import { instructionList } from '../routing/instructions';
 import { fossgisFoot } from '../routing/osrm';
 import { useAppState } from '../state/store';
+import { isoDate } from '../domain/agenda';
+import { departureForGuide } from '../domain/checkin';
+import { CheckIn, useHeadcount } from './CheckIn';
 import { MapView, type MapStop } from './MapView';
 import { SiteInfo } from './SiteInfo';
 import { OfflineMapControl } from './OfflineMapControl';
@@ -38,8 +41,21 @@ function loadProgress(id: string): Progress {
   return { index: 0, done: [] };
 }
 
-export function GuideMode({ id }: { id: string }) {
-  const { tours, landmarks, online } = useAppState();
+/** The guest list while guiding: open before the tour starts, then folded to just the headcount. */
+function GuestSection({ departure, open }: { departure: Departure; open: boolean }) {
+  const headcount = useHeadcount(departure.id);
+  return (
+    <details class="guide__section guide__guests" open={open}>
+      <summary>Gasten: {headcount}</summary>
+      <CheckIn departure={departure} hideTotal />
+      <p class="hint">Komt er iemand zonder boeking? <a href={`#/vertrek/${departure.id}`}>Voeg een boeking toe</a>.</p>
+    </details>
+  );
+}
+
+export function GuideMode({ id, departureId }: { id: string; departureId?: string }) {
+  const { tours, landmarks, online, products, departures } = useAppState();
+  const departure = departureForGuide(id, products, departures, isoDate(new Date()), departureId);
   const tour = tours.find((t) => t.id === id && !t.deleted);
   const lmById = useMemo(() => new Map(landmarks.map((l) => [l.id, l])), [landmarks]);
   const [progress, setProgress] = useState<Progress>(() => loadProgress(id));
@@ -132,6 +148,8 @@ export function GuideMode({ id }: { id: string }) {
       <div class="guide__progress" role="progressbar" aria-label="Voortgang van de tour" aria-valuemin={0} aria-valuemax={stops.length} aria-valuenow={progress.done.length}>
         <span style={{ width: `${(progress.done.length / stops.length) * 100}%` }} />
       </div>
+
+      {departure && <GuestSection departure={departure} open={index === 0 && !progress.done.length} />}
 
       <section class="next-card">
         <div class="next-card__label">

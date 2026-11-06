@@ -7,33 +7,13 @@ import { buildStoryline, keywords, siteName, STORY_ORDERS, studySites, tourFromS
 import { applyReply, buildResearchPrompt, HARD_WORDS, parseReply, type ParsedReply } from '../domain/storyExchange';
 import type { LatLng } from '../domain/types';
 import { ensureLandmark, getState, saveLandmark, saveTour, useAppState } from '../state/store';
+import { copyText } from './clipboard';
 import { MapView, type MapDot, type MapStop } from './MapView';
 import { navigate } from './router';
 import { useTheme } from './theme';
 import { WikiText } from './WikiText';
 
 const positionById = new Map(studySites().map((s) => [s.id, s.position]));
-
-/** The clipboard API, then the older way for browsers that refuse it. */
-async function copyText(text: string): Promise<boolean> {
-  try {
-    await navigator.clipboard.writeText(text);
-    return true;
-  } catch { /* try the older way */ }
-  const area = document.createElement('textarea');
-  area.value = text;
-  area.style.position = 'fixed';
-  area.style.opacity = '0';
-  document.body.append(area);
-  area.select();
-  try {
-    return document.execCommand('copy');
-  } catch {
-    return false;
-  } finally {
-    area.remove();
-  }
-}
 
 function Spoken({ sentences }: { sentences: StorySentence[] }) {
   return (

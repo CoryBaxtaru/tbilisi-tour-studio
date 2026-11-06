@@ -164,6 +164,12 @@ export interface TourProduct extends SyncedEntity {
   included: string;
   notes: string;
   active: boolean;
+  /** Link to the meeting point on a map, for messages to guests. */
+  meetingMapUrl?: string;
+  /** What guests should bring, for the reminder. */
+  bring?: string;
+  /** Where guests can leave a review, for the review request. */
+  reviewUrl?: string;
   /** What to do when the weather is bad: shelter, a shorter route, where to wait. */
   badWeatherPlan?: string;
   /** A tour to guide instead when the weather is bad. */
@@ -212,6 +218,8 @@ export interface Departure extends SyncedEntity {
   closedOnGyg?: boolean;
 }
 
+export type MessageKind = 'bevestiging' | 'herinnering' | 'review';
+
 /** An amount paid in Georgian lari, with the rate the guide used. Totals stay in EUR. */
 export interface GelAmount { amount: number; gelPerEur: number }
 
@@ -241,6 +249,10 @@ export interface Booking extends SyncedEntity {
   refund?: number;
   /** What the guide keeps from a cancelled booking, in EUR. Without it a cancelled booking counts as nothing. */
   cancelFee?: number;
+  /** Guests who showed up at the meeting point. Undefined means not checked in yet. */
+  arrived?: number;
+  /** When each message to this guest was copied or opened. */
+  messagesSent?: Partial<Record<MessageKind, IsoDate>>;
   /** Set when the guest paid in lari; priceTotal is then this amount converted to EUR. */
   gel?: GelAmount;
   paid: boolean;

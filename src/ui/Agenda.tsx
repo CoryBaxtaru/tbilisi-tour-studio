@@ -9,7 +9,9 @@ import { commissionRate, departureFinance, gelToEur, hasPrices, overbookedBy, pr
 import type { Booking, BookingChannel, BookingStatus, Departure, DepartureStatus, PriceProfile, TourProduct } from '../domain/types';
 import { currentRecord, deleteRecord, saveRecord, useAppState } from '../state/store';
 import { navigate } from './router';
+import { CheckIn, useHeadcount } from './CheckIn';
 import { BadWeatherBox, GelFields, GygReminder, StartGuiding } from './DepartureBits';
+import { MessagePanel } from './Messages';
 import { DayGlyph, DayWeather, WeatherChip, WeatherPanel } from './Weather';
 import { useForecast } from '../weather/metno';
 
@@ -215,6 +217,7 @@ export function DeparturePage({ id }: { id: string }) {
   const { departures, products, bookings } = useAppState();
   const dep = departures.find((d) => d.id === id && !d.deleted);
   const [editing, setEditing] = useState<string | null>(null);
+  const [messaging, setMessaging] = useState<string | null>(null);
   if (!dep) return <main class="page"><p>Vertrek niet gevonden. <a href="#/agenda">Terug naar de agenda</a></p></main>;
   const product = products.find((p) => p.id === dep.productId);
   const min = product?.minGuests ?? 0;
@@ -247,7 +250,7 @@ export function DeparturePage({ id }: { id: string }) {
         <FillBar booked={f.booked} capacity={f.capacity} state={s.state} />
         <span class="meta">{f.booked} van {f.capacity} plaatsen bezet{product ? ` · minimum ${min}` : ''}</span>
       </div>
-      {dep.status !== 'geannuleerd' && product && <StartGuiding product={product} />}
+      {dep.status !== 'geannuleerd' && product && <StartGuiding product={product} departure={dep} />}
       <GygReminder dep={dep} product={product} />
       {s.state === 'low' && <p class="hint hint--warn">Nog {min - f.booked} gast(en) nodig voor het minimum van {min}; dit vertrek gaat nog niet door.</p>}
       {dep.notes && <p class="departure__note">{dep.notes}</p>}
@@ -270,7 +273,8 @@ export function DeparturePage({ id }: { id: string }) {
             <li key={b.id} class={`booking booking--${b.status}`}>
               {editing === b.id
                 ? <BookingForm initial={b} dep={dep} product={product} onDone={() => setEditing(null)} />
-                : <BookingRow b={b} onEdit={() => setEditing(b.id)} />}
+                : <BookingRow b={b} onEdit={() => setEditing(b.id)} onMessage={() => setMessaging(messaging === b.id ? null : b.id)} />}
+              {messaging === b.id && editing !== b.id && <MessagePanel booking={b} departure={dep} product={product} />}
             </li>
           ))}
         </ul>
@@ -279,6 +283,8 @@ export function DeparturePage({ id }: { id: string }) {
         ? <div class="booking"><BookingForm initial={createBooking(dep.id)} dep={dep} product={product} onDone={() => setEditing(null)} /></div>
         : <button class="btn btn--primary" onClick={() => setEditing('new')}>Boeking toevoegen</button>}
       <p class="hint">Naam, contact en notities van gasten worden {RETENTION_MONTHS} maanden na de tour automatisch gewist; aantallen en bedragen blijven.</p>
+
+      {dep.status !== 'geannuleerd' && dep.date <= isoDate(new Date()) && mine.length > 0 && <CheckInSection departure={dep} />}
 
       <details class="departure__edit">
         <summary>Vertrek wijzigen</summary>
@@ -304,7 +310,17 @@ export function DeparturePage({ id }: { id: string }) {
   );
 }
 
-function BookingRow({ b, onEdit }: { b: Booking; onEdit: () => void }) {
+function CheckInSection({ departure }: { departure: Departure }) {
+  const headcount = useHeadcount(departure.id);
+  return (
+    <details class="departure__edit">
+      <summary>Aanwezig: {headcount}</summary>
+      <CheckIn departure={departure} hideTotal />
+    </details>
+  );
+}
+
+function BookingRow({ b, onEdit, onMessage }: { b: Booking; onEdit: () => void; onMessage: () => void }) {
   const people = [b.adults && `${b.adults} volw.`, b.children && `${b.children} kind`, b.infants && `${b.infants} baby`].filter(Boolean).join(', ');
   return (
     <div class="booking__row">
@@ -313,6 +329,7 @@ function BookingRow({ b, onEdit }: { b: Booking; onEdit: () => void }) {
         <span class="meta">{CHANNELS[b.channel]}{b.reference ? ` ${b.reference}` : ''} · {people || '0 gasten'}{b.status !== 'geboekt' ? ` · ${BOOKING_STATUS[b.status]}` : ''}{b.refund ? ` · ${eur.format(b.refund)} teruggegeven` : ''}{b.status === 'geannuleerd' && b.cancelFee ? ` · ${eur.format(b.cancelFee)} gehouden` : ''}{b.gel ? ` · ₾ ${b.gel.amount}` : ''}</span>
       </div>
       <span class="booking__price">{eur.format(b.priceTotal)}<span class={`meta ${b.paid ? 'is-paid' : 'is-unpaid'}`}>{b.paid ? 'betaald' : 'open'}</span></span>
+      {!b.anonymizedAt && b.status !== 'geannuleerd' && <button class="btn btn--small btn--ghost" onClick={onMessage}>Bericht</button>}
       <button class="btn btn--small btn--ghost" onClick={onEdit}>Bewerken</button>
     </div>
   );
@@ -489,7 +506,10 @@ export function ProductPage({ id }: { id: string }) {
           <label class="check"><input type="checkbox" checked={p.active} onChange={(e) => patch({ active: e.currentTarget.checked })} />Actief (te plannen)</label>
         </div>
         <label>Verzamelpunt<textarea rows={2} value={p.meetingPoint} placeholder="Bijv. bij de klokkentoren van het Gabriadze-theater" onInput={(e) => patch({ meetingPoint: e.currentTarget.value })} /></label>
+        <label>Link naar het verzamelpunt op de kaart<input inputMode="url" value={p.meetingMapUrl ?? ''} placeholder="https://..." onInput={(e) => patch({ meetingMapUrl: e.currentTarget.value })} /></label>
         <label>Inbegrepen<textarea rows={2} value={p.included} onInput={(e) => patch({ included: e.currentTarget.value })} /></label>
+        <label>Wat moeten gasten meenemen?<input value={p.bring ?? ''} placeholder="Bijv. goede schoenen en water" onInput={(e) => patch({ bring: e.currentTarget.value })} /></label>
+        <label>Link om een review te schrijven<input inputMode="url" value={p.reviewUrl ?? ''} placeholder="https://..." onInput={(e) => patch({ reviewUrl: e.currentTarget.value })} /></label>
         <label>Notities<textarea rows={2} value={p.notes} onInput={(e) => patch({ notes: e.currentTarget.value })} /></label>
         <PriceFields pricing={pricingOf(p)} onChange={(pricing) => patch({ pricing })} />
         <fieldset class="price-form">

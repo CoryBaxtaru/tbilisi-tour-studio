@@ -74,6 +74,7 @@ GPS itself needs no data connection. It does need HTTPS, which GitHub Pages prov
 - They are erased automatically **6 months after the tour** (founder's choice; `RETENTION_MONTHS` in `src/domain/agenda.ts`). Counts and amounts stay for the books. The erased version is deterministic, so both devices produce the same record and sync sees no conflict.
 - Erased data remains in the private repo's Git history (each sync is a commit). That history is only visible to the founder. Cleaning it would need a history rewrite of the data repo; if that ever matters, do it then.
 - Backup files leave bookings out unless "Ook boekingen meenemen" is ticked.
+- Messages to guests: the app sends nothing itself. "Openen in WhatsApp" hands the guest's number and the text to WhatsApp, and "Openen in mail" to the mail app, only when the guide taps it. "Kopiëren" stays on the device. Check-in counts and "sent" dates are not personal data and stay after the 6-month erasure.
 
 ## Security
 - No API keys exist in the app. The only credential is the user's fine-grained token, entered per device and stored in that device's IndexedDB. It is never committed, never included in exports, and is removed by "Synchronisatie uitzetten".

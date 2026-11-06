@@ -721,3 +721,24 @@ fieldset.shared legend { color: var(--balkon); }
 .practice__words { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0; }
 .practice__word { font-size: 14px; padding: 3px 9px; border-radius: var(--r-sm); background: var(--hover-strong); }
 .story__saved { font-family: var(--font-ui); font-size: 11px; font-weight: 400; color: var(--balkon); }
+
+/* Guest check-in and messages */
+.guest-total { margin: 8px 0; font-size: 15px; }
+.guest-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+.guest { border: 1px solid var(--line); border-radius: var(--r-md); padding: 10px 12px; display: flex; flex-direction: column; gap: 8px; }
+.guest--here { border-color: var(--balkon); }
+.guest--gone { opacity: 0.65; }
+.guest__who { display: flex; flex-direction: column; gap: 1px; }
+.guest__who strong { font-weight: 500; font-size: 15px; }
+.guest__controls { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.guest__controls .btn { min-height: 44px; }
+.guest__step { min-width: 44px; padding: 0; font-size: 18px; }
+.guest__count { min-width: 36px; text-align: center; font-variant-numeric: tabular-nums; font-weight: 500; font-size: 16px; }
+.guest__state { font-weight: 500; }
+.guest__pay { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 14px; }
+.guide__guests summary { min-height: 44px; display: flex; align-items: center; cursor: pointer; }
+.message-panel { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--line); display: flex; flex-direction: column; gap: 10px; }
+.message-panel .seg--choice { align-self: flex-start; flex-wrap: wrap; }
+.message-panel textarea { width: 100%; font-family: var(--font-ui); font-size: 14px; line-height: 1.5; }
+.message-panel p { margin: 0; }
+.message-panel a.btn { display: inline-flex; align-items: center; text-decoration: none; }

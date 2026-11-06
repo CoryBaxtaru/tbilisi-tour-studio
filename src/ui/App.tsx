@@ -41,7 +41,7 @@ export function App() {
 
   if (!s.loaded) return <div class="loading">Laden…</div>;
 
-  const [, section, id] = path.split('/');
+  const [, section, id, sub] = path.split('/');
   const guiding = section === 'gids';
   const syncKey = !s.online ? 'offline' : s.syncStatus;
   const syncText = s.pendingChanges && s.syncStatus === 'ok' ? 'Wijzigingen nog niet gesynchroniseerd' : SYNC_LABEL[syncKey];
@@ -70,7 +70,7 @@ export function App() {
         </div>
       )}
       {section === 'tour' && id ? <TourEditor id={id} />
-        : guiding && id ? <GuideMode id={id} />
+        : guiding && id ? <GuideMode id={id} departureId={sub} />
         : section === 'onderzoek' ? (id ? <ResearchPage id={id} /> : <ResearchList />)
         : section === 'agenda' ? <Agenda month={id} />
         : section === 'vertrek' && id ? <DeparturePage key={id} id={id} />

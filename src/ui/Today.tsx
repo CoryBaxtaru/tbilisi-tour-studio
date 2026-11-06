@@ -1,9 +1,11 @@
 // Vandaag (#/vandaag): one screen for the phone. Today's departures with guests, meeting point and weather,
 // and what still needs doing.
 import { departureFill, isoDate } from '../domain/agenda';
+import { MESSAGE_LABELS, pendingMessages } from '../domain/messages';
 import { bookingAmounts, needsGygClosing, openPayments } from '../domain/pricing';
 import type { Departure } from '../domain/types';
 import { useAppState } from '../state/store';
+import { CheckIn } from './CheckIn';
 import { BadWeatherBox, GygReminder, StartGuiding } from './DepartureBits';
 import { WeatherPanel } from './Weather';
 
@@ -26,11 +28,12 @@ function DepartureCard({ dep, today }: { dep: Departure; today: string }) {
       <h2 class="lit"><a href={`#/vertrek/${dep.id}`}>{dep.startTime} · {product?.name ?? 'Onbekend touraanbod'}</a></h2>
       <p class="meta">{dep.date === today ? 'Vandaag' : dayName(dep.date)} · {f.booked} van {f.capacity} gasten{f.belowMinimum ? ` · nog ${min - f.booked} nodig voor het minimum` : ''}</p>
       {product?.meetingPoint && <p><strong>Verzamelen:</strong> {product.meetingPoint}</p>}
-      {product && <StartGuiding product={product} />}
+      {product && <StartGuiding product={product} departure={dep} />}
       <GygReminder dep={dep} product={product} />
       <WeatherPanel date={dep.date} startTime={dep.startTime} durationMin={product?.durationMin ?? 120} today={today} />
       {product && <BadWeatherBox dep={dep} product={product} />}
-      {guests.length > 0 && (
+      {dep.date === today && <CheckIn departure={dep} />}
+      {dep.date !== today && guests.length > 0 && (
         <ul class="today__guests">
           {guests.map((b) => (
             <li key={b.id}>
@@ -60,6 +63,7 @@ export function Today() {
   const open = openPayments(products, departures, bookings).filter((p) => p.departure.status !== 'geannuleerd' || p.booking.cancelFee);
   const openTotal = open.reduce((n, p) => n + p.amount, 0);
   const toClose = active.filter((d) => needsGygClosing(d, productOf(d), bookings, today));
+  const messages = pendingMessages(products, departures, bookings, today);
   const short = active.filter((d) => d.date >= today && d.date <= soonEnd && departureFill(d, bookings, productOf(d)?.minGuests ?? 0).belowMinimum);
 
   return (
@@ -70,6 +74,20 @@ export function Today() {
         ? <><p class="hint">Vandaag geen vertrekken. Dit is het volgende:</p><DepartureCard dep={next} today={today} /></>
         : <div class="empty"><h2>Geen vertrekken gepland</h2><p>Plan een vertrek in de <a href="#/agenda">agenda</a>.</p></div>)}
 
+      {messages.length > 0 && (
+        <>
+          <h2>Berichten versturen</h2>
+          <ul class="todo-list">
+            {messages.slice(0, OPEN_SHOWN).map((m) => (
+              <li key={m.booking.id + m.kind}>
+                <a href={`#/vertrek/${m.departure.id}`}>{m.booking.leadName || 'Geen naam'} · {dayName(m.departure.date, { day: 'numeric', month: 'short' })}</a>
+                <span class="meta">{MESSAGE_LABELS[m.kind]}</span>
+              </li>
+            ))}
+          </ul>
+          {messages.length > OPEN_SHOWN && <p class="hint">En nog {messages.length - OPEN_SHOWN}.</p>}
+        </>
+      )}
       {toClose.length > 0 && (
         <>
           <h2>Dichtzetten op GetYourGuide</h2>

@@ -13,6 +13,7 @@ Tbilisi Walking Tour Studio — desktop tour design and mobile live guiding for 
 - Run locally: `npm install`, `npm test`, `npm run build`, then `npx vite preview` (or the `preview` entry in `.claude/launch.json`).
 
 ## Latest session
+- 2026-11-07, step 6 built, **not committed or deployed**: guest check-in (guide mode, Vandaag, departure page) and Dutch message templates per booking. See the breakdown.
 - Date: 2026-11-07 (session 01), live in `408bada`, checked on GitHub Pages:
   - Studie: copy a research prompt for Claude and paste the answer back, saved per site (clipboard chosen over a Haiku subagent, because a subagent cannot run from the website); make a tour from a storyline; practice mode; guest questions; simpler Dutch in all bundled story text.
   - Business: Vandaag screen, Start gidsen, overbooking block, GetYourGuide reminder, refunds and cancellation fees, lari, general costs and profit (**schema 3: both devices must tap "Vernieuwen"**), open payments, bad-weather plan.
@@ -53,7 +54,8 @@ Tbilisi Walking Tour Studio — desktop tour design and mobile live guiding for 
 - Wikipedia/Wikidata are never a source for talking points (founder's rule). Concept claims live in `src/data/research-drafts.json` and stay virtual until the guide acts on one. Keep their ids stable.
 
 ## Tests and verification
-- `npm test`: 118 passed (2026-11-07). The new work was checked on a local production build with test data (desktop and 375 px) and live on GitHub Pages; not on a phone, not with a real answer from Claude, and sync of the new data between real devices is untested.
+- `npm test`: 138 passed (2026-11-07). Step 6 checked on a local production build at 375 px.
+- Earlier: 118 passed. The new work was checked on a local production build with test data (desktop and 375 px) and live on GitHub Pages; not on a phone, not with a real answer from Claude, and sync of the new data between real devices is untested.
 - Earlier: 95 passed (2026-11-06, incl. 9 story tests). Studie checked on a local production build (desktop and 375 px), not on a phone.
 - Earlier: 86 passed (2026-10-23, incl. 10 pricing tests). Step 5 checked on a local production build (prefill, gross-up, costs, Financiën, 375 px). Earlier: 77 passed with the 12 weather tests. Step 4 checked on a local production build with the CSP active (live MET fetch, IndexedDB cache, climate view, 375 px); not on a phone, not offline.
 - Earlier: `npm test`: 50 passed. `npm run build` succeeds, with Vite's chunk-size warning (578 kB / 172 kB gzip).
@@ -70,7 +72,7 @@ Tbilisi Walking Tour Studio — desktop tour design and mobile live guiding for 
 - Sync token is set up on both devices. The founder chose to keep using a token that was pasted into the chat once; revoke and replace it if the transcript is ever shared. Renew it before it expires.
 
 ## Next recommended task
-0. **Both devices must tap "Vernieuwen" (schema 3).** The founder reads a few stories aloud, verifies claims under Onderzoek and tries one paste round trip with Claude. Step 6 (guest check-in, message templates) is still the next business build.
+0. **Both devices must tap "Vernieuwen" (schema 3).** The founder reads a few stories aloud, verifies claims under Onderzoek and tries one paste round trip with Claude. Step 6 is built: deploy it on the go-ahead, then step 7 (scouting new sites, rest of the plan).
 1. Step 3, the design fixes and dark mode are live (`b7ea80f`, checked on GitHub Pages). **Both devices must tap "Vernieuwen"**: an old app refuses the new sync file (schema 2) until updated. Then check that a test booking syncs laptop → phone.
 2. Step 5 (prices and finances) is live and marked in the private plan. The founder taps "Vernieuwen" on both devices and enters real prices per tour product. The founder also sends the GitHub Support purge request. Next build: step 6 (guest check-in, message templates).
 3. Still open on the founder's side: verify claims under Onderzoek; phone test of the offline map.
