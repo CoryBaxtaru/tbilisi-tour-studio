@@ -63,10 +63,8 @@ export function TourSuggestions({ hasTours }: { hasTours: boolean }) {
     setCustom((f) => ({ ...f, [group]: f[group].includes(id) ? f[group].filter((x) => x !== id) : [...f[group], id] }));
 
   return (
-    <section class="suggest">
-      <div class="page__head">
-        <h2>Kant-en-klare tours</h2>
-      </div>
+    <details class="suggest" open={!hasTours}>
+      <summary><h2>Kant-en-klare tours</h2><span class="meta">{TEMPLATES.length} voorstellen</span></summary>
       <p class="hint">Een startpunt uit de kaarten met deze tags; daarna sleep en pas je alles aan.</p>
       <details class="more">
         <summary>Meer uitleg</summary>
@@ -139,6 +137,6 @@ export function TourSuggestions({ hasTours }: { hasTours: boolean }) {
           </button>
         </div>
       </details>
-    </section>
+    </details>
   );
 }

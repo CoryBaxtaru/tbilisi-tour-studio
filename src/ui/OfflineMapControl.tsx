@@ -45,7 +45,7 @@ export function OfflineMapControl({ compact }: { compact?: boolean }) {
       )}
       <div class="row row--tight">
         {!stored && (
-          <button class="btn btn--primary" onClick={download} disabled={progress !== null || !online}>
+          <button class="btn" onClick={download} disabled={progress !== null || !online}>
             {progress !== null ? `Opslaan… ${Math.round(progress * 100)}%` : `Kaart offline opslaan (${sizeMb} MB)`}
           </button>
         )}

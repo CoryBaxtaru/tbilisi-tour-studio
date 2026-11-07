@@ -13,6 +13,15 @@ Tbilisi Walking Tour Studio — desktop tour design and mobile live guiding for 
 - Run locally: `npm install`, `npm test`, `npm run build`, then `npx vite preview` (or the `preview` entry in `.claude/launch.json`).
 
 ## Latest session
+- 2026-11-08, design pass over the whole app after a design review, **checked locally, not committed or deployed**:
+  - one page-title style and the strict type scale;
+  - a third text grey;
+  - fonts inherited in buttons;
+  - one brick button per screen;
+  - the product page in folding sections;
+  - templates folded on Tours, and Onderzoek grouped by district;
+  - 40 px touch controls.
+  - Rules recorded in `.interface-design/system.md`. See the breakdown.
 - 2026-11-08, all of today's work is live in `6cf128c` and was checked on GitHub Pages. That covers the tour import in Studie, guide mode "Je bent hier", and all findings of the A-to-Z test:
   - quick booking with Instagram and private groups;
   - one duration taken from the tour, and a meeting-point check;

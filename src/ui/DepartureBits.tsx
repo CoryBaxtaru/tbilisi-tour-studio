@@ -17,11 +17,12 @@ function rememberRate(rate: number) {
 }
 
 /** Opens the tour of this product in guide mode, or says what is missing. */
-export function StartGuiding({ product, departure }: { product: TourProduct; departure: Departure }) {
+/** The main action only on the tour day; before that, booking guests matters more. */
+export function StartGuiding({ product, departure, primary = true }: { product: TourProduct; departure: Departure; primary?: boolean }) {
   const { tours } = useAppState();
   const tour = tours.find((t) => t.id === product.tourId && !t.deleted);
   if (!tour) return <p class="hint">Koppel een tour aan <a href={`#/aanbod/${product.id}`}>{product.name}</a> om vanaf hier te gidsen.</p>;
-  return <a class="btn btn--primary btn--big" href={`#/gids/${tour.id}/${departure.id}`}>Start gidsen</a>;
+  return <a class={`btn btn--big ${primary ? 'btn--primary' : ''}`} href={`#/gids/${tour.id}/${departure.id}`}>Start gidsen</a>;
 }
 
 /** Reminder that a full departure can still be booked on GetYourGuide, with a box to tick once it is closed. */

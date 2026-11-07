@@ -33,7 +33,7 @@ function DepartureCard({ dep, today }: { dep: Departure; today: string }) {
       {product?.meetingPoint && <p><strong>Verzamelen:</strong> {product.meetingPoint}</p>}
       {dep.status === 'afgerond'
         ? <p class="today__done">Tour afgerond. <a href={`#/vertrek/${dep.id}`}>Betaling en terugblik</a></p>
-        : product && <StartGuiding product={product} departure={dep} />}
+        : product && <StartGuiding product={product} departure={dep} primary={dep.date === today} />}
       <GygReminder dep={dep} product={product} />
       <WeatherPanel date={dep.date} startTime={dep.startTime} durationMin={product?.durationMin ?? 120} today={today} />
       {product && <BadWeatherBox dep={dep} product={product} />}
@@ -77,7 +77,7 @@ export function Today() {
     <main class="page">
       <div class="page__head">
         <div><h1>Vandaag</h1><span class="meta">{dayName(today)}</span></div>
-        {!booking && <button type="button" class="btn btn--primary" onClick={() => setBooking(true)}>Nieuwe boeking</button>}
+        {!booking && <button type="button" class={`btn ${todays.length ? '' : 'btn--primary'}`} onClick={() => setBooking(true)}>Nieuwe boeking</button>}
       </div>
       {booking && <QuickBooking onClose={() => setBooking(false)} />}
       {todays.map((d) => <DepartureCard key={d.id} dep={d} today={today} />)}

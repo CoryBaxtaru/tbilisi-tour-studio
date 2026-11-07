@@ -45,7 +45,7 @@ function GuestRow({ b }: { b: Booking }) {
           <button type="button" class="btn guest__step" aria-label={`Eén minder aanwezig bij ${b.leadName || 'deze boeking'}`} disabled={here === 0} onClick={() => update(b.id, (x) => withArrived(x, arrivedCount(x) - 1))}>−</button>
           <span class="guest__count" aria-live="polite">{here}/{size}</span>
           <button type="button" class="btn guest__step" aria-label={`Eén meer aanwezig bij ${b.leadName || 'deze boeking'}`} disabled={here >= size} onClick={() => update(b.id, (x) => withArrived(x, arrivedCount(x) + 1))}>+</button>
-          {here < size && <button type="button" class="btn btn--primary" onClick={() => update(b.id, (x) => withArrived(x, partySize(x)))}>Iedereen</button>}
+          {here < size && <button type="button" class="btn" onClick={() => update(b.id, (x) => withArrived(x, partySize(x)))}>Iedereen</button>}
           {here === 0 && <button type="button" class="btn" onClick={() => update(b.id, withNoShow)}>No-show</button>}
         </div>
       )}

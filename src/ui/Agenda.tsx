@@ -218,7 +218,7 @@ function DayPanel({ date, deps, products }: { date: string; deps: Departure[]; p
             </select>
           </label>
           <label class="narrow">Starttijd<input type="time" value={time} onInput={(e) => setTime(e.currentTarget.value)} /></label>
-          <button class="btn btn--primary" onClick={add} disabled={needsOverride && !override}>Vertrek plannen</button>
+          <button class="btn" onClick={add} disabled={needsOverride && !override}>Vertrek plannen</button>
           {needsOverride && (
             <div class="overbook" role="alert">
               {dayBlocked && <strong>Deze dag is geblokkeerd.</strong>}
@@ -302,7 +302,7 @@ export function DeparturePage({ id }: { id: string }) {
       </div>
       {dep.status === 'afgerond'
         ? <p class="today__done">Tour afgerond.</p>
-        : dep.status !== 'geannuleerd' && product && <StartGuiding product={product} departure={dep} />}
+        : dep.status !== 'geannuleerd' && product && <StartGuiding product={product} departure={dep} primary={dep.date === isoDate(new Date())} />}
       <GygReminder dep={dep} product={product} />
       {dep.status !== 'geannuleerd' && clashes(dep, departures, products).map((o) => (
         <p key={o.id} class="hint hint--warn">Dit overlapt met <a href={`#/vertrek/${o.id}`}>het vertrek van {o.startTime}</a>.</p>
@@ -337,7 +337,7 @@ export function DeparturePage({ id }: { id: string }) {
       ) : <p class="hint">Nog geen boekingen voor dit vertrek.</p>}
       {editing === 'new'
         ? <div class="booking"><BookingForm initial={createBooking(dep.id)} dep={dep} product={product} onDone={() => setEditing(null)} /></div>
-        : <button class="btn btn--primary" onClick={() => setEditing('new')}>Boeking toevoegen</button>}
+        : <button class={`btn ${dep.date > isoDate(new Date()) ? 'btn--primary' : ''}`} onClick={() => setEditing('new')}>Boeking toevoegen</button>}
       <p class="hint">Naam, contact en notities van gasten worden {RETENTION_MONTHS} maanden na de tour automatisch gewist; aantallen en bedragen blijven.</p>
 
       {dep.status !== 'geannuleerd' && dep.date <= isoDate(new Date()) && mine.length > 0 && <CheckInSection departure={dep} />}
@@ -582,6 +582,9 @@ export function ProductPage({ id }: { id: string }) {
           <label class="narrow">Min. gasten<input type="number" min={1} value={p.minGuests} onInput={(e) => patch({ minGuests: Math.max(1, num(e.currentTarget.value)) })} /></label>
           <label class="check"><input type="checkbox" checked={p.active} onChange={(e) => patch({ active: e.currentTarget.checked })} />Actief (te plannen)</label>
         </div>
+        <details class="form-section" open>
+          <summary>Voor gasten</summary>
+          <div class="form-section__body">
         <label>Verzamelpunt<textarea rows={2} value={p.meetingPoint} placeholder="Bijv. bij de klokkentoren van het Gabriadze-theater" onInput={(e) => patch({ meetingPoint: e.currentTarget.value })} /></label>
         {meetingPointElsewhere(p.meetingPoint, firstStop) && (
           <p class="hint hint--warn">De tour begint bij {firstStop}. Ligt het verzamelpunt daar niet, plan dan de wandeling naar de eerste stop in, of maak het verzamelpunt de eerste stop van de tour.</p>
@@ -590,17 +593,26 @@ export function ProductPage({ id }: { id: string }) {
         <label>Inbegrepen<textarea rows={2} value={p.included} onInput={(e) => patch({ included: e.currentTarget.value })} /></label>
         <label>Wat moeten gasten meenemen?<input value={p.bring ?? ''} placeholder="Bijv. goede schoenen en water" onInput={(e) => patch({ bring: e.currentTarget.value })} /></label>
         <label>Link om een review te schrijven<input inputMode="url" value={p.reviewUrl ?? ''} placeholder="https://..." onInput={(e) => patch({ reviewUrl: e.currentTarget.value })} /></label>
-        <label>Notities<textarea rows={2} value={p.notes} onInput={(e) => patch({ notes: e.currentTarget.value })} /></label>
-        <fieldset class="price-form">
-          <legend>Tekst voor GetYourGuide of een website</legend>
+          </div>
+        </details>
+        <details class="form-section" open>
+          <summary>Prijzen en kosten</summary>
+          <div class="form-section__body">
+        <PriceFields pricing={pricingOf(p)} onChange={(pricing) => patch({ pricing })} />
+          </div>
+        </details>
+        <details class="form-section">
+          <summary>Tekst voor GetYourGuide of een website{buildProductSheet(p).missing.length > 0 && <span class="meta"> · nog in te vullen: {buildProductSheet(p).missing.length}</span>}</summary>
+          <div class="form-section__body">
           <label>Omschrijving<textarea rows={4} value={p.description ?? ''} onInput={(e) => patch({ description: e.currentTarget.value })} /></label>
           <label>Hoogtepunten (één per regel)<textarea rows={4} value={p.highlights ?? ''} onInput={(e) => patch({ highlights: e.currentTarget.value })} /></label>
           <label>Annuleringsvoorwaarden<textarea rows={2} value={p.cancellationTerms ?? ''} onInput={(e) => patch({ cancellationTerms: e.currentTarget.value })} /></label>
           <SheetPreview product={p} />
-        </fieldset>
-        <PriceFields pricing={pricingOf(p)} onChange={(pricing) => patch({ pricing })} />
-        <fieldset class="price-form">
-          <legend>Plan bij slecht weer</legend>
+          </div>
+        </details>
+        <details class="form-section">
+          <summary>Plan bij slecht weer</summary>
+          <div class="form-section__body">
           <label>Wat doe je dan?<textarea rows={2} value={p.badWeatherPlan ?? ''} placeholder="Bijv. korter lopen, schuilen op een plek die je kent, de tour verzetten" onInput={(e) => patch({ badWeatherPlan: e.currentTarget.value })} /></label>
           <label>Andere tour bij slecht weer
             <select value={p.badWeatherTourId ?? ''} onChange={(e) => patch({ badWeatherTourId: e.currentTarget.value || null })}>
@@ -608,7 +620,14 @@ export function ProductPage({ id }: { id: string }) {
               {tours.filter((t) => !t.deleted).map((t) => <option key={t.id} value={t.id}>{t.title || 'Naamloze tour'}</option>)}
             </select>
           </label>
-        </fieldset>
+          </div>
+        </details>
+        <details class="form-section">
+          <summary>Eigen notities</summary>
+          <div class="form-section__body">
+        <label>Notities<textarea rows={2} value={p.notes} onInput={(e) => patch({ notes: e.currentTarget.value })} /></label>
+          </div>
+        </details>
         <div class={`save-bar ${dirty ? 'is-dirty' : ''}`}>
           <button class="btn btn--primary" type="submit">{isNew ? 'Touraanbod opslaan' : 'Opslaan'}</button>
           {dirty ? <span class="meta">{isNew ? 'Nog niet opgeslagen.' : 'Niet opgeslagen wijzigingen.'}</span> : msg && <span class="status status--ok">{msg}</span>}
@@ -663,8 +682,7 @@ function PriceFields({ pricing: pr, onChange }: { pricing: PriceProfile; onChang
   const direct = suggestedPrice(pr, 'direct', example);
   const withCommission = channels.filter((c) => commissionRate(pr, c) > 0);
   return (
-    <fieldset class="price-form">
-      <legend>Prijzen en kosten</legend>
+    <div class="price-fields">
       <div class="seg seg--choice" role="radiogroup" aria-label="Soort prijs">
         {([['per-persoon', 'Per persoon'], ['prive', 'Privétour']] as const).map(([k, l]) => (
           <button key={k} type="button" role="radio" aria-checked={pr.kind === k} onClick={() => set({ kind: k })}>{l}</button>
@@ -695,6 +713,6 @@ function PriceFields({ pricing: pr, onChange }: { pricing: PriceProfile; onChang
           {withCommission.map((c) => { const s = suggestedPrice(pr, c, example); return ` · ${CHANNELS[c]} ${eur.format(s.total)} (netto ${eur.format(s.total - s.commission)})`; }).join('')}
         </p>
       )}
-    </fieldset>
+    </div>
   );
 }

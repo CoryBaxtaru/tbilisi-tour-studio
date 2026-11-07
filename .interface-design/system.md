@@ -30,6 +30,15 @@ Rules: one accent (brick). Color carries meaning: brick = talking/action, turquo
 - **Noto Sans Georgian**: fallback for Mkhedruli place names (Literata has no Georgian glyphs). Not yet tested.
 - Scale ~1.25 from 14px desktop body: 11 · 14 · 16 · 18 · 22 · 28. Guiding mode: stop name 26–28, body 15–16, controls 15/500.
 - Hierarchy through weight and color first (500 value / 400 meta), size second. `tabular-nums` on all times, distances and GPS accuracy.
+- **Applied strictly since 2026-11-08:** every studio size is on the scale (11 labels and stamps, 14 body and metadata, 16 emphasis, 18 card titles, 22 phone titles, 28 page titles). Only guide mode keeps its own 15/17. The single exception is the map attribution, which is Leaflet's own text.
+- **Page titles:** every page has one, in Literata 28 with −0.015em tracking (22 on a phone). The name fields of a tour and a product are that title.
+- **Text colours:** `--ink` (primary), `--ink-2` (secondary, hints), `--ink-3` for metadata (#5E6763 light, 4.8:1; #9C9488 dark, 5.6:1).
+- Labels are in sentence case; nothing forces lowercase. Every control takes the app font (`button { font: inherit }`).
+
+## Actions
+- **One brick button per screen**, and it follows the moment. On a departure that is "Boeking toevoegen" before the tour day and "Start gidsen" on the day. After the tour there is none. Check-in buttons ("Iedereen") and secondary saves are outlined.
+- On touch screens, small buttons and chips grow to 40 px.
+- Long forms fold into sections with a turning arrow (product page). The templates on Tours fold away once own tours exist, and Onderzoek groups places by district.
 
 ## Depth, spacing, shape
 - Depth: borders only (low-opacity hairlines), no shadows. Dense tool, quiet structure.

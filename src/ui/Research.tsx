@@ -6,7 +6,7 @@ import {
   CLAIM_STATUS, createClaim, createSource, draftResearch, DRAFTS_METHOD, isWebUrl, LANGUAGES, mergedResearch, researchCounts,
   SOURCE_TYPES, withClaim, withoutClaim, withoutSource, withSource,
 } from '../domain/research';
-import { tagLabel } from '../domain/tags';
+import { DISTRICTS, tagLabel } from '../domain/tags';
 import type { Claim, ClaimKind, Landmark, SourceRef } from '../domain/types';
 import { ensureLandmark, getState, saveLandmark, useAppState } from '../state/store';
 import { PracticalEditor } from './Practical';
@@ -68,8 +68,16 @@ export function ResearchList() {
           ))}
         </div>
       </div>
+      {(filter === 'alles' && !q
+        ? [...DISTRICTS.map((d) => ({ id: d.id, label: d.label })), { id: '', label: 'Overig' }]
+            .map((d) => ({ ...d, list: visible.filter((r) => (r.card.district ?? '') === d.id || (d.id === '' && !DISTRICTS.some((x) => x.id === r.card.district))) }))
+            .filter((g) => g.list.length)
+        : [{ id: 'alle', label: '', list: visible }]
+      ).map((g) => (
+      <section key={g.id} class="research-group">
+        {g.label && <h2>{g.label} <span class="meta">{g.list.reduce((t, r) => t + r.n.geverifieerd, 0)} van {g.list.reduce((t, r) => t + r.n.concept + r.n.geverifieerd + r.n.afgewezen, 0)} geverifieerd</span></h2>}
       <ul class="research-list">
-        {visible.map(({ card, n, tours: used }) => {
+        {g.list.map(({ card, n, tours: used }) => {
           const claims = n.concept + n.geverifieerd + n.afgewezen;
           return (
             <li key={card.key} class="research-row">
@@ -95,8 +103,10 @@ export function ResearchList() {
             </li>
           );
         })}
-        {!visible.length && <li class="research-row meta research-row--empty">Geen plekken gevonden.</li>}
       </ul>
+      </section>
+      ))}
+      {!visible.length && <p class="research-row meta research-row--empty">Geen plekken gevonden.</p>}
     </main>
   );
 }
