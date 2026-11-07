@@ -55,40 +55,6 @@ export function StopCard(p: Props) {
 
       {open && (
         <div class="stop-card__body">
-          {landmark && (
-            <fieldset class="shared">
-              <legend>Gedeelde kennis{p.usedInTours > 1 ? ` — gebruikt in ${p.usedInTours} tours` : ''}</legend>
-              <label>Naam<input value={landmark.name} onInput={(e) => p.onLandmark({ ...landmark, name: e.currentTarget.value })} /></label>
-              <label>Georgische naam<input lang="ka" value={landmark.nameKa} onInput={(e) => p.onLandmark({ ...landmark, nameKa: e.currentTarget.value })} /></label>
-              <label>Korte uitleg<textarea rows={2} value={landmark.summary} onInput={(e) => p.onLandmark({ ...landmark, summary: e.currentTarget.value })} /></label>
-              <label>Onderzoeksnotities (privé)<textarea rows={2} value={landmark.researchNotes} onInput={(e) => p.onLandmark({ ...landmark, researchNotes: e.currentTarget.value })} /></label>
-              <TagToggles label="Tijdperk" defs={ERAS} tags={tags} onToggle={toggleTag} />
-              <TagToggles label="Soort tour" defs={THEMES} tags={tags} onToggle={toggleTag} />
-              <div class="row">
-                <label>Wijk
-                  <select value={landmark.district ?? ''} onChange={(e) => p.onLandmark({ ...landmark, district: e.currentTarget.value })}>
-                    <option value="">—</option>
-                    {DISTRICTS.map((d) => <option value={d.id}>{d.label}</option>)}
-                  </select>
-                </label>
-                <label>Verificatie
-                  <select value={landmark.verification} onChange={(e) => p.onLandmark({ ...landmark, verification: e.currentTarget.value as Verification })}>
-                    {Object.entries(VERIFICATION).map(([v, l]) => <option value={v}>{l}</option>)}
-                  </select>
-                </label>
-              </div>
-              <div class="row">
-                <button class={`btn ${p.picking ? 'btn--active' : ''}`} onClick={p.onPickPosition}>
-                  {p.picking ? 'Klik op de kaart…' : landmark.position ? 'Positie wijzigen' : 'Positie kiezen'}
-                </button>
-              </div>
-              {landmark.position && (
-                <p class="hint">
-                  Positie: {landmark.position.lat.toFixed(5)}, {landmark.position.lng.toFixed(5)} ({positionLabel(landmark)})
-                </p>
-              )}
-            </fieldset>
-          )}
 
           <fieldset>
             <legend>Alleen deze tour</legend>
@@ -134,6 +100,43 @@ export function StopCard(p: Props) {
               <input type="number" min={0} step={1} value={stop.speakingMinutes} onInput={(e) => setStop({ speakingMinutes: Math.max(0, Number(e.currentTarget.value) || 0) })} />
             </label>
           </fieldset>
+          {landmark && (
+            <details class="shared-wrap">
+              <summary>Over deze plek: naam, tags en positie{p.usedInTours > 1 ? ` (in ${p.usedInTours} tours)` : ''}</summary>
+            <fieldset class="shared">
+              <legend>Gedeelde kennis{p.usedInTours > 1 ? ` — gebruikt in ${p.usedInTours} tours` : ''}</legend>
+              <label>Naam<input value={landmark.name} onInput={(e) => p.onLandmark({ ...landmark, name: e.currentTarget.value })} /></label>
+              <label>Georgische naam<input lang="ka" value={landmark.nameKa} onInput={(e) => p.onLandmark({ ...landmark, nameKa: e.currentTarget.value })} /></label>
+              <label>Korte uitleg<textarea rows={2} value={landmark.summary} onInput={(e) => p.onLandmark({ ...landmark, summary: e.currentTarget.value })} /></label>
+              <label>Onderzoeksnotities (privé)<textarea rows={2} value={landmark.researchNotes} onInput={(e) => p.onLandmark({ ...landmark, researchNotes: e.currentTarget.value })} /></label>
+              <TagToggles label="Tijdperk" defs={ERAS} tags={tags} onToggle={toggleTag} />
+              <TagToggles label="Soort tour" defs={THEMES} tags={tags} onToggle={toggleTag} />
+              <div class="row">
+                <label>Wijk
+                  <select value={landmark.district ?? ''} onChange={(e) => p.onLandmark({ ...landmark, district: e.currentTarget.value })}>
+                    <option value="">—</option>
+                    {DISTRICTS.map((d) => <option value={d.id}>{d.label}</option>)}
+                  </select>
+                </label>
+                <label>Verificatie
+                  <select value={landmark.verification} onChange={(e) => p.onLandmark({ ...landmark, verification: e.currentTarget.value as Verification })}>
+                    {Object.entries(VERIFICATION).map(([v, l]) => <option value={v}>{l}</option>)}
+                  </select>
+                </label>
+              </div>
+              <div class="row">
+                <button class={`btn ${p.picking ? 'btn--active' : ''}`} onClick={p.onPickPosition}>
+                  {p.picking ? 'Klik op de kaart…' : landmark.position ? 'Positie wijzigen' : 'Positie kiezen'}
+                </button>
+              </div>
+              {landmark.position && (
+                <p class="hint">
+                  Positie: {landmark.position.lat.toFixed(5)}, {landmark.position.lng.toFixed(5)} ({positionLabel(landmark)})
+                </p>
+              )}
+            </fieldset>
+            </details>
+          )}
         </div>
       )}
     </li>

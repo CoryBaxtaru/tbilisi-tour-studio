@@ -317,3 +317,18 @@ export function tourFromStoryline(story: Storyline, landmarks: Landmark[]): { to
   const newLandmarks = story.order.filter((id) => !have.has(catalogLandmarkId(id))).map((id) => landmarkFromCatalog(siteById.get(id)!));
   return { tour, newLandmarks };
 }
+
+/** The catalogue sites of a tour, in tour order. Studie only knows catalogue sites, so the guide's own places are named, not dropped silently. */
+export function studySitesFromTour(tour: Tour, landmarks: Landmark[]): { ids: string[]; skipped: string[] } {
+  const byId = new Map(landmarks.map((l) => [l.id, l]));
+  const ids: string[] = [];
+  const skipped: string[] = [];
+  for (const stop of tour.stops) {
+    const lm = byId.get(stop.landmarkId);
+    const site = lm?.catalogId ?? (stop.landmarkId.startsWith('cat:') ? stop.landmarkId.slice(4) : undefined);
+    if (site && siteById.has(site)) {
+      if (!ids.includes(site)) ids.push(site);
+    } else skipped.push(lm?.name || 'een onbekende plek');
+  }
+  return { ids, skipped };
+}

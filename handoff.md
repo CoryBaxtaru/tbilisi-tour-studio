@@ -13,6 +13,16 @@ Tbilisi Walking Tour Studio — desktop tour design and mobile live guiding for 
 - Run locally: `npm install`, `npm test`, `npm run build`, then `npx vite preview` (or the `preview` entry in `.claude/launch.json`).
 
 ## Latest session
+- 2026-11-08, all findings of the A-to-Z test fixed, **checked locally, not committed or deployed**:
+  - quick booking with Instagram and private groups;
+  - one duration taken from the tour, and a meeting-point check;
+  - a product is a draft until saved, with a sticky save bar;
+  - closing a tour reaches the departure and Vandaag;
+  - clearer buttons, the guide-mode clock, and reordering in Studie.
+  - `npm test`: 160 passed. See the breakdown.
+- 2026-11-08, guide mode rebuilt around "Je bent hier": arrival keeps the stop's story on screen, with "Verder naar …" and the transition at the end, plus an end card to payment and feedback. **Checked locally, not committed or deployed** (together with the Studie tour import). See the breakdown.
+- 2026-11-08, A-to-Z walkthrough as the founder (Instagram booking, party of 6, history tour): 11 findings, no code changed, test data removed. The most important: guide mode jumps to the next stop on arrival, durations disagree, and a booking takes three screens. See the breakdown.
+- 2026-11-08, Studie can load one of the guide's tours ("Laad een van je tours"), in tour order; own places without a catalogue entry are named and left out. **Checked locally, not committed or deployed.** `npm test`: 153 passed. See the breakdown.
 - 2026-11-07, Studie rebuilt after a design review, live in `c320f2f`, checked on GitHub Pages: the story comes first, the storyline's name is the title, the map stays beside the story and marks the stop being read, sites are chosen by search and district in a folding list, and the `.chip` CSS leak into other pages is fixed. `npm test`: 152 passed. See the breakdown.
 - 2026-11-07, step 7, live in `7180842`, checked on GitHub Pages: blocked days and overlap warnings, product text, practical notes per site (start empty), feedback log, Cijfers page, and 8 new sites with stories (66 sites, 299 claims, 235 sources, 25 threads). **Schema 4: both devices must tap "Vernieuwen".** See the breakdown.
 - 2026-11-07, step 6, live in `f915da8`, checked on GitHub Pages: guest check-in (guide mode, Vandaag, departure page) and Dutch message templates per booking. See the breakdown.
@@ -75,7 +85,7 @@ Tbilisi Walking Tour Studio — desktop tour design and mobile live guiding for 
 - Sync token is set up on both devices. The founder chose to keep using a token that was pasted into the chat once; revoke and replace it if the transcript is ever shared. Renew it before it expires.
 
 ## Next recommended task
-0. **Both devices must tap "Vernieuwen" (schema 4).** Look at the Studie map on the real phone: at 180 px high, nearby pins overlap. Then check that a blocked day syncs laptop → phone. The founder fills in the product text, adds practical notes while walking the route, reads a few stories aloud, verifies claims under Onderzoek and tries one paste round trip with Claude. Step 6 is live: the founder fills in the map link, what to bring and the review link per tour product, and tests a check-in on the phone. Only item 9 of the plan (optional public page) is left, and it is for later.
+0. Commit and deploy "load a tour in Studie" once the founder approves (breakdown `docs/session-breakdowns/session-2026-11-08-01.md`). **Both devices must tap "Vernieuwen" (schema 4).** Look at the Studie map on the real phone: at 180 px high, nearby pins overlap. Then check that a blocked day syncs laptop → phone. The founder fills in the product text, adds practical notes while walking the route, reads a few stories aloud, verifies claims under Onderzoek and tries one paste round trip with Claude. Step 6 is live: the founder fills in the map link, what to bring and the review link per tour product, and tests a check-in on the phone. Only item 9 of the plan (optional public page) is left, and it is for later.
 1. Step 3, the design fixes and dark mode are live (`b7ea80f`, checked on GitHub Pages). **Both devices must tap "Vernieuwen"**: an old app refuses the new sync file (schema 2) until updated. Then check that a test booking syncs laptop → phone.
 2. Step 5 (prices and finances) is live and marked in the private plan. The founder taps "Vernieuwen" on both devices and enters real prices per tour product. The founder also sends the GitHub Support purge request. Next build: step 6 (guest check-in, message templates).
 3. Still open on the founder's side: verify claims under Onderzoek; phone test of the offline map.

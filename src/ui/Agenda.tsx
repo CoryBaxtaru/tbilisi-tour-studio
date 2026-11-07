@@ -1,11 +1,12 @@
 // Business hub: month calendar of departures (#/agenda/YYYY-MM), a departure with its bookings (#/vertrek/<id>)
 // and the tour products (#/aanbod, #/aanbod/<id>). Everything is entered by the guide; guests never use the app.
-import { useState } from 'preact/hooks';
+import { useEffect, useState } from 'preact/hooks';
 import {
   CHANNELS, createBooking, createDeparture, createProduct, DEPARTURE_STATUS, departureFill, isoDate,
   monthGrid, RETENTION_MONTHS, type Fill,
 } from '../domain/agenda';
 import { blockedOn, clashes, createBlockedDay } from '../domain/planning';
+import { meetingPointElsewhere, productFromTour, tourMinutes } from '../domain/quickBooking';
 import { buildProductSheet } from '../domain/productSheet';
 import { commissionRate, departureFinance, gelToEur, hasPrices, overbookedBy, pricingOf, suggestedPrice } from '../domain/pricing';
 import type { Booking, BookingChannel, BookingStatus, Departure, DepartureStatus, PriceProfile, TourProduct } from '../domain/types';
@@ -18,6 +19,7 @@ import { FeedbackLog } from './FeedbackLog';
 import { MessagePanel } from './Messages';
 import { DayGlyph, DayWeather, WeatherChip, WeatherPanel } from './Weather';
 import { useForecast } from '../weather/metno';
+import { lastProductId, QuickBooking, remember } from './QuickBooking';
 
 const WEEKDAYS = ['ma', 'di', 'wo', 'do', 'vr', 'za', 'zo'];
 const BOOKING_STATUS: Record<BookingStatus, string> = { geboekt: 'Geboekt', geannuleerd: 'Geannuleerd', 'no-show': 'No-show' };
@@ -49,6 +51,7 @@ type FillState = 'ok' | 'low' | 'full' | 'cancelled';
 /** One word or two for how a departure stands: vol, 2 tekort, 4 vrij, geannuleerd. */
 function fillStatus(dep: Departure, f: Fill, minGuests: number): { state: FillState; label: string } {
   if (dep.status === 'geannuleerd') return { state: 'cancelled', label: 'geannuleerd' };
+  if (dep.private && f.booked > 0) return { state: 'full', label: 'privé' };
   if (f.full) return { state: 'full', label: 'vol' };
   if (f.belowMinimum) return { state: 'low', label: `${minGuests - f.booked} tekort` };
   return { state: 'ok', label: `${f.free} vrij` };
@@ -62,6 +65,7 @@ export function Agenda({ month }: { month?: string }) {
   const ym = month && /^\d{4}-\d{2}$/.test(month) ? month : today.slice(0, 7);
   const [y, m] = ym.split('-').map(Number);
   const [picked, setPicked] = useState<string | null>(null);
+  const [booking, setBooking] = useState(false);
   const { forecast } = useForecast();
   const day = picked?.startsWith(ym) ? picked : today.startsWith(ym) ? today : `${ym}-01`;
   const productById = new Map(products.map((p) => [p.id, p]));
@@ -83,12 +87,13 @@ export function Agenda({ month }: { month?: string }) {
           <a href={`#/agenda/${shiftMonth(ym, 1)}`} aria-label="Volgende maand">›</a>
         </nav>
         <span class="agenda__links">
-          <a class="btn btn--ghost" href="#/vandaag">Vandaag</a>
-          <a class="btn btn--ghost" href={`#/geld/${y}`}>Financiën</a>
-          <a class="btn btn--ghost" href={`#/cijfers/${y}`}>Cijfers</a>
-          <a class="btn btn--ghost" href="#/aanbod">Touraanbod</a>
+          <a class="btn btn--small" href="#/aanbod">Touraanbod</a>
+          <a class="btn btn--small" href={`#/geld/${y}`}>Financiën</a>
+          <a class="btn btn--small" href={`#/cijfers/${y}`}>Cijfers</a>
+          {!booking && <button type="button" class="btn btn--primary btn--small" onClick={() => setBooking(true)}>Nieuwe boeking</button>}
         </span>
       </div>
+      {booking && <QuickBooking key={day} date={day} onClose={() => setBooking(false)} />}
 
       <div class="agenda__body">
         <section class="cal" aria-label="Kalender">
@@ -182,7 +187,7 @@ function DayPanel({ date, deps, products }: { date: string; deps: Departure[]; p
   const active = live.filter((p) => p.active);
   const [productId, setProductId] = useState('');
   const [time, setTime] = useState('10:00');
-  const chosen = active.find((p) => p.id === productId) ?? active[0];
+  const chosen = active.find((p) => p.id === productId) ?? active.find((p) => p.id === lastProductId()) ?? active[0];
 
   const planned = chosen ? createDeparture(chosen, date, time) : null;
   const overlapping = planned ? clashes(planned, departures, products) : [];
@@ -193,6 +198,7 @@ function DayPanel({ date, deps, products }: { date: string; deps: Departure[]; p
     if (!chosen || (needsOverride && !override)) return;
     const d = createDeparture(chosen, date, time);
     await saveRecord('departures', d);
+    remember('product', chosen.id);
     navigate(`/vertrek/${d.id}`);
   }
 
@@ -294,7 +300,9 @@ export function DeparturePage({ id }: { id: string }) {
         <FillBar booked={f.booked} capacity={f.capacity} state={s.state} />
         <span class="meta">{f.booked} van {f.capacity} plaatsen bezet{product ? ` · minimum ${min}` : ''}</span>
       </div>
-      {dep.status !== 'geannuleerd' && product && <StartGuiding product={product} departure={dep} />}
+      {dep.status === 'afgerond'
+        ? <p class="today__done">Tour afgerond.</p>
+        : dep.status !== 'geannuleerd' && product && <StartGuiding product={product} departure={dep} />}
       <GygReminder dep={dep} product={product} />
       {dep.status !== 'geannuleerd' && clashes(dep, departures, products).map((o) => (
         <p key={o.id} class="hint hint--warn">Dit overlapt met <a href={`#/vertrek/${o.id}`}>het vertrek van {o.startTime}</a>.</p>
@@ -334,14 +342,15 @@ export function DeparturePage({ id }: { id: string }) {
 
       {dep.status !== 'geannuleerd' && dep.date <= isoDate(new Date()) && mine.length > 0 && <CheckInSection departure={dep} />}
 
-      {dep.date <= isoDate(new Date()) && <FeedbackLog departure={dep} />}
+      {(dep.date <= isoDate(new Date()) || dep.status === 'afgerond') && <FeedbackLog departure={dep} />}
 
       <details class="departure__edit">
         <summary>Vertrek wijzigen</summary>
         <div class="departure__fields">
           <label>Datum<input type="date" value={dep.date} onChange={(e) => e.currentTarget.value && set({ date: e.currentTarget.value })} /></label>
           <label>Starttijd<input type="time" value={dep.startTime} onChange={(e) => e.currentTarget.value && set({ startTime: e.currentTarget.value })} /></label>
-          <label>Plaatsen<input type="number" min={1} value={dep.capacity} onChange={(e) => set({ capacity: Math.max(1, num(e.currentTarget.value)) })} /></label>
+          <label>Plaatsen<input type="number" min={1} value={dep.capacity} disabled={dep.private} onChange={(e) => set({ capacity: Math.max(1, num(e.currentTarget.value)) })} /></label>
+          <label class="check"><input type="checkbox" checked={!!dep.private} onChange={(e) => set({ private: e.currentTarget.checked })} />Privé: niemand anders erbij</label>
           <label>Status
             <select value={dep.status} onChange={(e) => set({ status: e.currentTarget.value as DepartureStatus })}>
               {Object.entries(DEPARTURE_STATUS).map(([k, l]) => <option key={k} value={k}>{l}</option>)}
@@ -430,7 +439,7 @@ function BookingForm({ initial, dep, product, onDone }: { initial: Booking; dep:
       {b.anonymizedAt ? <p class="hint">Persoonsgegevens zijn gewist.</p> : (
         <div class="row">
           <label>Naam hoofdboeker<input value={b.leadName} autoComplete="off" onInput={(e) => patch({ leadName: e.currentTarget.value })} /></label>
-          <label>Telefoon of e-mail<input value={b.contact} autoComplete="off" onInput={(e) => patch({ contact: e.currentTarget.value })} /></label>
+          <label>Telefoon, e-mail of @instagram<input value={b.contact} autoComplete="off" onInput={(e) => patch({ contact: e.currentTarget.value })} /></label>
         </div>
       )}
       <div class="row">
@@ -486,11 +495,7 @@ export function Products() {
   const { products, departures } = useAppState();
   const list = products.filter((p) => !p.deleted).sort((a, b) => Number(b.active) - Number(a.active) || a.name.localeCompare(b.name, 'nl'));
   const today = isoDate(new Date());
-  async function add() {
-    const p = createProduct();
-    await saveRecord('products', p);
-    navigate(`/aanbod/${p.id}`);
-  }
+  const add = () => navigate('/aanbod/nieuw');
   return (
     <main class="page">
       <a href="#/agenda" class="back">← Agenda</a>
@@ -519,17 +524,35 @@ export function Products() {
 }
 
 export function ProductPage({ id }: { id: string }) {
-  const { products, tours } = useAppState();
-  const saved = products.find((p) => p.id === id && !p.deleted);
-  const [p, setP] = useState<TourProduct | undefined>(saved);
+  const { products, tours, landmarks } = useAppState();
+  const isNew = id === 'nieuw';
+  const saved = isNew ? undefined : products.find((p) => p.id === id && !p.deleted);
+  const [p, setP] = useState<TourProduct | undefined>(() => (isNew ? createProduct() : saved));
   const [msg, setMsg] = useState('');
-  if (!saved || !p) return <main class="page"><p>Touraanbod niet gevonden. <a href="#/aanbod">Terug</a></p></main>;
+  const dirty = !!p && (isNew || JSON.stringify(p) !== JSON.stringify(saved));
+  // Closing the tab with unsaved changes asks first; moving inside the app keeps the bar below in view.
+  useEffect(() => {
+    if (!dirty) return;
+    const warn = (e: BeforeUnloadEvent) => { e.preventDefault(); };
+    addEventListener('beforeunload', warn);
+    return () => removeEventListener('beforeunload', warn);
+  }, [dirty]);
+  if ((!isNew && !saved) || !p) return <main class="page"><p>Touraanbod niet gevonden. <a href="#/aanbod">Terug</a></p></main>;
   const patch = (x: Partial<TourProduct>) => { setMsg(''); setP((cur) => (cur ? { ...cur, ...x } : cur)); };
+  const tour = tours.find((t) => t.id === p.tourId && !t.deleted);
+  const tourMin = tourMinutes(tour);
+  const firstStop = tour?.stops[0] ? landmarks.find((l) => l.id === tour.stops[0].landmarkId)?.name : undefined;
   async function save(e: Event) {
     e.preventDefault();
     const minGuests = Math.min(p!.minGuests, p!.maxGuests);
-    await saveRecord('products', { ...p!, name: p!.name.trim() || 'Naamloos touraanbod', minGuests });
+    const next = { ...p!, name: p!.name.trim() || 'Naamloos touraanbod', minGuests };
+    await saveRecord('products', next);
+    setP(next);
     setMsg('Opgeslagen.');
+    if (isNew) {
+      remember('product', next.id);
+      navigate(`/aanbod/${next.id}`);
+    }
   }
   async function remove() {
     await deleteRecord('products', saved!);
@@ -542,7 +565,7 @@ export function ProductPage({ id }: { id: string }) {
         <label>Naam<input class="title-input" value={p.name} onInput={(e) => patch({ name: e.currentTarget.value })} /></label>
         <div class="row">
           <label>Gebaseerd op tour
-            <select value={p.tourId ?? ''} onChange={(e) => patch({ tourId: e.currentTarget.value || null })}>
+            <select value={p.tourId ?? ''} onChange={(e) => patch(productFromTour(p, tours.find((t) => t.id === e.currentTarget.value && !t.deleted), 'Nieuw touraanbod'))}>
               <option value="">—</option>
               {tours.filter((t) => !t.deleted).map((t) => <option key={t.id} value={t.id}>{t.title || 'Naamloze tour'}</option>)}
             </select>
@@ -550,12 +573,19 @@ export function ProductPage({ id }: { id: string }) {
           <label class="narrow">Duur (min)<input type="number" min={15} step={15} value={p.durationMin} onInput={(e) => patch({ durationMin: num(e.currentTarget.value) })} /></label>
           <label class="narrow">Taal<input value="Nederlands" disabled /></label>
         </div>
+        {tourMin !== null && tourMin !== p.durationMin && (
+          <p class="hint hint--warn">De tour zelf duurt ongeveer {tourMin} min (lopen, vertellen en pauzes). Gasten krijgen {p.durationMin} min te horen.{' '}
+            <button type="button" class="btn btn--small" onClick={() => patch({ durationMin: tourMin })}>{tourMin} min overnemen</button></p>
+        )}
         <div class="row">
           <label class="narrow">Max. gasten<input type="number" min={1} value={p.maxGuests} onInput={(e) => patch({ maxGuests: Math.max(1, num(e.currentTarget.value)) })} /></label>
           <label class="narrow">Min. gasten<input type="number" min={1} value={p.minGuests} onInput={(e) => patch({ minGuests: Math.max(1, num(e.currentTarget.value)) })} /></label>
           <label class="check"><input type="checkbox" checked={p.active} onChange={(e) => patch({ active: e.currentTarget.checked })} />Actief (te plannen)</label>
         </div>
         <label>Verzamelpunt<textarea rows={2} value={p.meetingPoint} placeholder="Bijv. bij de klokkentoren van het Gabriadze-theater" onInput={(e) => patch({ meetingPoint: e.currentTarget.value })} /></label>
+        {meetingPointElsewhere(p.meetingPoint, firstStop) && (
+          <p class="hint hint--warn">De tour begint bij {firstStop}. Ligt het verzamelpunt daar niet, plan dan de wandeling naar de eerste stop in, of maak het verzamelpunt de eerste stop van de tour.</p>
+        )}
         <label>Link naar het verzamelpunt op de kaart<input inputMode="url" value={p.meetingMapUrl ?? ''} placeholder="https://..." onInput={(e) => patch({ meetingMapUrl: e.currentTarget.value })} /></label>
         <label>Inbegrepen<textarea rows={2} value={p.included} onInput={(e) => patch({ included: e.currentTarget.value })} /></label>
         <label>Wat moeten gasten meenemen?<input value={p.bring ?? ''} placeholder="Bijv. goede schoenen en water" onInput={(e) => patch({ bring: e.currentTarget.value })} /></label>
@@ -579,16 +609,17 @@ export function ProductPage({ id }: { id: string }) {
             </select>
           </label>
         </fieldset>
-        <div class="claim__actions">
-          <button class="btn btn--primary" type="submit">Opslaan</button>
-          {msg && <span class="status status--ok">{msg}</span>}
+        <div class={`save-bar ${dirty ? 'is-dirty' : ''}`}>
+          <button class="btn btn--primary" type="submit">{isNew ? 'Touraanbod opslaan' : 'Opslaan'}</button>
+          {dirty ? <span class="meta">{isNew ? 'Nog niet opgeslagen.' : 'Niet opgeslagen wijzigingen.'}</span> : msg && <span class="status status--ok">{msg}</span>}
+          {isNew && <a class="btn btn--ghost" href="#/aanbod">Annuleren</a>}
         </div>
       </form>
-      <details class="danger-zone">
+      {!isNew && <details class="danger-zone">
         <summary>Touraanbod verwijderen</summary>
         <ConfirmDelete label="Touraanbod verwijderen" question="Dit touraanbod verwijderen? Bestaande vertrekken blijven in de agenda staan."
           onConfirm={() => void remove()} />
-      </details>
+      </details>}
     </main>
   );
 }

@@ -7,7 +7,7 @@ import type { Booking, BookingChannel, Departure, DepartureStatus, TourProduct }
 export const RETENTION_MONTHS = 6;
 
 export const CHANNELS: Record<BookingChannel, string> = {
-  getyourguide: 'GetYourGuide', direct: 'Direct', whatsapp: 'WhatsApp', 'walk-in': 'Walk-in', anders: 'Anders',
+  getyourguide: 'GetYourGuide', direct: 'Direct', instagram: 'Instagram', whatsapp: 'WhatsApp', 'walk-in': 'Walk-in', anders: 'Anders',
 };
 export const DEPARTURE_STATUS: Record<DepartureStatus, string> = {
   gepland: 'Gepland', bevestigd: 'Bevestigd', afgerond: 'Afgerond', geannuleerd: 'Geannuleerd',
@@ -49,7 +49,9 @@ export interface Fill {
 
 export function departureFill(dep: Departure, bookings: Booking[], minGuests: number): Fill {
   const booked = bookings.filter((b) => b.departureId === dep.id && !b.deleted).reduce((n, b) => n + guests(b), 0);
-  return { booked, capacity: dep.capacity, free: Math.max(0, dep.capacity - booked), belowMinimum: booked < minGuests, full: booked >= dep.capacity };
+  // A private group fills the departure, however many they are.
+  const capacity = dep.private ? Math.max(booked, 1) : dep.capacity;
+  return { booked, capacity, free: Math.max(0, capacity - booked), belowMinimum: booked < minGuests, full: booked >= capacity };
 }
 
 // ---- Dates ----

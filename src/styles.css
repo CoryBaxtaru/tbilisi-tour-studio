@@ -778,7 +778,7 @@ fieldset.shared legend { color: var(--balkon); }
   .study__head h1 { font-size: 24px; }
   .study__body { grid-template-columns: minmax(0, 1fr); grid-template-areas: "head" "aside" "story"; grid-template-rows: none; gap: 16px; }
   .study__aside { position: static; height: auto; min-height: 0; }
-  .study__map { flex: none; height: 180px; }
+  .study__map { flex: none; height: 240px; }
   .picker__panel { overflow: visible; }
   .study-chip { min-height: 40px; }
   .study__tools { flex-wrap: nowrap; }
@@ -788,3 +788,46 @@ fieldset.shared legend { color: var(--balkon); }
   .story__text { font-size: 17px; }
 }
 .story__stop.is-reading .story__num { background: var(--balkon); color: var(--on-balkon); }
+.study__tour { width: 100%; margin-bottom: 4px; }
+.study__load { margin-top: 20px; max-width: 360px; }
+.study__from-tour { margin: 6px 0 0; font-size: 13px; }
+/* Guide mode: standing at a stop, its story is the page; moving on sits at the end of it. */
+.next-card--here { border-color: var(--balkon-licht); }
+.next-card--here .next-card__label { color: var(--gps-tekst); }
+.guide__story { border-top: 0; margin-top: 4px; }
+.guide__notes summary { font: 500 15px var(--font-ui); color: var(--kalk); cursor: pointer; min-height: 44px; display: flex; align-items: center; }
+.guide__notes p { font-size: 16px; line-height: 1.55; color: var(--zand); margin: 4px 0 8px; }
+.guide__onward { margin-top: 8px; }
+.guide__onward .guide__transition { font-size: 17px; line-height: 1.5; font-style: italic; color: var(--kalk); margin: 0 0 12px; }
+.guide__onward .next-card__dist { margin: 8px 0 0; }
+.next-card__actions--one { grid-template-columns: 1fr; }
+a.btn--big { display: grid; place-items: center; text-decoration: none; text-align: center; }
+.app--guide a.btn--primary { color: var(--op-baksteen); }
+.quick-booking { border: 1px solid var(--line-strong); border-radius: var(--r-lg); padding: 14px 16px; margin: 0 0 20px; background: var(--card, transparent); }
+.quick-booking h2 { margin: 0 0 4px; font-size: 18px; }
+.quick-booking__where { margin: 0 0 4px; }
+.page__head .meta { display: block; }
+.save-bar { position: sticky; bottom: 0; z-index: 5; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; padding: 10px 0; margin-top: 16px; background: var(--canvas); border-top: 1px solid var(--line); }
+.save-bar.is-dirty { border-top-color: var(--baksteen); }
+.hint .btn--small { margin-left: 4px; vertical-align: baseline; }
+.next-card__time { font-size: 14px; color: var(--zand); margin: 4px 0 0; font-variant-numeric: tabular-nums; }
+.next-card__time.is-late { color: var(--zwavel); }
+.next-card__meet { font-size: 16px; line-height: 1.45; color: var(--kalk); margin: 10px 0 0; }
+.next-card__meet .label { display: block; color: var(--zand); }
+.app--guide .is-unpaid { color: var(--zwavel); }
+.today__done { font-weight: 500; }
+/* Folded sections that hold real work look like something to open. */
+.departure__edit > summary, .shared-wrap > summary { display: flex; align-items: center; gap: 8px; min-height: 44px; list-style: none; }
+.departure__edit > summary::-webkit-details-marker, .shared-wrap > summary::-webkit-details-marker { display: none; }
+.departure__edit > summary::before, .shared-wrap > summary::before { content: '›'; display: inline-grid; place-items: center; width: 22px; height: 22px; border: 1px solid var(--line-strong); border-radius: var(--r-sm); font-size: 15px; line-height: 1; transition: transform 160ms ease-out; }
+.departure__edit[open] > summary::before, .shared-wrap[open] > summary::before { transform: rotate(90deg); }
+.shared-wrap { margin-top: 12px; border-top: 1px solid var(--line); }
+.shared-wrap > summary { cursor: pointer; font-size: 13px; color: var(--ink-2); }
+.guest__pay .btn--small { min-height: 40px; padding: 0 14px; font-size: 14px; }
+.story__move { display: inline-flex; gap: 2px; margin-left: auto; }
+.story__move + .story__sources { margin-left: 0; }
+.story__move .icon-btn { width: 36px; height: 36px; font: 500 15px var(--font-ui); color: var(--ink-2); }
+@media (max-width: 480px) {
+  /* The menu scrolls sideways; the fade shows there is more. */
+  .topbar nav { -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 28px), transparent); mask-image: linear-gradient(to right, #000 calc(100% - 28px), transparent); padding-right: 28px; }
+}

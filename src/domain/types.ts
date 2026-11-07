@@ -238,6 +238,8 @@ export interface Departure extends SyncedEntity {
   feedback?: Feedback[];
   /** The guide closed this departure on GetYourGuide, so nobody can book it there any more. */
   closedOnGyg?: boolean;
+  /** A private group: nobody else can join, so the departure counts as full. */
+  private?: boolean;
 }
 
 export interface Feedback {
@@ -261,7 +263,7 @@ export type MessageKind = 'bevestiging' | 'herinnering' | 'review';
 /** An amount paid in Georgian lari, with the rate the guide used. Totals stay in EUR. */
 export interface GelAmount { amount: number; gelPerEur: number }
 
-export type BookingChannel = 'getyourguide' | 'direct' | 'whatsapp' | 'walk-in' | 'anders';
+export type BookingChannel = 'getyourguide' | 'direct' | 'instagram' | 'whatsapp' | 'walk-in' | 'anders';
 export type BookingStatus = 'geboekt' | 'geannuleerd' | 'no-show';
 
 /**
@@ -274,7 +276,7 @@ export interface Booking extends SyncedEntity {
   /** The channel's booking number, e.g. a GetYourGuide reference. */
   reference: string;
   leadName: string;
-  /** Phone number or e-mail address. */
+  /** Phone number, e-mail address or Instagram name (@name). */
   contact: string;
   adults: number;
   children: number;

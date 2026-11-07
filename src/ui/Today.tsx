@@ -5,7 +5,9 @@ import { MESSAGE_LABELS, pendingMessages } from '../domain/messages';
 import { planningProblems } from '../domain/planning';
 import { bookingAmounts, needsGygClosing, openPayments } from '../domain/pricing';
 import type { Departure } from '../domain/types';
+import { useState } from 'preact/hooks';
 import { useAppState } from '../state/store';
+import { QuickBooking } from './QuickBooking';
 import { CheckIn } from './CheckIn';
 import { BadWeatherBox, GygReminder, StartGuiding } from './DepartureBits';
 import { WeatherPanel } from './Weather';
@@ -29,7 +31,9 @@ function DepartureCard({ dep, today }: { dep: Departure; today: string }) {
       <h2 class="lit"><a href={`#/vertrek/${dep.id}`}>{dep.startTime} · {product?.name ?? 'Onbekend touraanbod'}</a></h2>
       <p class="meta">{dep.date === today ? 'Vandaag' : dayName(dep.date)} · {f.booked} van {f.capacity} gasten{f.belowMinimum ? ` · nog ${min - f.booked} nodig voor het minimum` : ''}</p>
       {product?.meetingPoint && <p><strong>Verzamelen:</strong> {product.meetingPoint}</p>}
-      {product && <StartGuiding product={product} departure={dep} />}
+      {dep.status === 'afgerond'
+        ? <p class="today__done">Tour afgerond. <a href={`#/vertrek/${dep.id}`}>Betaling en terugblik</a></p>
+        : product && <StartGuiding product={product} departure={dep} />}
       <GygReminder dep={dep} product={product} />
       <WeatherPanel date={dep.date} startTime={dep.startTime} durationMin={product?.durationMin ?? 120} today={today} />
       {product && <BadWeatherBox dep={dep} product={product} />}
@@ -66,15 +70,20 @@ export function Today() {
   const toClose = active.filter((d) => needsGygClosing(d, productOf(d), bookings, today));
   const messages = pendingMessages(products, departures, bookings, today);
   const problems = planningProblems(departures, products, blocked, today);
+  const [booking, setBooking] = useState(false);
   const short = active.filter((d) => d.date >= today && d.date <= soonEnd && departureFill(d, bookings, productOf(d)?.minGuests ?? 0).belowMinimum);
 
   return (
     <main class="page">
-      <div class="page__head"><h1>Vandaag</h1><span class="meta">{dayName(today)}</span></div>
+      <div class="page__head">
+        <div><h1>Vandaag</h1><span class="meta">{dayName(today)}</span></div>
+        {!booking && <button type="button" class="btn btn--primary" onClick={() => setBooking(true)}>Nieuwe boeking</button>}
+      </div>
+      {booking && <QuickBooking onClose={() => setBooking(false)} />}
       {todays.map((d) => <DepartureCard key={d.id} dep={d} today={today} />)}
       {!todays.length && (next
         ? <><p class="hint">Vandaag geen vertrekken. Dit is het volgende:</p><DepartureCard dep={next} today={today} /></>
-        : <div class="empty"><h2>Geen vertrekken gepland</h2><p>Plan een vertrek in de <a href="#/agenda">agenda</a>.</p></div>)}
+        : <div class="empty"><h2>Geen vertrekken gepland</h2><p>Komt er een boeking binnen? Gebruik "Nieuwe boeking", of plan een vertrek in de <a href="#/agenda">agenda</a>.</p></div>)}
 
       {problems.length > 0 && (
         <>

@@ -3,10 +3,10 @@
 // the guide copies a research prompt from here and pastes the answer back, and it is saved on each site.
 import { useEffect, useMemo, useState } from 'preact/hooks';
 import { formatDistance, formatMinutes } from '../domain/geo';
-import { buildStoryline, keywords, siteName, STORY_ORDERS, studySites, tourFromStoryline, type StoryBlock, type StoryOrder, type StorySentence } from '../domain/story';
+import { buildStoryline, keywords, siteName, STORY_ORDERS, studySites, studySitesFromTour, tourFromStoryline, type StoryBlock, type StoryOrder, type StorySentence } from '../domain/story';
 import { applyReply, buildResearchPrompt, HARD_WORDS, parseReply, type ParsedReply } from '../domain/storyExchange';
 import { DISTRICTS } from '../domain/tags';
-import type { LatLng } from '../domain/types';
+import type { LatLng, Tour } from '../domain/types';
 import { ensureLandmark, getState, saveLandmark, saveTour, useAppState } from '../state/store';
 import { copyText } from './clipboard';
 import { MapView, type MapDot, type MapStop } from './MapView';
@@ -124,8 +124,25 @@ function PracticeBlock({ block, shown, onShow }: { block: StoryBlock; shown: boo
   );
 }
 
+/** Start from one of the guide's own tours, in its order. */
+function TourLoader({ onLoad }: { onLoad: (tour: Tour) => void }) {
+  const { tours } = useAppState();
+  const list = tours.filter((t) => !t.deleted && t.stops.length).sort((a, b) => a.title.localeCompare(b.title, 'nl'));
+  if (!list.length) return null;
+  return (
+    <select class="study__tour" aria-label="Laad een van je tours" value="" onChange={(e) => {
+      const tour = list.find((t) => t.id === e.currentTarget.value);
+      e.currentTarget.value = '';
+      if (tour) onLoad(tour);
+    }}>
+      <option value="">Laad een van je tours</option>
+      {list.map((t) => <option key={t.id} value={t.id}>{t.title} ({t.stops.length} {t.stops.length === 1 ? 'stop' : 'stops'})</option>)}
+    </select>
+  );
+}
+
 /** Choosing sites is a side job once a story exists, so the list folds away: search, then the sites per district. */
-function SitePicker({ picked, onToggle }: { picked: string[]; onToggle: (id: string) => void }) {
+function SitePicker({ picked, onToggle, onLoadTour }: { picked: string[]; onToggle: (id: string) => void; onLoadTour: (tour: Tour) => void }) {
   const { landmarks } = useAppState();
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState('');
@@ -147,6 +164,7 @@ function SitePicker({ picked, onToggle }: { picked: string[]; onToggle: (id: str
       )}
       {showing && (
         <div class="picker__panel">
+          {picked.length > 0 && <TourLoader onLoad={onLoadTour} />}
           <input type="search" value={query} aria-label="Zoek een plek" placeholder="Zoek een plek" onInput={(e) => setQuery(e.currentTarget.value)} />
           {!q && chosen.length > 0 && (
             <div class="picker__group">
@@ -184,6 +202,7 @@ export function Study({ selection }: { selection?: string }) {
   const [practice, setPractice] = useState(false);
   const [shown, setShown] = useState<Set<number>>(new Set());
   const [reading, setReading] = useState<string | null>(null);
+  const [loaded, setLoaded] = useState<{ title: string; key: string; skipped: string[] } | null>(null);
   const sites = useMemo(() => studySites(landmarks), [landmarks]);
   const picked = useMemo(() => (selection ? selection.split(',').filter((id) => positionById.has(id)) : []), [selection]);
   const story = useMemo(() => buildStoryline(picked, mode, landmarks), [picked, mode, landmarks]);
@@ -197,6 +216,24 @@ export function Study({ selection }: { selection?: string }) {
     for (const lm of newLandmarks) await ensureLandmark(lm);
     await saveTour(tour);
     navigate(`/tour/${tour.id}`);
+  }
+  function loadTour(tour: Tour) {
+    const { ids, skipped } = studySitesFromTour(tour, landmarks);
+    setMode('eigen');
+    setShown(new Set());
+    setLoaded({ title: tour.title, key: ids.join(','), skipped });
+    navigate(ids.length ? `/studie/${ids.join(',')}` : '/studie');
+  }
+  const fromTour = loaded && loaded.key === picked.join(',') ? loaded : null;
+  function move(id: string, by: -1 | 1) {
+    const order = [...story.order];
+    const i = order.indexOf(id);
+    const j = i + by;
+    if (i < 0 || j < 0 || j >= order.length) return;
+    [order[i], order[j]] = [order[j], order[i]];
+    setMode('eigen');
+    setShown(new Set());
+    navigate(`/studie/${order.join(',')}`);
   }
   function setPracticeMode(on: boolean) {
     setPractice(on);
@@ -229,7 +266,7 @@ export function Study({ selection }: { selection?: string }) {
   const last = story.order[story.order.length - 1];
   const title = !picked.length
     ? 'Studie'
-    : story.thread?.label ?? (story.order.length > 1 ? `Van ${siteName(first)} naar ${siteName(last)}` : siteName(first));
+    : fromTour?.title ?? story.thread?.label ?? (story.order.length > 1 ? `Van ${siteName(first)} naar ${siteName(last)}` : siteName(first));
   let stopNumber = 0;
 
   return (
@@ -243,6 +280,12 @@ export function Study({ selection }: { selection?: string }) {
               {story.order.length} {story.order.length === 1 ? 'plek' : 'plekken'} · ongeveer {formatMinutes(Math.max(1, story.minutes))} vertellen
               {story.order.length > 1 ? ` · ${formatDistance(story.straightM)} in rechte lijn` : ''}
             </p>
+            {fromTour && (
+              <p class="hint study__from-tour">
+                Uit je tour, in de volgorde van de tour.
+                {fromTour.skipped.length > 0 && ` Niet in Studie, want eigen plekken hebben hier geen verhaal: ${fromTour.skipped.join(', ')}.`}
+              </p>
+            )}
             <div class="study__tools">
               <button type="button" class="btn btn--primary" onClick={() => void makeTour()}>Maak een tour</button>
               <button type="button" class="btn" aria-pressed={practice} onClick={() => setPracticeMode(!practice)}>{practice ? 'Stop met oefenen' : 'Oefenen'}</button>
@@ -260,7 +303,7 @@ export function Study({ selection }: { selection?: string }) {
               fitKey={`studie-${[...picked].sort().join(',')}`} dark={dark} key={dark ? 'donker' : 'licht'} />
           </div>
           {stops.length > 1 && <p class="meta study__note">Rechte lijnen, geen looproute. Die reken je uit in een tour.</p>}
-          <SitePicker picked={story.order} onToggle={toggle} />
+          <SitePicker picked={story.order} onToggle={toggle} onLoadTour={loadTour} />
         </section>
 
         <section class={`story ${marks ? 'story--marks' : ''}`} aria-label="Verhaal">
@@ -269,6 +312,8 @@ export function Study({ selection }: { selection?: string }) {
               <h2>Kies een paar plekken</h2>
               <p>Narikala en de Metekhi-kerk delen een verhaal over buskruit.</p>
               <button type="button" class="btn" onClick={() => navigate('/studie/narikala,metekhi')}>Begin met deze twee</button>
+              {fromTour && <p class="hint hint--warn">De tour "{fromTour.title}" heeft geen plekken uit de catalogus, dus er is geen verhaal voor.</p>}
+              <div class="study__load"><TourLoader onLoad={loadTour} /></div>
             </div>
           ) : (
             <>
@@ -296,6 +341,12 @@ export function Study({ selection }: { selection?: string }) {
                       <span class="story__num">{stopNumber}</span>
                       <span class="story__name">{b.name}</span>
                       {b.saved && <span class="story__saved">uit jouw onderzoek</span>}
+                      {story.order.length > 1 && (
+                        <span class="story__move">
+                          <button type="button" class="icon-btn" aria-label={`${b.name} eerder`} disabled={stopNumber === 1} onClick={() => move(b.siteId!, -1)}>↑</button>
+                          <button type="button" class="icon-btn" aria-label={`${b.name} later`} disabled={stopNumber === story.order.length} onClick={() => move(b.siteId!, 1)}>↓</button>
+                        </span>
+                      )}
                       <a class="story__sources" href={`#/onderzoek/cat:${b.siteId}`}>Bronnen</a>
                     </h2>
                     {!b.written && <p class="hint hint--warn">Nog geen geschreven verhaal: dit zijn de losse beweringen. Gebruik "Meer onderzoek met Claude" om er een verhaal van te maken.</p>}

@@ -1,7 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import { CATALOG, catalogLandmarkId, landmarkFromCatalog } from './catalog';
 import { draftResearch } from './research';
-import { buildStoryline, PASSAGES, THREADS } from './story';
+import { createLandmark, createStop, createTour } from './factory';
+import { buildStoryline, PASSAGES, studySitesFromTour, THREADS } from './story';
 import type { Claim, Landmark } from './types';
 
 const claimIds = (site: string) => new Set(draftResearch(site).claims.map((c) => c.id.split(':').pop()));
@@ -83,5 +84,14 @@ describe('buildStoryline', () => {
     const s = buildStoryline(['sioni', 'bestaat-niet'], 'eigen', []);
     expect(s.order).toEqual(['sioni']);
     expect(s.minutes).toBeGreaterThan(0);
+  });
+});
+
+describe('loading a tour into Studie', () => {
+  it('keeps the tour order, drops repeats and names own places', () => {
+    const own = createLandmark('Mijn favoriete bakkerij', null, null);
+    const fromCatalog = { ...landmarkFromCatalog(CATALOG.find((s) => s.id === 'metekhi')!), id: 'lm-1' };
+    const tour = { ...createTour('Test'), stops: ['cat:narikala', 'lm-1', own.id, 'cat:narikala', 'gone'].map(createStop) };
+    expect(studySitesFromTour(tour, [own, fromCatalog])).toEqual({ ids: ['narikala', 'metekhi'], skipped: ['Mijn favoriete bakkerij', 'een onbekende plek'] });
   });
 });

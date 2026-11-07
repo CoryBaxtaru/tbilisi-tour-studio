@@ -26,7 +26,7 @@ export function FeedbackLog({ departure }: { departure: Departure }) {
     setStars(0);
   }
   return (
-    <details class="departure__edit" open={list.length > 0}>
+    <details class="departure__edit" open={list.length > 0 || departure.status === 'afgerond'}>
       <summary>Terugblik{list.length ? ` (${list.length})` : ''}</summary>
       {list.length > 0 && (
         <ul class="todo-list">

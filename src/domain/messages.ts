@@ -131,6 +131,19 @@ export function whatsappLink(contact: string, text: string): string | null {
   return `https://wa.me/${digits}?text=${encodeURIComponent(text)}`;
 }
 
+/** An Instagram name, written as @name or as a profile link. */
+export function instagramHandle(contact: string): string | null {
+  const c = contact.trim();
+  const m = c.match(/^@([A-Za-z0-9._]{1,30})$/) ?? c.match(/^(?:https?:\/\/)?(?:www\.)?instagram\.com\/([A-Za-z0-9._]{1,30})\/?$/i);
+  return m ? m[1] : null;
+}
+
+/** Opens a direct message in Instagram. Instagram cannot take a ready text, so the text is copied first. */
+export function instagramLink(contact: string): string | null {
+  const h = instagramHandle(contact);
+  return h ? `https://ig.me/m/${h}` : null;
+}
+
 export function mailLink(contact: string, subject: string, text: string): string | null {
   const c = contact.trim();
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(c)) return null;
@@ -157,9 +170,10 @@ export function pendingMessages(products: TourProduct[], departures: Departure[]
     if (!departure || b.deleted || b.anonymizedAt || !b.contact.trim() || b.status === 'geannuleerd') continue;
     const add = (kind: MessageKind) => out.push({ kind, booking: b, departure, productName: names.get(departure.productId) ?? 'Onbekend' });
     const sent = b.messagesSent ?? {};
-    if (departure.date > today && !sent.bevestiging && (b.channel === 'direct' || b.channel === 'whatsapp')) add('bevestiging');
+    if (departure.date > today && !sent.bevestiging && (b.channel === 'direct' || b.channel === 'whatsapp' || b.channel === 'instagram')) add('bevestiging');
     if (departure.date === addDays(today, 1) && !sent.herinnering) add('herinnering');
-    const finished = departure.date < today && departure.date >= addDays(today, -REVIEW_WINDOW_DAYS);
+    // A tour the guide has closed in guide mode counts as finished the same day.
+    const finished = (departure.date < today || (departure.date === today && departure.status === 'afgerond')) && departure.date >= addDays(today, -REVIEW_WINDOW_DAYS);
     if (finished && !sent.review && b.status === 'geboekt' && (arrivedCount(b) > 0 || b.arrived === undefined)) add('review');
   }
   return out.sort((x, y) => x.departure.date.localeCompare(y.departure.date) || MESSAGE_KINDS.indexOf(x.kind) - MESSAGE_KINDS.indexOf(y.kind));

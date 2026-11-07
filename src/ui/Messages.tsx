@@ -2,7 +2,7 @@
 // mail. The app itself sends nothing. Copying or opening marks it as sent, so Vandaag stops asking for it.
 import { useEffect, useState } from 'preact/hooks';
 import { isoDate } from '../domain/agenda';
-import { buildMessage, mailLink, MESSAGE_KINDS, MESSAGE_LABELS, whatsappLink, withMessageSent } from '../domain/messages';
+import { buildMessage, instagramLink, mailLink, MESSAGE_KINDS, MESSAGE_LABELS, whatsappLink, withMessageSent } from '../domain/messages';
 import type { Booking, Departure, MessageKind, TourProduct } from '../domain/types';
 import { currentRecord, saveRecord } from '../state/store';
 import { useForecast } from '../weather/metno';
@@ -41,6 +41,7 @@ export function MessagePanel({ booking, departure, product, start }: { booking: 
 
   const wa = whatsappLink(booking.contact, text);
   const mail = mailLink(booking.contact, message.subject, text);
+  const ig = instagramLink(booking.contact);
   const sent = booking.messagesSent?.[kind];
   return (
     <div class="message-panel">
@@ -58,10 +59,12 @@ export function MessagePanel({ booking, departure, product, start }: { booking: 
         <button type="button" class="btn btn--primary" onClick={() => void copy()}>Kopiëren</button>
         {wa && <a class="btn" href={wa} target="_blank" rel="noopener" onClick={markSent}>Openen in WhatsApp</a>}
         {mail && <a class="btn" href={mail} onClick={markSent}>Openen in mail</a>}
+        {ig && <a class="btn" href={ig} target="_blank" rel="noopener" onClick={() => { void copy(); }}>Kopiëren en openen in Instagram</a>}
         {copied === 'ok' && <span class="status status--ok">Gekopieerd.</span>}
       </div>
       {copied === 'mislukt' && <p class="hint hint--warn">Kopiëren lukte niet. Selecteer de tekst hierboven en kopieer hem zelf.</p>}
-      {!wa && !mail && booking.contact.trim() && <p class="hint">WhatsApp werkt alleen met een nummer in internationale vorm, zoals +31 6 12345678.</p>}
+      {ig && <p class="hint">Instagram kan geen klaar bericht openen: de tekst staat op je klembord, plak hem in het gesprek.</p>}
+      {!wa && !mail && !ig && booking.contact.trim() && <p class="hint">WhatsApp werkt alleen met een nummer in internationale vorm, zoals +31 6 12345678.</p>}
       {sent && <p class="meta">Eerder verstuurd op {sentDay(sent)}.</p>}
     </div>
   );
