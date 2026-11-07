@@ -13,7 +13,7 @@ Tbilisi Walking Tour Studio — desktop tour design and mobile live guiding for 
 - Run locally: `npm install`, `npm test`, `npm run build`, then `npx vite preview` (or the `preview` entry in `.claude/launch.json`).
 
 ## Latest session
-- 2026-11-08, design pass over the whole app after a design review, **checked locally, not committed or deployed**:
+- 2026-11-08, design pass over the whole app after a design review, live in `c4ac410` and checked on GitHub Pages; a follow-up commit fixes two brick buttons on an empty Tours page:
   - one page-title style and the strict type scale;
   - a third text grey;
   - fonts inherited in buttons;

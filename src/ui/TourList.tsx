@@ -20,7 +20,8 @@ export function TourList() {
     <main class="page">
       <div class="page__head">
         <h1>Tours</h1>
-        <button class="btn btn--primary" onClick={add}>Nieuwe tour</button>
+        {/* Without own tours, a ready-made tour below is the main action; with them, this is. */}
+        <button class={`btn ${visible.length ? 'btn--primary' : ''}`} onClick={add}>Nieuwe tour</button>
       </div>
       {visible.length === 0 ? (
         <div class="empty">
