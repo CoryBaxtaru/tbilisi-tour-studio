@@ -1,5 +1,5 @@
 import { useState } from 'preact/hooks';
-import { exportJson, importJson, setSyncConfig, syncNow, useAppState } from '../state/store';
+import { exportJson, importJson, ownDataCounts, resetOwnData, setSyncConfig, syncNow, useAppState } from '../state/store';
 import { DatasetError } from '../storage/backup';
 import { OfflineMapControl } from './OfflineMapControl';
 import { setThemeChoice, useTheme, type ThemeChoice } from './theme';
@@ -17,6 +17,9 @@ export function Settings() {
   const [msg, setMsg] = useState<{ text: string; warn?: boolean } | null>(null);
   const [withBookings, setWithBookings] = useState(false);
   const theme = useTheme();
+  const [resetStep, setResetStep] = useState<'' | 'vraag' | 'klaar'>('');
+  const counts = ownDataCounts();
+  const ownTotal = Object.values(counts).reduce((a, b) => a + b, 0);
 
   async function saveSync(e: Event) {
     e.preventDefault();
@@ -114,6 +117,26 @@ export function Settings() {
           <li><strong>Werkt offline:</strong> tours, vertelpunten, aankomstnotities, stopposities, opgeslagen looproutes en aanwijzingen, GPS-positie en afstand, achtergrondinformatie, en de kaart van Tbilisi als die hierboven is opgeslagen.</li>
           <li><strong>Vereist internet:</strong> kaart buiten Tbilisi, nieuwe looproute berekenen, synchroniseren.</li>
         </ul>
+      </section>
+
+      <section class="card danger-card">
+        <h2>Opnieuw beginnen</h2>
+        <p class="hint">
+          Wist alles wat je zelf hebt ingevoerd: {counts.tours} tours, {counts.products} touraanbod, {counts.departures} vertrekken,
+          {' '}{counts.bookings} boekingen, {counts.expenses} kosten, {counts.blocked} geblokkeerde dagen en {counts.places} eigen plekken.
+          Je onderzoek, verificaties en verhalen bij plekken blijven. Met synchronisatie aan wordt ook je andere apparaat leeg;
+          de oude versie blijft in de geschiedenis van je privé-repository.
+        </p>
+        {resetStep === 'klaar' && <p class="status status--ok">Gewist. {s.syncConfig ? 'Je andere apparaat wordt leeg bij de volgende synchronisatie.' : ''}</p>}
+        {resetStep === 'vraag' ? (
+          <div class="confirm-delete" role="group" aria-label="Alles wissen bevestigen">
+            <span class="confirm-delete__q">Weet je het zeker? Download eerst een back-up als je iets wilt bewaren.</span>
+            <button type="button" class="btn btn--danger" onClick={() => void resetOwnData().then(() => setResetStep('klaar'))}>Ja, alles wissen</button>
+            <button type="button" class="btn btn--ghost" onClick={() => setResetStep('')}>Annuleren</button>
+          </div>
+        ) : (
+          <button type="button" class="btn btn--ghost btn--danger" disabled={!ownTotal} onClick={() => setResetStep('vraag')}>Alles wissen</button>
+        )}
       </section>
 
       <section class="card">

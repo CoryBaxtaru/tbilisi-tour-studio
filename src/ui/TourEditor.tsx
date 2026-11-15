@@ -4,7 +4,7 @@ import { findLeg, stopPairs } from '../domain/duration';
 import { createLandmark, nowIso } from '../domain/factory';
 import { formatDistance, formatMinutes } from '../domain/geo';
 import { EMPTY_FILTER, matchesFilter, type DeckFilter } from '../domain/tags';
-import { insertStop, moveStop, removeStop } from '../domain/tourOps';
+import { insertStop, moveStop, removeStop, stopPosition, withStandpoint } from '../domain/tourOps';
 import type { Landmark, LatLng, Tour, TourStatus } from '../domain/types';
 import { fossgisFoot } from '../routing/osrm';
 import { RoutingError } from '../routing/provider';
@@ -19,7 +19,7 @@ import { useRouteSortable } from './sortable';
 import { useMapStored } from '../map/offlineMap';
 import { useTheme } from './theme';
 
-type Pick = { mode: 'nieuw' } | { mode: 'positie'; landmarkId: string } | null;
+type Pick = { mode: 'nieuw' } | { mode: 'positie'; landmarkId: string } | { mode: 'standpunt'; stopId: string } | null;
 
 const TOUR_STATUS: Record<TourStatus, string> = { concept: 'Concept', beoordeeld: 'Beoordeeld', klaar: 'Klaar om te gidsen' };
 
@@ -67,10 +67,10 @@ export function TourEditor({ id }: { id: string }) {
 
   // ---- route calculation (manual button + automatic after changes) ----
   const routeSignature = tour
-    ? tour.stops.map((s) => { const p = lmById.get(s.landmarkId)?.position; return `${s.id}@${p ? `${p.lat},${p.lng}` : '-'}`; }).join('|')
+    ? tour.stops.map((s) => { const p = stopPosition(s, lmById.get(s.landmarkId)); return `${s.id}@${p ? `${p.lat},${p.lng}` : '-'}`; }).join('|')
     : '';
   const missingLegs = tour ? stopPairs(tour).filter(([a, b]) => !findLeg(tour, a, b)).length : 0;
-  const allPositioned = !!tour && tour.stops.every((s) => lmById.get(s.landmarkId)?.position);
+  const allPositioned = !!tour && tour.stops.every((s) => stopPosition(s, lmById.get(s.landmarkId)));
   const autoTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
@@ -83,7 +83,7 @@ export function TourEditor({ id }: { id: string }) {
   async function computeRoute(auto = false) {
     const t = currentTour(id);
     if (!t) return;
-    const pts = t.stops.map((s) => lmById.get(s.landmarkId)?.position ?? null);
+    const pts = t.stops.map((s) => stopPosition(s, lmById.get(s.landmarkId)));
     if (pts.length < 2) return auto ? undefined : setRouteMsg({ text: 'Minstens twee stops nodig.', warn: true });
     if (pts.some((p) => !p)) return setRouteMsg({ text: 'Elke stop heeft een positie nodig voordat de route berekend kan worden.', warn: true });
     const order = t.stops.map((s) => s.id).join();
@@ -114,6 +114,10 @@ export function TourEditor({ id }: { id: string }) {
       const lm = createLandmark(`Nieuwe stop ${(currentTour(id)?.stops.length ?? 0) + 1}`, p, 'kaart');
       await saveLandmark(lm);
       await edit((t) => insertStop(t, lm.id));
+    } else if (pick.mode === 'standpunt') {
+      const stopId = pick.stopId;
+      const note = currentTour(id)?.stops.find((s) => s.id === stopId)?.standpoint?.note ?? '';
+      await edit((t) => withStandpoint(t, stopId, { position: p, note }));
     } else {
       const lm = lmById.get(pick.landmarkId);
       if (lm) {
@@ -144,14 +148,16 @@ export function TourEditor({ id }: { id: string }) {
     [deck, usedAt, filter, showDeck],
   );
   const mapStops: MapStop[] = useMemo(() => (tour?.stops ?? []).flatMap((s, i) => {
-    const pos = lmById.get(s.landmarkId)?.position;
+    const pos = stopPosition(s, lmById.get(s.landmarkId));
     return pos ? [{ id: s.id, label: String(i + 1), position: pos }] : [];
   }), [tour?.stops, lmById]);
   const routes = useMemo(() => (tour ? stopPairs(tour).map(([a, b]) => findLeg(tour, a, b)?.geometry ?? []).filter((g) => g.length > 1) : []), [tour?.stops, tour?.legs]);
   const gaps = useMemo(() => (tour ? stopPairs(tour).flatMap(([a, b]): [LatLng, LatLng][] => {
     if (findLeg(tour, a, b)) return [];
-    const pa = lmById.get(tour.stops.find((s) => s.id === a)!.landmarkId)?.position;
-    const pb = lmById.get(tour.stops.find((s) => s.id === b)!.landmarkId)?.position;
+    const sa = tour.stops.find((s) => s.id === a)!;
+    const sb = tour.stops.find((s) => s.id === b)!;
+    const pa = stopPosition(sa, lmById.get(sa.landmarkId));
+    const pb = stopPosition(sb, lmById.get(sb.landmarkId));
     return pa && pb ? [[pa, pb]] : [];
   }) : []), [tour?.stops, tour?.legs, lmById]);
 
@@ -172,7 +178,8 @@ export function TourEditor({ id }: { id: string }) {
   const anchorFor = (i: number): Anchor | null => {
     const s = tour.stops[i];
     const lm = s && lmById.get(s.landmarkId);
-    return lm?.position ? { position: lm.position, label: lm.name } : null;
+    const pos = s ? stopPosition(s, lm) : null;
+    return pos && lm ? { position: pos, label: lm.name } : null;
   };
   const anchors = { first: anchorFor(0), last: anchorFor(tour.stops.length - 1) };
 
@@ -228,6 +235,9 @@ export function TourEditor({ id }: { id: string }) {
                 landmark={lmById.get(s.landmarkId)}
                 usedInTours={usage(s.landmarkId)}
                 picking={pick?.mode === 'positie' && pick.landmarkId === s.landmarkId}
+                pickingStandpoint={pick?.mode === 'standpunt' && pick.stopId === s.id}
+                onPickStandpoint={() => setPick({ mode: 'standpunt', stopId: s.id })}
+                onClearStandpoint={() => void edit((t) => withStandpoint(t, s.id, null))}
                 legInfo={prev ? (leg ? { text: `${formatMinutes(leg.durationS / 60)} lopen · ${formatDistance(leg.distanceM)}`, missing: false } : { text: 'looproute nog niet berekend', missing: true }) : null}
                 onStop={(ns) => edit((t) => ({ ...t, stops: t.stops.map((x) => (x.id === ns.id ? ns : x)) }))}
                 onLandmark={(l: Landmark) => saveLandmark(l)}
@@ -267,7 +277,7 @@ export function TourEditor({ id }: { id: string }) {
       )}
 
       <section class={`editor__map ${pick ? 'editor__map--picking' : ''}`} ref={mapSection}>
-        {pick && <div class="map-banner">Klik op de kaart om {pick.mode === 'nieuw' ? 'een eigen stop te plaatsen' : 'de positie te kiezen'} · <button class="link" onClick={() => setPick(null)}>Annuleren</button></div>}
+        {pick && <div class="map-banner">Klik op de kaart om {pick.mode === 'nieuw' ? 'een eigen stop te plaatsen' : pick.mode === 'standpunt' ? 'te kiezen waar je gaat staan' : 'de positie te kiezen'} · <button class="link" onClick={() => setPick(null)}>Annuleren</button></div>}
         {!online && mapStored === false && <div class="map-banner map-banner--warn">Offline en geen opgeslagen kaart: alleen stops en opgeslagen routes. Sla de kaart op via Instellingen.</div>}
         <MapView
           key={dark ? 'donker' : 'licht'}

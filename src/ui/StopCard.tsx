@@ -4,6 +4,7 @@ import { CLAIM_STATUS, linkedClaim, mergedResearch, talkingPointFromClaim } from
 import { DISTRICTS, ERAS, THEMES, type TagDef } from '../domain/tags';
 import { WikiText } from './WikiText';
 import type { Claim, ClaimKind, Landmark, TalkingPoint, TourStop, Verification } from '../domain/types';
+import { formatDistance, haversineM } from '../domain/geo';
 
 const KINDS: ClaimKind[] = ['feit', 'interpretatie', 'anekdote', 'onzeker'];
 const VERIFICATION: Record<Verification, string> = { onbevestigd: 'Onbevestigd', deels: 'Deels geverifieerd', geverifieerd: 'Geverifieerd' };
@@ -22,6 +23,9 @@ interface Props {
   onMove: (dir: -1 | 1) => void;
   onRemove: () => void;
   onPickPosition: () => void;
+  pickingStandpoint: boolean;
+  onPickStandpoint: () => void;
+  onClearStandpoint: () => void;
 }
 
 export function StopCard(p: Props) {
@@ -58,6 +62,27 @@ export function StopCard(p: Props) {
 
           <fieldset>
             <legend>Alleen deze tour</legend>
+            <div class="standpoint">
+              <span class="label">Waar je gaat staan</span>
+              {stop.standpoint ? (
+                <>
+                  <p class="hint">
+                    Je vertelt dit vanaf een eigen standpunt
+                    {landmark?.position ? `, op ${formatDistance(haversineM(stop.standpoint.position, landmark.position))} van ${name}` : ''}. De route en de gidsmodus gaan daarheen.
+                  </p>
+                  <label>Omschrijving van het standpunt<input value={stop.standpoint.note} placeholder="Bijv. uitzicht vanaf de Metekhi-brug" onInput={(e) => setStop({ standpoint: { ...stop.standpoint!, note: e.currentTarget.value } })} /></label>
+                  <div class="row">
+                    <button type="button" class={`btn btn--small ${p.pickingStandpoint ? 'btn--active' : ''}`} onClick={p.onPickStandpoint}>{p.pickingStandpoint ? 'Klik op de kaart…' : 'Ander standpunt kiezen'}</button>
+                    <button type="button" class="btn btn--small btn--ghost" onClick={p.onClearStandpoint}>Terug naar de plek zelf</button>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <p class="hint">Bij de plek zelf. Is die te ver of te hoog, zoals Kartlis Deda of Narikala? Kies dan een plek waar je hem kunt zien en uitleggen.</p>
+                  <button type="button" class={`btn btn--small ${p.pickingStandpoint ? 'btn--active' : ''}`} onClick={p.onPickStandpoint}>{p.pickingStandpoint ? 'Klik op de kaart…' : 'Standpunt kiezen op de kaart'}</button>
+                </>
+              )}
+            </div>
             <label>Aankomstnotitie (voor een snelle blik)<textarea rows={2} value={stop.arrivalNote} onInput={(e) => setStop({ arrivalNote: e.currentTarget.value })} /></label>
             <div class="tp-list">
               <span class="label">Vertelpunten</span>

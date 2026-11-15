@@ -2,6 +2,7 @@ import { createTour } from '../domain/factory';
 import { saveTour, useAppState } from '../state/store';
 import { navigate } from './router';
 import { Ribbon } from './Ribbon';
+import { TourStarters } from './TourRequest';
 import { TourSuggestions } from './TourSuggestions';
 
 const STATUS: Record<string, string> = { concept: 'Concept', beoordeeld: 'Beoordeeld', klaar: 'Klaar om te gidsen' };
@@ -45,7 +46,8 @@ export function TourList() {
           ))}
         </ul>
       )}
-      <TourSuggestions hasTours={visible.length > 0} />
+      <TourStarters hasTours={visible.length > 0} />
+      <TourSuggestions />
     </main>
   );
 }

@@ -128,6 +128,11 @@ export interface TourStop {
   transition: string;
   guideNotes: string;
   speakingMinutes: number;
+  /**
+   * Where the guide stands to tell this stop, when that is not the site itself: Kartlis Deda seen from the old
+   * town, Narikala from the river. Chosen by the guide on the map; the route and guide mode use it.
+   */
+  standpoint?: { position: LatLng; note: string };
 }
 
 export interface RouteStep {

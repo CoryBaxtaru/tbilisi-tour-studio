@@ -855,3 +855,15 @@ a.btn--big { display: grid; place-items: center; text-decoration: none; text-ali
 .price-fields { display: flex; flex-direction: column; gap: 8px; }
 .price-fields .seg--choice { align-self: flex-start; }
 .price-fields p { margin: 0; }
+.standpoint { display: flex; flex-direction: column; gap: 6px; margin: 4px 0 12px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+.standpoint .hint { margin: 0; }
+.standpoint .row { gap: 8px; }
+/* Tours: the recommended tour and the tour on request lead the ways to start */
+.starters { margin: 24px 0 8px; display: flex; flex-direction: column; gap: 8px; }
+.starter--classic { display: flex; align-items: center; justify-content: space-between; gap: 16px; border: 1px solid var(--line-strong); border-radius: var(--r-lg); padding: 14px 16px; }
+.starter--classic h2 { margin: 2px 0 4px; font-size: 22px; }
+.starter--classic .meta { margin: 0; }
+.request label.narrow { max-width: 160px; }
+.request__preview { border: 1px solid var(--line); border-radius: var(--r-lg); padding: 12px 14px; margin-top: 8px; }
+.request__preview ol { margin: 6px 0 10px; padding-left: 20px; }
+@media (max-width: 620px) { .starter--classic { flex-direction: column; align-items: stretch; } }

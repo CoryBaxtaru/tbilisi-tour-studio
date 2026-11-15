@@ -13,8 +13,8 @@ import { navigate } from './router';
 
 type MaxChoice = 'standaard' | 'alle' | '6' | '8' | '10' | '12' | '16';
 
-/** `hasTours`: once the guide has own tours, those lead and suggestions stay quiet (no accent buttons). */
-export function TourSuggestions({ hasTours }: { hasTours: boolean }) {
+/** Ready-made tours from tags; folded, because the recommended tour and the tour on request lead. */
+export function TourSuggestions() {
   const { landmarks } = useAppState();
   const deck = useMemo(() => buildDeck(landmarks), [landmarks]);
   const [maxChoice, setMaxChoice] = useState<MaxChoice>('standaard');
@@ -63,7 +63,7 @@ export function TourSuggestions({ hasTours }: { hasTours: boolean }) {
     setCustom((f) => ({ ...f, [group]: f[group].includes(id) ? f[group].filter((x) => x !== id) : [...f[group], id] }));
 
   return (
-    <details class="suggest" open={!hasTours}>
+    <details class="suggest">
       <summary><h2>Kant-en-klare tours</h2><span class="meta">{TEMPLATES.length} voorstellen</span></summary>
       <p class="hint">Een startpunt uit de kaarten met deze tags; daarna sleep en pas je alles aan.</p>
       <details class="more">
@@ -96,7 +96,7 @@ export function TourSuggestions({ hasTours }: { hasTours: boolean }) {
               <h3 class="lit">{t.title}</h3>
               <p class="meta">{t.description} {p.count} plekken · ± {formatDistance(p.length)} hemelsbreed.</p>
             </div>
-            <button class={`btn ${hasTours ? '' : 'btn--primary'}`} disabled={busy || !p.count} onClick={() => create(t.title, t.filter, maxFor(t))}>Maak tour</button>
+            <button class="btn" disabled={busy || !p.count} onClick={() => create(t.title, t.filter, maxFor(t))}>Maak tour</button>
           </div>
         );
       })}

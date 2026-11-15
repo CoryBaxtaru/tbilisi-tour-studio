@@ -154,6 +154,48 @@ export function currentTour(id: string): Tour | undefined {
   return state.tours.find((t) => t.id === id && !t.deleted);
 }
 
+/** What "Alles wissen" removes: what the guide entered for tours and the business. Research on places stays. */
+export const RESET_KINDS = ['tours', 'products', 'departures', 'bookings', 'expenses', 'blocked'] as const;
+
+/** Own places (not from the catalogue) only exist for the guide's tours, so they go too. */
+const ownPlace = (l: Landmark) => !l.catalogId && !l.deleted;
+
+export function ownDataCounts(): Record<(typeof RESET_KINDS)[number] | 'places', number> {
+  const live = (kind: (typeof RESET_KINDS)[number]) => (state[kind] as SyncedEntity[]).filter((r) => !r.deleted).length;
+  return {
+    tours: live('tours'), products: live('products'), departures: live('departures'), bookings: live('bookings'),
+    expenses: live('expenses'), blocked: live('blocked'), places: state.landmarks.filter(ownPlace).length,
+  };
+}
+
+/**
+ * Deletes all of it as tombstones, so the other device empties on its next sync. Guests' details are blanked on the
+ * tombstones, so no name or contact stays behind in the sync file. Returns how many records went.
+ */
+export async function resetOwnData(): Promise<number> {
+  let n = 0;
+  const wipe = async <K extends Kind>(kind: K, keep: (r: SyncedEntity) => boolean) => {
+    const gone = (state[kind] as SyncedEntity[]).filter((r) => !r.deleted && !keep(r)).map((r) => {
+      const blank = kind === 'bookings' ? { leadName: '', contact: '', notes: '', reference: '' } : {};
+      return touch({ ...r, ...blank, deleted: true } as SyncedEntity);
+    });
+    if (!gone.length) return;
+    const byId = new Map(gone.map((r) => [r.id, r]));
+    set({ [kind]: (state[kind] as SyncedEntity[]).map((r) => byId.get(r.id) ?? r) } as Partial<AppState>);
+    await putRecords(kind, gone as Collections[K]);
+    n += gone.length;
+  };
+  for (const kind of RESET_KINDS) await wipe(kind, () => false);
+  await wipe('landmarks', (r) => !ownPlace(r as Landmark));
+  try {
+    for (const key of Object.keys(localStorage)) {
+      if (key.startsWith('gids:') || key === 'laatste-aanbod' || key === 'laatste-kanaal') localStorage.removeItem(key);
+    }
+  } catch { /* nothing remembered */ }
+  if (n) changed();
+  return n;
+}
+
 /** Soft delete (tombstone) so the deletion reaches other devices. */
 export async function deleteTour(tour: Tour): Promise<void> {
   await saveTour({ ...tour, deleted: true });

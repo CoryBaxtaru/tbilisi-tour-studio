@@ -8,6 +8,7 @@ import { instructionList } from '../routing/instructions';
 import { fossgisFoot } from '../routing/osrm';
 import { currentRecord, saveRecord, useAppState } from '../state/store';
 import { tourMinutes } from '../domain/quickBooking';
+import { stopPosition } from '../domain/tourOps';
 import { isoDate } from '../domain/agenda';
 import { departureForGuide } from '../domain/checkin';
 import { CheckIn, useHeadcount } from './CheckIn';
@@ -87,7 +88,7 @@ export function GuideMode({ id, departureId }: { id: string; departureId?: strin
   const next = stops[index + 1];
   const landmark = stop ? lmById.get(stop.landmarkId) : undefined;
   const nextLandmark = next ? lmById.get(next.landmarkId) : undefined;
-  const target = landmark?.position ?? null;
+  const target = stop ? stopPosition(stop, landmark) : null;
   const prev = index > 0 ? stops[index - 1] : undefined;
   const leg = tour && prev && stop ? findLeg(tour, prev.id, stop.id) : undefined;
   const nextLeg = tour && next && stop ? findLeg(tour, stop.id, next.id) : undefined;
@@ -168,7 +169,7 @@ export function GuideMode({ id, departureId }: { id: string; departureId?: strin
   );
 
   const mapStops: MapStop[] = stops.flatMap((s, i) => {
-    const pos = lmById.get(s.landmarkId)?.position;
+    const pos = stopPosition(s, lmById.get(s.landmarkId));
     return pos ? [{ id: s.id, label: String(i + 1), position: pos, state: !ended && i === index ? 'actief' : progress.done.includes(s.id) ? 'klaar' : 'normaal' }] : [];
   });
   const routes = stopPairs(tour).map(([a, b]) => findLeg(tour, a, b)?.geometry ?? []).filter((g) => g.length > 1);
@@ -245,6 +246,7 @@ export function GuideMode({ id, departureId }: { id: string; departureId?: strin
             {clock}
             <h1 class="next-card__name lit">{landmark?.name ?? 'Onbekende stop'}</h1>
             {landmark?.nameKa && <p class="next-card__ka" lang="ka">{landmark.nameKa}</p>}
+            {stop.standpoint && <p class="next-card__meet"><span class="label">Standpunt</span> {stop.standpoint.note || 'Je vertelt dit vanaf een eigen plek, niet bij de plek zelf.'}</p>}
             {stop.arrivalNote && <p class="next-card__note lit">{stop.arrivalNote}</p>}
           </section>
 
@@ -282,6 +284,7 @@ export function GuideMode({ id, departureId }: { id: string; departureId?: strin
               {distToTarget !== null && <span> · nog {formatDistance(distToTarget)} hemelsbreed</span>}
             </p>
             {!target && <p class="hint hint--warn">Deze stop heeft geen positie; GPS-aankomst werkt hier niet.</p>}
+            {stop.standpoint && <p class="next-card__meet"><span class="label">Standpunt</span> {stop.standpoint.note || 'Je vertelt dit vanaf een eigen plek, niet bij de plek zelf.'}</p>}
             {starting && product?.meetingPoint && <p class="next-card__meet"><span class="label">Verzamelen</span> {product.meetingPoint}</p>}
             {!starting && clock}
             {arrivalHint && (
