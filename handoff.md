@@ -13,7 +13,7 @@ Tbilisi Walking Tour Studio — desktop tour design and mobile live guiding for 
 - Run locally: `npm install`, `npm test`, `npm run build`, then `npx vite preview` (or the `preview` entry in `.claude/launch.json`).
 
 ## Latest session
-- 2026-11-15, before the first phone test in the city: a standpoint per stop, "Alles wissen" in Instellingen, a tour on request via Claude (copy and paste), and the recommended tour "Klassiek Tbilisi in 2 uur". **Checked locally, not committed or deployed.** `npm test`: 166 passed. Breakdown: `docs/session-breakdowns/session-2026-11-15-01.md`.
+- 2026-11-15, before the first phone test in the city: a standpoint per stop, "Alles wissen" in Instellingen, a tour on request via Claude (copy and paste), and the recommended tour "Klassiek Tbilisi in 2 uur". Live in `4263021` and checked on GitHub Pages. `npm test`: 166 passed. Next: on the laptop Vernieuwen, Alles wissen, make the recommended tour and set the Kartlis Deda standpoint; on the phone Vernieuwen, sync and test in the city. Breakdown: `docs/session-breakdowns/session-2026-11-15-01.md`.
 - 2026-11-08, design pass over the whole app after a design review, live in `c4ac410` and checked on GitHub Pages; a follow-up commit fixes two brick buttons on an empty Tours page:
   - one page-title style and the strict type scale;
   - a third text grey;
