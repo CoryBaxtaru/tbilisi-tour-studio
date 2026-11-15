@@ -14,6 +14,8 @@ export interface RoutingProvider {
   attribution: string;
   /** Routes through all waypoints in order; returns one leg per consecutive pair. */
   route(waypoints: LatLng[]): Promise<RoutedLeg[]>;
+  /** Walking time in seconds between every pair of points: `[from][to]`, null when there is no route. */
+  durations(points: LatLng[]): Promise<(number | null)[][]>;
 }
 
 export class RoutingError extends Error {}

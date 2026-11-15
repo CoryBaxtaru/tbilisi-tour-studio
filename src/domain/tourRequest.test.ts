@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { CATALOG, catalogLandmarkId } from './catalog';
 import { createStop, createTour } from './factory';
-import { stopPosition, withStandpoint } from './tourOps';
+import { reorderStops, stopPosition, withStandpoint } from './tourOps';
 import { buildTourPrompt, CLASSIC_TOUR, parseTourReply, tourFromReply, TourReplyError } from './tourRequest';
 
 describe('tour on request', () => {
@@ -66,5 +66,16 @@ describe('standpoint', () => {
     const back = withStandpoint(moved, b.id, null);
     expect(back.stops[1].standpoint).toBeUndefined();
     expect(stopPosition(back.stops[1], site)).toEqual({ lat: 1, lng: 1 });
+  });
+});
+
+describe('reorder', () => {
+  it('follows the given ids, keeps unnamed stops at the end and keeps stored routes', () => {
+    const [a, b, c] = [createStop('l1'), createStop('l2'), createStop('l3')];
+    const leg = { fromStopId: a.id, toStopId: b.id, distanceM: 1, durationS: 1, geometry: [], steps: [], provider: 'x', computedAt: '' };
+    const tour = { ...createTour('t'), stops: [a, b, c], legs: [leg] };
+    const r = reorderStops(tour, [a.id, c.id, 'weg']);
+    expect(r.stops.map((s) => s.id)).toEqual([a.id, c.id, b.id]);
+    expect(r.legs).toEqual([leg]);
   });
 });

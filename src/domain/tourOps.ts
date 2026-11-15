@@ -21,6 +21,14 @@ export function removeStop(tour: Tour, stopId: string): Tour {
   return { ...tour, stops: tour.stops.filter((s) => s.id !== stopId) };
 }
 
+/** Puts the stops in the order of these stop ids; stops not named keep their place at the end. Stored routes stay: they are looked up by stop pair. */
+export function reorderStops(tour: Tour, stopIds: string[]): Tour {
+  const byId = new Map(tour.stops.map((s) => [s.id, s]));
+  const named = stopIds.flatMap((id) => byId.get(id) ?? []);
+  const rest = tour.stops.filter((s) => !stopIds.includes(s.id));
+  return { ...tour, stops: [...named, ...rest] };
+}
+
 /** Index of the first stop using this landmark, or -1. */
 export function stopIndexOf(tour: Tour, landmarkId: string): number {
   return tour.stops.findIndex((s) => s.landmarkId === landmarkId);

@@ -1,9 +1,10 @@
 // FOSSGIS public OSRM server, foot profile. Free; policy: max 1 request/second, no heavy use,
-// attribution required (see docs/HOSTING.md). One request per tour calculation.
+// attribution required (see docs/HOSTING.md). One request per tour calculation; one more for the fastest order.
 import type { LatLng } from '../domain/types';
 import { RoutingError, type RoutedLeg, type RoutingProvider } from './provider';
 
-const ENDPOINT = 'https://routing.openstreetmap.de/routed-foot/route/v1/driving/';
+const BASE = 'https://routing.openstreetmap.de/routed-foot/';
+const ENDPOINT = `${BASE}route/v1/driving/`;
 const MIN_INTERVAL_MS = 1100;
 let lastRequestAt = 0;
 
@@ -24,22 +25,36 @@ export const fossgisFoot: RoutingProvider = {
   attribution: 'Route: FOSSGIS OSRM, data © OpenStreetMap-bijdragers',
   async route(waypoints: LatLng[]): Promise<RoutedLeg[]> {
     if (waypoints.length < 2) return [];
-    const wait = lastRequestAt + MIN_INTERVAL_MS - Date.now();
-    if (wait > 0) await new Promise((r) => setTimeout(r, wait));
-    lastRequestAt = Date.now();
-
-    const coords = waypoints.map((p) => `${p.lng.toFixed(6)},${p.lat.toFixed(6)}`).join(';');
-    let res: Response;
-    try {
-      res = await fetch(`${ENDPOINT}${coords}?overview=false&steps=true&geometries=geojson`);
-    } catch {
-      throw new RoutingError('Geen verbinding met de routeserver. Route berekenen vereist internet.');
-    }
-    if (res.status === 429) throw new RoutingError('Routeserver is druk (limiet). Probeer het over een minuut opnieuw.');
-    if (!res.ok) throw new RoutingError(`Routeserver gaf fout ${res.status}.`);
+    const res = await politeFetch(`${ENDPOINT}${coordList(waypoints)}?overview=false&steps=true&geometries=geojson`);
     return parseOsrm((await res.json()) as OsrmResponse, waypoints.length - 1);
   },
+  // One table request for the whole tour, used to find the fastest order.
+  async durations(points: LatLng[]): Promise<(number | null)[][]> {
+    if (points.length < 2) return points.map(() => [0]);
+    const res = await politeFetch(`${BASE}table/v1/driving/${coordList(points)}?annotations=duration`);
+    const data = (await res.json()) as { code: string; durations?: (number | null)[][] };
+    if (data.code !== 'Ok' || data.durations?.length !== points.length) throw new RoutingError(`Looptijden niet beschikbaar (${data.code}).`);
+    return data.durations;
+  },
 };
+
+const coordList = (points: LatLng[]) => points.map((p) => `${p.lng.toFixed(6)},${p.lat.toFixed(6)}`).join(';');
+
+/** Keeps to the server's limit of one request per second and turns network trouble into Dutch messages. */
+async function politeFetch(url: string): Promise<Response> {
+  const wait = lastRequestAt + MIN_INTERVAL_MS - Date.now();
+  if (wait > 0) await new Promise((r) => setTimeout(r, wait));
+  lastRequestAt = Date.now();
+  let res: Response;
+  try {
+    res = await fetch(url);
+  } catch {
+    throw new RoutingError('Geen verbinding met de routeserver. Route berekenen vereist internet.');
+  }
+  if (res.status === 429) throw new RoutingError('Routeserver is druk (limiet). Probeer het over een minuut opnieuw.');
+  if (!res.ok) throw new RoutingError(`Routeserver gaf fout ${res.status}.`);
+  return res;
+}
 
 export function parseOsrm(data: OsrmResponse, expectedLegs: number): RoutedLeg[] {
   if (data.code !== 'Ok' || !data.routes?.length) {

@@ -297,7 +297,8 @@ fieldset.shared legend { color: var(--balkon); }
 .tour-meta { margin: 4px 0 8px; }
 .tour-meta summary { cursor: pointer; font-size: 14px; color: var(--ink-2); padding: 4px 0; font-variant-numeric: tabular-nums; }
 .tour-meta .row { margin-top: 4px; }
-.route-status { display: flex; gap: 8px; align-items: center; min-height: 24px; }
+.route-status { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; min-height: 24px; }
+.route-status__actions { display: flex; flex-wrap: wrap; gap: 8px; margin-left: auto; }
 
 .stop-list--empty { min-height: 88px; border: 1.5px dashed var(--line-strong); border-radius: var(--r-lg); display: grid; place-items: center; }
 .stop-list--empty::before { content: attr(data-empty-text); color: var(--ink-2); font-size: 14px; pointer-events: none; }
@@ -867,3 +868,7 @@ a.btn--big { display: grid; place-items: center; text-decoration: none; text-ali
 .request__preview { border: 1px solid var(--line); border-radius: var(--r-lg); padding: 12px 14px; margin-top: 8px; }
 .request__preview ol { margin: 6px 0 10px; padding-left: 20px; }
 @media (max-width: 620px) { .starter--classic { flex-direction: column; align-items: stretch; } }
+
+/* Settings: take over the online version (inside the sync card). */
+.take-over { border-top: 1px solid var(--line); margin-top: 16px; padding-top: 16px; display: grid; gap: 8px; justify-items: start; }
+.take-over h3 { margin: 0; font-size: 16px; }

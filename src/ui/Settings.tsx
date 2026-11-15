@@ -1,5 +1,5 @@
 import { useState } from 'preact/hooks';
-import { exportJson, importJson, ownDataCounts, resetOwnData, setSyncConfig, syncNow, useAppState } from '../state/store';
+import { exportJson, importJson, ownDataCounts, previewTakeOver, resetOwnData, setSyncConfig, syncNow, takeOverOnline, useAppState, type TakeOverPreview } from '../state/store';
 import { DatasetError } from '../storage/backup';
 import { OfflineMapControl } from './OfflineMapControl';
 import { setThemeChoice, useTheme, type ThemeChoice } from './theme';
@@ -18,6 +18,7 @@ export function Settings() {
   const [withBookings, setWithBookings] = useState(false);
   const theme = useTheme();
   const [resetStep, setResetStep] = useState<'' | 'vraag' | 'klaar'>('');
+  const [takeOver, setTakeOver] = useState<TakeOverState>({ step: '' });
   const counts = ownDataCounts();
   const ownTotal = Object.values(counts).reduce((a, b) => a + b, 0);
 
@@ -89,6 +90,7 @@ export function Settings() {
           </div>
         </form>
         <p class="hint">Het token wordt alleen in de browseropslag van dit apparaat bewaard, nooit in de app-code of in Git. Uitzetten verwijdert het token van dit apparaat; je tours blijven staan.</p>
+        {s.syncConfig && <TakeOver state={takeOver} set={setTakeOver} online={s.online} />}
       </section>
 
       <section class="card">
@@ -146,3 +148,38 @@ export function Settings() {
     </main>
   );
 }
+
+type TakeOverState = { step: '' | 'laden' | 'vraag' | 'bezig' | 'klaar'; preview?: TakeOverPreview; error?: string };
+
+/** Makes this device an exact copy of the online version, e.g. a phone that kept old data after the laptop started over. */
+function TakeOver({ state, set, online }: { state: TakeOverState; set: (s: TakeOverState) => void; online: boolean }) {
+  const fail = (e: unknown) => set({ step: '', error: e instanceof Error ? e.message : 'Overnemen mislukt.' });
+  const ask = () => { set({ step: 'laden' }); previewTakeOver().then((preview) => set({ step: 'vraag', preview }), fail); };
+  const go = () => { set({ ...state, step: 'bezig' }); takeOverOnline().then(() => set({ step: 'klaar' }), fail); };
+  const p = state.preview?.online;
+  const lost = state.preview?.lost ?? 0;
+  return (
+    <div class="take-over">
+      <h3>Online versie overnemen</h3>
+      <p class="hint">Maakt dit apparaat een precieze kopie van wat online staat. Wat alleen hier staat, verdwijnt. Handig als je telefoon na "Alles wissen" op de laptop nog oude gegevens toont. Synchroniseer eerst op het andere apparaat.</p>
+      {state.step === 'vraag' && p ? (
+        <div class="confirm-delete" role="group" aria-label="Online versie overnemen bevestigen">
+          <span class="confirm-delete__q">
+            Online: {count(p.tours, 'tour', 'tours')}, {p.products} touraanbod, {count(p.departures, 'vertrek', 'vertrekken')} en {count(p.bookings, 'boeking', 'boekingen')}.
+            {' '}{lost === 0 ? 'Er verdwijnt hier niets.' : lost === 1 ? 'Hier verdwijnt 1 ding dat niet online staat.' : `Hier verdwijnen ${lost} dingen die niet online staan.`}
+          </span>
+          <button type="button" class="btn btn--danger" onClick={go}>Ja, overnemen</button>
+          <button type="button" class="btn btn--ghost" onClick={() => set({ step: '' })}>Annuleren</button>
+        </div>
+      ) : (
+        <button type="button" class="btn" disabled={!online || state.step === 'laden' || state.step === 'bezig'} onClick={ask}>
+          {state.step === 'laden' ? 'Online versie bekijken…' : state.step === 'bezig' ? 'Overnemen…' : 'Online versie overnemen'}
+        </button>
+      )}
+      {state.step === 'klaar' && <p class="status status--ok">Overgenomen. Dit apparaat is nu gelijk aan de online versie.</p>}
+      {state.error && <p class="hint hint--warn" role="alert">{state.error}</p>}
+    </div>
+  );
+}
+
+const count = (n: number, one: string, many: string) => `${n} ${n === 1 ? one : many}`;

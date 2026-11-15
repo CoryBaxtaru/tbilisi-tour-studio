@@ -4,7 +4,8 @@ import { findLeg, stopPairs } from '../domain/duration';
 import { createLandmark, nowIso } from '../domain/factory';
 import { formatDistance, formatMinutes } from '../domain/geo';
 import { EMPTY_FILTER, matchesFilter, type DeckFilter } from '../domain/tags';
-import { insertStop, moveStop, removeStop, stopPosition, withStandpoint } from '../domain/tourOps';
+import { insertStop, moveStop, removeStop, reorderStops, stopPosition, withStandpoint } from '../domain/tourOps';
+import { fastestOrder, orderCost, RIDE_SITE_IDS } from '../domain/fastestOrder';
 import type { Landmark, LatLng, Tour, TourStatus } from '../domain/types';
 import { fossgisFoot } from '../routing/osrm';
 import { RoutingError } from '../routing/provider';
@@ -35,6 +36,8 @@ export function TourEditor({ id }: { id: string }) {
   const [pick, setPick] = useState<Pick>(null);
   const [routeMsg, setRouteMsg] = useState<{ text: string; warn?: boolean } | null>(null);
   const [routing, setRouting] = useState(false);
+  /** The order before "Snelste volgorde", so the guide can go back to it. */
+  const [undoOrder, setUndoOrder] = useState<string[] | null>(null);
   const [filter, setFilterState] = useState<DeckFilter>(lastFilter);
   const [showDeck, setShowDeck] = useState(deckOpen);
   const [sort, setSortState] = useState<DeckSort>(lastSort);
@@ -72,6 +75,8 @@ export function TourEditor({ id }: { id: string }) {
   const missingLegs = tour ? stopPairs(tour).filter(([a, b]) => !findLeg(tour, a, b)).length : 0;
   const allPositioned = !!tour && tour.stops.every((s) => stopPosition(s, lmById.get(s.landmarkId)));
   const autoTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  // Set while a route request runs, so the delayed automatic run never doubles a manual one.
+  const busy = useRef(false);
 
   useEffect(() => {
     if (autoTimer.current) clearTimeout(autoTimer.current);
@@ -80,31 +85,82 @@ export function TourEditor({ id }: { id: string }) {
     return () => { if (autoTimer.current) clearTimeout(autoTimer.current); };
   }, [routeSignature, online, missingLegs, allPositioned]);
 
-  async function computeRoute(auto = false) {
+  /** Calculates every leg again; true when the route was saved. */
+  async function computeRoute(auto = false): Promise<boolean> {
     const t = currentTour(id);
-    if (!t) return;
+    if (!t || (auto && busy.current)) return false;
     const pts = t.stops.map((s) => stopPosition(s, lmById.get(s.landmarkId)));
-    if (pts.length < 2) return auto ? undefined : setRouteMsg({ text: 'Minstens twee stops nodig.', warn: true });
-    if (pts.some((p) => !p)) return setRouteMsg({ text: 'Elke stop heeft een positie nodig voordat de route berekend kan worden.', warn: true });
+    if (pts.length < 2) { if (!auto) setRouteMsg({ text: 'Minstens twee stops nodig.', warn: true }); return false; }
+    if (pts.some((p) => !p)) { setRouteMsg({ text: 'Elke stop heeft een positie nodig voordat de route berekend kan worden.', warn: true }); return false; }
     const order = t.stops.map((s) => s.id).join();
     setRouting(true);
+    busy.current = true;
     setRouteMsg(null);
     try {
       const legs = await fossgisFoot.route(pts as LatLng[]);
       const latest = currentTour(id);
       // The order changed while we waited: drop this result; the auto-router will run again.
-      if (!latest || latest.stops.map((s) => s.id).join() !== order) return;
+      if (!latest || latest.stops.map((s) => s.id).join() !== order) return false;
       const now = nowIso();
       await saveTour({
         ...latest,
         legs: legs.map((l, i) => ({ ...l, fromStopId: latest.stops[i].id, toStopId: latest.stops[i + 1].id, provider: fossgisFoot.id, computedAt: now })),
       });
       setRouteMsg({ text: auto ? 'Looproute bijgewerkt.' : 'Looproute berekend en opgeslagen (ook offline beschikbaar).' });
+      return true;
     } catch (e) {
       setRouteMsg({ text: e instanceof RoutingError ? e.message : 'Route berekenen mislukt.', warn: true });
+      return false;
     } finally {
       setRouting(false);
+      busy.current = false;
     }
+  }
+
+  /** Puts the stops in the fastest walking order (the first stop stays first), then calculates the route again. */
+  async function sortFastest() {
+    const t = currentTour(id);
+    if (!t || t.stops.length < 3) return;
+    const pts = t.stops.map((s) => stopPosition(s, lmById.get(s.landmarkId)));
+    if (pts.some((p) => !p)) return setRouteMsg({ text: 'Elke stop heeft een positie nodig.', warn: true });
+    const before = t.stops.map((s) => s.id);
+    setRouting(true);
+    busy.current = true;
+    setRouteMsg(null);
+    setUndoOrder(null);
+    let saved = 0;
+    let joinedRide = false;
+    try {
+      const d = await fossgisFoot.durations(pts as LatLng[]);
+      const latest = currentTour(id);
+      if (!latest || latest.stops.map((s) => s.id).join() !== before.join()) return;
+      const rides = new Set(RIDE_SITE_IDS.map(catalogLandmarkId));
+      const joined = new Set(latest.stops.flatMap((s, i) => (rides.has(s.landmarkId) ? [i] : [])));
+      const order = fastestOrder(d, joined);
+      saved = (orderCost(d, before.map((_, i) => i)) - orderCost(d, order)) / 60;
+      joinedRide = joined.size > 0;
+      if (saved < 1) {
+        setRouteMsg({ text: 'Deze volgorde is al de snelste.' });
+        return;
+      }
+      await saveTour(reorderStops(latest, order.map((i) => before[i])));
+    } catch (e) {
+      setRouteMsg({ text: e instanceof RoutingError ? e.message : 'Snelste volgorde zoeken mislukt.', warn: true });
+      return;
+    } finally {
+      setRouting(false);
+      busy.current = false;
+    }
+    setUndoOrder(before);
+    if (await computeRoute()) setRouteMsg({ text: `Volgorde aangepast: ongeveer ${Math.round(saved)} min minder lopen. ${joinedRide ? 'De eerste stop en de rit met de kabelbaan bleven zoals ze waren.' : 'De eerste stop bleef de eerste.'}` });
+  }
+
+  async function restoreOrder() {
+    const t = currentTour(id);
+    if (!t || !undoOrder) return;
+    setUndoOrder(null);
+    await saveTour(reorderStops(t, undoOrder));
+    if (await computeRoute()) setRouteMsg({ text: 'Oude volgorde terug.' });
   }
 
   // ---- map placement ----
@@ -218,7 +274,14 @@ export function TourEditor({ id }: { id: string }) {
             : missingLegs && !allPositioned ? <span class="hint hint--warn">Niet elke stop heeft een positie.</span>
             : routeMsg ? <span class={`hint ${routeMsg.warn ? 'hint--warn' : ''}`}>{routeMsg.text}</span>
             : null}
-          {routeMsg?.warn && online && <button class="btn btn--small" onClick={() => computeRoute()}>Opnieuw</button>}
+          {/* Recalculate every leg (e.g. after OpenStreetMap changed), or reorder the stops for the shortest walk. */}
+          {online && !routing && tour.stops.length > 1 && allPositioned && (
+            <span class="route-status__actions">
+              <button type="button" class="btn btn--small" onClick={() => void computeRoute()}>{routeMsg?.warn ? 'Opnieuw proberen' : 'Route herberekenen'}</button>
+              {tour.stops.length > 2 && <button type="button" class="btn btn--small" title="De eerste stop blijft de eerste" onClick={() => void sortFastest()}>Snelste volgorde</button>}
+              {undoOrder && <button type="button" class="btn btn--small" onClick={() => void restoreOrder()}>Oude volgorde terug</button>}
+            </span>
+          )}
         </div>
 
         <h2>Route</h2>

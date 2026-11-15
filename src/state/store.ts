@@ -6,7 +6,7 @@ import { staleCatalogLandmarks } from '../domain/catalog';
 import { touch } from '../domain/factory';
 import { KINDS, type Collections, type Kind, type Landmark, type SyncedEntity, type Tour } from '../domain/types';
 import { DatasetError, parseDataset, serializeDataset } from '../storage/backup';
-import { deleteMeta, getMeta, loadAll, putRecords, requestPersistence, setMeta } from '../storage/db';
+import { deleteMeta, getMeta, loadAll, putRecords, replaceAll, requestPersistence, setMeta } from '../storage/db';
 import { GitHubRemote, SyncError, type SyncConfig } from '../sync/github';
 import { importRecords, type SyncBase } from '../sync/merge';
 import { syncOnce } from '../sync/sync';
@@ -173,6 +173,8 @@ export function ownDataCounts(): Record<(typeof RESET_KINDS)[number] | 'places',
  * tombstones, so no name or contact stays behind in the sync file. Returns how many records went.
  */
 export async function resetOwnData(): Promise<number> {
+  // First fetch what the other device has, so the wipe also covers records only it knew.
+  await syncNow();
   let n = 0;
   const wipe = async <K extends Kind>(kind: K, keep: (r: SyncedEntity) => boolean) => {
     const gone = (state[kind] as SyncedEntity[]).filter((r) => !r.deleted && !keep(r)).map((r) => {
@@ -309,6 +311,65 @@ async function runSync(): Promise<void> {
     if (editedDuring) changed();
   } catch (e) {
     set({ syncStatus: 'fout', syncMessage: e instanceof SyncError || e instanceof DatasetError ? e.message : 'Synchronisatie mislukt.' });
+  }
+}
+
+// ---- Take over the online copy ----
+
+/** What taking over the online copy would mean for this device. */
+export interface TakeOverPreview {
+  online: { tours: number; products: number; departures: number; bookings: number };
+  /** Own records that are on this device but not (or deleted) online: they disappear. */
+  lost: number;
+}
+
+const live = (rs: SyncedEntity[]) => rs.filter((r) => !r.deleted);
+const own = (k: Kind, r: SyncedEntity) => k !== 'landmarks' || !(r as Landmark).catalogId;
+
+async function readOnline(): Promise<Collections> {
+  if (!state.syncConfig) throw new SyncError('Synchronisatie staat uit.');
+  if (!navigator.onLine) throw new SyncError('Offline: overnemen kan alleen met internet.');
+  const file = await new GitHubRemote(state.syncConfig).read();
+  if (!file.dataset) throw new SyncError('Er staat nog niets online. Synchroniseer eerst op je laptop.');
+  return Object.fromEntries(KINDS.map((k) => [k, (file.dataset![k] ?? []) as SyncedEntity[]])) as unknown as Collections;
+}
+
+export async function previewTakeOver(): Promise<TakeOverPreview> {
+  await running;
+  const online = await readOnline();
+  let lost = 0;
+  for (const k of KINDS) {
+    const there = new Set(live(online[k] as SyncedEntity[]).map((r) => r.id));
+    lost += live(state[k] as SyncedEntity[]).filter((r) => own(k, r) && !there.has(r.id)).length;
+  }
+  const n = (k: Kind) => live(online[k] as SyncedEntity[]).length;
+  return { online: { tours: n('tours'), products: n('products'), departures: n('departures'), bookings: n('bookings') }, lost };
+}
+
+/**
+ * Makes this device an exact copy of the online file: records that are only here are dropped, nothing is sent.
+ * For a device that kept old data after the other device started over.
+ */
+export async function takeOverOnline(): Promise<void> {
+  await running;
+  if (debounce) { clearTimeout(debounce); debounce = null; }
+  set({ syncStatus: 'bezig', syncMessage: 'Online versie overnemen…' });
+  try {
+    const online = await readOnline();
+    await replaceAll(online);
+    const base: SyncBase = {};
+    for (const k of KINDS) for (const r of online[k] as SyncedEntity[]) base[r.id] = r.updatedAt;
+    await setMeta(SYNC_BASE_KEY, base);
+    const now = new Date().toISOString();
+    await setMeta(LAST_SYNC_KEY, now);
+    try {
+      for (const key of Object.keys(localStorage)) if (key.startsWith('gids:')) localStorage.removeItem(key);
+    } catch { /* nothing remembered */ }
+    set({ ...online, lastSyncAt: now, pendingChanges: false, syncStatus: 'ok', syncMessage: 'Online versie overgenomen.' });
+    await refreshCatalog();
+  } catch (e) {
+    set({ syncStatus: 'fout', syncMessage: e instanceof SyncError || e instanceof DatasetError ? e.message : 'Overnemen mislukt.' });
+    throw e;
   }
 }
 

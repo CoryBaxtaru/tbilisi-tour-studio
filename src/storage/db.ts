@@ -30,6 +30,17 @@ export async function putRecords<K extends Kind>(store: K, records: Collections[
   await Promise.all([...records.map((r) => tx.store.put(r)), tx.done]);
 }
 
+/** Replaces every record store with exactly these records, in one transaction. */
+export async function replaceAll(data: Collections): Promise<void> {
+  const tx = (await db()).transaction([...KINDS], 'readwrite');
+  const work: Promise<unknown>[] = [];
+  for (const k of KINDS) {
+    const store = tx.objectStore(k);
+    work.push(store.clear().then(() => Promise.all((data[k] as { id: string }[]).map((r) => store.put(r)))));
+  }
+  await Promise.all([...work, tx.done]);
+}
+
 export async function getMeta<T>(key: string): Promise<T | undefined> {
   return (await db()).get('meta', key);
 }
