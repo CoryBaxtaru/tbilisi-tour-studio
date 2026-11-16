@@ -4,7 +4,7 @@
 import { CATALOG, catalogLandmarkId } from './catalog';
 import { buildStoryline, tourFromStoryline } from './story';
 import { tagLabel } from './tags';
-import type { Landmark, Tour } from './types';
+import type { Landmark, LatLng, Tour } from './types';
 
 export interface TourRequest {
   /** The guest's wish in the guide's own words, e.g. "zes mensen, alles over de oude stad en de geschiedenis". */
@@ -20,6 +20,8 @@ export interface RequestedStop {
   why: string;
   /** Claude's idea for where to stand, in words; the guide picks the spot on the map. */
   standpoint: string;
+  /** A spot the guide picked on the map (ready-made tours only; never taken from an answer). */
+  standpointAt?: LatLng;
 }
 
 export interface TourReply {
@@ -114,8 +116,13 @@ export function tourFromReply(reply: TourReply, req: TourRequest, landmarks: Lan
   tour.stops = tour.stops.map((stop) => {
     const r = byLandmark.get(stop.landmarkId);
     if (!r) return stop;
-    const extra = [r.why && `Waarom in deze tour: ${r.why}`, r.standpoint && `Standpunt (kies de plek op de kaart): ${r.standpoint}`].filter(Boolean).join('\n');
-    return { ...stop, speakingMinutes: Math.max(stop.speakingMinutes, r.minutes ?? 0), guideNotes: [extra, stop.guideNotes].filter(Boolean).join('\n\n') };
+    const extra = [r.why && `Waarom in deze tour: ${r.why}`, !r.standpointAt && r.standpoint && `Standpunt (kies de plek op de kaart): ${r.standpoint}`].filter(Boolean).join('\n');
+    return {
+      ...stop,
+      speakingMinutes: Math.max(stop.speakingMinutes, r.minutes ?? 0),
+      guideNotes: [extra, stop.guideNotes].filter(Boolean).join('\n\n'),
+      ...(r.standpointAt ? { standpoint: { position: r.standpointAt, note: r.standpoint } } : {}),
+    };
   });
   return { tour, newLandmarks };
 }
@@ -142,3 +149,37 @@ export const CLASSIC_TOUR: TourReply = {
     { siteId: 'sioni', minutes: 8, why: 'Afsluiten bij de kathedraal, vlak bij de restaurants van de Shardeni-straat.', standpoint: '' },
   ],
 };
+
+/**
+ * The founder's own tour, designed in the editor on 2026-11-16: the old town on both sides of the river and back
+ * through Sololaki, without the cable car. Narikala and Kartlis Deda are told from a spot in the city, because
+ * walking up takes too long. Order, minutes and the standpoint positions are the founder's (picked on the map).
+ */
+export const OLD_TOWN_TOUR: TourReply = {
+  title: 'Oude stad en Sololaki in 2,5 uur',
+  explanation: 'Een ruime ronde door de oude stad: van het Vrijheidsplein naar de rivier, langs Meidan en de zwavelbaden, en terug door Sololaki. De vesting Narikala en de Moeder van Georgië vertel je vanaf een plek in de stad, zonder de klim. Reken op ongeveer 2,5 uur.',
+  unknown: [],
+  stops: [
+    { siteId: 'vrijheidsplein', minutes: 6, why: 'Makkelijk te vinden verzamelpunt; hier begint het verhaal van de stad.', standpoint: '' },
+    { siteId: 'gabriadze', minutes: 4, why: 'Een vrolijke stop die gasten graag fotograferen.', standpoint: '' },
+    { siteId: 'anchiskhati', minutes: 8, why: 'De oudste kerk van de stad, op de route naar de oude stad.', standpoint: '' },
+    { siteId: 'erekle-plein', minutes: 5, why: '', standpoint: '' },
+    { siteId: 'vredesbrug', minutes: 5, why: '', standpoint: '' },
+    { siteId: 'darejan-paleis', minutes: 5, why: '', standpoint: '', standpointAt: { lat: 41.691085, lng: 44.811564 } },
+    { siteId: 'vakhtang-gorgasali', minutes: 5, why: '', standpoint: '', standpointAt: { lat: 41.690392, lng: 44.810362 } },
+    { siteId: 'meidan', minutes: 6, why: 'Het oude marktplein, vlak bij de baden.', standpoint: '' },
+    { siteId: 'abanotubani', minutes: 10, why: '', standpoint: '', standpointAt: { lat: 41.688088, lng: 44.810896 } },
+    { siteId: 'narikala', minutes: 10, why: 'Verteld vanaf beneden, met zicht op de vesting; naar boven lopen kost te veel tijd.', standpoint: '', standpointAt: { lat: 41.689961, lng: 44.808981 } },
+    { siteId: 'sioni', minutes: 8, why: '', standpoint: '' },
+    { siteId: 'synagoge', minutes: 5, why: '', standpoint: '' },
+    { siteId: 'gudiashvili-plein', minutes: 5, why: '', standpoint: '' },
+    { siteId: 'moeder-georgie', minutes: 5, why: 'Verteld vanaf een plek in de stad waar je het beeld ziet; erheen lopen kost te veel tijd.', standpoint: '', standpointAt: { lat: 41.689947, lng: 44.804067 } },
+    { siteId: 'schrijvershuis', minutes: 5, why: '', standpoint: '' },
+  ],
+};
+
+/** The tours on the Tours page that are made in one tap, the founder's own first. */
+export const READY_TOURS: { label: string; tour: TourReply }[] = [
+  { label: 'Eigen ontwerp', tour: OLD_TOWN_TOUR },
+  { label: 'Aanbevolen', tour: CLASSIC_TOUR },
+];

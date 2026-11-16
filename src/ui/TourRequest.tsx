@@ -1,8 +1,8 @@
-// New tours from the Tours page: the recommended two-hour tour in one tap, and a tour on request through Claude
+// New tours from the Tours page: the ready-made tours in one tap, and a tour on request through Claude
 // (copy a prompt, paste the answer back). Both get their talking points from the app's own story passages.
 import { useState } from 'preact/hooks';
 import { siteName } from '../domain/story';
-import { buildTourPrompt, CLASSIC_TOUR, parseTourReply, tourFromReply, TourReplyError, type TourReply, type TourRequest } from '../domain/tourRequest';
+import { buildTourPrompt, parseTourReply, READY_TOURS, tourFromReply, TourReplyError, type TourReply, type TourRequest } from '../domain/tourRequest';
 import { ensureLandmark, getState, saveTour } from '../state/store';
 import { copyText } from './clipboard';
 import { navigate } from './router';
@@ -46,14 +46,17 @@ export function TourStarters({ hasTours }: { hasTours: boolean }) {
 
   return (
     <section class="starters" aria-label="Nieuwe tour maken">
-      <div class="starter starter--classic">
-        <div>
-          <p class="label">Aanbevolen</p>
-          <h2 class="lit">{CLASSIC_TOUR.title}</h2>
-          <p class="meta">{CLASSIC_TOUR.stops.map((s) => siteName(s.siteId)).join(' · ')}</p>
+      {READY_TOURS.map(({ label, tour }, i) => (
+        <div class="starter starter--classic" key={tour.title}>
+          <div>
+            <p class="label">{label}</p>
+            <h2 class="lit">{tour.title}</h2>
+            <p class="meta">{tour.stops.map((s) => siteName(s.siteId)).join(' · ')}</p>
+          </div>
+          {/* One brick button: the first ready-made tour, and only while there are no tours yet. */}
+          <button type="button" class={`btn ${!hasTours && i === 0 ? 'btn--primary' : ''}`} disabled={busy} onClick={() => void make(tour)}>Maak deze tour</button>
         </div>
-        <button type="button" class={`btn ${hasTours ? '' : 'btn--primary'}`} disabled={busy} onClick={() => void make(CLASSIC_TOUR)}>Maak deze tour</button>
-      </div>
+      ))}
 
       <details class="starter form-section">
         <summary>Tour op maat met Claude <span class="meta">· voor de wens van een klant</span></summary>
