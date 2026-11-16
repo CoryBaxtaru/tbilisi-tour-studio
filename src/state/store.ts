@@ -134,9 +134,15 @@ async function erasePersonalData(): Promise<void> {
 
 const NO_PERSONAL_DATA = { leadName: '', contact: '', notes: '', reference: '' };
 
-/** Saves any record with a fresh updatedAt. */
+/**
+ * Saves any record with a fresh updatedAt, always later than the stored version's. The caller may hold an older
+ * copy of the record (a form opened before the last save); sync tells an edit from "unchanged" by updatedAt alone,
+ * so an equal time would make it throw this edit away.
+ */
 export async function saveRecord<K extends Kind>(kind: K, record: Collections[K][number]): Promise<void> {
-  const r = touch(record as SyncedEntity) as Collections[K][number];
+  const stored = (state[kind] as SyncedEntity[]).find((x) => x.id === record.id);
+  const from = stored && stored.updatedAt > record.updatedAt ? { ...(record as SyncedEntity), updatedAt: stored.updatedAt } : (record as SyncedEntity);
+  const r = touch(from) as Collections[K][number];
   set({ [kind]: upsert(state[kind] as SyncedEntity[], r as SyncedEntity) } as Partial<AppState>);
   await putRecords(kind, [r] as Collections[K]);
   changed();

@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { DEFAULT_ARRIVAL, INITIAL_ARRIVAL, updateArrival } from './arrival';
 import { tourDuration } from './duration';
-import { createStop, createTour } from './factory';
+import { createStop, createTour, touch } from './factory';
 import { formatDistance, formatMinutes, haversineM } from './geo';
 import { parseDataset, serializeDataset, DatasetError } from '../storage/backup';
 import { parseOsrm } from '../routing/osrm';
@@ -99,5 +99,18 @@ describe('OSRM parsing (synthetic response)', () => {
   });
   it('reports no route', () => {
     expect(() => parseOsrm({ code: 'NoRoute' }, 1)).toThrow(/Geen looproute/);
+  });
+});
+
+describe('touch', () => {
+  it('always moves updatedAt forward, also within one millisecond or with the clock set back', () => {
+    const future = '2999-01-01T00:00:00.000Z';
+    expect(touch({ updatedAt: future }).updatedAt).toBe('2999-01-01T00:00:00.001Z');
+    let r = { updatedAt: new Date().toISOString() };
+    for (let i = 0; i < 50; i++) {
+      const next = touch(r);
+      expect(next.updatedAt > r.updatedAt).toBe(true);
+      r = next;
+    }
   });
 });

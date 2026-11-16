@@ -57,7 +57,13 @@ export function createTalkingPoint(): TalkingPoint {
   return { id: newId(), text: '', kind: 'onzeker', source: '' };
 }
 
-/** Returns a copy with a fresh updatedAt; use for every user edit so sync can order changes. */
+/**
+ * Returns a copy with a fresh updatedAt; use for every user edit so sync can order changes. The new time is always
+ * later than the old one: sync tells "changed" from "unchanged" by updatedAt alone, so a second edit in the same
+ * millisecond (or with the clock set back) would otherwise look like no edit and be overwritten.
+ */
 export function touch<T extends { updatedAt: string }>(entity: T): T {
-  return { ...entity, updatedAt: nowIso() };
+  const now = nowIso();
+  const later = now > entity.updatedAt ? now : new Date(Date.parse(entity.updatedAt) + 1).toISOString();
+  return { ...entity, updatedAt: later };
 }
