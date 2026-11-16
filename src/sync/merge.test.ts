@@ -52,3 +52,17 @@ describe('importRecords', () => {
     expect(changed).toBe(2);
   });
 });
+
+describe('revived records', () => {
+  it('counts a delete that lost against an edit on the other device', () => {
+    const base = { a: '2026-01-01T00:00:00.000Z' };
+    const gone = { id: 'a', createdAt: '', updatedAt: '2026-01-02T00:00:00.000Z', deleted: true };
+    const edited = { id: 'a', createdAt: '', updatedAt: '2026-01-03T00:00:00.000Z' };
+    const r = mergeRecords([gone], [edited], base, (x) => x);
+    expect(r.merged).toEqual([edited]);
+    expect(r.revived).toBe(1);
+    // An unedited record simply takes the delete.
+    const still = { id: 'a', createdAt: '', updatedAt: base.a };
+    expect(mergeRecords([still], [gone], base, (x) => x)).toMatchObject({ merged: [gone], revived: 0 });
+  });
+});

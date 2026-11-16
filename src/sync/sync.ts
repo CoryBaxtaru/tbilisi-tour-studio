@@ -12,6 +12,8 @@ export interface SyncInput extends Partial<Collections> {
 export interface SyncOutput extends Collections {
   base: SyncBase;
   conflicts: number;
+  /** Deleted records that came back because the other device edited them. */
+  revived: number;
   wrote: boolean;
 }
 
@@ -34,6 +36,7 @@ export async function syncOnce(remote: Remote, input: SyncInput, deviceLabel: st
     const file = await remote.read();
     const merged = {} as Collections;
     let conflicts = 0;
+    let revived = 0;
     let needsWrite = !file.sha;
     for (const k of KINDS) {
       const remoteRecs = (file.dataset?.[k] ?? []) as SyncedEntity[];
@@ -41,6 +44,7 @@ export async function syncOnce(remote: Remote, input: SyncInput, deviceLabel: st
       const m = mergeRecords((input[k] ?? []) as SyncedEntity[], remoteRecs, input.base, (r) => conflictCopy(r, label(r)));
       (merged as unknown as Record<Kind, SyncedEntity[]>)[k] = m.merged;
       conflicts += m.conflicts.length;
+      revived += m.revived;
       needsWrite ||= differs(m.merged, remoteRecs);
     }
     if (needsWrite) {
@@ -54,7 +58,7 @@ export async function syncOnce(remote: Remote, input: SyncInput, deviceLabel: st
     }
     const base: SyncBase = {};
     for (const k of KINDS) for (const r of merged[k]) base[r.id] = r.updatedAt;
-    return { ...merged, base, conflicts, wrote: needsWrite };
+    return { ...merged, base, conflicts, revived, wrote: needsWrite };
   }
 }
 

@@ -1,7 +1,7 @@
 // Application state: in-memory mirror of IndexedDB, plus sync orchestration.
 // Every edit is saved locally first; sync to GitHub runs in the background when configured.
 import { useEffect, useState } from 'preact/hooks';
-import { dueForErasure, isoDate } from '../domain/agenda';
+import { blankDeleted, dueForErasure, isoDate } from '../domain/agenda';
 import { staleCatalogLandmarks } from '../domain/catalog';
 import { touch } from '../domain/factory';
 import { KINDS, type Collections, type Kind, type Landmark, type SyncedEntity, type Tour } from '../domain/types';
@@ -15,6 +15,8 @@ export type SyncStatus = 'uit' | 'bezig' | 'ok' | 'fout' | 'offline';
 
 export interface AppState extends Collections {
   loaded: boolean;
+  /** Set when the local storage could not be opened; the app then shows an error screen. */
+  loadError: string | null;
   online: boolean;
   persisted: boolean | null;
   syncConfig: SyncConfig | null;
@@ -26,6 +28,7 @@ export interface AppState extends Collections {
 
 let state: AppState = {
   loaded: false,
+  loadError: null,
   tours: [],
   landmarks: [],
   products: [],
@@ -70,7 +73,16 @@ const SYNC_BASE_KEY = 'syncBase';
 const LAST_SYNC_KEY = 'lastSyncAt';
 const SYNC_DEBOUNCE_MS = 15_000;
 
+/** Starts the app; a storage failure is shown instead of leaving the app on "Laden…". */
 export async function init(): Promise<void> {
+  try {
+    await start();
+  } catch (e) {
+    set({ loadError: e instanceof Error ? e.message : String(e) });
+  }
+}
+
+async function start(): Promise<void> {
   const all = await loadAll();
   const syncConfig = (await getMeta<SyncConfig>(SYNC_CONFIG_KEY)) ?? null;
   const lastSyncAt = (await getMeta<string>(LAST_SYNC_KEY)) ?? null;
@@ -104,9 +116,12 @@ async function refreshCatalog(): Promise<void> {
   changed();
 }
 
-/** Erases guests' personal data RETENTION_MONTHS after their tour (deterministic, so devices agree). */
+/**
+ * Erases guests' personal data RETENTION_MONTHS after their tour (deterministic, so devices agree), and at once
+ * from bookings that were deleted: a tombstone only has to say that the booking is gone.
+ */
 async function erasePersonalData(): Promise<void> {
-  const erased = dueForErasure(state.bookings, state.departures, isoDate(new Date()));
+  const erased = [...dueForErasure(state.bookings, state.departures, isoDate(new Date())), ...blankDeleted(state.bookings)];
   if (!erased.length) return;
   let bookings = state.bookings;
   for (const b of erased) bookings = upsert(bookings, b);
@@ -116,6 +131,8 @@ async function erasePersonalData(): Promise<void> {
 }
 
 // ---- Edits (local first) ----
+
+const NO_PERSONAL_DATA = { leadName: '', contact: '', notes: '', reference: '' };
 
 /** Saves any record with a fresh updatedAt. */
 export async function saveRecord<K extends Kind>(kind: K, record: Collections[K][number]): Promise<void> {
@@ -128,9 +145,10 @@ export async function saveRecord<K extends Kind>(kind: K, record: Collections[K]
 export const saveTour = (tour: Tour) => saveRecord('tours', tour);
 export const saveLandmark = (landmark: Landmark) => saveRecord('landmarks', landmark);
 
-/** Soft delete (tombstone) so the deletion reaches other devices. */
+/** Soft delete (tombstone) so the deletion reaches other devices. A deleted booking keeps no personal data. */
 export function deleteRecord<K extends Kind>(kind: K, record: Collections[K][number]): Promise<void> {
-  return saveRecord(kind, { ...record, deleted: true });
+  const blank = kind === 'bookings' ? NO_PERSONAL_DATA : {};
+  return saveRecord(kind, { ...record, ...blank, deleted: true });
 }
 
 /** Latest saved version of a record (avoids applying edits to a stale render copy). */
@@ -178,7 +196,7 @@ export async function resetOwnData(): Promise<number> {
   let n = 0;
   const wipe = async <K extends Kind>(kind: K, keep: (r: SyncedEntity) => boolean) => {
     const gone = (state[kind] as SyncedEntity[]).filter((r) => !r.deleted && !keep(r)).map((r) => {
-      const blank = kind === 'bookings' ? { leadName: '', contact: '', notes: '', reference: '' } : {};
+      const blank = kind === 'bookings' ? NO_PERSONAL_DATA : {};
       return touch({ ...r, ...blank, deleted: true } as SyncedEntity);
     });
     if (!gone.length) return;
@@ -304,9 +322,7 @@ async function runSync(): Promise<void> {
       lastSyncAt: now,
       pendingChanges: editedDuring,
       syncStatus: 'ok',
-      syncMessage: out.conflicts
-        ? `${out.conflicts} conflict(en): beide versies bewaard, zoek "(conflictkopie)".`
-        : 'Gesynchroniseerd.',
+      syncMessage: syncSummary(out.conflicts, out.revived),
     });
     if (editedDuring) changed();
   } catch (e) {
@@ -371,6 +387,14 @@ export async function takeOverOnline(): Promise<void> {
     set({ syncStatus: 'fout', syncMessage: e instanceof SyncError || e instanceof DatasetError ? e.message : 'Overnemen mislukt.' });
     throw e;
   }
+}
+
+/** The line under "Status" after a sync; it says so when something unexpected happened. */
+export function syncSummary(conflicts: number, revived: number): string {
+  const parts: string[] = [];
+  if (conflicts) parts.push(`${conflicts} conflict(en): beide versies bewaard, zoek "(conflictkopie)".`);
+  if (revived) parts.push(`${revived === 1 ? '1 gewist item kwam' : `${revived} gewiste items kwamen`} terug, omdat het andere apparaat ${revived === 1 ? 'het' : 'ze'} daarna nog had gewijzigd.`);
+  return parts.length ? parts.join(' ') : 'Gesynchroniseerd.';
 }
 
 function deviceLabel(): string {

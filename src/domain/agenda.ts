@@ -107,6 +107,16 @@ export function dueForErasure(bookings: Booking[], departures: Departure[], toda
   return out;
 }
 
+/**
+ * Deleted bookings that still hold a name, contact, notes or reference (deleted before the app blanked them),
+ * with those fields emptied. Deterministic, like dueForErasure: one millisecond after the delete.
+ */
+export function blankDeleted(bookings: Booking[]): Booking[] {
+  return bookings
+    .filter((b) => b.deleted && (b.leadName || b.contact || b.notes || b.reference))
+    .map((b) => ({ ...b, leadName: '', contact: '', notes: '', reference: '', updatedAt: new Date(Date.parse(b.updatedAt) + 1).toISOString() }));
+}
+
 function pad(n: number): string {
   return String(n).padStart(2, '0');
 }

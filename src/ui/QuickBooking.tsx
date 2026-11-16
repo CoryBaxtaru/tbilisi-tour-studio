@@ -2,16 +2,19 @@
 // departure at that time, or a new departure is made. Used on Vandaag and in the agenda.
 import { useState } from 'preact/hooks';
 import { CHANNELS, createBooking, createDeparture, departureFill, isoDate } from '../domain/agenda';
+import { DM_QUESTIONS, parseDm, type DmFacts } from '../domain/dmBooking';
 import { blockedOn, clashes } from '../domain/planning';
 import { hasPrices, pricingOf, suggestedPrice } from '../domain/pricing';
 import { departureFor } from '../domain/quickBooking';
 import type { BookingChannel } from '../domain/types';
 import { saveRecord, useAppState } from '../state/store';
+import { copyText } from './clipboard';
 import { navigate } from './router';
 
 const eur = new Intl.NumberFormat('nl-NL', { style: 'currency', currency: 'EUR' });
 const num = (v: string) => Math.max(0, Math.floor(Number(v) || 0));
 const KEY = { product: 'laatste-aanbod', channel: 'laatste-kanaal' };
+const dayLabel = (isoDay: string) => new Date(`${isoDay}T12:00:00`).toLocaleDateString('nl-NL', { weekday: 'short', day: 'numeric', month: 'short' });
 
 function remembered(key: string): string {
   try { return localStorage.getItem(key) ?? ''; } catch { return ''; }
@@ -36,6 +39,48 @@ export function QuickBooking({ date: startDate, onClose }: { date?: string; onCl
   const [notes, setNotes] = useState('');
   const [privateGroup, setPrivateGroup] = useState(false);
   const [override, setOverride] = useState(false);
+  // A pasted message from the guest; it fills the form and is not stored itself.
+  const [dm, setDm] = useState('');
+  const [facts, setFacts] = useState<DmFacts | null>(null);
+  const [dmHint, setDmHint] = useState('');
+
+  /** Fills the fields the message is clear about; the rest stays as it was. */
+  function readMessage(text: string) {
+    setDm(text);
+    setDmHint('');
+    const f = parseDm(text, new Date(), active);
+    const before = facts ?? {};
+    setFacts(f);
+    // A field the new message says nothing about goes back to its start value when the last message filled it
+    // and nobody changed it since, so one guest's name never stays on the next guest's booking.
+    const fill = <K extends keyof DmFacts>(key: K, current: DmFacts[K], set: (v: NonNullable<DmFacts[K]>) => void, start: NonNullable<DmFacts[K]>) => {
+      if (f[key] !== undefined) set(f[key] as NonNullable<DmFacts[K]>);
+      else if (before[key] !== undefined && before[key] === current) set(start);
+    };
+    fill('productId', productId, setProductId, lastProductId());
+    fill('date', date, setDate, startDate ?? isoDate(new Date()));
+    fill('time', time, setTime, '10:00');
+    fill('adults', adults, setAdults, 2);
+    fill('children', children, setChildren, 0);
+    fill('leadName', leadName, setLeadName, '');
+    fill('contact', contact, setContact, '');
+    fill('notes', notes, setNotes, '');
+    fill('privateGroup', privateGroup, setPrivateGroup, false);
+    // A message without a phone number or e-mail address came in through Instagram.
+    if (!f.contact || f.contact.startsWith('@')) setChannel('instagram');
+  }
+  async function pasteMessage() {
+    try {
+      const text = await navigator.clipboard.readText();
+      if (text.trim()) readMessage(text);
+      else setDmHint('Het klembord is leeg. Kopieer eerst het bericht.');
+    } catch {
+      setDmHint('Plakken lukte niet. Plak het bericht zelf in het vak.');
+    }
+  }
+  async function copyQuestions() {
+    setDmHint(await copyText(DM_QUESTIONS) ? 'Vragen gekopieerd. Plak ze in je antwoord aan de gast.' : 'Kopiëren lukte niet.');
+  }
 
   if (!active.length) {
     return (
@@ -83,6 +128,17 @@ export function QuickBooking({ date: startDate, onClose }: { date?: string; onCl
   return (
     <form class="quick-booking" onSubmit={save}>
       <h2>Nieuwe boeking</h2>
+      <div class="dm-paste">
+        <label>Bericht van de gast (Instagram, WhatsApp)
+          <textarea rows={3} value={dm} placeholder="Plak hier het bericht. Datum, tijd, aantal, naam en wensen worden hieronder ingevuld." onInput={(e) => readMessage(e.currentTarget.value)} />
+        </label>
+        <div class="claim__actions">
+          <button type="button" class="btn btn--small" onClick={() => void pasteMessage()}>Plak van klembord</button>
+          <button type="button" class="btn btn--small btn--ghost" onClick={() => void copyQuestions()}>Kopieer vragen voor de gast</button>
+        </div>
+        {dmHint && <p class="hint" role="status">{dmHint}</p>}
+        {facts && dm.trim() && <DmResult facts={facts} productName={facts.productId ? active.find((p) => p.id === facts.productId)?.name : undefined} />}
+      </div>
       <div class="row">
         <label>Touraanbod
           <select value={product.id} onChange={(e) => setProductId(e.currentTarget.value)}>
@@ -127,5 +183,28 @@ export function QuickBooking({ date: startDate, onClose }: { date?: string; onCl
         <button class="btn btn--ghost" type="button" onClick={onClose}>Annuleren</button>
       </div>
     </form>
+  );
+}
+
+/** What the message filled in, and what the guide still has to ask or type. */
+function DmResult({ facts: f, productName }: { facts: DmFacts; productName?: string }) {
+  const found = [
+    f.date && dayLabel(f.date),
+    f.time,
+    f.adults !== undefined && (f.adults === 1 ? '1 volwassene' : `${f.adults} volwassenen`),
+    f.children !== undefined && (f.children === 1 ? '1 kind' : `${f.children} kinderen`),
+    f.leadName && 'naam',
+    f.contact && 'contact',
+    f.notes && 'wensen',
+    f.privateGroup && 'privé',
+    productName,
+  ].filter(Boolean);
+  const missing = [!f.date && 'datum', !f.time && 'starttijd', f.adults === undefined && 'aantal gasten'].filter(Boolean);
+  return (
+    <p class="dm-paste__result" role="status">
+      {found.length ? <span>Ingevuld: {found.join(' · ')}.</span> : <span>Niets herkend in dit bericht.</span>}
+      {missing.length > 0 && <span class="hint--warn"> Niet gevonden: {missing.join(', ')}.</span>}
+      <span class="meta"> Controleer de velden. Het bericht zelf wordt niet bewaard.</span>
+    </p>
   );
 }

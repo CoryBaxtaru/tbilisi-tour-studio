@@ -1,17 +1,26 @@
+import { lazy, Suspense } from 'preact/compat';
 import { useEffect, useState } from 'preact/hooks';
 import { registerSW } from 'virtual:pwa-register';
 import { useAppState } from '../state/store';
-import { GuideMode } from './GuideMode';
-import { Agenda, DeparturePage, ProductPage, Products } from './Agenda';
-import { Finance } from './Finance';
-import { ResearchList, ResearchPage } from './Research';
+import { ErrorBoundary, ErrorScreen } from './ErrorScreen';
 import { usePath } from './router';
-import { Settings } from './Settings';
-import { StatisticsPage } from './Statistics';
-import { Study } from './Study';
 import { Today } from './Today';
-import { TourEditor } from './TourEditor';
 import { TourList } from './TourList';
+
+// Vandaag and Tours open at once; the other pages (and with them the map and the research texts) load when
+// first opened. The service worker stores every part, so this also works offline.
+const TourEditor = lazy(() => import('./TourEditor').then((m) => ({ default: m.TourEditor })));
+const GuideMode = lazy(() => import('./GuideMode').then((m) => ({ default: m.GuideMode })));
+const Study = lazy(() => import('./Study').then((m) => ({ default: m.Study })));
+const ResearchList = lazy(() => import('./Research').then((m) => ({ default: m.ResearchList })));
+const ResearchPage = lazy(() => import('./Research').then((m) => ({ default: m.ResearchPage })));
+const Agenda = lazy(() => import('./Agenda').then((m) => ({ default: m.Agenda })));
+const DeparturePage = lazy(() => import('./DeparturePage').then((m) => ({ default: m.DeparturePage })));
+const Products = lazy(() => import('./ProductPage').then((m) => ({ default: m.Products })));
+const ProductPage = lazy(() => import('./ProductPage').then((m) => ({ default: m.ProductPage })));
+const Finance = lazy(() => import('./Finance').then((m) => ({ default: m.Finance })));
+const StatisticsPage = lazy(() => import('./Statistics').then((m) => ({ default: m.StatisticsPage })));
+const Settings = lazy(() => import('./Settings').then((m) => ({ default: m.Settings })));
 
 const SYNC_LABEL: Record<string, string> = {
   uit: 'Alleen op dit apparaat',
@@ -40,6 +49,7 @@ export function App() {
     updateSW = registerSW({ onNeedRefresh: () => setNeedRefresh(true) });
   }, []);
 
+  if (s.loadError) return <ErrorScreen title="De app kan je gegevens niet openen" detail={s.loadError} />;
   if (!s.loaded) return <div class="loading">Laden…</div>;
 
   const [, section, id, sub] = path.split('/');
@@ -70,6 +80,8 @@ export function App() {
           <button class="btn btn--ghost" onClick={() => setNeedRefresh(false)}>Later</button>
         </div>
       )}
+      <ErrorBoundary resetKey={path}>
+      <Suspense fallback={<div class="loading">Laden…</div>}>
       {section === 'tour' && id ? <TourEditor id={id} />
         : guiding && id ? <GuideMode id={id} departureId={sub} />
         : section === 'onderzoek' ? (id ? <ResearchPage id={id} /> : <ResearchList />)
@@ -82,6 +94,8 @@ export function App() {
         : section === 'studie' ? <Study selection={id} />
         : section === 'instellingen' ? <Settings />
         : <TourList />}
+      </Suspense>
+      </ErrorBoundary>
     </div>
   );
 }

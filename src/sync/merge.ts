@@ -9,6 +9,8 @@ export type SyncBase = Record<string, string>;
 export interface MergeResult<T> {
   merged: T[];
   conflicts: T[];
+  /** Records deleted on one device that came back because the other device edited them since. */
+  revived: number;
 }
 
 export function mergeRecords<T extends SyncedEntity>(
@@ -22,6 +24,7 @@ export function mergeRecords<T extends SyncedEntity>(
   const ids = new Set([...localById.keys(), ...remoteById.keys()]);
   const merged: T[] = [];
   const conflicts: T[] = [];
+  let revived = 0;
 
   for (const id of [...ids].sort()) {
     const l = localById.get(id);
@@ -37,7 +40,7 @@ export function mergeRecords<T extends SyncedEntity>(
 
     // Both changed since last sync.
     if (l.deleted && r.deleted) { merged.push(newer(l, r)); continue; }
-    if (l.deleted !== r.deleted) { merged.push(l.deleted ? r : l); continue; } // an edit beats a delete
+    if (l.deleted !== r.deleted) { merged.push(l.deleted ? r : l); revived++; continue; } // an edit beats a delete
     const winner = newer(l, r);
     const loser = winner === l ? r : l;
     merged.push(winner);
@@ -45,7 +48,7 @@ export function mergeRecords<T extends SyncedEntity>(
     merged.push(copy);
     conflicts.push(copy);
   }
-  return { merged, conflicts };
+  return { merged, conflicts, revived };
 }
 
 /** Newer by updatedAt; ties go to remote (second argument) for determinism. */

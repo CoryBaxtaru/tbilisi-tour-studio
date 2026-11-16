@@ -20,6 +20,7 @@ import { useMapStored } from '../map/offlineMap';
 import { CATALOG } from '../domain/catalog';
 import { linkedClaim, mergedResearch } from '../domain/research';
 import { WikiText } from './WikiText';
+import { useWakeLock } from './wakeLock';
 
 /** Where the guide is: walking to stops[index], or standing at it (here). Saved per tour, so a reload keeps the place. */
 interface Progress {
@@ -77,7 +78,12 @@ export function GuideMode({ id, departureId }: { id: string; departureId?: strin
   const arrival = useRef<ArrivalState>(INITIAL_ARRIVAL);
   const mapStored = useMapStored();
 
-  useEffect(() => { localStorage.setItem(progressKey(id), JSON.stringify(progress)); }, [id, progress]);
+  // The screen stays on while guiding; with a dark screen the browser stops GPS updates.
+  const wake = useWakeLock();
+
+  useEffect(() => {
+    try { localStorage.setItem(progressKey(id), JSON.stringify(progress)); } catch { /* not remembered across a reload */ }
+  }, [id, progress]);
   useEffect(() => () => stopGps(), []);
   useEffect(() => { const t = setInterval(() => setNow(Date.now()), 5000); return () => clearInterval(t); }, []);
 
@@ -207,6 +213,7 @@ export function GuideMode({ id, departureId }: { id: string; departureId?: strin
       {showGpsInfo && <p class="hint">GPS wordt alleen gebruikt om je afstand tot de volgende stop te tonen. Er wordt geen locatiegeschiedenis bewaard.</p>}
       {gps === 'geweigerd' && <p class="hint hint--warn">Locatietoegang geweigerd. Sta locatie toe in de browserinstellingen; handmatig gidsen werkt gewoon.</p>}
       {gps === 'niet-ondersteund' && <p class="hint hint--warn">Dit apparaat ondersteunt geen GPS in de browser.</p>}
+      {showGpsInfo && <p class="hint">{wake === 'aan' ? 'Het scherm blijft aan zolang je gidst.' : 'Het scherm kan uitgaan; GPS stopt dan. Zet automatisch vergrendelen uit, of tik af en toe op het scherm.'}</p>}
     </>
   );
 

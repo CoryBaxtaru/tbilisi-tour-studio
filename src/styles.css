@@ -804,6 +804,9 @@ a.btn--big { display: grid; place-items: center; text-decoration: none; text-ali
 .quick-booking { border: 1px solid var(--line-strong); border-radius: var(--r-lg); padding: 14px 16px; margin: 0 0 20px; background: var(--card, transparent); }
 .quick-booking h2 { margin: 0 0 4px; font-size: 18px; }
 .quick-booking__where { margin: 0 0 4px; }
+/* A pasted guest message that fills the form. */
+.dm-paste { display: grid; gap: 8px; margin: 8px 0 12px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+.dm-paste__result { margin: 0; font-size: 14px; }
 .page__head .meta { display: block; }
 .save-bar { position: sticky; bottom: 0; z-index: 5; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; padding: 10px 0; margin-top: 16px; background: var(--canvas); border-top: 1px solid var(--line); }
 .save-bar.is-dirty { border-top-color: var(--baksteen); }
@@ -872,3 +875,7 @@ a.btn--big { display: grid; place-items: center; text-decoration: none; text-ali
 /* Settings: take over the online version (inside the sync card). */
 .take-over { border-top: 1px solid var(--line); margin-top: 16px; padding-top: 16px; display: grid; gap: 8px; justify-items: start; }
 .take-over h3 { margin: 0; font-size: 16px; }
+
+/* Error screen: shown instead of a blank page. */
+.error-screen { max-width: 560px; }
+.error-screen__detail { margin-top: 16px; word-break: break-word; }

@@ -5,7 +5,7 @@ import { CHANNELS, isoDate } from '../domain/agenda';
 import { bookingsCsv, createExpense, EXPENSE_CATEGORIES, expensesCsv, gelToEur, moneyOverview, openPayments, type MonthRow } from '../domain/pricing';
 import type { Expense, ExpenseCategory } from '../domain/types';
 import { deleteRecord, saveRecord, useAppState } from '../state/store';
-import { ConfirmDelete } from './Agenda';
+import { ConfirmDelete } from './AgendaBits';
 import { GelFields } from './DepartureBits';
 
 const eur = new Intl.NumberFormat('nl-NL', { style: 'currency', currency: 'EUR' });
